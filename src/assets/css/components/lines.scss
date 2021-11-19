@@ -1,0 +1,63 @@
+.lines {
+    border: solid .5px lighten($black, 90);
+}
+
+.title-lines {
+    background: $redLogo;
+    color: $white;
+}
+
+.linesEdith {
+    overflow-x: auto;
+}
+
+.listGames {
+    min-width: 1280px;
+}
+
+#gameCreate {
+    .accordion-button::after {
+        content: none;
+        background-image: none;
+    }
+}
+#gameEdith {
+    min-height: 88vh;
+    .accordion-button::after {
+        content: none;
+        background-image: none;
+    }
+    .accordion-button{
+        width: 33.33333333%;
+    }
+    .quarters {
+        text-align: center;
+        color: $white !important;
+        width: 25%;
+        height: 100%;
+        float: left;
+        border-bottom: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: lighten($blueDark, 30);
+        &:hover {
+            background: lighten($blueDark, 20);
+        }
+    }
+}
+.quarters {
+    text-align: center;
+    color: $white !important;
+    width: 100%;
+    background: lighten($blueDark, 30);
+    border-bottom: 1px solid $white;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        background: lighten($blueDark, 20);
+    }
+}

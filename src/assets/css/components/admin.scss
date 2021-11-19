@@ -1,0 +1,81 @@
+.asideAdmin {
+    background-color: $blueDark;
+    height: auto;
+}
+
+.accordion-button {
+    background-color: $blueDark;
+    color: $white !important;
+    font-weight: bold;
+}
+
+.accordion-button::after {
+    content: "V";
+    background-image: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: $cyan;
+    color: $white !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: none;
+}
+
+.accordion-item {
+    border: none;
+    border-bottom: 1px groove lighten($blueDark, 30);
+    background: $lightGrey;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    border-radius: 0;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-radius: 0;
+}
+
+.accordion-item:last-of-type {
+    border-radius: 0;
+}
+
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(-90deg);
+}
+
+.collapse-inn {
+    .accordion-button {
+        background-color: lighten($blueDark, 30);
+        color: $white !important;
+        font-size: .8rem;
+        font-weight:100;
+        &:hover {
+            background-color: lighten($blueDark, 50);
+        }
+    }
+    
+    .accordion-item {
+        border: none;
+        border-bottom: 1px groove lighten($blueDark, 30);
+        background: lighten($cyan, 50);
+    }
+
+    .accordion-button:not(.collapsed) {
+        background: $BGB;
+        color: $font_blue !important;
+        text-shadow: 1px 1px 0 $white,2px 2px 5px $white,3px 3px 5px $white,;
+    }
+}
+
+#inputs-span {
+    .accordion-item {
+        border: none;
+    }
+}
+#edith{
+    .modal-dialog{
+        min-width: 95vw;
+    }
+}

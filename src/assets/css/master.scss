@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: $lightGrey;
+}
+.img-fluid{
+  min-width: 100%;
+}
+a{
+  color: $font_blue!important;
+  text-decoration: none;
+}
+.accordion-button:focus {
+  z-index: 3;
+  border:none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.bg-red-logo{
+  background: $redLogo;
+}
+.bg-title-edith{
+  background:darken($lightGrey, 10);
+  box-shadow: 0 0 5px rgba($black, .5);
+  color: $white;
+  text-shadow: 1px 1px 0 rgba($black, .5),-1px -1px 0 rgba($black, .5),2px 2px 5px rgba($black, .5),-1px -1px 5px rgba($black, .5);
+  border-radius: 5px;
+}
