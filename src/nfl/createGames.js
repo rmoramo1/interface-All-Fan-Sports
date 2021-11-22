@@ -1,20 +1,21 @@
 import React, { useEffect, useContext, useState } from "react";
 import GameMapNfl from "./listGameNfl";
 import { Context } from "../store/appContext";
-import Pagination from "../components/pagination";
+
 
 export const CreateGames = () => {
 	const { store, actions } = useContext(Context);
 	let teamFilter = store.nflGames;
 	const [team, setTeam] = useState("");
-	const [currentPage, setcurrentPage] = useState(1);
-	const [gamesPerPage, setgamesPerPage] = useState(2);
-	//corrent game
-	const indexOfLastGame = currentPage * gamesPerPage;
-	const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-	const currentGame = teamFilter.slice(indexOfFirstGame,indexOfLastGame)
+
 	// change page
-	const paginate =(pageNumber)=>setcurrentPage(pageNumber)
+	// sort by born date
+	// use slice() to copy the array and not just make a reference
+	var byDate = teamFilter;
+	byDate.sort(function(a,b) {
+		return b.id - a.id;
+	});
+
 	return (
 		<div className="container-fluid">
 			<div className="col-12">
@@ -40,7 +41,7 @@ export const CreateGames = () => {
 						<button className="btn btn-danger" type="button" name="week" aria-label="Default select example" onClick={e => setTeam("")}>All Teams</button>
 					</div>
 				</div>
-				{!team ? currentGame.map((item, index) => {
+				{!team ? teamFilter.map((item, index) => {
 					return (
 						<div key={index} className="linesEdith">
 							<GameMapNfl
@@ -106,11 +107,7 @@ export const CreateGames = () => {
 						</div>
 					);
 				})}
-				<Pagination
-					gamesPerPage={gamesPerPage}
-					totalGames={teamFilter.length}
-					paginate={paginate}
-				/>
+
 			</div>
 		</div>
 	)
