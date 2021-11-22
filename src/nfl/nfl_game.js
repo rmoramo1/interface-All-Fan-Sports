@@ -530,7 +530,7 @@ export const Nfl_game = () => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setAwayCrear(e.target.value)} required>
@@ -573,7 +573,7 @@ export const Nfl_game = () => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setHomeCrear(e.target.value)} required>

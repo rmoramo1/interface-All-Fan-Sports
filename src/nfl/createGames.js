@@ -84,6 +84,9 @@ export const CreateGames = () => {
 								away={item.away}
 								home={item.home}
 								hour={item.hour}
+								casino={item.casino}
+								rotation_away={item.rotation_away}
+								rotation_home={item.rotation_home}
 								status={item.status}
 								date={item.date}
 								spread_away={item.spread_away}
