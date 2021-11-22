@@ -25,7 +25,7 @@ export const Header = () => {
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav">
-                                    <HashLink className="nav-link active" aria-current="page" to="faqs">FAQS</HashLink>
+                                    <Link className="nav-link"to="faqs">FAQS</Link>
                                     <HashLink className="nav-link" to="glosary">Glosary</HashLink>
                                     <HashLink className="nav-link" to="contact">Contact</HashLink>
                                     <HashLink className="nav-link" to="admin">Admin</HashLink>

@@ -27,7 +27,7 @@ export const Nfl_game = () => {
     const [juiceTotalOver, setjuiceTotalOver] = useState("-110");
     const [juiceTotalUnder, setjuiceTotalUnder] = useState("-110");
     //away
-    const [awayCrear, setAwayCrear] = useState("");
+    const [awayCrear, setAwayCrear] = useState("Arizona Cardinals");
     const [spreadAwayCrear, setSpreadAwayCrear] = useState("");
     const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState("-110");
     const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState("");
@@ -36,7 +36,7 @@ export const Nfl_game = () => {
     const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState("-110");
     const [finalScoreA, setFinalScoreA] = useState("");
     //home
-    const [HomeCrear, setHomeCrear] = useState("");
+    const [HomeCrear, setHomeCrear] = useState("Arizona Cardinals");
     const [spreadHomeCrear, setSpreadHomeCrear] = useState("");
     const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState("-110");
     const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState("");

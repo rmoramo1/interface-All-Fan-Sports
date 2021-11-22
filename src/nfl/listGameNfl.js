@@ -1,7 +1,9 @@
 import React, { useEffect, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+
 import { Context } from "../store/appContext";
+import { HashLink } from "react-router-hash-link";
 
 const GameMapNfl = props => {
     const { store, actions } = useContext(Context);
@@ -14,7 +16,7 @@ const GameMapNfl = props => {
                         {props.casino}
                     </div>
                     <div className="col-12 text-center">
-                        <Link className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></Link>
+                        <HashLink className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></HashLink>
                     </div>
                 </div>
             </div>

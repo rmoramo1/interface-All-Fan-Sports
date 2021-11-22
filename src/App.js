@@ -19,27 +19,13 @@ function App() {
 			<BrowserRouter>
 				<Header/>
 				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/home">
-						<Home />
-					</Route>
-					<Route exact path="/faqs">
-						<Faqs />
-					</Route>
-					<Route exact path="/glosary">
-						<Glosary />
-					</Route>
-					<Route exact path="/contact">
-						<Contact />
-					</Route>
-					<Route exact path="/admin">
-						<Admin />
-					</Route>
-					<Route exact path="/edtihGame/:theid">
-						<EdithGames />
-					</Route>
+					<Route exact path="/" component={Home}/>
+					<Route exact path="/home" component={Home}/>
+					<Route exact path="/faqs" component={Faqs}/>
+					<Route exact path="/glosary" component={Glosary}/>
+					<Route exact path="/contact" component={Contact}/>
+					<Route exact path="/admin" component={Admin}/>
+					<Route exact path="/edtihGame/:theid" component={EdithGames}/>
 				</Switch>
 				<Footer/>
 			</BrowserRouter>

@@ -5,146 +5,150 @@ import "../../node_modules/aos/dist/aos.css";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames = () => {
     const params = useParams();
+    const [perra1,setPerr1]=useState('')
+    useEffect(() => {
+        //Runs only on the first render
+        setPerr1(store.nflGames[params.theid]);
+        console.log(perra1)
+    }, []);
     const { store, actions } = useContext(Context);
-    let part = store.nflGames[params.theid];
-    !part ? console.log("que hago") : part = store.nflGames[params.theid];
-    const [statusCrear, setStatusCrear] = useState(part.status);
-    const [casino, setcasino] = useState(part.casino);
-    const [rotation_home, setRotation_home] = useState(part.rotation_home);
-    const [rotation_away, setRotation_away] = useState(part.rotation_away);
-    let [yearSendCrear, setYearSendCrear] = useState(part.date);
-    const [weekCrear, setWeekCrear] = useState(part.week);
-    let [timeCrear, setTimeCrear] = useState(part.hour);
+    const [statusCrear, setStatusCrear] = useState(store.nflGames[params.theid].status);
+    const [casino, setcasino] = useState(store.nflGames[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.nflGames[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.nflGames[params.theid].rotation_away);
+    let [yearSendCrear, setYearSendCrear] = useState(store.nflGames[params.theid].date);
+    const [weekCrear, setWeekCrear] = useState(store.nflGames[params.theid].week);
+    let [timeCrear, setTimeCrear] = useState(store.nflGames[params.theid].hour);
     //totals
-    const [totalCrear, setTotalAwayCrear] = useState(part.total);
-    const [juiceTotalOver, setjuiceTotalOver] = useState(part.juice_total_over);
-    const [juiceTotalUnder, setjuiceTotalUnder] = useState(part.juice_total_under);
+    const [totalCrear, setTotalAwayCrear] = useState(store.nflGames[params.theid].total);
+    const [juiceTotalOver, setjuiceTotalOver] = useState(store.nflGames[params.theid].juice_total_over);
+    const [juiceTotalUnder, setjuiceTotalUnder] = useState(store.nflGames[params.theid].juice_total_under);
     //away
-    const [awayCrear, setAwayCrear] = useState(part.away);
-    const [spreadAwayCrear, setSpreadAwayCrear] = useState(part.spread_away);
-    const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState(part.juice_spread_away);
-    const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState(part.moneyLineAway);
-    const [teamTotalAway, setTeamTotalAway] = useState(part.tt_away);
-    const [juiceTeamTotalAwayO, setjuiceTeamTotalAwayO] = useState(part.juice_over_away);
-    const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState(part.juice_under_away);
-    const [finalScoreA, setFinalScoreA] = useState(part.final_score_away);
+    const [awayCrear, setAwayCrear] = useState(store.nflGames[params.theid].away);
+    const [spreadAwayCrear, setSpreadAwayCrear] = useState(store.nflGames[params.theid].spread_away);
+    const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState(store.nflGames[params.theid].juice_spread_away);
+    const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState(store.nflGames[params.theid].moneyLineAway);
+    const [teamTotalAway, setTeamTotalAway] = useState(store.nflGames[params.theid].tt_away);
+    const [juiceTeamTotalAwayO, setjuiceTeamTotalAwayO] = useState(store.nflGames[params.theid].juice_over_away);
+    const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState(store.nflGames[params.theid].juice_under_away);
+    const [finalScoreA, setFinalScoreA] = useState(store.nflGames[params.theid].final_score_away);
     //home
-    const [HomeCrear, setHomeCrear] = useState(part.home);
-    const [spreadHomeCrear, setSpreadHomeCrear] = useState(part.spread_home);
-    const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState(part.juice_spread_home);
-    const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState(part.moneyLineHome);
-    const [teamTotalHome, setTeamTotalHome] = useState(part.tt_home);
-    const [juiceTeamTotalHomeO, setjuiceTeamTotalHomeO] = useState(part.juice_over_home);
-    const [juiceTeamTotalHomeU, setjuiceTeamTotalHomeU] = useState(part.juice_under_home);
-    const [finalScoreH, setFinalScoreH] = useState(part.final_score_home);
+    const [HomeCrear, setHomeCrear] = useState(store.nflGames[params.theid].home);
+    const [spreadHomeCrear, setSpreadHomeCrear] = useState(store.nflGames[params.theid].spread_home);
+    const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState(store.nflGames[params.theid].juice_spread_home);
+    const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState(store.nflGames[params.theid].moneyLineHome);
+    const [teamTotalHome, setTeamTotalHome] = useState(store.nflGames[params.theid].tt_home);
+    const [juiceTeamTotalHomeO, setjuiceTeamTotalHomeO] = useState(store.nflGames[params.theid].juice_over_home);
+    const [juiceTeamTotalHomeU, setjuiceTeamTotalHomeU] = useState(store.nflGames[params.theid].juice_under_home);
+    const [finalScoreH, setFinalScoreH] = useState(store.nflGames[params.theid].final_score_home);
     //first half
-    const [FHspreadAway, setFHspreadAway] = useState(part.first_half_spread_away);
-    const [FHjuiceSpreadAway, setFHjuiceSpreadAway] = useState(part.first_half_juice_spread_away);
-    const [FHmoneyLineAway, setFHmoneyLineAway] = useState(part.first_half_moneyLineAway);
-    const [FHtotal, setFHtotal] = useState(part.first_half_total);
-    const [FHjuiceTO, setFHjuiceTO] = useState(part.fh_juice_total_over);
-    const [FHttAway, setFHttAway] = useState(part.first_half_tt_away);
-    const [FHjuiceOverAway, setFHjuiceOverAway] = useState(part.first_half_juice_over_away);
-    const [FHjuiceUnderAway, setFHjuiceUnderAway] = useState(part.first_half_juice_under_away);
-    const [FHfsAway, setFHfsAway] = useState(part.first_half_final_score_away);
-    const [FHspreadHome, setFHspreadHome] = useState(part.first_half_spread_home);
-    const [FHjuiceSpreadHome, setFHjuiceSpreadHome] = useState(part.first_half_juice_spread_home);
-    const [FHmoneyLineHome, setFHmoneyLineHome] = useState(part.first_half_moneyLineHome);
-    const [FHjuiceTU, setFHjuiceTU] = useState(part.fh_juice_total_under);
-    const [FHttHome, setFHttHome] = useState(part.first_half_tt_home);
-    const [FHjuiceOverHome, setFHjuiceOverHome] = useState(part.first_half_juice_over_home);
-    const [FHjuiceUnderHome, setFHjuiceUnderHome] = useState(part.first_half_juice_under_home);
-    const [FHfsHome, setFHfsHome] = useState(part.first_half_final_score_home);
+    const [FHspreadAway, setFHspreadAway] = useState(store.nflGames[params.theid].first_half_spread_away);
+    const [FHjuiceSpreadAway, setFHjuiceSpreadAway] = useState(store.nflGames[params.theid].first_half_juice_spread_away);
+    const [FHmoneyLineAway, setFHmoneyLineAway] = useState(store.nflGames[params.theid].first_half_moneyLineAway);
+    const [FHtotal, setFHtotal] = useState(store.nflGames[params.theid].first_half_total);
+    const [FHjuiceTO, setFHjuiceTO] = useState(store.nflGames[params.theid].fh_juice_total_over);
+    const [FHttAway, setFHttAway] = useState(store.nflGames[params.theid].first_half_tt_away);
+    const [FHjuiceOverAway, setFHjuiceOverAway] = useState(store.nflGames[params.theid].first_half_juice_over_away);
+    const [FHjuiceUnderAway, setFHjuiceUnderAway] = useState(store.nflGames[params.theid].first_half_juice_under_away);
+    const [FHfsAway, setFHfsAway] = useState(store.nflGames[params.theid].first_half_final_score_away);
+    const [FHspreadHome, setFHspreadHome] = useState(store.nflGames[params.theid].first_half_spread_home);
+    const [FHjuiceSpreadHome, setFHjuiceSpreadHome] = useState(store.nflGames[params.theid].first_half_juice_spread_home);
+    const [FHmoneyLineHome, setFHmoneyLineHome] = useState(store.nflGames[params.theid].first_half_moneyLineHome);
+    const [FHjuiceTU, setFHjuiceTU] = useState(store.nflGames[params.theid].fh_juice_total_under);
+    const [FHttHome, setFHttHome] = useState(store.nflGames[params.theid].first_half_tt_home);
+    const [FHjuiceOverHome, setFHjuiceOverHome] = useState(store.nflGames[params.theid].first_half_juice_over_home);
+    const [FHjuiceUnderHome, setFHjuiceUnderHome] = useState(store.nflGames[params.theid].first_half_juice_under_home);
+    const [FHfsHome, setFHfsHome] = useState(store.nflGames[params.theid].first_half_final_score_home);
     //second half
-    const [SHspreadAway, setSHspreadAway] = useState(part.second_half_spread_away);
-    const [SHjuiceSpreadAway, setSHjuiceSpreadAway] = useState(part.second_half_juice_spread_away);
-    const [SHmoneyLineAway, setSHmoneyLineAway] = useState(part.second_half_moneyLineAway);
-    const [SHtotal, setSHtotal] = useState(part.second_half_total);
-    const [SHjuiceTO, setSHjuiceTO] = useState(part.sh_juice_total_over);
-    const [SHttAway, setSHttAway] = useState(part.second_half_tt_away);
-    const [SHjuiceOverAway, setSHjuiceOverAway] = useState(part.second_half_juice_over_away);
-    const [SHjuiceUnderAway, setSHjuiceUnderAway] = useState(part.second_half_juice_under_away);
-    const [SHfsAway, setSHfsAway] = useState(part.second_half_final_score_away);
-    const [SHspreadHome, setSHspreadHome] = useState(part.second_half_spread_home);
-    const [SHjuiceSpreadHome, setSHjuiceSpreadHome] = useState(part.second_half_juice_spread_home);
-    const [SHmoneyLineHome, setSHmoneyLineHome] = useState(part.second_half_moneyLineHome);
-    const [SHjuiceTU, setSHjuiceTU] = useState(part.sh_juice_total_under);
-    const [SHttHome, setSHttHome] = useState(part.second_half_tt_home);
-    const [SHjuiceOverHome, setSHjuiceOverHome] = useState(part.second_half_juice_over_home);
-    const [SHjuiceUnderHome, setSHjuiceUnderHome] = useState(part.second_half_juice_under_home);
-    const [SHfsHome, setSHfsHome] = useState(part.second_half_final_score_home);
+    const [SHspreadAway, setSHspreadAway] = useState(store.nflGames[params.theid].second_half_spread_away);
+    const [SHjuiceSpreadAway, setSHjuiceSpreadAway] = useState(store.nflGames[params.theid].second_half_juice_spread_away);
+    const [SHmoneyLineAway, setSHmoneyLineAway] = useState(store.nflGames[params.theid].second_half_moneyLineAway);
+    const [SHtotal, setSHtotal] = useState(store.nflGames[params.theid].second_half_total);
+    const [SHjuiceTO, setSHjuiceTO] = useState(store.nflGames[params.theid].sh_juice_total_over);
+    const [SHttAway, setSHttAway] = useState(store.nflGames[params.theid].second_half_tt_away);
+    const [SHjuiceOverAway, setSHjuiceOverAway] = useState(store.nflGames[params.theid].second_half_juice_over_away);
+    const [SHjuiceUnderAway, setSHjuiceUnderAway] = useState(store.nflGames[params.theid].second_half_juice_under_away);
+    const [SHfsAway, setSHfsAway] = useState(store.nflGames[params.theid].second_half_final_score_away);
+    const [SHspreadHome, setSHspreadHome] = useState(store.nflGames[params.theid].second_half_spread_home);
+    const [SHjuiceSpreadHome, setSHjuiceSpreadHome] = useState(store.nflGames[params.theid].second_half_juice_spread_home);
+    const [SHmoneyLineHome, setSHmoneyLineHome] = useState(store.nflGames[params.theid].second_half_moneyLineHome);
+    const [SHjuiceTU, setSHjuiceTU] = useState(store.nflGames[params.theid].sh_juice_total_under);
+    const [SHttHome, setSHttHome] = useState(store.nflGames[params.theid].second_half_tt_home);
+    const [SHjuiceOverHome, setSHjuiceOverHome] = useState(store.nflGames[params.theid].second_half_juice_over_home);
+    const [SHjuiceUnderHome, setSHjuiceUnderHome] = useState(store.nflGames[params.theid].second_half_juice_under_home);
+    const [SHfsHome, setSHfsHome] = useState(store.nflGames[params.theid].second_half_final_score_home);
     //Q1
-    const [Q1spreadAway, setQ1spreadAway] = useState(part.q1_half_spread_away);
-    const [Q1juiceSpreadAway, setQ1juiceSpreadAway] = useState(part.q1_half_juice_spread_away);
-    const [Q1moneyLineAway, setQ1moneyLineAway] = useState(part.q1_half_moneyLineAway);
-    const [Q1total, setQ1total] = useState(part.q1_half_total);
-    const [Q1juiceTO, setQ1juiceTO] = useState(part.q1_juice_over);
-    const [Q1ttAway, setQ1ttAway] = useState(part.q1_half_tt_away);
-    const [Q1juiceOverAway, setQ1juiceOverAway] = useState(part.q1_half_juice_over_away);
-    const [Q1juiceUnderAway, setQ1juiceUnderAway] = useState(part.q1_half_juice_under_away);
-    const [Q1fsAway, setQ1fsAway] = useState(part.q1_half_final_score_away);
-    const [Q1spreadHome, setQ1spreadHome] = useState(part.q1_half_spread_home);
-    const [Q1juiceSpreadHome, setQ1juiceSpreadHome] = useState(part.q1_half_juice_spread_home);
-    const [Q1moneyLineHome, setQ1moneyLineHome] = useState(part.q1_half_moneyLineHome);
-    const [Q1juiceTU, setQ1juiceTU] = useState(part.q1_juice_under);
-    const [Q1ttHome, setQ1ttHome] = useState(part.q1_half_tt_home);
-    const [Q1juiceOverHome, setQ1juiceOverHome] = useState(part.q1_half_juice_over_home);
-    const [Q1juiceUnderHome, setQ1juiceUnderHome] = useState(part.q1_half_juice_under_home);
-    const [Q1fsHome, setQ1fsHome] = useState(part.q1_half_final_score_home);
+    const [Q1spreadAway, setQ1spreadAway] = useState(store.nflGames[params.theid].q1_half_spread_away);
+    const [Q1juiceSpreadAway, setQ1juiceSpreadAway] = useState(store.nflGames[params.theid].q1_half_juice_spread_away);
+    const [Q1moneyLineAway, setQ1moneyLineAway] = useState(store.nflGames[params.theid].q1_half_moneyLineAway);
+    const [Q1total, setQ1total] = useState(store.nflGames[params.theid].q1_half_total);
+    const [Q1juiceTO, setQ1juiceTO] = useState(store.nflGames[params.theid].q1_juice_over);
+    const [Q1ttAway, setQ1ttAway] = useState(store.nflGames[params.theid].q1_half_tt_away);
+    const [Q1juiceOverAway, setQ1juiceOverAway] = useState(store.nflGames[params.theid].q1_half_juice_over_away);
+    const [Q1juiceUnderAway, setQ1juiceUnderAway] = useState(store.nflGames[params.theid].q1_half_juice_under_away);
+    const [Q1fsAway, setQ1fsAway] = useState(store.nflGames[params.theid].q1_half_final_score_away);
+    const [Q1spreadHome, setQ1spreadHome] = useState(store.nflGames[params.theid].q1_half_spread_home);
+    const [Q1juiceSpreadHome, setQ1juiceSpreadHome] = useState(store.nflGames[params.theid].q1_half_juice_spread_home);
+    const [Q1moneyLineHome, setQ1moneyLineHome] = useState(store.nflGames[params.theid].q1_half_moneyLineHome);
+    const [Q1juiceTU, setQ1juiceTU] = useState(store.nflGames[params.theid].q1_juice_under);
+    const [Q1ttHome, setQ1ttHome] = useState(store.nflGames[params.theid].q1_half_tt_home);
+    const [Q1juiceOverHome, setQ1juiceOverHome] = useState(store.nflGames[params.theid].q1_half_juice_over_home);
+    const [Q1juiceUnderHome, setQ1juiceUnderHome] = useState(store.nflGames[params.theid].q1_half_juice_under_home);
+    const [Q1fsHome, setQ1fsHome] = useState(store.nflGames[params.theid].q1_half_final_score_home);
     //Q2
-    const [Q2spreadAway, setQ2spreadAway] = useState(part.q2_half_spread_away);
-    const [Q2juiceSpreadAway, setQ2juiceSpreadAway] = useState(part.q2_half_juice_spread_away);
-    const [Q2moneyLineAway, setQ2moneyLineAway] = useState(part.q2_half_moneyLineAway);
-    const [Q2total, setQ2total] = useState(part.q2_half_total);
-    const [Q2juiceTO, setQ2juiceTO] = useState(part.q2_juice_over);
-    const [Q2ttAway, setQ2ttAway] = useState(part.q2_half_tt_away);
-    const [Q2juiceOverAway, setQ2juiceOverAway] = useState(part.q2_half_juice_over_away);
-    const [Q2juiceUnderAway, setQ2juiceUnderAway] = useState(part.q2_half_juice_under_away);
-    const [Q2fsAway, setQ2fsAway] = useState(part.q2_half_final_score_away);
-    const [Q2spreadHome, setQ2spreadHome] = useState(part.q2_half_spread_home);
-    const [Q2juiceSpreadHome, setQ2juiceSpreadHome] = useState(part.q2_half_juice_spread_home);
-    const [Q2moneyLineHome, setQ2moneyLineHome] = useState(part.q2_half_moneyLineHome);
-    const [Q2juiceTU, setQ2juiceTU] = useState(part.q2_juice_under);
-    const [Q2ttHome, setQ2ttHome] = useState(part.q2_half_tt_home);
-    const [Q2juiceOverHome, setQ2juiceOverHome] = useState(part.q2_half_juice_over_home);
-    const [Q2juiceUnderHome, setQ2juiceUnderHome] = useState(part.q2_half_juice_under_home);
-    const [Q2fsHome, setQ2fsHome] = useState(part.q2_half_final_score_home);
+    const [Q2spreadAway, setQ2spreadAway] = useState(store.nflGames[params.theid].q2_half_spread_away);
+    const [Q2juiceSpreadAway, setQ2juiceSpreadAway] = useState(store.nflGames[params.theid].q2_half_juice_spread_away);
+    const [Q2moneyLineAway, setQ2moneyLineAway] = useState(store.nflGames[params.theid].q2_half_moneyLineAway);
+    const [Q2total, setQ2total] = useState(store.nflGames[params.theid].q2_half_total);
+    const [Q2juiceTO, setQ2juiceTO] = useState(store.nflGames[params.theid].q2_juice_over);
+    const [Q2ttAway, setQ2ttAway] = useState(store.nflGames[params.theid].q2_half_tt_away);
+    const [Q2juiceOverAway, setQ2juiceOverAway] = useState(store.nflGames[params.theid].q2_half_juice_over_away);
+    const [Q2juiceUnderAway, setQ2juiceUnderAway] = useState(store.nflGames[params.theid].q2_half_juice_under_away);
+    const [Q2fsAway, setQ2fsAway] = useState(store.nflGames[params.theid].q2_half_final_score_away);
+    const [Q2spreadHome, setQ2spreadHome] = useState(store.nflGames[params.theid].q2_half_spread_home);
+    const [Q2juiceSpreadHome, setQ2juiceSpreadHome] = useState(store.nflGames[params.theid].q2_half_juice_spread_home);
+    const [Q2moneyLineHome, setQ2moneyLineHome] = useState(store.nflGames[params.theid].q2_half_moneyLineHome);
+    const [Q2juiceTU, setQ2juiceTU] = useState(store.nflGames[params.theid].q2_juice_under);
+    const [Q2ttHome, setQ2ttHome] = useState(store.nflGames[params.theid].q2_half_tt_home);
+    const [Q2juiceOverHome, setQ2juiceOverHome] = useState(store.nflGames[params.theid].q2_half_juice_over_home);
+    const [Q2juiceUnderHome, setQ2juiceUnderHome] = useState(store.nflGames[params.theid].q2_half_juice_under_home);
+    const [Q2fsHome, setQ2fsHome] = useState(store.nflGames[params.theid].q2_half_final_score_home);
     //Q3
-    const [Q3spreadAway, setQ3spreadAway] = useState(part.q3_half_spread_away);
-    const [Q3juiceSpreadAway, setQ3juiceSpreadAway] = useState(part.q3_half_juice_spread_away);
-    const [Q3moneyLineAway, setQ3moneyLineAway] = useState(part.q3_half_moneyLineAway);
-    const [Q3total, setQ3total] = useState(part.q3_half_total);
-    const [Q3juiceTO, setQ3juiceTO] = useState(part.q3_juice_over);
-    const [Q3ttAway, setQ3ttAway] = useState(part.q3_half_tt_away);
-    const [Q3juiceOverAway, setQ3juiceOverAway] = useState(part.q3_half_juice_over_away);
-    const [Q3juiceUnderAway, setQ3juiceUnderAway] = useState(part.q3_half_juice_under_away);
-    const [Q3fsAway, setQ3fsAway] = useState(part.q3_half_final_score_away);
-    const [Q3spreadHome, setQ3spreadHome] = useState(part.q3_half_spread_home);
-    const [Q3juiceSpreadHome, setQ3juiceSpreadHome] = useState(part.q3_half_juice_spread_home);
-    const [Q3moneyLineHome, setQ3moneyLineHome] = useState(part.q3_half_moneyLineHome);
-    const [Q3juiceTU, setQ3juiceTU] = useState(part.q3_juice_under);
-    const [Q3ttHome, setQ3ttHome] = useState(part.q3_half_tt_home);
-    const [Q3juiceOverHome, setQ3juiceOverHome] = useState(part.q3_half_juice_over_home);
-    const [Q3juiceUnderHome, setQ3juiceUnderHome] = useState(part.q3_half_juice_under_home);
-    const [Q3fsHome, setQ3fsHome] = useState(part.q3_half_final_score_home);
+    const [Q3spreadAway, setQ3spreadAway] = useState(store.nflGames[params.theid].q3_half_spread_away);
+    const [Q3juiceSpreadAway, setQ3juiceSpreadAway] = useState(store.nflGames[params.theid].q3_half_juice_spread_away);
+    const [Q3moneyLineAway, setQ3moneyLineAway] = useState(store.nflGames[params.theid].q3_half_moneyLineAway);
+    const [Q3total, setQ3total] = useState(store.nflGames[params.theid].q3_half_total);
+    const [Q3juiceTO, setQ3juiceTO] = useState(store.nflGames[params.theid].q3_juice_over);
+    const [Q3ttAway, setQ3ttAway] = useState(store.nflGames[params.theid].q3_half_tt_away);
+    const [Q3juiceOverAway, setQ3juiceOverAway] = useState(store.nflGames[params.theid].q3_half_juice_over_away);
+    const [Q3juiceUnderAway, setQ3juiceUnderAway] = useState(store.nflGames[params.theid].q3_half_juice_under_away);
+    const [Q3fsAway, setQ3fsAway] = useState(store.nflGames[params.theid].q3_half_final_score_away);
+    const [Q3spreadHome, setQ3spreadHome] = useState(store.nflGames[params.theid].q3_half_spread_home);
+    const [Q3juiceSpreadHome, setQ3juiceSpreadHome] = useState(store.nflGames[params.theid].q3_half_juice_spread_home);
+    const [Q3moneyLineHome, setQ3moneyLineHome] = useState(store.nflGames[params.theid].q3_half_moneyLineHome);
+    const [Q3juiceTU, setQ3juiceTU] = useState(store.nflGames[params.theid].q3_juice_under);
+    const [Q3ttHome, setQ3ttHome] = useState(store.nflGames[params.theid].q3_half_tt_home);
+    const [Q3juiceOverHome, setQ3juiceOverHome] = useState(store.nflGames[params.theid].q3_half_juice_over_home);
+    const [Q3juiceUnderHome, setQ3juiceUnderHome] = useState(store.nflGames[params.theid].q3_half_juice_under_home);
+    const [Q3fsHome, setQ3fsHome] = useState(store.nflGames[params.theid].q3_half_final_score_home);
     //Q4
-    const [Q4spreadAway, setQ4spreadAway] = useState(part.q4_half_spread_away);
-    const [Q4juiceSpreadAway, setQ4juiceSpreadAway] = useState(part.q4_half_juice_spread_away);
-    const [Q4moneyLineAway, setQ4moneyLineAway] = useState(part.q4_half_moneyLineAway);
-    const [Q4total, setQ4total] = useState(part.q4_half_total);
-    const [Q4juiceTO, setQ4juiceTO] = useState(part.q4_juice_over);
-    const [Q4ttAway, setQ4ttAway] = useState(part.q4_half_tt_away);
-    const [Q4juiceOverAway, setQ4juiceOverAway] = useState(part.q4_half_juice_over_away);
-    const [Q4juiceUnderAway, setQ4juiceUnderAway] = useState(part.q4_half_juice_under_away);
-    const [Q4fsAway, setQ4fsAway] = useState(part.q4_half_final_score_away);
-    const [Q4spreadHome, setQ4spreadHome] = useState(part.q4_half_spread_home);
-    const [Q4juiceSpreadHome, setQ4juiceSpreadHome] = useState(part.q4_half_juice_spread_home);
-    const [Q4moneyLineHome, setQ4moneyLineHome] = useState(part.q4_half_moneyLineHome);
-    const [Q4juiceTU, setQ4juiceTU] = useState(part.q4_juice_under);
-    const [Q4ttHome, setQ4ttHome] = useState(part.q4_half_tt_home);
-    const [Q4juiceOverHome, setQ4juiceOverHome] = useState(part.q4_half_juice_over_home);
-    const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState(part.q4_half_juice_under_home);
-    const [Q4fsHome, setQ4fsHome] = useState(part.q4_half_final_score_home);
+    const [Q4spreadAway, setQ4spreadAway] = useState(store.nflGames[params.theid].q4_half_spread_away);
+    const [Q4juiceSpreadAway, setQ4juiceSpreadAway] = useState(store.nflGames[params.theid].q4_half_juice_spread_away);
+    const [Q4moneyLineAway, setQ4moneyLineAway] = useState(store.nflGames[params.theid].q4_half_moneyLineAway);
+    const [Q4total, setQ4total] = useState(store.nflGames[params.theid].q4_half_total);
+    const [Q4juiceTO, setQ4juiceTO] = useState(store.nflGames[params.theid].q4_juice_over);
+    const [Q4ttAway, setQ4ttAway] = useState(store.nflGames[params.theid].q4_half_tt_away);
+    const [Q4juiceOverAway, setQ4juiceOverAway] = useState(store.nflGames[params.theid].q4_half_juice_over_away);
+    const [Q4juiceUnderAway, setQ4juiceUnderAway] = useState(store.nflGames[params.theid].q4_half_juice_under_away);
+    const [Q4fsAway, setQ4fsAway] = useState(store.nflGames[params.theid].q4_half_final_score_away);
+    const [Q4spreadHome, setQ4spreadHome] = useState(store.nflGames[params.theid].q4_half_spread_home);
+    const [Q4juiceSpreadHome, setQ4juiceSpreadHome] = useState(store.nflGames[params.theid].q4_half_juice_spread_home);
+    const [Q4moneyLineHome, setQ4moneyLineHome] = useState(store.nflGames[params.theid].q4_half_moneyLineHome);
+    const [Q4juiceTU, setQ4juiceTU] = useState(store.nflGames[params.theid].q4_juice_under);
+    const [Q4ttHome, setQ4ttHome] = useState(store.nflGames[params.theid].q4_half_tt_home);
+    const [Q4juiceOverHome, setQ4juiceOverHome] = useState(store.nflGames[params.theid].q4_half_juice_over_home);
+    const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState(store.nflGames[params.theid].q4_half_juice_under_home);
+    const [Q4fsHome, setQ4fsHome] = useState(store.nflGames[params.theid].q4_half_final_score_home);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -304,7 +308,7 @@ export const EdithGames = () => {
         };
         console.log(body);
         console.log(body.date);
-        fetch("https://interfaceroy.herokuapp.com/nfl/" + part.id, {
+        fetch("https://interfaceroy.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -325,13 +329,13 @@ export const EdithGames = () => {
 
     };
     const delet = e => {
-        fetch("https://interfaceroy.herokuapp.com/nfl/" + part.id, {
+        fetch("https://interfaceroy.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        console.log(part.id);
+        console.log(store.nflGames[params.theid].id);
         setAuth(true);
         actualizar();
     };
@@ -395,7 +399,7 @@ export const EdithGames = () => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {part.away} vrs {part.home}
+                            {store.nflGames[params.theid].away} vrs {store.nflGames[params.theid].home}
                         </h4>
                     </div>
                 </div>
@@ -404,7 +408,7 @@ export const EdithGames = () => {
                 <div className="row g-0">
                     <div className="col-2 text-center px-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={part.status} onChange={e => setStatusCrear(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nflGames[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -460,10 +464,10 @@ export const EdithGames = () => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={part.rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.nflGames[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={part.away} onChange={e => setAwayCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nflGames[params.theid].away} onChange={e => setAwayCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
                                                 return (
@@ -474,39 +478,39 @@ export const EdithGames = () => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={part.spread_away} onChange={e => setSpreadAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].spread_away} onChange={e => setSpreadAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.juice_spread_away} onChange={e => setJuiceSpreadAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_spread_away} onChange={e => setJuiceSpreadAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.moneyLineAway} onChange={e => setMonelLineAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].moneyLineAway} onChange={e => setMonelLineAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={part.total} onChange={e => setTotalAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nflGames[params.theid].total} onChange={e => setTotalAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.juice_total_over} onChange={e => setjuiceTotalOver(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_total_over} onChange={e => setjuiceTotalOver(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={part.tt_away} onChange={e => setTeamTotalAway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nflGames[params.theid].tt_away} onChange={e => setTeamTotalAway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={part.juice_over_away} onChange={e => setjuiceTeamTotalAwayO(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_over_away} onChange={e => setjuiceTeamTotalAwayO(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={part.juice_under_away} onChange={e => setjuiceTeamTotalAwayU(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_under_away} onChange={e => setjuiceTeamTotalAwayU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={part.final_score_away} onChange={e => setFinalScoreA(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nflGames[params.theid].final_score_away} onChange={e => setFinalScoreA(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={part.rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.nflGames[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={part.home} onChange={e => setHomeCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nflGames[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
                                                 return (
@@ -517,31 +521,31 @@ export const EdithGames = () => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={part.spread_home} onChange={e => setSpreadHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].spread_home} onChange={e => setSpreadHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.juice_spread_home} onChange={e => setJuiceSpreadHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_spread_home} onChange={e => setJuiceSpreadHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.moneyLineHome} onChange={e => setMonelLineHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].moneyLineHome} onChange={e => setMonelLineHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.juice_total_under} onChange={e => setjuiceTotalUnder(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_total_under} onChange={e => setjuiceTotalUnder(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={part.tt_home} onChange={e => setTeamTotalHome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nflGames[params.theid].tt_home} onChange={e => setTeamTotalHome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={part.juice_over_home} onChange={e => setjuiceTeamTotalHomeO(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_over_home} onChange={e => setjuiceTeamTotalHomeO(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={part.juice_under_home} onChange={e => setjuiceTeamTotalHomeU(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nflGames[params.theid].juice_under_home} onChange={e => setjuiceTeamTotalHomeU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={part.final_score_home} onChange={e => setFinalScoreH(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nflGames[params.theid].final_score_home} onChange={e => setFinalScoreH(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -560,60 +564,60 @@ export const EdithGames = () => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={part.first_half_spread_away} onChange={e => setFHspreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_spread_away} onChange={e => setFHspreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.first_half_juice_spread_away} onChange={e => setFHjuiceSpreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_spread_away} onChange={e => setFHjuiceSpreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.first_half_moneyLineAway} onChange={e => setFHmoneyLineAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_moneyLineAway} onChange={e => setFHmoneyLineAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={part.first_half_total} onChange={e => setFHtotal(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_total} onChange={e => setFHtotal(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={part.fh_juice_total_over} onChange={e => setFHjuiceTO(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.nflGames[params.theid].fh_juice_total_over} onChange={e => setFHjuiceTO(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={part.first_half_tt_away} onChange={e => setFHttAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_tt_away} onChange={e => setFHttAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={part.first_half_juice_over_away} onChange={e => setFHjuiceOverAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceOverAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={part.first_half_juice_over_away} onChange={e => setFHjuiceUnderAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceUnderAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={part.first_half_final_score_away} onChange={e => setFHfsAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_final_score_away} onChange={e => setFHfsAway(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={part.first_half_spread_home} onChange={e => setFHspreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_spread_home} onChange={e => setFHspreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.first_half_juice_spread_home} onChange={e => setFHjuiceSpreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_spread_home} onChange={e => setFHjuiceSpreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.first_half_moneyLineHome} onChange={e => setFHmoneyLineHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_moneyLineHome} onChange={e => setFHmoneyLineHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={part.fh_juice_total_under} onChange={e => setFHjuiceTU(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={store.nflGames[params.theid].fh_juice_total_under} onChange={e => setFHjuiceTU(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={part.first_half_tt_home} onChange={e => setFHttHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_tt_home} onChange={e => setFHttHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={part.first_half_juice_over_home} onChange={e => setFHjuiceOverHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_over_home} onChange={e => setFHjuiceOverHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={part.first_half_juice_under_home} onChange={e => setFHjuiceUnderHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_juice_under_home} onChange={e => setFHjuiceUnderHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={part.first_half_final_score_home} onChange={e => setFHfsHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nflGames[params.theid].first_half_final_score_home} onChange={e => setFHfsHome(e.target.value)} />
                             </div>
                         </div>
                     </div>
@@ -631,57 +635,57 @@ export const EdithGames = () => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={part.second_half_spread_away} onChange={e => setSHspreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_spread_away} onChange={e => setSHspreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.second_half_juice_spread_away} onChange={e => setSHjuiceSpreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_spread_away} onChange={e => setSHjuiceSpreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.second_half_moneyLineAway} onChange={e => setSHmoneyLineAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_moneyLineAway} onChange={e => setSHmoneyLineAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={part.second_half_total} onChange={e => setSHtotal(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_total} onChange={e => setSHtotal(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={part.sh_juice_total_over} onChange={e => setSHjuiceTO(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.nflGames[params.theid].sh_juice_total_over} onChange={e => setSHjuiceTO(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={part.second_half_tt_away} onChange={e => setSHttAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_tt_away} onChange={e => setSHttAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={part.second_half_juice_over_away} onChange={e => setSHjuiceOverAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_over_away} onChange={e => setSHjuiceOverAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={part.second_half_juice_under_away} onChange={e => setSHjuiceUnderAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_under_away} onChange={e => setSHjuiceUnderAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={part.second_half_final_score_away} onChange={e => setSHfsAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_final_score_away} onChange={e => setSHfsAway(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={part.second_half_spread_home} onChange={e => setSHspreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_spread_home} onChange={e => setSHspreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={part.second_half_juice_spread_home} onChange={e => setSHjuiceSpreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_spread_home} onChange={e => setSHjuiceSpreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={part.second_half_moneyLineHome} onChange={e => setSHmoneyLineHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_moneyLineHome} onChange={e => setSHmoneyLineHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={part.sh_juice_total_under} onChange={e => setSHjuiceTU(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.nflGames[params.theid].sh_juice_total_under} onChange={e => setSHjuiceTU(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={part.second_half_tt_home} onChange={e => setSHttHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_tt_home} onChange={e => setSHttHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={part.second_half_juice_over_home} onChange={e => setSHjuiceOverHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_over_home} onChange={e => setSHjuiceOverHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={part.second_half_juice_under_home} onChange={e => setSHjuiceUnderHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_juice_under_home} onChange={e => setSHjuiceUnderHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nflGames[params.theid].second_half_final_score_home} onChange={e => setSHfsHome(e.target.value)} />
