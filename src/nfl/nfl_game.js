@@ -8,6 +8,9 @@ import "../../node_modules/aos/dist/aos.css";
 export const Nfl_game = () => {
     const { store, actions } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState("Pending");
+    const [casino, setcasino] = useState("");
+    const [rotation_home, setRotation_home] = useState("");
+    const [rotation_away, setRotation_away] = useState("");
     const [yearCrear, setYearCrear] = useState("2021");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
@@ -161,6 +164,9 @@ export const Nfl_game = () => {
             hour: timeCrear,
             week: weekCrear,
             status: statusCrear,
+            casino: casino,
+            rotation_home: rotation_home,
+            rotation_away: rotation_away,
             away: awayCrear,
             home: HomeCrear,
             spread_away: spreadAwayCrear,
@@ -363,7 +369,7 @@ export const Nfl_game = () => {
         }
     }
     let selectMin = [];
-    for (let i = 1; i < 60; i++) {
+    for (let i = 0; i < 60; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMin.push(i);
@@ -384,7 +390,7 @@ export const Nfl_game = () => {
                             {
                                 store.status.map((index) => {
                                     return (
-                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                        <option key={index} name="status" value={index}>{index}</option>
                                     )
                                 })
                             }
@@ -462,54 +468,71 @@ export const Nfl_game = () => {
                             }
                         </select>
                     </div>
-                    <div className="col-3 rounded-start overflow-hidden">
-                        <div className="row g-0 h-100">
+                    <div className="col-4">
+                        <div className="row g-0">
                             <div className="btn-group">
-                                <button className="accordion-button h-100" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
+                                <button className="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
                                     Game
                                 </button>
-                                <button className="accordion-button h-100 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
+                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
                                     1st Half
                                 </button>
-                                <button className="accordion-button h-100 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
+                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
                                     2dn Half
                                 </button>
-
                             </div>
                         </div>
+                        <div className="col-12 rounded overflow-hidden mt-1 ">
+                            <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1" aria-expanded="false" aria-controls="Q1">
+                                Q1
+                            </a>
+                            <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q2" aria-expanded="false" aria-controls="Q2">
+                                Q2
+                            </a>
+                            <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3" aria-expanded="false" aria-controls="Q3">
+                                Q3
+                            </a>
+                            <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q4" aria-expanded="false" aria-controls="Q4">
+                                Q4
+                            </a>
+                        </div>
                     </div>
-                    <div className="col-1 rounded-end overflow-hidden">
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1" aria-expanded="false" aria-controls="Q1">
-                            Q1
-                        </a>
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q2" aria-expanded="false" aria-controls="Q2">
-                            Q2
-                        </a>
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3" aria-expanded="false" aria-controls="Q3">
-                            Q3
-                        </a>
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q4" aria-expanded="false" aria-controls="Q4">
-                            Q4
-                        </a>
+                </div>
+                <div className="col-3">
+                    <div className="col-12 text-center">
+                        Casino *no required
                     </div>
+                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                        {
+                            store.casinos.map((item, index) => {
+                                return (
+                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                )
+                            })
+                        }
+                    </select>
                 </div>
                 <div className="accordion-item ">
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameCreate">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-3 title-lines">Team</div>
+                                <div className="col-1 title-lines">RT#</div>
+                                <div className="col-2 title-lines">Team</div>
                                 <div className="col-1 title-lines">Spread</div>
                                 <div className="col-1 title-lines">Juice</div>
                                 <div className="col-1 title-lines">ML</div>
                                 <div className="col-1 title-lines">Total</div>
                                 <div className="col-1 title-lines">Juice</div>
                                 <div className="col-1 title-lines">TT</div>
-                                <div className="col-1 title-lines">J O</div>
-                                <div className="col-1 title-lines">J U</div>
-                                <div className="col-1 title-lines">F S</div>
+                                <div className="col-1 title-lines">JO</div>
+                                <div className="col-1 title-lines">JU</div>
+                                <div className="col-1 title-lines">FS</div>
                             </div>
                             <div className="row g-0">
-                                <div className="col-3">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" onChange={e => setRotation_home(e.target.value)} required />
+                                </div>
+                                <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setAwayCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
@@ -545,11 +568,14 @@ export const Nfl_game = () => {
                                     <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={-110} onChange={e => setjuiceTeamTotalAwayU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" onChange={e => setFinalScoreA(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFinalScoreA(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
-                                <div className="col-3 ">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setRotation_away(e.target.value)} required />
+                                </div>
+                                <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setHomeCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
@@ -585,7 +611,7 @@ export const Nfl_game = () => {
                                     <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={-110} onChange={e => setjuiceTeamTotalHomeU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" onChange={e => setFinalScoreH(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFinalScoreH(e.target.value)} />
                                 </div>
                             </div>
                         </div>

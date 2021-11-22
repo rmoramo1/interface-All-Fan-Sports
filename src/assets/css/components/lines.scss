@@ -12,7 +12,7 @@
 }
 
 .listGames {
-    min-width: 1280px;
+    min-width: 1580px;
 }
 
 #gameCreate {
@@ -36,7 +36,6 @@
         width: 25%;
         height: 100%;
         float: left;
-        border-bottom: none;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,10 +48,8 @@
 .quarters {
     text-align: center;
     color: $white !important;
-    width: 100%;
+    width: 25%;
     background: lighten($blueDark, 30);
-    border-bottom: 1px solid $white;
-
     &:last-child {
         border-bottom: none;
     }

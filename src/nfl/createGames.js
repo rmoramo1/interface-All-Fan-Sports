@@ -1,17 +1,26 @@
 import React, { useEffect, useContext, useState } from "react";
 import GameMapNfl from "./listGameNfl";
 import { Context } from "../store/appContext";
+import Pagination from "../components/pagination";
 
 export const CreateGames = () => {
 	const { store, actions } = useContext(Context);
 	let teamFilter = store.nflGames;
 	const [team, setTeam] = useState("");
+	const [currentPage, setcurrentPage] = useState(1);
+	const [gamesPerPage, setgamesPerPage] = useState(2);
+	//corrent game
+	const indexOfLastGame = currentPage * gamesPerPage;
+	const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+	const currentGame = teamFilter.slice(indexOfFirstGame,indexOfLastGame)
+	// change page
+	const paginate =(pageNumber)=>setcurrentPage(pageNumber)
 	return (
 		<div className="container-fluid">
 			<div className="col-12">
 				<h3>List of Games</h3>
 			</div>
-			<div className="col-12 linesEdith">
+			<div className="col-12 ">
 				<div className="row g-0">
 					<div className="col-2 d-flex justify-content-center align-items-center">
 						Filter by team
@@ -31,14 +40,17 @@ export const CreateGames = () => {
 						<button className="btn btn-danger" type="button" name="week" aria-label="Default select example" onClick={e => setTeam("")}>All Teams</button>
 					</div>
 				</div>
-				{!team ? teamFilter.map((item, index) => {
+				{!team ? currentGame.map((item, index) => {
 					return (
-						<div key={index}>
+						<div key={index} className="linesEdith">
 							<GameMapNfl
 								id={index}
 								del={item.id}
 								away={item.away}
 								home={item.home}
+								casino={item.casino}
+								rotation_away={item.rotation_away}
+								rotation_home={item.rotation_home}
 								hour={item.hour}
 								status={item.status}
 								date={item.date}
@@ -94,6 +106,11 @@ export const CreateGames = () => {
 						</div>
 					);
 				})}
+				<Pagination
+					gamesPerPage={gamesPerPage}
+					totalGames={teamFilter.length}
+					paginate={paginate}
+				/>
 			</div>
 		</div>
 	)

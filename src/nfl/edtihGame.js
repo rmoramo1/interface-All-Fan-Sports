@@ -6,11 +6,12 @@ import { HashLink } from 'react-router-hash-link';
 export const EdithGames = () => {
     const params = useParams();
     const { store, actions } = useContext(Context);
-	let part  = store.nflGames[params.theid];
-    console.log(part)
-    !part ? console.log("que hago")  : part = store.nflGames[params.theid];
-
+    let part = store.nflGames[params.theid];
+    !part ? console.log("que hago") : part = store.nflGames[params.theid];
     const [statusCrear, setStatusCrear] = useState(part.status);
+    const [casino, setcasino] = useState(part.casino);
+    const [rotation_home, setRotation_home] = useState(part.rotation_home);
+    const [rotation_away, setRotation_away] = useState(part.rotation_away);
     let [yearSendCrear, setYearSendCrear] = useState(part.date);
     const [weekCrear, setWeekCrear] = useState(part.week);
     let [timeCrear, setTimeCrear] = useState(part.hour);
@@ -147,7 +148,8 @@ export const EdithGames = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        setTimeout(function () { window.location.reload(true); }, 800);
+
     }
     const crear = e => {
         e.preventDefault();
@@ -156,6 +158,9 @@ export const EdithGames = () => {
             hour: timeCrear,
             week: weekCrear,
             status: statusCrear,
+            casino: casino,
+            rotation_home: rotation_home,
+            rotation_away: rotation_away,
             away: awayCrear,
             home: HomeCrear,
             spread_away: spreadAwayCrear,
@@ -317,6 +322,18 @@ export const EdithGames = () => {
                 actualizar();
             })
             .catch(err => console.log(err));
+
+    };
+    const delet = e => {
+        fetch("https://interfaceroy.herokuapp.com/nfl/" + part.id, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json())
+            .catch(err => console.log(err));
+        console.log(part.id);
+        setAuth(true);
+        actualizar();
     };
 
     //select
@@ -419,7 +436,7 @@ export const EdithGames = () => {
                         </a>
                         <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3" aria-expanded="false" aria-controls="Q3">
                             Q3
-                        </a> 
+                        </a>
                         <a className="quarters collapsed rounded-end" type="button" data-bs-toggle="collapse" data-bs-target="#Q4" aria-expanded="false" aria-controls="Q4">
                             Q4
                         </a>
@@ -429,7 +446,8 @@ export const EdithGames = () => {
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameEdith">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-3 title-lines">Team</div>
+                                <div className="col-1 title-lines">RT #</div>
+                                <div className="col-2 title-lines">Team</div>
                                 <div className="col-1 title-lines">Spread</div>
                                 <div className="col-1 title-lines">Juice</div>
                                 <div className="col-1 title-lines">ML</div>
@@ -441,7 +459,10 @@ export const EdithGames = () => {
                                 <div className="col-1 title-lines">F S</div>
                             </div>
                             <div className="row g-0">
-                                <div className="col-3">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={part.rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                </div>
+                                <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={part.away} onChange={e => setAwayCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
@@ -481,7 +502,10 @@ export const EdithGames = () => {
                                 </div>
                             </div>
                             <div className="row g-0">
-                                <div className="col-3 ">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={part.rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                </div>
+                                <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={part.home} onChange={e => setHomeCrear(e.target.value)} required>
                                         {
                                             store.nfl_teams.map((index) => {
@@ -958,16 +982,38 @@ export const EdithGames = () => {
                     </div>
                 </div>
                 <div className="row g-0">
-
-                    <div className="col-6 p-3 text-end">
+                    <div className="col-4 p-3 text-end">
                         <HashLink className="btn btn-info text-white" to="/admin">Back to Admin</HashLink>
                     </div>
-                    <div className="col-6 p-3">
+                    <div className="col-4 p-3">
                         <button type="submit" className="btn btn-danger">Edith</button>
                     </div>
+                    <div className="col-4 p-3">
+                        <div className="col-12 text-center"  >
+                            <div className="btn btn-dark text-white" data-bs-toggle="modal" data-bs-target="#delete"><i className="far fa-trash-alt"></i></div>
+                        </div>
+                    </div>
+                    {auth ? <Redirect to="/admin" /> : null}
                 </div>
             </form>
-            {auth ? <Redirect to="/admin" /> : null}
+            <div className="modal fade" id="delete" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content overflow-hidden">
+                        <div className="col-12 text-center text-white bg-danger text-uppercase fs-5 py-3">
+                            <i className="fas fa-exclamation-triangle fs-1"></i><br />are you sure you want to delete the match
+                        </div>
+                        <div className="row g-0">
+                            <div className="col-6 p-2 text-center">
+                                <button className="btn btn-danger" onClick={delet} data-bs-dismiss="modal">Yes Delete</button>
+                                {auth ? <Redirect to="/admin" /> : null}
+                            </div>
+                            <div className="col-6 p-2 text-center">
+                                <button type="button" className="btn btn-info text-white" data-bs-dismiss="modal">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
