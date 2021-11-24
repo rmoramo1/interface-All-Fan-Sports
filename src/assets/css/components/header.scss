@@ -1,3 +1,39 @@
 .bg-header{
     background: $BGB;
 }
+.ul-drop{
+    z-index: 1231321;
+    ul{
+        position: absolute;
+        display: none;
+        list-style: none;
+        width: 60%;
+        background: $lightGrey;
+        box-shadow: 0 0 3px rgba($black, .5);
+        word-break: normal;
+        padding-left: 0%;
+    }
+    &:hover{
+        ul{
+            display: block;
+        }
+    }
+}
+.li_drop{
+    text-align: center;
+    &:hover{
+        background:darken($lightGrey, 15);
+        text-shadow: 1px 1px 0px $white,2px 2px 3px $white,-2px -2px 3px $white;
+    }
+}
+.second_ul{
+    display: none!important;
+    width: 100%!important;
+}
+.one_ul{
+    &:hover{
+        .second_ul{
+            display: block!important;
+        }
+    }
+}

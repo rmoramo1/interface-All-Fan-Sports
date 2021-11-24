@@ -16,7 +16,7 @@ const GameMapNfl = props => {
                         {props.casino}
                     </div>
                     <div className="col-12 text-center">
-                        <HashLink className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></HashLink>
+                        <Link className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,6 @@ const GameMapNfl = props => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

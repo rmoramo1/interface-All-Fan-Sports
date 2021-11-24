@@ -3,17 +3,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../node_modules/aos/dist/aos.css";
 import { HashLink } from 'react-router-hash-link';
-export const EdithGames = () => {
+export const EdithGames = (props) => {
     const params = useParams();
-    const [perra1,setPerr1]=useState('')
-    useEffect(() => {
-        //Runs only on the first render
-        setPerr1(store.nflGames[params.theid]);
-        console.log(perra1)
-    }, []);
     const { store, actions } = useContext(Context);
+    const[game,setGame]= useState(null);
     const [statusCrear, setStatusCrear] = useState(store.nflGames[params.theid].status);
-    const [casino, setcasino] = useState(store.nflGames[params.theid].casino);
+    const [casino, setCasino] = useState(store.nflGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nflGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nflGames[params.theid].rotation_away);
     let [yearSendCrear, setYearSendCrear] = useState(store.nflGames[params.theid].date);
@@ -54,8 +49,8 @@ export const EdithGames = () => {
     const [FHspreadHome, setFHspreadHome] = useState(store.nflGames[params.theid].first_half_spread_home);
     const [FHjuiceSpreadHome, setFHjuiceSpreadHome] = useState(store.nflGames[params.theid].first_half_juice_spread_home);
     const [FHmoneyLineHome, setFHmoneyLineHome] = useState(store.nflGames[params.theid].first_half_moneyLineHome);
-    const [FHjuiceTU, setFHjuiceTU] = useState(store.nflGames[params.theid].fh_juice_total_under);
-    const [FHttHome, setFHttHome] = useState(store.nflGames[params.theid].first_half_tt_home);
+    const [FHjuiceTU, setFHjuiceTU] = useState(store.nflGames[params.theid].first_half_moneyLineHome);
+    const [FHttHome, setFHttHome] = useState(store.nflGames[params.theid].fh_juice_total_under);
     const [FHjuiceOverHome, setFHjuiceOverHome] = useState(store.nflGames[params.theid].first_half_juice_over_home);
     const [FHjuiceUnderHome, setFHjuiceUnderHome] = useState(store.nflGames[params.theid].first_half_juice_under_home);
     const [FHfsHome, setFHfsHome] = useState(store.nflGames[params.theid].first_half_final_score_home);
@@ -418,7 +413,19 @@ export const EdithGames = () => {
                             }
                         </select>
                     </div>
-                    <div className="col-6">
+                    <div className="col-3 px-1">
+                    Casino  
+                        <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nflGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="casinos" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-4">
                         <div className="row g-0 py-3">
                             <button className="btn rounded-start accordion-button col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
                                 Game

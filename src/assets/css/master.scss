@@ -28,4 +28,11 @@ a{
   color: $white;
   text-shadow: 1px 1px 0 rgba($black, .5),-1px -1px 0 rgba($black, .5),2px 2px 5px rgba($black, .5),-1px -1px 5px rgba($black, .5);
   border-radius: 5px;
+}    
+.bg_grey_medium{
+  background:darken($lightGrey, 7);
 }
+.bg_grey_dark{
+  background:darken($lightGrey, 40);
+}
+

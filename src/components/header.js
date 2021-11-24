@@ -25,10 +25,39 @@ export const Header = () => {
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav">
-                                    <Link className="nav-link"to="faqs">FAQS</Link>
-                                    <HashLink className="nav-link" to="glosary">Glosary</HashLink>
-                                    <HashLink className="nav-link" to="contact">Contact</HashLink>
-                                    <HashLink className="nav-link" to="admin">Admin</HashLink>
+                                    <HashLink className="nav-link" to="/faqs">FAQS</HashLink>
+                                    <HashLink className="nav-link" to="/glosary">Glosary</HashLink>
+                                    <HashLink className="nav-link" to="/contact">Contact</HashLink>
+                                    <HashLink className="nav-link" to="/admin">Admin</HashLink>
+                                    <HashLink className="nav-link ul-drop" to="#">Stats
+                                        <ul className="">
+                                            <li className="li_drop one_ul">
+                                                NFL
+                                                <ul className="second_ul">
+                                                    <li className="li_drop">
+                                                        <HashLink to="/list_nfl_stats">
+                                                            Team Stats
+                                                        </HashLink>
+                                                    </li>
+                                                    <li className="li_drop">Players</li>
+                                                </ul>
+                                            </li>
+                                            <li className="li_drop one_ul">NBA
+                                                <ul className="second_ul">
+                                                    <li className="li_drop">Team Stats</li>
+                                                    <li className="li_drop">Players</li>
+                                                </ul>
+                                            </li>
+                                            <li className="li_drop">MLB</li>
+                                            <li className="li_drop">NHL</li>
+                                            <li className="li_drop">BOX</li>
+                                            <li className="li_drop">MMA</li>
+                                            <li className="li_drop">GOLF</li>
+                                            <li className="li_drop">NASCAR</li>
+                                            <li className="li_drop">COLLEGE</li>
+                                            <li className="li_drop">SOCCER</li>
+                                        </ul>
+                                    </HashLink>
                                 </div>
                             </div>
                         </div>

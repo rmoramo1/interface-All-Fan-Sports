@@ -1,6 +1,7 @@
 /*games*/
 import { Nfl_game } from "../nfl/nfl_game";
 import { CreateGames } from "../nfl/createGames";
+import { StatsNFL } from "../nfl/stats/statsNFL";
 
 export const Links = () => {
     return (
@@ -17,7 +18,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="team" className="accordion-collapse collapse" aria-labelledby="headingTwo"  data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        stats team
+                       <StatsNFL/>
                     </div>
                 </div>
             </div>

@@ -500,7 +500,7 @@ export const Nfl_game = () => {
                 </div>
                 <div className="col-3">
                     <div className="col-12 text-center">
-                        Casino *no required
+                        Casino <span className="fst-italic small ">*no required</span> 
                     </div>
                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
                         {
