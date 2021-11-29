@@ -1,6 +1,5 @@
-import { Button } from "bootstrap";
-import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
+import React from "react";
 import { HashLink } from "react-router-hash-link";
 
 import logo from "../assets/img/logo.png"
@@ -25,26 +24,36 @@ export const Header = () => {
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav">
-                                    <HashLink className="nav-link" to="/faqs">FAQS</HashLink>
-                                    <HashLink className="nav-link" to="/glosary">Glosary</HashLink>
-                                    <HashLink className="nav-link" to="/contact">Contact</HashLink>
-                                    <HashLink className="nav-link" to="/admin">Admin</HashLink>
+                                    <HashLink className="nav-link nav-link-pri" to="/faqs">FAQS</HashLink>
+                                    <HashLink className="nav-link nav-link-pri" to="/glosary">Glosary</HashLink>
+                                    <HashLink className="nav-link nav-link-pri" to="/contact">Contact</HashLink>
+                                    <HashLink className="nav-link nav-link-pri" to="/admin">Admin</HashLink>
+                                    <HashLink className="nav-link ul-drop nav-link-pri" to="/allGames">Games</HashLink>
                                     <HashLink className="nav-link ul-drop" to="#">Stats
                                         <ul className="">
                                             <li className="li_drop one_ul">
                                                 NFL
                                                 <ul className="second_ul">
-                                                    <li className="li_drop">
-                                                        <HashLink to="/list_nfl_stats">
+                                                    <HashLink to="/list_nfl_stats">
+                                                        <li className="li_drop">
                                                             Team Stats
-                                                        </HashLink>
-                                                    </li>
-                                                    <li className="li_drop">Players</li>
+                                                        </li>
+                                                    </HashLink>
+                                                    <HashLink to="/list_stats_nfl_py">
+                                                        <li className="li_drop">
+                                                            Players Stats
+                                                        </li>
+                                                    </HashLink>
                                                 </ul>
                                             </li>
                                             <li className="li_drop one_ul">NBA
                                                 <ul className="second_ul">
-                                                    <li className="li_drop">Team Stats</li>
+                                                    <li className="li_drop">
+                                                        <HashLink to="/list_nba_stats">
+                                                            Team Stats
+                                                        </HashLink>
+
+                                                    </li>
                                                     <li className="li_drop">Players</li>
                                                 </ul>
                                             </li>

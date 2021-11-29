@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, Redirect } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
 
 export const Edit_Team_Nfl_Stas = () => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
     const params = useParams();
 
     const [season, setSeason] = useState(store.nfl_stats_teams[params.theid].season);
@@ -23,7 +24,7 @@ export const Edit_Team_Nfl_Stas = () => {
     const [down_3_AVG, setDown_3_AVG] = useState(store.nfl_stats_teams[params.theid].down_3_AVG);
     const [down_4_eff, setDown_4_eff] = useState(store.nfl_stats_teams[params.theid].down_4_eff);
     const [down_4_AVG, setDown_4_AVG] = useState(store.nfl_stats_teams[params.theid].down_4_AVG);
-    
+
     const [comp_att, setComp_att] = useState(store.nfl_stats_teams[params.theid].comp_att);
     const [net_pass_y, setNet_pass_y] = useState(store.nfl_stats_teams[params.theid].net_pass_y);
     const [y_p_pas_attps, setY_p_pas_attps] = useState(store.nfl_stats_teams[params.theid].y_p_pas_attps);
@@ -31,24 +32,24 @@ export const Edit_Team_Nfl_Stas = () => {
     const [pass_td, setPass_td] = useState(store.nfl_stats_teams[params.theid].pass_td);
     const [interceptions, setInterceptions] = useState(store.nfl_stats_teams[params.theid].interceptions);
     const [sacks_y_lost, setSacks_y_lost] = useState(store.nfl_stats_teams[params.theid].sacks_y_lost);
-    
+
     const [russ_attps, setRuss_attps] = useState(store.nfl_stats_teams[params.theid].russ_attps);
     const [russ_y, setRuss_y] = useState(store.nfl_stats_teams[params.theid].russ_y);
     const [y_p_russ_attp, setY_p_russ_attp] = useState(store.nfl_stats_teams[params.theid].y_p_russ_attp);
     const [russ_y_pg, setRuss_y_pg] = useState(store.nfl_stats_teams[params.theid].russ_y_pg);
     const [russ_td, setRuss_td] = useState(store.nfl_stats_teams[params.theid].russ_td);
-    
+
     const [total_of_plays, setTotal_of_plays] = useState(store.nfl_stats_teams[params.theid].total_of_plays);
     const [total_y, setTotal_y] = useState(store.nfl_stats_teams[params.theid].total_y);
     const [y_pg, setY_pg] = useState(store.nfl_stats_teams[params.theid].y_pg);
-    
+
     const [kickoffs_t, setKickoffs_t] = useState(store.nfl_stats_teams[params.theid].kickoffs_t);
     const [AVG_kickoff_return_y, setAVG_kickoff_return_y] = useState(store.nfl_stats_teams[params.theid].AVG_kickoff_return_y);
     const [punt_t, setPunt_t] = useState(store.nfl_stats_teams[params.theid].punt_t);
     const [AVG_punt_ruturn_y, setAVG_punt_ruturn_y] = useState(store.nfl_stats_teams[params.theid].AVG_punt_ruturn_y);
     const [int_t, setint_t] = useState(store.nfl_stats_teams[params.theid].int_t);
     const [AVG_intercept_y, setAVG_intercept_y] = useState(store.nfl_stats_teams[params.theid].AVG_intercept_y);
-    
+
     const [net_AVG_punt_y, setNet_AVG_punt_y] = useState(store.nfl_stats_teams[params.theid].net_AVG_punt_y);
     const [punt_ty, setPunt_ty] = useState(store.nfl_stats_teams[params.theid].punt_ty);
     const [fg_goog_attps, setFg_goog_attps] = useState(store.nfl_stats_teams[params.theid].fg_goog_attps);
@@ -65,7 +66,7 @@ export const Edit_Team_Nfl_Stas = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        setTimeout(function () { window.location.reload(true); }, 800);
     }
     const crear = e => {
         e.preventDefault();
@@ -101,7 +102,7 @@ export const Edit_Team_Nfl_Stas = () => {
             y_p_russ_attp: y_p_russ_attp,
             russ_y_pg: russ_y_pg,
             russ_td: russ_td,
-            
+
             total_of_plays: total_of_plays,
             total_y: total_y,
             y_pg: y_pg,
@@ -112,7 +113,7 @@ export const Edit_Team_Nfl_Stas = () => {
             AVG_punt_ruturn_y: AVG_punt_ruturn_y,
             int_t: int_t,
             AVG_intercept_y: AVG_intercept_y,
-            
+
             net_AVG_punt_y: net_AVG_punt_y,
             punt_ty: punt_ty,
             fg_goog_attps: fg_goog_attps,
@@ -130,7 +131,7 @@ export const Edit_Team_Nfl_Stas = () => {
         console.log(body);
         console.log(body.date);
 
-        fetch("https://interfaceroy.herokuapp.com/stats_nfl_team/"+ store.nfl_stats_teams[params.theid].id, {
+        fetch("https://interfaceroy.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -145,7 +146,16 @@ export const Edit_Team_Nfl_Stas = () => {
             })
             .catch(err => console.log(err));
     };
-
+    const delet_team_nfl_stat = e => {
+        fetch("https://interfaceroy.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(res => res.json())
+            .catch(err => console.log(err));
+        setAuth(true);
+        actualizar();
+    };
     //select
     let selectYear = [];
     for (let i = 2002; i < 2025; i++) {
@@ -158,7 +168,7 @@ export const Edit_Team_Nfl_Stas = () => {
     return (
         <div className="container-fluid" id="statsEdith" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3">
+                <div className="col-12 text-center bg-title-edith my-2 p-3">
                     <h3>Edit stats by nfl team</h3>
                 </div>
             </div>
@@ -166,7 +176,7 @@ export const Edit_Team_Nfl_Stas = () => {
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week"  defaultValue={store.nfl_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" defaultValue={store.nfl_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
                                 store.nfl_teams.map((index) => {
                                     return (
@@ -178,7 +188,7 @@ export const Edit_Team_Nfl_Stas = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="season"  defaultValue={store.nfl_stats_teams[params.theid].season} onChange={e => setSeason(e.target.value)} required>
+                        <select className="form-select" name="season" defaultValue={store.nfl_stats_teams[params.theid].season} onChange={e => setSeason(e.target.value)} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -190,7 +200,7 @@ export const Edit_Team_Nfl_Stas = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Conference
-                        <select className="form-select" name="month" defaultValue={store.nfl_stats_teams[params.theid].conference}  onChange={e => setConference(e.target.value)} required>
+                        <select className="form-select" name="month" defaultValue={store.nfl_stats_teams[params.theid].conference} onChange={e => setConference(e.target.value)} required>
                             {
                                 selectConference.map((index) => {
                                     return (
@@ -457,8 +467,34 @@ export const Edit_Team_Nfl_Stas = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-10 text-end py-3">
-                    <button type="submit" className="btn btn-danger">Create</button>
+                <div className="row g-0">
+                    <div className="col-4 p-3 text-end">
+                        <HashLink className="btn btn-info text-white" to="/admin">Back to Admin</HashLink>
+                    </div>
+                    <div className="col-4 text-end p-3">
+                        <button type="submit" className="btn btn-success">Edit</button>
+                    </div>
+                    <div className="col-4 text-start p-3">
+                        <div data-bs-toggle="modal" data-bs-target="#delete_stat_team_nfl" className="btn btn-danger">Delet</div>
+                    </div>
+                </div>
+                <div className="modal fade" id="delete_stat_team_nfl" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content overflow-hidden">
+                            <div className="col-12 text-center text-white bg-danger text-uppercase fs-5 py-3">
+                                <i className="fas fa-exclamation-triangle fs-1"></i><br />are you sure you want to delete the match
+                            </div>
+                            <div className="row g-0">
+                                <div className="col-6 p-2 text-center">
+                                    <button className="btn btn-danger" onClick={delet_team_nfl_stat}>Yes Delete</button>
+                                    {auth ? <Redirect to="/list_nfl_stats/" /> : null}
+                                </div>
+                                <div className="col-6 p-2 text-center">
+                                    <button type="button" className="btn btn-info text-white" data-bs-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {auth ? <Redirect to="/list_nfl_stats/" /> : null}
             </form>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link,Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Team_Nfl_Stas = () => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
 
     const [season, setSeason] = useState("2021");
     const [team, setTeam] = useState("Arizona Cardinals");
@@ -157,7 +157,7 @@ export const Team_Nfl_Stas = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-3">
+                <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <h3>Create stats by NFL team</h3>
                 </div>
             </div>

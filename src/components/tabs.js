@@ -60,13 +60,7 @@ export const Tabs = () => {
                                     </HashLink>
                                 </h2>
                             </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="headingEightNFL">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oddsTW-NFL" aria-expanded="false" aria-controls="oddsTW-NFL">
-                                        Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -97,13 +91,6 @@ export const Tabs = () => {
                             <h2 className="accordion-header" id="nba-headingThree">
                                 <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nbaSttsPlayer" aria-expanded="false" aria-controls="nbaSttsPlayer">
                                     Player Statistics <i className="fas fa-chart-line ps-2 fs-5"></i>
-                                </HashLink>
-                            </h2>
-                        </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="nba-headingEight">
-                                <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oddsTW-NBA" aria-expanded="false" aria-controls="oddsTW-NBA">
-                                    Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
                                 </HashLink>
                             </h2>
                         </div>
@@ -465,6 +452,13 @@ export const Tabs = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header" id="headingEightNFL">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oddsTW-NFL" aria-expanded="false" aria-controls="oddsTW-NFL">
+                        Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
+                    </HashLink>
+                </h2>
             </div>
         </div>
     )

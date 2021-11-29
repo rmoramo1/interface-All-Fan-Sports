@@ -1,7 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
-
-import logo from "../assets/img/logo.png"
+import React from "react";
 
 export const Footer = () => {
     return (

@@ -1,19 +1,18 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../node_modules/aos/dist/aos.css";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames = (props) => {
     const params = useParams();
-    const { store, actions } = useContext(Context);
-    const[game,setGame]= useState(null);
+    const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState(store.nflGames[params.theid].status);
     const [casino, setCasino] = useState(store.nflGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nflGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nflGames[params.theid].rotation_away);
-    let [yearSendCrear, setYearSendCrear] = useState(store.nflGames[params.theid].date);
-    const [weekCrear, setWeekCrear] = useState(store.nflGames[params.theid].week);
-    let [timeCrear, setTimeCrear] = useState(store.nflGames[params.theid].hour);
+    let [yearSendCrear] = useState(store.nflGames[params.theid].date);
+    const [weekCrear] = useState(store.nflGames[params.theid].week);
+    let [timeCrear] = useState(store.nflGames[params.theid].hour);
     //totals
     const [totalCrear, setTotalAwayCrear] = useState(store.nflGames[params.theid].total);
     const [juiceTotalOver, setjuiceTotalOver] = useState(store.nflGames[params.theid].juice_total_over);
@@ -330,7 +329,6 @@ export const EdithGames = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        console.log(store.nflGames[params.theid].id);
         setAuth(true);
         actualizar();
     };
@@ -386,7 +384,7 @@ export const EdithGames = (props) => {
         }
     }
     return (
-        <div className="container-fluid accordion pt-5" id="gameEdith" >
+        <div className="container-fluid accordion" id="gameEdith" >
             <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
                 <div className="row g-0 w-100">
                     <div className="col-6">
@@ -401,56 +399,63 @@ export const EdithGames = (props) => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-2 text-center px-1">
-                        Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nflGames[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
-                            {
-                                store.status.map((index) => {
-                                    return (
-                                        <option key={index} name="promotions" value={index}>{index}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="col-3 px-1">
-                    Casino  
-                        <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nflGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
-                            {
-                                store.casinos.map((item, index) => {
-                                    return (
-                                        <option key={index} name="casinos" value={item.name}>{item.name}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                    </div>
-                    <div className="col-4">
-                        <div className="row g-0 py-3">
-                            <button className="btn rounded-start accordion-button col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
-                                Game
-                            </button>
-                            <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
-                                1st Half
-                            </button>
-                            <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
-                                2dn Half
-                            </button>
+                    <div className="col-2">
+                        <div className="col-12 text-center px-1">
+                            Casino
+                            <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nflGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
+                                {
+                                    store.casinos.map((item, index) => {
+                                        return (
+                                            <option key={index} name="casinos" value={item.name}>{item.name}</option>
+                                        )
+                                    })
+                                }
+                            </select>
                         </div>
+                        <div className="col-12 text-center px-1">
+                            Status
+                            <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nflGames[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                                {
+                                    store.status.map((index) => {
+                                        return (
+                                            <option key={index} name="promotions" value={index}>{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+
                     </div>
-                    <div className="col-3 rounded-end overflow-hidden py-3">
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1" aria-expanded="false" aria-controls="Q1">
-                            Q1
-                        </a>
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q2" aria-expanded="false" aria-controls="Q2">
-                            Q2
-                        </a>
-                        <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3" aria-expanded="false" aria-controls="Q3">
-                            Q3
-                        </a>
-                        <a className="quarters collapsed rounded-end" type="button" data-bs-toggle="collapse" data-bs-target="#Q4" aria-expanded="false" aria-controls="Q4">
-                            Q4
-                        </a>
+                    <div className="col-10 d-flex align-items-center">
+                        <div className="row g-0 w-100 ps-5">
+                            <div className="col-4">
+                                <div className="row g-0 py-3">
+                                    <button className="btn rounded-start accordion-button col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
+                                        Game
+                                    </button>
+                                    <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
+                                        1st Half
+                                    </button>
+                                    <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
+                                        2dn Half
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="col-3 rounded-end overflow-hidden py-3">
+                                <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1" aria-expanded="false" aria-controls="Q1">
+                                    Q1
+                                </a>
+                                <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q2" aria-expanded="false" aria-controls="Q2">
+                                    Q2
+                                </a>
+                                <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q3" aria-expanded="false" aria-controls="Q3">
+                                    Q3
+                                </a>
+                                <a className="quarters collapsed rounded-end" type="button" data-bs-toggle="collapse" data-bs-target="#Q4" aria-expanded="false" aria-controls="Q4">
+                                    Q4
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="accordion-item ">
@@ -996,15 +1001,12 @@ export const EdithGames = (props) => {
                     <div className="col-4 p-3 text-end">
                         <HashLink className="btn btn-info text-white" to="/admin">Back to Admin</HashLink>
                     </div>
-                    <div className="col-4 p-3">
-                        <button type="submit" className="btn btn-danger">Edith</button>
+                    <div className="col-4 text-center p-3">
+                        <button type="submit" className="btn btn-success">Edit</button>
                     </div>
-                    <div className="col-4 p-3">
-                        <div className="col-12 text-center"  >
-                            <div className="btn btn-dark text-white" data-bs-toggle="modal" data-bs-target="#delete"><i className="far fa-trash-alt"></i></div>
-                        </div>
+                    <div className="col-4 text-start p-3">
+                        <div data-bs-toggle="modal" data-bs-target="#delete" className="btn btn-danger">Delet</div>
                     </div>
-                    {auth ? <Redirect to="/admin" /> : null}
                 </div>
             </form>
             <div className="modal fade" id="delete" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">

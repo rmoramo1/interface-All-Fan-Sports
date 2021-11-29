@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Context } from "../store/appContext";
-import "../../node_modules/aos/dist/aos.css";
-export const Nfl_game = () => {
+import { Context } from "../../store/appContext";
+export const NBA_game = () => {
     const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -23,7 +22,7 @@ export const Nfl_game = () => {
     const [juiceTotalOver, setjuiceTotalOver] = useState("-110");
     const [juiceTotalUnder, setjuiceTotalUnder] = useState("-110");
     //away
-    const [awayCrear, setAwayCrear] = useState("Arizona Cardinals");
+    const [awayCrear, setAwayCrear] = useState("Atlanta Hawks");
     const [spreadAwayCrear, setSpreadAwayCrear] = useState("");
     const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState("-110");
     const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState("");
@@ -32,7 +31,7 @@ export const Nfl_game = () => {
     const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState("-110");
     const [finalScoreA, setFinalScoreA] = useState("");
     //home
-    const [HomeCrear, setHomeCrear] = useState("Arizona Cardinals");
+    const [HomeCrear, setHomeCrear] = useState("Atlanta Hawks");
     const [spreadHomeCrear, setSpreadHomeCrear] = useState("");
     const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState("-110");
     const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState("");
@@ -306,7 +305,7 @@ export const Nfl_game = () => {
         console.log(body);
         console.log(body.date);
 
-        fetch("https://interfaceroy.herokuapp.com/nfl", {
+        fetch("https://interfaceroy.herokuapp.com/nba", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -374,7 +373,7 @@ export const Nfl_game = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="gameCreate" >
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                <h3>Create NFL Game</h3>
+                <h3>Create NBA Game</h3>
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
@@ -529,7 +528,7 @@ export const Nfl_game = () => {
                                 <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setAwayCrear(e.target.value)} required>
                                         {
-                                            store.nfl_teams.map((index) => {
+                                            store.nba_teams.map((index) => {
                                                 return (
                                                     <option key={index} name="promotions" value={index}>{index}</option>
                                                 )
@@ -572,7 +571,7 @@ export const Nfl_game = () => {
                                 <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setHomeCrear(e.target.value)} required>
                                         {
-                                            store.nfl_teams.map((index) => {
+                                            store.nba_teams.map((index) => {
                                                 return (
                                                     <option key={index} name="promotions" value={index}>{index}</option>
                                                 )

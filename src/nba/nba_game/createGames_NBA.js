@@ -1,11 +1,10 @@
-import React, { useEffect, useContext, useState } from "react";
-import GameMapNfl from "./listGameNfl";
-import { Context } from "../store/appContext";
+import React, { useContext, useState } from "react";
+import  ListGameNBA  from "./listGameNBA"
+import { Context } from "../../store/appContext";
 
-
-export const CreateGames = () => {
-	const { store, actions } = useContext(Context);
-	let teamFilter = store.nflGames;
+export const CreateGames_NBA = () => {
+	const { store } = useContext(Context);
+	let teamFilter = store.nbaGames;
 	const [team, setTeam] = useState("");
 
 	// change page
@@ -18,7 +17,7 @@ export const CreateGames = () => {
 
 	return (
 		<div className="container-fluid">
-			<div className="col-12">
+			<div className="col-12 bg-title-edith my-2 p-3 text-center">
 				<h3>List of Games</h3>
 			</div>
 			<div className="col-12 ">
@@ -29,7 +28,7 @@ export const CreateGames = () => {
 					<div className="col-3">
 						<select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
 							{
-								store.nfl_teams.map((index) => {
+								store.nba_teams.map((index) => {
 									return (
 										<option key={index} name="promotions" value={index}>{index}</option>
 									)
@@ -44,7 +43,7 @@ export const CreateGames = () => {
 				{!team ? teamFilter.map((item, index) => {
 					return (
 						<div key={index} className="linesEdith">
-							<GameMapNfl
+							<ListGameNBA
 								id={index}
 								del={item.id}
 								away={item.away}
@@ -78,7 +77,7 @@ export const CreateGames = () => {
 				}) : teamFilter.filter(equip => equip.home === team || equip.away === team).map((item, index) => {
 					return (
 						<div key={index}>
-							<GameMapNfl
+							<ListGameNBA
 								id={index}
 								del={item.id}
 								away={item.away}

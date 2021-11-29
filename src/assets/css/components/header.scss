@@ -1,3 +1,10 @@
+.nav-link-pri{
+    &:hover{
+        color:$white!important;
+        text-shadow: 1px 1px 0px rgba($font_blue,.50) ,2px 2px 5px rgba($font_blue,.50) ,-2px -2px 5px rgba($font_blue,.50) ;
+    }
+}
+
 .bg-header{
     background: $BGB;
 }
@@ -23,12 +30,12 @@
     text-align: center;
     &:hover{
         background:darken($lightGrey, 15);
-        text-shadow: 1px 1px 0px $white,2px 2px 3px $white,-2px -2px 3px $white;
     }
 }
 .second_ul{
     display: none!important;
     width: 100%!important;
+    right: 0;
 }
 .one_ul{
     &:hover{

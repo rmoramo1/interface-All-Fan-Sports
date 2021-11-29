@@ -1,8 +1,4 @@
-import { Link } from "react-router-dom";
-import { HashLink } from 'react-router-hash-link';
-import { Helmet } from "react-helmet";
-import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import React, { useEffect} from "react";
 import AOS from "aos";
 import "../../node_modules/aos/dist/aos.css";
 /*componentes*/
@@ -10,7 +6,6 @@ import "../../node_modules/aos/dist/aos.css";
 
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		AOS.init({ duration: 1500 });
 	}, []);

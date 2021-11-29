@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const GameMapNfl = props => {
+const ListGameNBA = props => {
     return (
         <div className="row g-0 listGames">
             <div className="col-1 d-flex justify-content-center align-items-center py-3">
@@ -18,10 +18,7 @@ const GameMapNfl = props => {
             <div className="col-11 bg-white my-3 shadow">
                 <div className="row g-0 text-center title-lines">
                     <div className="col-1 lines" id="statusNfl">{props.status}</div>
-                    <div className="col-2 lines">
-                        <div className="row g-0">
-                            <span className="text-start col-6">RT# roy</span><span className="col-6 text-start">Team</span> </div>
-                        </div>
+                    <div className="col-2 lines">RT# / Team</div>
                     <div className="col-1 lines">Spread</div>
                     <div className="col-1 lines">Juice</div>
                     <div className="col-1 lines">ML</div>
@@ -38,7 +35,7 @@ const GameMapNfl = props => {
                         <div className="col-2 lines">
                             <div className="row g-0">
                                 <div className="col-1">
-                                    {props.rotation_away}
+                                    {props.rotation_away}/
                                 </div>
                                 <div className="col-11">
                                     {props.away}
@@ -60,7 +57,7 @@ const GameMapNfl = props => {
                         <div className="col-2 lines">
                             <div className="row g-0">
                                 <div className="col-1">
-                                    {props.rotation_home}
+                                    {props.rotation_home}/
                                 </div>
                                 <div className="col-11">
                                     {props.home}
@@ -82,7 +79,7 @@ const GameMapNfl = props => {
         </div>
     );
 };
-GameMapNfl.propTypes = {
+ListGameNBA.propTypes = {
     id: PropTypes.number,
     del: PropTypes.number,
     away: PropTypes.string,
@@ -110,4 +107,4 @@ GameMapNfl.propTypes = {
     final_score_away: PropTypes.string,
     final_score_home: PropTypes.string,
 };
-export default GameMapNfl;
+export default ListGameNBA;

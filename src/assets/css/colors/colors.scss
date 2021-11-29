@@ -9,4 +9,5 @@ $redLogo:#641E16;
 
 /*gradiants*/
 $BGB:linear-gradient(to bottom, lighten($black, 70) 10%,lighten($black, 90) 50%,$white 100%);
+$RGB:linear-gradient(to bottom, lighten($redLogo, 40) 10%,lighten($redLogo, 0) 50%,$redLogo 100%);
 
