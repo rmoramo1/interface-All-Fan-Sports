@@ -40,6 +40,8 @@ const injectContext = PassedComponent => {
 			state.actions.loadStats_kik_player_nfl();
 			//nba
 			state.actions.loadGamesNBA();
+			state.actions.loadStatsNBA();
+			state.actions.loadStats_player_NBA();
 			state.actions.loadCasinos();
 		}, []);
 

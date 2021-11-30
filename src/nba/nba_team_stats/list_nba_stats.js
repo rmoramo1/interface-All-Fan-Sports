@@ -5,7 +5,8 @@ import { Stat_Single_NBA } from "./stat_single_nba";
 export const List_NBA_Stats = () => {
     const { store } = useContext(Context);
 
-    var sortStats = store.nfl_stats_teams;
+    var sortStats = store.nba_stats_teams;
+    console.log(sortStats);
     sortStats.sort(function (a, b) {
         return b.season - a.season;
     });

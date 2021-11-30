@@ -20,7 +20,7 @@ const GameMapNfl = props => {
                     <div className="col-1 lines" id="statusNfl">{props.status}</div>
                     <div className="col-2 lines">
                         <div className="row g-0">
-                            <span className="text-start col-6">RT# roy</span><span className="col-6 text-start">Team</span> </div>
+                            <span className="text-start col-6">RT#</span><span className="col-6 text-start">Team</span> </div>
                         </div>
                     <div className="col-1 lines">Spread</div>
                     <div className="col-1 lines">Juice</div>

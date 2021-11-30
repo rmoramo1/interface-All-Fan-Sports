@@ -6,7 +6,9 @@ import { Stats_deff_player_nfl } from "../nfl/player_deff_stats/stats_deff_playe
 import { Stats_ret_player_nfl } from "../nfl/returning_py_stats.js/stats_ret_player_nfl";
 import { Stats_put_player_nfl } from "../nfl/player_punting_stats/stats_put_player_nfl";
 import { Stats_kik_player_nfl } from "../nfl/player_kik_stats/stats_kik_player_nfl";
+import { Team_Nba_Stas } from "../nba/nba_team_stats/team_nba_stas";
 import { NBA_game } from "../nba/nba_game/nba_game";
+import { Stats_py_nba } from "../nba/nba_py_stats/stats_py_nba";
 
 
 export const Links = () => {
@@ -74,14 +76,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="nbaSttsTeam" className="accordion-collapse collapse" aria-labelledby="nba-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        NBA stadisticas de equipo
+                        <Team_Nba_Stas/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nbaSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nba-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        NBA stats player
+                       <Stats_py_nba/>
                     </div>
                 </div>
             </div>

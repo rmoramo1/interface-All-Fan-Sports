@@ -353,7 +353,7 @@ export const NBA_game = () => {
         }
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 1; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -370,6 +370,7 @@ export const NBA_game = () => {
             selectMin.push(i);
         }
     }
+    
     return (
         <div className="container-fluid p-0 m-0 accordion" id="gameCreate" >
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">

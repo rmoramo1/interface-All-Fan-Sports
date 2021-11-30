@@ -64,7 +64,7 @@ export const AllGames = () => {
                     <CreateGames_NFL />
                 </div>
                 <div className={NBA}>
-                <CreateGames_NBA />
+                    <CreateGames_NBA />
                 </div>
             </div>
         </div>

@@ -18,24 +18,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 			stats_kik_player_nfl:[],
 			//nba
 			nbaGames:[],
-
+			nba_stats_teams:[],
+			nba_stats_player:[]
 
 		},
 		actions: {
 			loadNglGames: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nfl";
+				const url = "https://interfaceroy.herokuapp.com	/nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nflGames: results });
 			},
 			loadStatsNFL: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_nfl_team";
+				const url = "https://interfaceroy.herokuapp.com	/stats_nfl_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nfl_stats_teams: results });
 			},
 			loadStatsNFL_Off_player: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_offensive_player_nfl";
+				const url = "https://interfaceroy.herokuapp.com	/stats_offensive_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_offensive_player_nfl: results });
@@ -71,6 +72,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				console.log(results)
 				setStore({ nbaGames: results });
+			},
+			loadStatsNBA: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_nba_team";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ nba_stats_teams: results });
+			},
+			loadStats_player_NBA: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_nba_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ nba_stats_player: results });
 			},
 			loadCasinos: async () => {
 				const url = "https://interfaceroy.herokuapp.com/casinos";

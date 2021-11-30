@@ -9,7 +9,7 @@ export const Stat_Single_NBA = props => {
                 <div className="col-1 py-3">
                     <div className="col-12 bg-dark h-100 d-flex justify-content-center align-items-center ">
                         <div className="col-12 text-center">
-                            <Link className="text-white" to={`/edith_stats_nfl_team/${props.id}`}><i className="far fa-eye"></i></Link>
+                            <Link className="text-white" to={`/edith_stats_nba_team/${props.id}`}><i className="far fa-eye"></i></Link>
                         </div>
                     </div>
                 </div>
