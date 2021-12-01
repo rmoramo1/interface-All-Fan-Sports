@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const Single_py_nba_stats = props => {
+export const Single_py_mlb_stats = props => {
     return (
         <div className="col-12 g-0">
             <div className="row g-0">
@@ -31,7 +31,7 @@ export const Single_py_nba_stats = props => {
         </div>
     )
 };
-Single_py_nba_stats.propTypes = {
+Single_py_mlb_stats.propTypes = {
     id: PropTypes.number,
     team: PropTypes.string,
     name: PropTypes.string,

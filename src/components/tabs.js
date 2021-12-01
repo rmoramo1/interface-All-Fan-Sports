@@ -127,13 +127,6 @@ export const Tabs = () => {
                                     </HashLink>
                                 </h2>
                             </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="mlb-headingFour">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oddsTW-MLB" aria-expanded="false" aria-controls="oddsTW-MLB">
-                                        Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
                         </div>
                     </div>
                 </div>

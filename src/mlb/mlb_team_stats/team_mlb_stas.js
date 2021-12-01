@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
-export const Team_Nba_Stas = () => {
+export const Team_MLB_Stas = () => {
     const { store } = useContext(Context);
 
     const [season, setSeason] = useState("2021");

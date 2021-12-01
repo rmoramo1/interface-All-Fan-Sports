@@ -54,7 +54,11 @@ export const Header = () => {
                                                         </HashLink>
 
                                                     </li>
-                                                    <li className="li_drop">Players</li>
+                                                    <li className="li_drop">
+                                                        <HashLink to="/list_stats_nba_py">
+                                                            Players Stats    
+                                                        </HashLink>
+                                                    </li>
                                                 </ul>
                                             </li>
                                             <li className="li_drop">MLB</li>

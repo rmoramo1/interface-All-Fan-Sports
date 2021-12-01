@@ -18,7 +18,9 @@ import { Stats_put_player_nfl } from "./nfl/player_punting_stats/edit_stats_put_
 import { Stats_kik_player_nfl } from "./nfl/player_kik_stats/edit_stats_kik_player_nfl";
 import { CreateGames_NFL } from "./nfl/createGames_NFL";
 import { List_Stats_NFL_PY } from "./nfl/player_off_stats/list_stats_nfl_py";
-import {Edit_Stats_NBA_Team} from "./nba/nba_team_stats/edith_stats_nba_team"
+import {Edit_Stats_NBA_Team} from "./nba/nba_team_stats/edith_stats_nba_team";
+import { List_Stats_NBA_PY } from "./nba/nba_py_stats/list_stats_nba_py";
+import {Edit_stats_player_nba} from "./nba/nba_py_stats/edit_stats_player_nba"
 
 import ListGameNBA from "./nba/nba_game/listGameNBA";
 
@@ -44,10 +46,12 @@ function App() {
 					<Route exact path="/edtihGame/:theid" component={EdithGames}/>
 					<Route exact path="/list_nfl_stats" component={List_NFL_Stats}/>
 					<Route exact path="/list_stats_nfl_py" component={List_Stats_NFL_PY}/>
+					<Route exact path="/list_stats_nba_py" component={List_Stats_NBA_PY}/>
 					<Route exact path="/list_nba_stats" component={List_NBA_Stats}/>
 					<Route exact path="/listGameNBA" component={ ListGameNBA}/>
 					<Route exact path="/edith_stats_nfl_team/:theid" component={Edit_Team_Nfl_Stas}/>
 					<Route exact path="/edith_stats_nba_team/:theid" component={Edit_Stats_NBA_Team}/>
+					<Route exact path="/edit_stats_player_nba/:theid" component={Edit_stats_player_nba}/>
 					<Route exact path="/edit_stats_deff_player_nfl/:theid" component={Stats_deff_player_nfl}/>
 					<Route exact path="/edit_stats_off_player_nfl/:theid" component={Stats_off_player_nfl}/>
 					<Route exact path="/edit_stats_ret_player_nfl/:theid" component={Stats_ret_player_nfl}/>

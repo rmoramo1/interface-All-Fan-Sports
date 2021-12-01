@@ -6,9 +6,12 @@ import { Stats_deff_player_nfl } from "../nfl/player_deff_stats/stats_deff_playe
 import { Stats_ret_player_nfl } from "../nfl/returning_py_stats.js/stats_ret_player_nfl";
 import { Stats_put_player_nfl } from "../nfl/player_punting_stats/stats_put_player_nfl";
 import { Stats_kik_player_nfl } from "../nfl/player_kik_stats/stats_kik_player_nfl";
+
 import { Team_Nba_Stas } from "../nba/nba_team_stats/team_nba_stas";
 import { NBA_game } from "../nba/nba_game/nba_game";
 import { Stats_py_nba } from "../nba/nba_py_stats/stats_py_nba";
+
+import { MLB_game } from "../mlb/mlb_game/MLB_game";
 
 
 export const Links = () => {
@@ -93,7 +96,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="mlbGame" className="accordion-collapse collapse" aria-labelledby="mlb-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        game mlb
+                        <MLB_game/>
                     </div>
                 </div>
             </div>
@@ -108,13 +111,6 @@ export const Links = () => {
                 <div id="mlbSttsPlayer" className="accordion-collapse collapse" aria-labelledby="mlb-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
                         mlb stats player
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="oddsTW-MLB" className="accordion-collapse collapse" aria-labelledby="mlb-headingFour" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        odds t w mbl
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
-export const Stats_py_nba = () => {
+export const Stats_py_mlb = () => {
     const { store} = useContext(Context);
 
     const [name, setName] = useState("");
