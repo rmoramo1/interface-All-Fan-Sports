@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import  ListGameMLB  from "./listGameMLB"
+import  ListGameNBA  from "./listGameNBA"
 import { Context } from "../../store/appContext";
 
-export const CreateGames_MLB = () => {
+export const CreateFight = () => {
 	const { store } = useContext(Context);
-	let teamFilter = store.mlbGames;
+	let teamFilter = store.nbaGames;
 	const [team, setTeam] = useState("");
 
 	// change page
@@ -18,7 +18,7 @@ export const CreateGames_MLB = () => {
 	return (
 		<div className="container-fluid">
 			<div className="col-12 bg-title-edith my-2 p-3 text-center">
-				<h3>List of Games MLB</h3>
+				<h3>List of Games</h3>
 			</div>
 			<div className="col-12 ">
 				<div className="row g-0">
@@ -26,25 +26,25 @@ export const CreateGames_MLB = () => {
 						Filter by team
 					</div>
 					<div className="col-3">
-						<select className="form-select selectInner" name="teams" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
+						<select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
 							{
-								store.mlb_teams.map((index) => {
+								store.nba_teams.map((index) => {
 									return (
-										<option key={index} name="teams" value={index}>{index}</option>
+										<option key={index} name="promotions" value={index}>{index}</option>
 									)
 								})
 							}
 						</select>
 					</div>
 					<div className="col-3 ms-2">
-						<button className="btn btn-danger" type="button" name="btnSetTeam" aria-label="Default select example" onClick={e => setTeam("")}>All Teams</button>
+						<button className="btn btn-danger" type="button" name="week" aria-label="Default select example" onClick={e => setTeam("")}>All Teams</button>
 					</div>
 				</div>
-				{!team ? teamFilter.map((item, indexMlb) => {
+				{!team ? teamFilter.map((item, index) => {
 					return (
-						<div key={indexMlb} className="linesEdith">
-							<ListGameMLB
-								id={indexMlb}
+						<div key={index} className="linesEdith">
+							<ListGameNBA
+								id={index}
 								del={item.id}
 								away={item.away}
 								home={item.home}
@@ -54,10 +54,10 @@ export const CreateGames_MLB = () => {
 								hour={item.hour}
 								status={item.status}
 								date={item.date}
-								rl_away={item.rl_away}
-								rl_home={item.rl_home}
-								juice_rl_away={item.juice_rl_away}
-								juice_rl_home={item.juice_rl_home}
+								spread_away={item.spread_away}
+								spread_home={item.spread_home}
+								juice_spread_away={item.juice_spread_away}
+								juice_spread_home={item.juice_spread_home}
 								moneyLineAway={item.moneyLineAway}
 								moneyLineHome={item.moneyLineHome}
 								total={item.total}
@@ -74,11 +74,11 @@ export const CreateGames_MLB = () => {
 							/>
 						</div>
 					);
-				}) : teamFilter.filter(equip => equip.home === team || equip.away === team).map((item, indexMlb) => {
+				}) : teamFilter.filter(equip => equip.home === team || equip.away === team).map((item, index) => {
 					return (
-						<div key={indexMlb}>
-							<ListGameMLB
-								id={indexMlb}
+						<div key={index}>
+							<ListGameNBA
+								id={index}
 								del={item.id}
 								away={item.away}
 								home={item.home}
@@ -88,10 +88,10 @@ export const CreateGames_MLB = () => {
 								rotation_home={item.rotation_home}
 								status={item.status}
 								date={item.date}
-								rl_away={item.rl_away}
-								rl_home={item.rl_home}
-								juice_rl_away={item.juice_rl_away}
-								juice_rl_home={item.juice_rl_home}
+								spread_away={item.spread_away}
+								spread_home={item.spread_home}
+								juice_spread_away={item.juice_spread_away}
+								juice_spread_home={item.juice_spread_home}
 								moneyLineAway={item.moneyLineAway}
 								moneyLineHome={item.moneyLineHome}
 								total={item.total}

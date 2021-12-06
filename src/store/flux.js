@@ -4,13 +4,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			nflGames: [],
 			casinos: [],
 			status: ["Pending", "Cancelled", "In Progress", "Finished"],
+			//teams
 			nfl_teams: [
 				"Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos", "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs", "Las Vegas Raiders", "Los Angeles Chargers", "Los Angeles Rams", "Miami Dolphins", "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", "New York Jets", "Philadelphia Eagles", "Pittsburgh Steelers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Football Team"
 			],
 			nba_teams: [
 				"Atlanta Hawks", "Boston Celtics", "Brooklyn Nets", "Charlotte Hornets", "Chicago Bulls", "Cleveland Cavaliers", "Dallas Mavericks", "Denver Nuggets", "Detroit Pistons", "Golden State Warriors", "Houston Rockets", "Indiana Pacers", "Los Angeles Clippers", "Los Angeles Lakers", "Memphis Grizzlies", "Miami Heat", "Milwaukee Bucks", "Minnesota Timberwolves", "New Orleans Pelicans", "New York Knicks", "Oklahoma City Thunder", "Orlando Magic", "Philadelphia 76ers", "Phoenix Suns", "Portland Trail Blazers", "Sacramento Kings", "San Antonio Spurs", "Toronto Raptors", "Utah Jazz", "Washington Wizards"
 			],
-			mlb_teams: ["Arizona Diamondbacks", "Atlanta Braves", "Baltimore Orioles", "Boston Red Sox", "Chicago Cubs", "Chicago White Sox", "Cincinnati Reds", "Cleveland Indians", "Colorado Rockies", "Detroit Tigers", "Houston Astros", "Kansas City Royals", "Los Angeles Angels", "Los Angeles Dodgers", "Miami Marlins", "Milwaukee Brewers", "Minnesota Twins", "New York Mets", "New York Yankees", "Oakland Athletics", "Philadelphia Phillies", "Pittsburgh Pirates", "San Diego Padres", "San Francisco Giants", "Seattle Mariners", "St. Louis Cardinals", "Tampa Bay Rays", "Texas Rangers", "Toronto Blue Jays", "Washington Nationals"],
+			mlb_teams: [
+				"Arizona Diamondbacks", "Atlanta Braves", "Baltimore Orioles", "Boston Red Sox", "Chicago Cubs", "Chicago White Sox", "Cincinnati Reds", "Cleveland Indians", "Colorado Rockies", "Detroit Tigers", "Houston Astros", "Kansas City Royals", "Los Angeles Angels", "Los Angeles Dodgers", "Miami Marlins", "Milwaukee Brewers", "Minnesota Twins", "New York Mets", "New York Yankees", "Oakland Athletics", "Philadelphia Phillies", "Pittsburgh Pirates", "San Diego Padres", "San Francisco Giants", "Seattle Mariners", "St. Louis Cardinals", "Tampa Bay Rays", "Texas Rangers", "Toronto Blue Jays", "Washington Nationals"
+			],
+			nhl_teams:[
+				"Boston Bruins","Buffalo Sabres","Detroit Red Wings","Montreal Canadiens","Ottawa Senators","Tampa Bay Lightning","Toronto Maple Leafs","Carolina Hurricanes","Columbus Blue Jackets","New Jersey Devils","New York Islanders","New York Rangers","Philadelphia Flyers","Pittsburgh Penguins","Washington Capitals","Arizona Coyotes","Chicago Blackhawks","Colorado Avalanche","Dallas Stars","Minnesota Wild","Nashville Predators","St. Louis Blues","Winnipeg Jets","Anaheim Ducks","Calgary Flames","Edmonton Oilers","Los Angeles Kings","San Jose Sharks","Seattle Kraken","Vancouver Canucks","Vegas Golden Knights"
+			],
+			//nfl
 			nfl_stats_teams: [],
 			stats_offensive_player_nfl: [],
 			stats_deff_player_nfl: [],
@@ -20,7 +27,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//nba
 			nbaGames: [],
 			nba_stats_teams: [],
-			nba_stats_player: []
+			nba_stats_player: [],
+			//mbl
+			mlbGames:[],
+			mlb_stats_teams: [],
+			mlb_stats_player: [],
+			//nhl
+			nhlGames:[],
+			nhl_stats_teams: [],
+			nhl_stats_player: [],
+
 
 		},
 		actions: {
@@ -86,6 +102,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				setStore({ nba_stats_player: results });
 			},
+			//mlb
+			loadGamesMLB: async () => {
+				const url = "https://interfaceroy.herokuapp.com/mlb";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ mlbGames: results });
+			},
+			loadStatsMLB: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_mlb_team";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ mlb_stats_teams: results });
+			},
+			loadStats_player_MLB: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_mlb_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ mlb_stats_player: results });
+			},
+			//nhl
+			loadGamesNHL: async () => {
+				const url = "https://interfaceroy.herokuapp.com/nhl";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ nhlGames: results });
+			},
+			loadStatsNHL: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_nhl_team";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ nhl_stats_teams: results });
+			},
+			loadStats_player_NHL: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_nhl_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ nhl_stats_player: results });
+			},
+			//casinos
 			loadCasinos: async () => {
 				const url = "https://interfaceroy.herokuapp.com/casinos";
 				const response = await fetch(url);

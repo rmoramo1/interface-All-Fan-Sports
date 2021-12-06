@@ -235,7 +235,7 @@ export const Stats_put_player_nfl = () => {
                 </div>
                 <div className="row g-0">
                     <div className="col-4 p-3 text-end">
-                        <HashLink className="btn btn-info text-white" to="/admin">Back to Admin</HashLink>
+                        <HashLink className="btn btn-secondary  text-white" to="/admin">Back to Admin</HashLink>
                     </div>
                     <div className="col-4 text-end p-3">
                         <button type="submit" className="btn btn-success">Edit</button>
@@ -256,7 +256,7 @@ export const Stats_put_player_nfl = () => {
                                     {auth ? <Redirect to="/list_stats_nfl_py/" /> : null}
                                 </div>
                                 <div className="col-6 p-2 text-center">
-                                    <button type="button" className="btn btn-info text-white" data-bs-dismiss="modal">No</button>
+                                    <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>
                                 </div>
                             </div>
                         </div>

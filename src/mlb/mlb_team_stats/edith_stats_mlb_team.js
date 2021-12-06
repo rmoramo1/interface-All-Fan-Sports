@@ -7,32 +7,23 @@ export const Edit_Stats_MLB_Team = () => {
     const { store } = useContext(Context);
     const params = useParams();
 
-    const [season, setSeason] = useState(store.nba_stats_teams[params.theid].season);
-    const [team, setTeam] = useState(store.nba_stats_teams[params.theid].team);
-    const [conference, setConference] = useState(store.nba_stats_teams[params.theid].conference);
-    const [division, setDivision] = useState(store.nba_stats_teams[params.theid].division);
+    const [season, setSeason] = useState(store.mlb_stats_teams[params.theid].season);
+    const [team, setTeam] = useState(store.mlb_stats_teams[params.theid].team);
+    const [league, setLeague] = useState(store.mlb_stats_teams[params.theid].league);
+    const [division, setDivision] = useState(store.mlb_stats_teams[params.theid].division);
 
-    const [pts, setPts] = useState(store.nba_stats_teams[params.theid].pts);
-    const [fmg, setFmg] = useState(store.nba_stats_teams[params.theid].fmg);
-    const [fga, setFga] = useState(store.nba_stats_teams[params.theid].fga);
-    const [fg, setfg] = useState(store.nba_stats_teams[params.theid].fg);
-    const [fg_AVG, setFg_AVG] = useState(store.nba_stats_teams[params.theid].fg_AVG);
-    const [three_pm, setThree_pm] = useState(store.nba_stats_teams[params.theid].three_pm);
-
-    const [three_pa, setThree_pa] = useState(store.nba_stats_teams[params.theid].three_pa);
-    const [three_p_AVG, setThree_p_AVG] = useState(store.nba_stats_teams[params.theid].three_p_AVG);
-    const [ftm, setFtm] = useState(store.nba_stats_teams[params.theid].ftm);
-    const [fta, setFta] = useState(store.nba_stats_teams[params.theid].fta);
-    const [ft_AVG, setFt_AVG] = useState(store.nba_stats_teams[params.theid].ft_AVG);
-    const [Or, setOr] = useState(store.nba_stats_teams[params.theid].Or);
-
-    const [dr, setDr] = useState(store.nba_stats_teams[params.theid].dr);
-    const [reb, setReb] = useState(store.nba_stats_teams[params.theid].reb);
-    const [ast, setAst] = useState(store.nba_stats_teams[params.theid].ast);
-    const [stl, setStl] = useState(store.nba_stats_teams[params.theid].stl);
-    const [blk, setBlk] = useState(store.nba_stats_teams[params.theid].blk);
-    const [to, setTo] = useState(store.nba_stats_teams[params.theid].to);
-    const [pf, setPf] = useState(store.nba_stats_teams[params.theid].pf);
+    const [w, setW] = useState(store.mlb_stats_teams[params.theid].w);
+    const [L, setL] = useState(store.mlb_stats_teams[params.theid].L);
+    const [pct, setPct] = useState(store.mlb_stats_teams[params.theid].pct);
+    const [gb, setGb] = useState(store.mlb_stats_teams[params.theid].gb);
+    const [home, setHome] = useState(store.mlb_stats_teams[params.theid].home);
+    const [away, setAway] = useState(store.mlb_stats_teams[params.theid].away);
+    const [rs, setRs] = useState(store.mlb_stats_teams[params.theid].rs);
+    const [ra, setRa] = useState(store.mlb_stats_teams[params.theid].ra);
+    const [diff, setDiff] = useState(store.mlb_stats_teams[params.theid].diff);
+    const [strk, setStrk] = useState(store.mlb_stats_teams[params.theid].strk);
+    const [L10, setL10] = useState(store.mlb_stats_teams[params.theid].L10);
+    const [poff, setPoff] = useState(store.mlb_stats_teams[params.theid].poff);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -43,36 +34,26 @@ export const Edit_Stats_MLB_Team = () => {
         const body = {
             season: season,
             team: team,
-            conference: conference,
+            league: league,
             division: division,
-
-            pts: pts,
-            fmg: fmg,
-            fga: fga,
-
-            fg: fg,
-            fg_AVG: fg_AVG,
-            three_pm: three_pm,
-            three_pa: three_pa,
-            three_p_AVG: three_p_AVG,
-            ftm: ftm,
-            fta: fta,
-            ft_AVG: ft_AVG,
-
-            Or: Or,
-            dr: dr,
-            reb: reb,
-            ast: ast,
-            stl: stl,
-            blk: blk,
-            to: to,
-            pf: pf
+            w: w,
+            L: L,
+            pct: pct,
+            gb: gb,
+            home: home,
+            away: away,
+            rs: rs,
+            ra: ra,
+            diff: diff,
+            strk: strk,
+            L10: L10,
+            poff: poff
 
         };
         console.log(body);
         console.log(body.date);
 
-        fetch("https://interfaceroy.herokuapp.com/stats_nba_team/"+ store.nba_stats_teams[params.theid].id, {
+        fetch("https://interfaceroy.herokuapp.com/stats_mlb_team/"+ store.mlb_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -88,7 +69,7 @@ export const Edit_Stats_MLB_Team = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://interfaceroy.herokuapp.com/stats_nba_team/" + store.nba_stats_teams[params.theid].id, {
+        fetch("https://interfaceroy.herokuapp.com/stats_mlb_team/" + store.mlb_stats_teams[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -103,8 +84,8 @@ export const Edit_Stats_MLB_Team = () => {
         selectYear.push(i);
     }
 
-    let selectConference = ["Eastern Conference", "Western Conference"];
-    let selectDivision = ["Northwest", "Southwest", "Pacific", "Atlantic", "Central", "Southeastern"];
+    let selectLiga = ["American League", "National League"];
+    let selectDivision = ["East", "Central", "West"];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
@@ -117,9 +98,9 @@ export const Edit_Stats_MLB_Team = () => {
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
-                                store.nba_teams.map((index) => {
+                                store.mlb_teams.map((index) => {
                                     return (
                                         <option key={index} name="team" value={index}>{index}</option>
                                     )
@@ -129,7 +110,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example"  onChange={e => setSeason(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example"  onChange={e => setSeason(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -140,10 +121,10 @@ export const Edit_Stats_MLB_Team = () => {
                         </select>
                     </div>
                     <div className="text-center col-3 p-1">
-                        Conference
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].conference} onChange={e => setConference(e.target.value)} required>
+                    League
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].league} onChange={e => setLeague(e.target.value)} required>
                             {
-                                selectConference.map((index) => {
+                                selectLiga.map((index) => {
                                     return (
                                         <option key={index} name="conference" value={index}>{index}</option>
                                     )
@@ -153,7 +134,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Division
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {
                                 selectDivision.map((index) => {
                                     return (
@@ -164,99 +145,67 @@ export const Edit_Stats_MLB_Team = () => {
                         </select>
                     </div>
                 </div>
-                <div id="crear-stats" className="py-3">
+                <div id="edith-mlb-stats" className="py-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Pts</div>
-                        <div className="col-2 title-lines">Fmg</div>
-                        <div className="col-2 title-lines">Fga</div>
-                        <div className="col-2 title-lines">Fg</div>
-                        <div className="col-2 title-lines">Fg AVG</div>
-                        <div className="col-2 title-lines">Three PM</div>
+                        <div className="col-2 title-lines">W</div>
+                        <div className="col-2 title-lines">L</div>
+                        <div className="col-2 title-lines">Pct</div>
+                        <div className="col-2 title-lines">Gb</div>
+                        <div className="col-2 title-lines">Home</div>
+                        <div className="col-2 title-lines">Away</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Pts" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].pts} onChange={e => setPts(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].w} onChange={e => setW(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fmg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].fmg} onChange={e => setFmg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].L} onChange={e => setL(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fga" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].fga} onChange={e => setFga(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pct" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].pct} onChange={e => setPct(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].fg} onChange={e => setfg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Gb" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fg AVG" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].fg_AVG} onChange={e => setFg_AVG(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].home} onChange={e => setHome(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Three PM" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].three_pm} onChange={e => setThree_pm(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].away} onChange={e => setAway(e.target.value)} required />
                         </div>
                     </div>
                     <div className="row g-0 text-center mt-3">
-                        <div className="col-2 title-lines">Three Pa</div>
-                        <div className="col-2 title-lines">Three P AVG</div>
-                        <div className="col-2 title-lines">Ftm</div>
-                        <div className="col-2 title-lines">Fta</div>
-                        <div className="col-2 title-lines">Ft AVG</div>
-                        <div className="col-2 title-lines">Or</div>
+                        <div className="col-2 title-lines">Rs</div>
+                        <div className="col-2 title-lines">Ra</div>
+                        <div className="col-2 title-lines">Diff</div>
+                        <div className="col-2 title-lines">Strk</div>
+                        <div className="col-2 title-lines">L10</div>
+                        <div className="col-2 title-lines">Poff</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Three Pa" name="rotation_home" defaultValue={store.nba_stats_teams[params.theid].three_pa} onChange={e => setThree_pa(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Rs" name="rotation_home" defaultValue={store.mlb_stats_teams[params.theid].rs} onChange={e => setRs(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Three P AVG" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].three_p_AVG} onChange={e => setThree_p_AVG(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ra" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].ra} onChange={e => setRa(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ftm" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ftm} onChange={e => setFtm(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Diff" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].diff} onChange={e => setDiff(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fta" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].fta} onChange={e => setFta(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].strk} onChange={e => setStrk(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ft AVG" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ft_AVG} onChange={e => setFt_AVG(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L10" aria-label="default input example"defaultValue={store.mlb_stats_teams[params.theid].L10} onChange={e => setL10(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="[Or" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].Or} onChange={e => setOr(e.target.value)} required />
-                        </div>
-                    </div>
-                    <div className="row g-0 text-center mt-3">
-                        <div className="eight_spans title-lines">Dr</div>
-                        <div className="eight_spans title-lines">Reb</div>
-                        <div className="eight_spans title-lines">Ast</div>
-                        <div className="eight_spans title-lines">Stl</div>
-                        <div className="eight_spans title-lines">Blk</div>
-                        <div className="eight_spans title-lines">To</div>
-                        <div className="eight_spans title-lines">Pf</div>
-                    </div>
-                    <div className="row g-0">
-                        <div className="eight_spans">
-                            <input type="text" className="form-control selectInner" placeholder="Dr" name="Dr" defaultValue={store.nba_stats_teams[params.theid].dr} onChange={e => setDr(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="Reb" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].reb} onChange={e => setReb(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="Ast" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ast} onChange={e => setAst(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="Stl" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].stl} onChange={e => setStl(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="Blk" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].blk} onChange={e => setBlk(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="To" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].to} onChange={e => setTo(e.target.value)} required />
-                        </div>
-                        <div className="eight_spans">
-                            <input className="form-control selectInner" type="text" placeholder="Pf" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].pf} onChange={e => setPf(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="poff" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].poff} onChange={e => setPoff(e.target.value)} required />
                         </div>
                     </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-4 p-3 text-end">
-                        <HashLink className="btn btn-info text-white" to="/admin">Back to Admin</HashLink>
+                        <HashLink className="btn btn-secondary text-white" to="/admin">Back to Admin</HashLink>
                     </div>
                     <div className="col-4 text-end p-3">
                         <button type="submit" className="btn btn-success">Edit</button>
@@ -277,13 +226,13 @@ export const Edit_Stats_MLB_Team = () => {
                                     {auth ? <Redirect to="/list_nfl_stats/" /> : null}
                                 </div>
                                 <div className="col-6 p-2 text-center">
-                                    <button type="button" className="btn btn-info text-white" data-bs-dismiss="modal">No</button>
+                                    <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {auth ? <Redirect to="/list_nba_stats/" /> : null}
+                {auth ? <Redirect to="/list_mlb_stats/" /> : null}
             </form>
         </div>
     )

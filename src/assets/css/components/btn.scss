@@ -1,4 +1,12 @@
 .bt_deg{
     background:$RGB;
     color: $white!important;
+    &:hover{
+        background: $BGR;
+    }
 }
+
+.bt_deg[value="d-block"] {
+    background: $BGB;
+    color: $blueDark!important;
+  }

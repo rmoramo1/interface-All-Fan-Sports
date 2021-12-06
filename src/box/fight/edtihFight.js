@@ -2,7 +2,7 @@ import { useParams, Redirect } from 'react-router-dom';
 import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
-export const EdithGames_nba = (props) => {
+export const EdithFight = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState(store.nbaGames[params.theid].status);

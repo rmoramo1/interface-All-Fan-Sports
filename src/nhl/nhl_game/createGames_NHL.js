@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import  ListGameMLB  from "./listGameMLB"
+import  ListGameNHL  from "./listGameNHL"
 import { Context } from "../../store/appContext";
 
-export const CreateGames_MLB = () => {
+export const CreateGames_NHL = () => {
 	const { store } = useContext(Context);
-	let teamFilter = store.mlbGames;
+	let teamFilter = store.nhlGames;
 	const [team, setTeam] = useState("");
 
 	// change page
@@ -18,7 +18,7 @@ export const CreateGames_MLB = () => {
 	return (
 		<div className="container-fluid">
 			<div className="col-12 bg-title-edith my-2 p-3 text-center">
-				<h3>List of Games MLB</h3>
+				<h3>List of Games NHL</h3>
 			</div>
 			<div className="col-12 ">
 				<div className="row g-0">
@@ -28,7 +28,7 @@ export const CreateGames_MLB = () => {
 					<div className="col-3">
 						<select className="form-select selectInner" name="teams" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
 							{
-								store.mlb_teams.map((index) => {
+								store.nhl_teams.map((index) => {
 									return (
 										<option key={index} name="teams" value={index}>{index}</option>
 									)
@@ -43,7 +43,7 @@ export const CreateGames_MLB = () => {
 				{!team ? teamFilter.map((item, indexMlb) => {
 					return (
 						<div key={indexMlb} className="linesEdith">
-							<ListGameMLB
+							<ListGameNHL
 								id={indexMlb}
 								del={item.id}
 								away={item.away}
@@ -54,10 +54,10 @@ export const CreateGames_MLB = () => {
 								hour={item.hour}
 								status={item.status}
 								date={item.date}
-								rl_away={item.rl_away}
-								rl_home={item.rl_home}
-								juice_rl_away={item.juice_rl_away}
-								juice_rl_home={item.juice_rl_home}
+								puck_line_away={item.puck_line_away}
+								puck_line_home={item.puck_line_home}
+								juice_puck_away={item.juice_puck_away}
+								juice_puck_home={item.juice_puck_home}
 								moneyLineAway={item.moneyLineAway}
 								moneyLineHome={item.moneyLineHome}
 								total={item.total}
@@ -77,7 +77,7 @@ export const CreateGames_MLB = () => {
 				}) : teamFilter.filter(equip => equip.home === team || equip.away === team).map((item, indexMlb) => {
 					return (
 						<div key={indexMlb}>
-							<ListGameMLB
+							<ListGameNHL
 								id={indexMlb}
 								del={item.id}
 								away={item.away}
@@ -88,10 +88,10 @@ export const CreateGames_MLB = () => {
 								rotation_home={item.rotation_home}
 								status={item.status}
 								date={item.date}
-								rl_away={item.rl_away}
-								rl_home={item.rl_home}
-								juice_rl_away={item.juice_rl_away}
-								juice_rl_home={item.juice_rl_home}
+								puck_line_away={item.puck_line_away}
+								puck_line_home={item.puck_line_home}
+								juice_puck_away={item.juice_puck_away}
+								juice_puck_home={item.juice_puck_home}
 								moneyLineAway={item.moneyLineAway}
 								moneyLineHome={item.moneyLineHome}
 								total={item.total}

@@ -12,6 +12,12 @@ import { NBA_game } from "../nba/nba_game/nba_game";
 import { Stats_py_nba } from "../nba/nba_py_stats/stats_py_nba";
 
 import { MLB_game } from "../mlb/mlb_game/MLB_game";
+import { Team_MLB_Stas } from "../mlb/mlb_team_stats/team_mlb_stas";
+import { Stats_py_mlb } from "../mlb/mlb_py_stats/stats_py_mlb";
+
+import { NHL_game } from "../nhl/nhl_game/NHL_game";
+import { Team_NHL_Stas } from "../nhl/nhl_team_stats/team_nhl_stas";
+import { Stats_py_nhl } from "../nhl/nhl_py_stats/stats_py_nhl"
 
 
 export const Links = () => {
@@ -103,14 +109,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="mlbSttsTeam" className="accordion-collapse collapse" aria-labelledby="mlb-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        mlb stadisticas de equipo
+                       <Team_MLB_Stas/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="mlbSttsPlayer" className="accordion-collapse collapse" aria-labelledby="mlb-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        mlb stats player
+                        <Stats_py_mlb/>
                     </div>
                 </div>
             </div>
@@ -119,28 +125,21 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="nhlGame" className="accordion-collapse collapse" aria-labelledby="nhl-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        game nhl
+                       <NHL_game/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nhlSttsTeam" className="accordion-collapse collapse" aria-labelledby="nhl-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        nhl stadisticas de equipo
+                        <Team_NHL_Stas/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nhlSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nhl-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        nhl stats player
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="oddsTW-NHL" className="accordion-collapse collapse" aria-labelledby="nhl-headingFour" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        odds t w nhl
+                    <Stats_py_nhl/>
                     </div>
                 </div>
             </div>

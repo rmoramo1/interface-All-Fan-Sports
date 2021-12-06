@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const ListGameMLB = props => {
+const ListFights_Box = props => {
     return (
         <div className="row g-0 listGames">
             <div className="col-1 d-flex justify-content-center align-items-center py-3">
@@ -11,15 +11,15 @@ const ListGameMLB = props => {
                         {props.casino}
                     </div>
                     <div className="col-12 text-center">
-                        <Link className="btn btn-dark text-white" to={`/edtihGame_MLB/${props.id}`}><i className="far fa-eye"></i></Link>
+                        <Link className="btn btn-dark text-white" to={`/edtihGame_nba/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
                 </div>
             </div>
             <div className="col-11 bg-white my-3 shadow">
                 <div className="row g-0 text-center title-lines">
-                    <div className="col-1 lines" id="statusMLB">{props.status}</div>
+                    <div className="col-1 lines" id="statusNBA">{props.status}</div>
                     <div className="col-2 lines">RT# / Team</div>
-                    <div className="col-1 lines">RL</div>
+                    <div className="col-1 lines">Spread</div>
                     <div className="col-1 lines">Juice</div>
                     <div className="col-1 lines">ML</div>
                     <div className="col-1 lines">Total</div>
@@ -35,15 +35,15 @@ const ListGameMLB = props => {
                         <div className="col-2 lines">
                             <div className="row g-0">
                                 <div className="col-1">
-                                    {props.rotation_away}|
+                                    {props.rotation_away}/
                                 </div>
                                 <div className="col-11">
                                     {props.away}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-1 lines">{props.rl_away}</div>
-                        <div className="col-1 lines">{props.juice_rl_away}</div>
+                        <div className="col-1 lines">{props.spread_away}</div>
+                        <div className="col-1 lines">{props.juice_spread_away}</div>
                         <div className="col-1 lines">{props.moneyLineAway}</div>
                         <div className="col-1 lines">{props.total}</div>
                         <div className="col-1 lines">{props.juice_total_over}</div>
@@ -57,15 +57,15 @@ const ListGameMLB = props => {
                         <div className="col-2 lines">
                             <div className="row g-0">
                                 <div className="col-1">
-                                    {props.rotation_home}|
+                                    {props.rotation_home}/
                                 </div>
                                 <div className="col-11">
                                     {props.home}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-1 lines">{props.rl_home}</div>
-                        <div className="col-1 lines">{props.juice_rl_home}</div>
+                        <div className="col-1 lines">{props.spread_home}</div>
+                        <div className="col-1 lines">{props.juice_spread_home}</div>
                         <div className="col-1 lines">{props.moneyLineHome}</div>
                         <div className="col-1 lines"></div>
                         <div className="col-1 lines">{props.juice_total_under}</div>
@@ -79,7 +79,7 @@ const ListGameMLB = props => {
         </div>
     );
 };
-ListGameMLB.propTypes = {
+ListGameNBA.propTypes = {
     id: PropTypes.number,
     del: PropTypes.number,
     away: PropTypes.string,
@@ -90,10 +90,9 @@ ListGameMLB.propTypes = {
     casino: PropTypes.string,
     status: PropTypes.string,
     date: PropTypes.string,
-    rl_away: PropTypes.string,
-    rl_home: PropTypes.string,
-    juice_rl_away: PropTypes.string,
-    juice_rl_home: PropTypes.string,
+    spread_away: PropTypes.string,
+    juice_spread_away: PropTypes.string,
+    juice_spread_home: PropTypes.string,
     moneyLineAway: PropTypes.string,
     moneyLineHome: PropTypes.string,
     total: PropTypes.string,
@@ -108,4 +107,4 @@ ListGameMLB.propTypes = {
     final_score_away: PropTypes.string,
     final_score_home: PropTypes.string,
 };
-export default ListGameMLB;
+export default ListGameNBA;

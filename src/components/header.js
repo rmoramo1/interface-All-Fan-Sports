@@ -56,13 +56,45 @@ export const Header = () => {
                                                     </li>
                                                     <li className="li_drop">
                                                         <HashLink to="/list_stats_nba_py">
-                                                            Players Stats    
+                                                            Players Stats
                                                         </HashLink>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li className="li_drop">MLB</li>
-                                            <li className="li_drop">NHL</li>
+                                            <li className="li_drop">
+                                                <li className="li_drop one_ul">
+                                                    MLB
+                                                    <ul className="second_ul">
+                                                        <HashLink to="/list_mlb_stats">
+                                                            <li className="li_drop">
+                                                                Team Stats
+                                                            </li>
+                                                        </HashLink>
+                                                        <HashLink to="/list_stats_mlb_py">
+                                                            <li className="li_drop">
+                                                                Players Stats
+                                                            </li>
+                                                        </HashLink>
+                                                    </ul>
+                                                </li>
+                                            </li>
+                                            <li className="li_drop">
+                                                <li className="li_drop one_ul">
+                                                    NHL
+                                                    <ul className="second_ul">
+                                                        <HashLink to="/list_nhl_stats">
+                                                            <li className="li_drop">
+                                                                Team Stats
+                                                            </li>
+                                                        </HashLink>
+                                                        <HashLink to="/list_stats_nhl_py">
+                                                            <li className="li_drop">
+                                                                Players Stats
+                                                            </li>
+                                                        </HashLink>
+                                                    </ul>
+                                                </li>
+                                            </li>
                                             <li className="li_drop">BOX</li>
                                             <li className="li_drop">MMA</li>
                                             <li className="li_drop">GOLF</li>

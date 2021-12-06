@@ -11,13 +11,13 @@ const ListGameNBA = props => {
                         {props.casino}
                     </div>
                     <div className="col-12 text-center">
-                        <Link className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></Link>
+                        <Link className="btn btn-dark text-white" to={`/edtihGame_nba/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
                 </div>
             </div>
             <div className="col-11 bg-white my-3 shadow">
                 <div className="row g-0 text-center title-lines">
-                    <div className="col-1 lines" id="statusNfl">{props.status}</div>
+                    <div className="col-1 lines" id="statusNBA">{props.status}</div>
                     <div className="col-2 lines">RT# / Team</div>
                     <div className="col-1 lines">Spread</div>
                     <div className="col-1 lines">Juice</div>

@@ -57,20 +57,6 @@ export const MLB_game = () => {
     const [fs_away_f5, setFs_away_f5] = useState("");
     const [fs_home_f5, setFs_home_f5] = useState("");
     //second half
-    const [sa_1inning, setSa_1inning] = useState("");
-    const [sh_1inning, setSh_1inning] = useState("");
-
-    const [sa_2inning, setSa_2inning] = useState("");
-    const [sh_2inning, setSh_2inning] = useState("");
-
-    const [sa_3inning, setSa_3inning] = useState("");
-    const [sh_3inning, setSh_3inning] = useState("");
-
-    const [sa_4inning, setSa_4inning] = useState("");
-    const [sh_4inning, setSh_4inning] = useState("");
-
-    const [sa_5inning, setSa_5inning] = useState("");
-    const [sh_5inning, setsh_5inning] = useState("");
 
     const [sa_6inning, setSa_6inning] = useState("");
     const [sh_6inning, setSh_6inning] = useState("");
@@ -109,7 +95,7 @@ export const MLB_game = () => {
     const [sh_17inning, setSh_17inning] = useState("");
 
     const [sa_18inning, setSa_18inning] = useState("");
-    const [sh_18inning, setsh_18inning] = useState("");
+    const [sh_18inning, setSh_18inning] = useState("");
 
     const [sa_19inning, setSa_19inning] = useState("");
     const [sh_19inning, setSh_19inning] = useState("");
@@ -232,17 +218,7 @@ export const MLB_game = () => {
 
             fs_away_f5: fs_away_f5,
             fs_home_f5: fs_home_f5,
-            sa_1inning: sa_1inning,
-            sh_1inning: sh_1inning,
-            sa_2inning: sa_2inning,
-            sh_2inning: sh_2inning,
-            sa_3inning: sa_3inning,
-            sh_3inning: sh_3inning,
-            sa_4inning: sa_4inning,
-            //--home
-            sh_4inning: sh_4inning,
-            sa_5inning: sa_5inning,
-            sh_5inning: sh_5inning,
+
             sa_6inning: sa_6inning,
             sh_6inning: sh_6inning,
             sa_7inning: sa_7inning,
@@ -273,6 +249,7 @@ export const MLB_game = () => {
             sa_18inning: sa_18inning,
             sh_18inning: sh_18inning,
             sa_19inning: sa_19inning,
+            sh_19inning: sh_19inning,
             sa_20inning: sa_20inning,
             sh_20inning: sh_20inning,
             sa_21inning: sa_21inning,
@@ -334,7 +311,7 @@ export const MLB_game = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
-                alert("juego se creo");
+                alert("Juego se creo");
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -479,26 +456,48 @@ export const MLB_game = () => {
                                 <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#first5" aria-expanded="false" aria-controls="first5">
                                     F5
                                 </button>
-                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#extraInning" aria-expanded="false" aria-controls="extraInning">
-                                    Extra Inning Score
+                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sixinning" aria-expanded="false" aria-controls="sixinning">
+                                    6-9 Inning score
+                                </button>
+                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#extrainning" aria-expanded="false" aria-controls="extrainning">
+                                    Extra Inning score
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0">
+
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3 text-center">
+                        <div className="col-12">
+                            Pitcher Away
+                        </div>
+                        <div className="col-12">
+                        <input className="form-control selectInner" type="text" placeholder="Pitcher Away" aria-label="default input example" onChange={e => setPitcher_a(e.target.value)} required />
+                        </div>
+                    </div>
+                    <div className="col-3 text-center">
+                        <div className="col-12">
+                            Pitcher Home
+                        </div>
+                        <div className="col-12">
+                        <input className="form-control selectInner" type="text" placeholder="Pitcher Home" aria-label="default input example" onChange={e => setPitcher_h(e.target.value)} required />
+                        </div>
+                    </div>
                 </div>
                 <div className="accordion-item ">
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameCreate_MLB">
@@ -651,7 +650,7 @@ export const MLB_game = () => {
                                 <input className="form-control selectInner" type="text" placeholder="Rl F5" aria-label="default input example" onChange={e => setRl_home_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={-110} onChange={e => setJuice_rl_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={-110} onChange={e => setJuice_rl_home_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
                                 <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" onChange={e => setMoneyLineHome_f5(e.target.value)} />
@@ -677,28 +676,332 @@ export const MLB_game = () => {
                         </div>
 
                     </div>
-                    <div id="extraInning" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#gameCreate_MLB">
+                    <div id="sixinning" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#gameCreate_MLB">
                         <div className="row g-0 py-3">
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">Inning 6</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFs_home_f5(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_6inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFs_home_f5(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_6inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
-                                <div className="col-12 title-lines text-center">Inning 6</div>
+                                <div className="col-12 title-lines text-center">Inning 7</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFs_home_f5(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_7inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setFs_home_f5(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setsh_7inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-2">
+                                <div className="col-12 title-lines text-center">Inning 8</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_8inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_8inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-2">
+                                <div className="col-12 title-lines text-center">Inning 9</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_9inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_9inning(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-
+                    </div>
+                    <div id="extrainning" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#gameCreate_MLB">
+                        <div className="row g-0 py-3">
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 10</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_10inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_10inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 11</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_11inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_11inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 12</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_12inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setsh_12inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 13</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_13inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_13inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 14</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_14inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_14inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 15</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_15inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_15inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 16</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_16inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_16inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 17</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_17inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_17inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 18</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_18inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_18inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 19</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_19inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_19inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 20</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_20inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_20inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 21</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_21inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_21inning(e.target.value)} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row g-0 py-3">
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 22</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_22inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_22inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 23</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_23inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_23inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 24</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_24inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_24inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 25</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_25inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_25inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 26</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_26inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_26inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 27</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_27inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_27inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 28</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_28inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_28inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 29</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_29inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_29inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 30</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_30inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_30inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 31</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_31inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_31inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 32</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_32inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_32inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 33</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_33inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_33inning(e.target.value)} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row g-0 py-3">
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 34</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_34inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_34inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 35</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_35inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_35inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 36</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_36inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_36inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 37</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_37inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => seSsh_37inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 38</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_38inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_38inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 39</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_39inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_39inning(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="col-1">
+                                <div className="col-12 title-lines text-center">Inning 40</div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSa_40inning(e.target.value)} />
+                                </div>
+                                <div className="col-12 title-lines">
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setSh_40inning(e.target.value)} />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
