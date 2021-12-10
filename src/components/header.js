@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 import logo from "../assets/img/logo.png"
@@ -95,12 +96,47 @@ export const Header = () => {
                                                     </ul>
                                                 </li>
                                             </li>
-                                            <li className="li_drop">BOX</li>
-                                            <li className="li_drop">MMA</li>
-                                            <li className="li_drop">GOLF</li>
-                                            <li className="li_drop">NASCAR</li>
+                                            <li className="li_drop">
+                                                <Link to="/list_stats_fighter_box">
+                                                    BOX
+                                                </Link>
+
+                                            </li>
+                                            <li className="li_drop">
+                                                <Link to="/list_stats_fighter_mma">
+                                                    MMA
+                                                </Link>
+                                            </li>
+                                            <li className="li_drop">
+                                                <Link to="list_stats_golfer">
+                                                    GOLF
+                                                </Link>
+                                            </li>
+                                            <li className="li_drop">
+                                                <Link to="/list_stats_nascar_driver">
+                                                    NASCAR
+                                                </Link>
+                                            </li>
                                             <li className="li_drop">COLLEGE</li>
-                                            <li className="li_drop">SOCCER</li>
+                                            <li className="li_drop">
+                                                <li className="li_drop one_ul">
+                                                    SOCCER
+                                                    <ul className="second_ul">
+                                                        <HashLink to="/list_soccer_stats">
+                                                            <li className="li_drop">
+                                                                Team Stats
+                                                            </li>
+                                                        </HashLink>
+                                                        <HashLink to="/list_stats_nhl_py">
+                                                            <li className="li_drop">
+                                                                Players Stats
+                                                            </li>
+                                                        </HashLink>
+                                                    </ul>
+                                                </li>
+
+
+                                            </li>
                                         </ul>
                                     </HashLink>
                                 </div>

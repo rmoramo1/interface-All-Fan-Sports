@@ -1,34 +1,53 @@
 import React, { useContext, useState } from "react";
-import  ListGameNBA  from "./listGameNBA"
+import ListFights_Box from "./listFights_box";
 import { Context } from "../../store/appContext";
+import DateTime from 'luxon/src/datetime.js'
 
 export const CreateFight = () => {
 	const { store } = useContext(Context);
-	let teamFilter = store.nbaGames;
-	const [team, setTeam] = useState("");
+	const weekLux = DateTime.now().weekNumber;
+	const yearLux = DateTime.now().year;
+	const [week, setWeek] = useState(weekLux);
+	console.log(week + ' weel');
+	const [filterYear, setFilterYear] = useState(yearLux);
+	let fight = store.box_fight;
 
-	// change page
-	// sort by born date
 	// use slice() to copy the array and not just make a reference
-	var byDate = teamFilter;
-	byDate.sort(function(a,b) {
+	var byDate = fight;
+	byDate.sort(function (a, b) {
 		return b.id - a.id;
 	});
+
+	let selectWeek = [];
+	for (let i = 1; i < 53; i++) {
+		if (i < 10) {
+			i = "0" + i;
+			selectWeek.push(i);
+		} else {
+			selectWeek.push(i);
+		}
+	}
+	
+	let selectYear = [];
+	for (let i = 2002; i < 2025; i++) {
+		selectYear.push(i);
+	}
 
 	return (
 		<div className="container-fluid">
 			<div className="col-12 bg-title-edith my-2 p-3 text-center">
-				<h3>List of Games</h3>
+				<h3>List of BOX Fights</h3>
 			</div>
 			<div className="col-12 ">
 				<div className="row g-0">
 					<div className="col-2 d-flex justify-content-center align-items-center">
-						Filter by team
+						Filter
 					</div>
-					<div className="col-3">
-						<select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
+					<div className="col-3 text-center">
+						Week
+						<select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={weekLux} onChange={e => setWeek(e.target.value)}>
 							{
-								store.nba_teams.map((index) => {
+								selectWeek.map((index) => {
 									return (
 										<option key={index} name="promotions" value={index}>{index}</option>
 									)
@@ -36,79 +55,40 @@ export const CreateFight = () => {
 							}
 						</select>
 					</div>
-					<div className="col-3 ms-2">
-						<button className="btn btn-danger" type="button" name="week" aria-label="Default select example" onClick={e => setTeam("")}>All Teams</button>
+					<div className="text-center col-4 col-lg-2 ps-2">
+						Year
+						<select className="form-select" name="year" aria-label="Default select example" defaultValue={yearLux} onChange={e => setFilterYear(e.target.value)}>
+							{
+								selectYear.map((index) => {
+									return (
+										<option key={index} name="promotions" value={index}>{index}</option>
+									)
+								})
+							}
+						</select>
 					</div>
 				</div>
-				{!team ? teamFilter.map((item, index) => {
-					return (
-						<div key={index} className="linesEdith">
-							<ListGameNBA
-								id={index}
-								del={item.id}
-								away={item.away}
-								home={item.home}
-								casino={item.casino}
-								rotation_away={item.rotation_away}
-								rotation_home={item.rotation_home}
-								hour={item.hour}
-								status={item.status}
-								date={item.date}
-								spread_away={item.spread_away}
-								spread_home={item.spread_home}
-								juice_spread_away={item.juice_spread_away}
-								juice_spread_home={item.juice_spread_home}
-								moneyLineAway={item.moneyLineAway}
-								moneyLineHome={item.moneyLineHome}
-								total={item.total}
-								juice_total_over={item.juice_total_over}
-								juice_total_under={item.juice_total_under}
-								tt_away={item.tt_away}
-								tt_home={item.tt_home}
-								juice_over_away={item.juice_over_away}
-								juice_under_away={item.juice_under_away}
-								juice_over_home={item.juice_over_home}
-								juice_under_home={item.juice_under_home}
-								final_score_away={item.final_score_away}
-								final_score_home={item.final_score_home}
-							/>
-						</div>
-					);
-				}) : teamFilter.filter(equip => equip.home === team || equip.away === team).map((item, index) => {
-					return (
-						<div key={index}>
-							<ListGameNBA
-								id={index}
-								del={item.id}
-								away={item.away}
-								home={item.home}
-								hour={item.hour}
-								casino={item.casino}
-								rotation_away={item.rotation_away}
-								rotation_home={item.rotation_home}
-								status={item.status}
-								date={item.date}
-								spread_away={item.spread_away}
-								spread_home={item.spread_home}
-								juice_spread_away={item.juice_spread_away}
-								juice_spread_home={item.juice_spread_home}
-								moneyLineAway={item.moneyLineAway}
-								moneyLineHome={item.moneyLineHome}
-								total={item.total}
-								juice_total_over={item.juice_total_over}
-								juice_total_under={item.juice_total_under}
-								tt_away={item.tt_away}
-								tt_home={item.tt_home}
-								juice_over_away={item.juice_over_away}
-								juice_under_away={item.juice_under_away}
-								juice_over_home={item.juice_over_home}
-								juice_under_home={item.juice_under_home}
-								final_score_away={item.final_score_away}
-								final_score_home={item.final_score_home}
-							/>
-						</div>
-					);
-				})}
+				<div className="row g-0">
+					{fight.map((item, index) => {
+						if ( item.date.includes(filterYear) && item.week == week) {
+							return (
+								<div key={index} className="col-6 p-1">
+									<ListFights_Box
+										id={index}
+										del={item.id}
+										casino={item.casino}
+										date={item.date}
+										event={item.event}
+										week={item.week}
+										winner={item.winner}
+										fighter_One={item.fighter_One}
+										fighter_Two={item.fighter_Two}
+									/>
+								</div>
+							);
+						}
+					})}
+				</div>
 
 			</div>
 		</div>

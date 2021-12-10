@@ -318,120 +318,22 @@ export const Tabs = () => {
                         <div className="accordion" id="nascar-items">
                             <div className="accordion-item">
                                 <h2 className="accordion-header" id="soccer-headingOne">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#laLiga" aria-expanded="false" aria-controls="laLiga">
-                                        Spain LaLiga <i className="far fa-futbol ps-2 fs-5"></i>
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Soccer" aria-expanded="false" aria-controls="Soccer">
+                                        Soccer Match <i className="far fa-futbol ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>
                             <div className="accordion-item">
                                 <h2 className="accordion-header" id="soccer-headingTwo">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#italia_sa" aria-expanded="false" aria-controls="italia_sa">
-                                        Italia Serie A<i className="far fa-futbol ps-2 fs-5"></i>
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stats_soccer_player" aria-expanded="false" aria-controls="stats_soccer_player">
+                                        Player Stats<i className="far fa-futbol ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>
                             <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingThree">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bundesliga" aria-expanded="false" aria-controls="bundesliga">
-                                        Bundesliga <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingFour">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#england_premier_league" aria-expanded="false" aria-controls="england_premier_league">
-                                        Premier League <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingFive">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#france_league_1" aria-expanded="false" aria-controls="france_league_1">
-                                        France League 1 <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingSix">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Mexico_Liga_Apertura" aria-expanded="false" aria-controls="Mexico_Liga_Apertura">
-                                        Mexico Liga Apertura <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingSeven">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Mexico_Liga_Expancion" aria-expanded="false" aria-controls="Mexico_Liga_Expancion">
-                                        Mexico Liga Expancion <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingEight">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Mls" aria-expanded="false" aria-controls="Mls">
-                                        MLS <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingNine">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Brazil_Serie_A" aria-expanded="false" aria-controls="Brazil_Serie_A">
-                                        Brazil Serie A <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingThen">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Colombia_Primera_A" aria-expanded="false" aria-controls="Colombia_Primera_A">
-                                        Colombia Primera A <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingEleven">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CR_P_División" aria-expanded="false" aria-controls="CR_P_División">
-                                        Costa Rica P División <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingTwelve">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Champions_League" aria-expanded="false" aria-controls="Champions_League">
-                                        Champions League <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingThirten">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Confederations_Cup" aria-expanded="false" aria-controls="Confederations_Cup">
-                                        Confederations Cup <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingFifteen">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#World_Cup_Qualifying" aria-expanded="false" aria-controls="World_Cup_Qualifying">
-                                        World Cup Qualifying <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingSixteen">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#UEFA_Europa_League" aria-expanded="false" aria-controls="UEFA_Europa_League">
-                                        UEFA Europa League <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingSeventeen">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#International_Friendlies" aria-expanded="false" aria-controls="International_Friendlies">
-                                        International Friendlies <i className="far fa-futbol ps-2 fs-5"></i>
-                                    </HashLink>
-                                </h2>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header" id="soccer-headingEighteen">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#International_Matches" aria-expanded="false" aria-controls="International_Matches">
-                                        International Matches <i className="far fa-futbol ps-2 fs-5"></i>
+                                <h2 className="accordion-header" id="soccer-headingTwo">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soccer_team_stats" aria-expanded="false" aria-controls="soccer_team_stats">
+                                    Team Stats<i className="far fa-futbol ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>

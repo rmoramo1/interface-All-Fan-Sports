@@ -18,7 +18,7 @@ export const CreateGames_NFL = () => {
 	return (
 		<div className="container-fluid">
 			<div className="col-12 bg-title-edith my-2 p-3 text-center">
-				<h3>List of Games</h3>
+				<h3>List of NFL Games</h3>
 			</div>
 			<div className="col-12 ">
 				<div className="row g-0">

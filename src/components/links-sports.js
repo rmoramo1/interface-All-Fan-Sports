@@ -19,6 +19,21 @@ import { NHL_game } from "../nhl/nhl_game/NHL_game";
 import { Team_NHL_Stas } from "../nhl/nhl_team_stats/team_nhl_stas";
 import { Stats_py_nhl } from "../nhl/nhl_py_stats/stats_py_nhl"
 
+import { Fight_box } from "../box/fight/fight_box";
+import { Stats_Fighter_box } from "../box/boxer_stats/stats_figther_box";
+
+import { Fight_mma } from "../mma/fight_mma/fight_mma";
+import { Stats_Fighter_mma } from "../mma/mma_stats/stats_figther_mma";
+
+import { Golf } from "../golf/golf/golf";
+import { Stats_Golfer } from "../golf/golfer_stats/stats_golfer";
+
+import { Nascar } from "../nascar/nascar/nascar";
+import { Stats_Nascar_Driver } from "../nascar/nascar_drivers/stats_nascar_driver";
+
+import { Soccer_game } from "../soccer/soccer_game/soccer_game";
+import { Team_Soccer_Stas } from "../soccer/soccer_team_stats/team_soccer_stas";
+
 
 export const Links = () => {
     return (
@@ -148,14 +163,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="boxGame" className="accordion-collapse collapse" aria-labelledby="box-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        fight box
+                        <Fight_box/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="boxSttsTeam" className="accordion-collapse collapse" aria-labelledby="box-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        box stadisticas de peleador
+                        <Stats_Fighter_box/>
                     </div>
                 </div>
             </div>
@@ -164,14 +179,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="mmaGame" className="accordion-collapse collapse" aria-labelledby="mma-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        fight mma
+                        <Fight_mma/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="mmaSttsTeam" className="accordion-collapse collapse" aria-labelledby="mma-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        mma stadisticas de peleador
+                        <Stats_Fighter_mma/>
                     </div>
                 </div>
             </div>
@@ -180,14 +195,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="golfGame" className="accordion-collapse collapse" aria-labelledby="golf-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        evento de  golf
+                        <Golf/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="golfSttsTeam" className="accordion-collapse collapse" aria-labelledby="golf-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        golfer stadisticas
+                        <Stats_Golfer/>
                     </div>
                 </div>
             </div>
@@ -196,14 +211,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="nascarGame" className="accordion-collapse collapse" aria-labelledby="nascar-headingOne"  data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        evento de  nascar
+                        <Nascar/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nascarSttsTeam" className="accordion-collapse collapse" aria-labelledby="nascar-headingTwo"  data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        nascar drivers
+                        <Stats_Nascar_Driver/>
                     </div>
                 </div>
             </div>
@@ -233,128 +248,23 @@ export const Links = () => {
             {/*  COLLEGE*/}
             {/*  soccer*/}
             <div className="accordion-item">
-                <div id="laLiga" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
+                <div id="Soccer" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        laLiga
+                        <Soccer_game/>
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="italia_sa" className="accordion-collapse collapse" aria-labelledby="soccer-headingTwo" data-bs-parent="#allitems">
+                <div id="stats_soccer_player" className="accordion-collapse collapse" aria-labelledby="soccer-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        Italia Serie A
+                    stats_soccer_player
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="bundesliga" className="accordion-collapse collapse" aria-labelledby="soccer-headingThree" data-bs-parent="#allitems">
+                <div id="soccer_team_stats" className="accordion-collapse collapse" aria-labelledby="soccer team stats" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        bundesliga
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="england_premier_league" className="accordion-collapse collapse" aria-labelledby="soccer-headingFour" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        England Premier League
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="france_league_1" className="accordion-collapse collapse" aria-labelledby="soccer-headingFive" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        France League 1
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Mexico_Liga_Apertura" className="accordion-collapse collapse" aria-labelledby="soccer-headingSix" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Mexico_Liga_Apertura
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Mexico_Liga_Expancion" className="accordion-collapse collapse" aria-labelledby="soccer-headingSeven" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Mexico_Liga_Expancion
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Mls" className="accordion-collapse collapse" aria-labelledby="soccer-headingEight" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Mls
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Brazil_Serie_A" className="accordion-collapse collapse" aria-labelledby="soccer-headingNine" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Brazil Serie A
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Colombia_Primera_A" className="accordion-collapse collapse" aria-labelledby="soccer-headingThen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Colombia Primera A
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="CR_P_División" className="accordion-collapse collapse" aria-labelledby="soccer-headingEleven" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Costa Rica P División
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Champions_League" className="accordion-collapse collapse" aria-labelledby="soccer-headingTwelve" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Champions_League
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="Confederations_Cup" className="accordion-collapse collapse" aria-labelledby="soccer-headingThirteen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        Confederations Cup
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="CONCACAF" className="accordion-collapse collapse" aria-labelledby="soccer-headingFourtheen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        CONCACAF
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="World_Cup_Qualifying" className="accordion-collapse collapse" aria-labelledby="soccer-headingFiftheen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        World Cup Qualifying
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="UEFA_Europa_League" className="accordion-collapse collapse" aria-labelledby="soccer-headingSixteen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        UEFA_Europa_League
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="International_Friendlies" className="accordion-collapse collapse" aria-labelledby="soccer-headingSeventeen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                        International_Friendlies
-                    </div>
-                </div>
-            </div>
-            <div className="accordion-item">
-                <div id="International_Matches" className="accordion-collapse collapse" aria-labelledby="soccer-headingEighteen" data-bs-parent="#allitems">
-                    <div className="accordion-body p-1">
-                    International Matches
+                        <Team_Soccer_Stas/>
                     </div>
                 </div>
             </div>

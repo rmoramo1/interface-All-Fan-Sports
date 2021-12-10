@@ -10,7 +10,7 @@ export const Home = () => {
 		AOS.init({ duration: 1500 });
 	}, []);
 	return (
-		<div className="container-fluid p-0">
+		<div className="container-fluid p-0 m-50">
 			<div className="slider">
 				este es el Slider del home
 			</div>

@@ -39,7 +39,27 @@ import { List_NHL_Stats } from "./nhl/nhl_team_stats/list_nhl_stats";
 import { Edit_Stats_NHL_Team } from "./nhl/nhl_team_stats/edith_stats_nhl_team";
 import { Edit_stats_player_nhl } from "./nhl/nhl_py_stats/edit_stats_player_nhl";
 import { List_Stats_NHL_PY } from "./nhl/nhl_py_stats/list_stats_nhl_py";
-//
+//box
+import { EdithFight } from "./box/fight/edtihFight";
+import { List_Stats_Fighter_Box } from "./box/boxer_stats/list_stats_fighter_box";
+import { Edit_stats_Fighter_box } from "./box/boxer_stats/edit_stats_fighter_box";
+//mma
+import { EdithFight_mma } from "./mma/fight_mma/edtihFight_mma";
+import { List_Stats_Fighter_mma } from "./mma/mma_stats/list_stats_fighter_mma";
+import { Edit_stats_Fighter_mma } from "./mma/mma_stats/edit_stats_fighter_mma"
+//golf
+import { EdithGolf } from "./golf/golf/edtihGolf";
+import { List_Stats_Golfer } from "./golf/golfer_stats/list_stats_golfer";
+import { Edit_stats_Golfer } from "./golf/golfer_stats/edit_stats_golfer";
+//nascar
+import { EditNascar } from "./nascar/nascar/edtihNascar";
+import { List_Nascar_Driver } from "./nascar/nascar_drivers/list_stats_nascar_driver";
+import { Edit_stats_Nascar_Driver } from "./nascar/nascar_drivers/edit_stats_nascar_driver";
+//soocer
+import { EdithGames_Soccer } from "./soccer/soccer_game/edtihGame_Soccer";
+import { List_Soccer_Stats } from "./soccer/soccer_team_stats/list_soccer_stats";
+import { Edit_Stats_Soccer_Team } from "./soccer/soccer_team_stats/edith_stats_soccer_team";
+//all
 import { AllGames } from "./pages/allGames";
 /*components*/
 import { Header } from "./components/header";
@@ -62,11 +82,21 @@ function App() {
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb}/>
 					<Route exact path="/edtihGame_nba/:theid" component={EdithGames_nba}/>
 					<Route exact path="/edtihGame_NHL/:theid" component={EdithGames_nhl}/>
+					<Route exact path="/edtihGame_Soccer/:theid" component={EdithGames_Soccer}/>
+					<Route exact path="/edtihFight/:theid" component={EdithFight_mma}/>
+					<Route exact path="/edtihFight_mma/:theid" component={EdithFight}/>
+					<Route exact path="/edtihGolf/:theid" component={EdithGolf}/>
+					<Route exact path="/edtihNascar/:theid" component={EditNascar}/>
 					<Route exact path="/list_nfl_stats" component={List_NFL_Stats}/>
 					<Route exact path="/list_stats_nfl_py" component={List_Stats_NFL_PY}/>
 					<Route exact path="/list_stats_nba_py" component={List_Stats_NBA_PY}/>
 					<Route exact path="/list_stats_mlb_py" component={List_Stats_MLB_PY}/>
 					<Route exact path="/list_stats_nhl_py" component={List_Stats_NHL_PY}/>
+					<Route exact path="/list_soccer_stats" component={List_Soccer_Stats}/>
+					<Route exact path="/list_stats_fighter_box" component={List_Stats_Fighter_Box}/>
+					<Route exact path="/list_stats_fighter_mma" component={List_Stats_Fighter_mma}/>
+					<Route exact path="/list_stats_golfer" component={List_Stats_Golfer}/>
+					<Route exact path="/list_stats_nascar_driver" component={List_Nascar_Driver}/>
 					<Route exact path="/list_nba_stats" component={List_NBA_Stats}/>
 					<Route exact path="/list_mlb_stats" component={List_MLB_Stats}/>
 					<Route exact path="/list_nhl_stats" component={List_NHL_Stats}/>
@@ -76,9 +106,14 @@ function App() {
 					<Route exact path="/edith_stats_nba_team/:theid" component={Edit_Stats_NBA_Team}/>
 					<Route exact path="/edith_stats_mlb_team/:theid" component={Edit_Stats_MLB_Team}/>
 					<Route exact path="/edith_stats_nhl_team/:theid" component={Edit_Stats_NHL_Team}/>
+					<Route exact path="/edith_stats_soccer_team/:theid" component={Edit_Stats_Soccer_Team}/>
 					<Route exact path="/edit_stats_player_mlb/:theid" component={Edit_stats_player_mlb}/>
 					<Route exact path="/edit_stats_player_nba/:theid" component={Edit_stats_player_nba}/>
 					<Route exact path="/edit_stats_player_nhl/:theid" component={Edit_stats_player_nhl}/>
+					<Route exact path="/edit_stats_fighter_box/:theid" component={Edit_stats_Fighter_box}/>
+					<Route exact path="/edit_stats_fighter_mma/:theid" component={Edit_stats_Fighter_mma}/>
+					<Route exact path="/edit_stats_golfer/:theid" component={Edit_stats_Golfer}/>
+					<Route exact path="/edit_stats_nascar_driver/:theid" component={Edit_stats_Nascar_Driver}/>
 					<Route exact path="/edit_stats_deff_player_nfl/:theid" component={Stats_deff_player_nfl}/>
 					<Route exact path="/edit_stats_off_player_nfl/:theid" component={Stats_off_player_nfl}/>
 					<Route exact path="/edit_stats_ret_player_nfl/:theid" component={Stats_ret_player_nfl}/>
