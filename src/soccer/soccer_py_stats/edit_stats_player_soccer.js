@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
-export const Edit_stats_player_nba = () => {
+export const Edit_stats_player_soccer = () => {
     const { store } = useContext(Context);
     const params = useParams();
 

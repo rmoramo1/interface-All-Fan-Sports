@@ -33,6 +33,7 @@ import { Stats_Nascar_Driver } from "../nascar/nascar_drivers/stats_nascar_drive
 
 import { Soccer_game } from "../soccer/soccer_game/soccer_game";
 import { Team_Soccer_Stas } from "../soccer/soccer_team_stats/team_soccer_stas";
+import { Stats_py_soccer } from "../soccer/soccer_py_stats/stats_py_soccer";
 
 
 export const Links = () => {
@@ -257,7 +258,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="stats_soccer_player" className="accordion-collapse collapse" aria-labelledby="soccer-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                    stats_soccer_player
+                    <Stats_py_soccer/>
                     </div>
                 </div>
             </div>

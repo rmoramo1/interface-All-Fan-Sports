@@ -51,7 +51,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//soccer
 			soccer:[],
 			soccer_tournament:[],
-			soccer_stats_teams:[]
+			soccer_stats_teams:[],
+			soccer_stats_player:[]
 
 		},
 		actions: {
@@ -225,6 +226,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer_stats_teams: results });
+			},
+			loadSoccer_player_stats: async () => {
+				const url = "https://interfaceroy.herokuapp.com/stats_soccer_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ soccer_stats_player: results });
 			},
 			
 			//casinos

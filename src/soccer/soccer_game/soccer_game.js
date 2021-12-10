@@ -16,11 +16,11 @@ export const Soccer_game = () => {
     const [minCrear, setMinCrear] = useState("01");
     let [timeCrear] = useState("01");
     timeCrear = hourCrear + ":" + minCrear;
-    
+
+    const [country, setcountry] = useState("Espana");
     const [tournament, settournament] = useState("LaLiga");
-    const [country, setcountry] = useState("España");
-    const [away, setaway] = useState("");
-    const [home, sethome] = useState("");
+    const [away, setaway] = useState("FC Barcelona");
+    const [home, sethome] = useState("FC Barcelona");
     //
     const [goal_line_away, setgoal_line_away] = useState("");
     const [goal_line_home, setgoal_line_home] = useState("-");
@@ -176,7 +176,6 @@ export const Soccer_game = () => {
             selectMin.push(i);
         }
     }
-
     return (
         <div className="container-fluid p-0 m-0 accordion" id="gameCreateSoccer" >
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
@@ -272,49 +271,49 @@ export const Soccer_game = () => {
                 </div>
                 <div className="row g-0">
 
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
-                    </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
-                </div>
-                <div className="col-3 px-3">
-                    <div className="col-12 text-center">
-                        Tournament 
-                    </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => settournament(e.target.value)}>
-                        {
-                            store.soccer_tournament.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
                                     )
-                            })
-                        }
-                    </select>
-                </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Country
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcountry(e.target.value)}>
-                        {
-                            store.soccer_tournament.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.country}>{item.country}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3 px-3">
+                        <div className="col-12 text-center">
+                            Country
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcountry(e.target.value)}>
+                            {
+                                store.soccer_tournament.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.country}>{item.country}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Tournament
+                        </div>
+                        <select className="form-select selectInner" name="Tournament" aria-label="Tournament" onChange={e => settournament(e.target.value)}>
+                            {
+                                store.soccer_tournament.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
-                                    </div>
                 <div className="accordion-ite ">
                     <div id="crear-juego-soccer" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameCreateSoccer">
                         <div>
@@ -336,7 +335,17 @@ export const Soccer_game = () => {
                                     <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Away" aria-label="set away" onChange={e => setaway(e.target.value)} required />
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={country.tournament} onChange={e => setaway(e.target.value)}>
+                                        {
+                                            store.soccer_stats_teams.map((item, index) => {
+                                                if (item.league == tournament) {
+                                                    return (
+                                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                                    )
+                                                }
+                                            })
+                                        }
+                                    </select>
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Goal Line" aria-label="default input example" onChange={e => setgoal_line_away(e.target.value)} required />
@@ -371,7 +380,17 @@ export const Soccer_game = () => {
                                     <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" onChange={e => sethome(e.target.value)} required />
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => sethome(e.target.value)}>
+                                        {
+                                            store.soccer_stats_teams.map((item, index) => {
+                                                if (item.league == tournament) {
+                                                    return (
+                                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                                    )
+                                                }
+                                            })
+                                        }
+                                    </select>
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Goal Line" aria-label="default input example" onChange={e => setgoal_line_home(e.target.value)} required />

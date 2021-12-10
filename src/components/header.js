@@ -127,7 +127,7 @@ export const Header = () => {
                                                                 Team Stats
                                                             </li>
                                                         </HashLink>
-                                                        <HashLink to="/list_stats_nhl_py">
+                                                        <HashLink to="/list_stats_soccer_py">
                                                             <li className="li_drop">
                                                                 Players Stats
                                                             </li>

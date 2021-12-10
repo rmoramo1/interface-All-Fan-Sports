@@ -59,6 +59,7 @@ import { Edit_stats_Nascar_Driver } from "./nascar/nascar_drivers/edit_stats_nas
 import { EdithGames_Soccer } from "./soccer/soccer_game/edtihGame_Soccer";
 import { List_Soccer_Stats } from "./soccer/soccer_team_stats/list_soccer_stats";
 import { Edit_Stats_Soccer_Team } from "./soccer/soccer_team_stats/edith_stats_soccer_team";
+import { List_Stats_Soccer_PY } from "./soccer/soccer_py_stats/list_stats_soccer_py";
 //all
 import { AllGames } from "./pages/allGames";
 /*components*/
@@ -93,6 +94,7 @@ function App() {
 					<Route exact path="/list_stats_mlb_py" component={List_Stats_MLB_PY}/>
 					<Route exact path="/list_stats_nhl_py" component={List_Stats_NHL_PY}/>
 					<Route exact path="/list_soccer_stats" component={List_Soccer_Stats}/>
+					<Route exact path="/list_stats_soccer_py" component={List_Stats_Soccer_PY}/>
 					<Route exact path="/list_stats_fighter_box" component={List_Stats_Fighter_Box}/>
 					<Route exact path="/list_stats_fighter_mma" component={List_Stats_Fighter_mma}/>
 					<Route exact path="/list_stats_golfer" component={List_Stats_Golfer}/>
