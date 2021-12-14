@@ -120,7 +120,7 @@ export const EdithGames_Soccer = (props) => {
                 console.log(sessionStorage);
                 alert("juego se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
 
@@ -133,7 +133,7 @@ export const EdithGames_Soccer = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
 
 

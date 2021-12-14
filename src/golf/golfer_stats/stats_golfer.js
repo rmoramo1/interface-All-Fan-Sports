@@ -51,7 +51,7 @@ export const Stats_Golfer = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de Golfista se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

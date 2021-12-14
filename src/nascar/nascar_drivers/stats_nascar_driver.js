@@ -61,7 +61,7 @@ export const Stats_Nascar_Driver = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de Golfista se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

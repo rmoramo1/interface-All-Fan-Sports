@@ -40,7 +40,7 @@ export const List_Stats_Soccer_PY = () => {
                                                     name={item.name}
                                                     position={item.position}
                                                     dorsal={item.dorsal}
-                                                    season={item.minutes}
+                                                    season={item.season}
                                                 />
                                             </div>
                                         );

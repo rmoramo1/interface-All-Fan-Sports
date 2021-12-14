@@ -3,12 +3,19 @@ export const Tabs = () => {
     return (
         <div className="accordion" id="accordionPrincipal">
             <div className="accordion-item">
+                <div className="accordion-header" id="headingOneSHOW">
+                    <HashLink className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#firsth_Show" aria-expanded="true" aria-controls="firsth_Show" id="nfl-item">
+                        INICIO <i className="fas fa-home ps-5 fs-5"></i>
+                    </HashLink>
+                </div>
+            </div>
+            <div className="accordion-item">
                 <div className="accordion-header" id="headingOneNFL">
-                    <HashLink className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nfl-collapse" aria-expanded="true" aria-controls="nfl-collapse" id="nfl-item">
+                    <HashLink className="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nfl-collapse" aria-expanded="true" aria-controls="nfl-collapse" id="nfl-item">
                         NFL <i className="fas fa-football-ball ps-5 fs-5"></i>
                     </HashLink>
                 </div>
-                <div id="nfl-collapse" className="accordion-collapse collapse collapse-inn show" aria-labelledby="headingOneNFL" data-bs-parent="#accordionPrincipal">
+                <div id="nfl-collapse" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingOneNFL" data-bs-parent="#accordionPrincipal">
                     <div className="allitems">
                         <div className="accordion" id="nfl-item">
                             <div className="accordion-item">
@@ -317,6 +324,13 @@ export const Tabs = () => {
                     <div className="allitems">
                         <div className="accordion" id="nascar-items">
                             <div className="accordion-item">
+                                <h2 className="accordion-header" id="soccer-headingZERO">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Soccer_tournament" aria-expanded="false" aria-controls="Soccer_tournament">
+                                        Soccer Tournament <i className="far fa-futbol ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
                                 <h2 className="accordion-header" id="soccer-headingOne">
                                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Soccer" aria-expanded="false" aria-controls="Soccer">
                                         Soccer Match <i className="far fa-futbol ps-2 fs-5"></i>
@@ -333,7 +347,7 @@ export const Tabs = () => {
                             <div className="accordion-item">
                                 <h2 className="accordion-header" id="soccer-headingTwo">
                                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#soccer_team_stats" aria-expanded="false" aria-controls="soccer_team_stats">
-                                    Team Stats<i className="far fa-futbol ps-2 fs-5"></i>
+                                        Team Stats<i className="far fa-futbol ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>

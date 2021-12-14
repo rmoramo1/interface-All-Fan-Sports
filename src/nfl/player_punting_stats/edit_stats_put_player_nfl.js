@@ -75,7 +75,7 @@ export const Stats_put_player_nfl = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -87,7 +87,7 @@ export const Stats_put_player_nfl = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

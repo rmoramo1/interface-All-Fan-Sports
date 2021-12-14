@@ -82,7 +82,7 @@ export const Stats_py_mlb = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

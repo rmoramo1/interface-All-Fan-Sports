@@ -97,7 +97,7 @@ export const Fight_box = () => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
                 alert("Pelea se creo");
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

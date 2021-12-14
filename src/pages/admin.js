@@ -14,6 +14,12 @@ import { Links } from "../components/links-sports";
 export const Admin = () => {
     const { store, actions } = useContext(Context);
     useEffect(() => {
+        if(!store.username_temp){
+            window.location.href = '/';
+        }
+    }, [])
+
+    useEffect(() => {
         AOS.init({ duration: 1500 });
     }, []);
     return (

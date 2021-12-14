@@ -316,7 +316,7 @@ export const Nfl_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
                 alert("juego se creo");
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

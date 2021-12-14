@@ -34,6 +34,7 @@ import { Stats_Nascar_Driver } from "../nascar/nascar_drivers/stats_nascar_drive
 import { Soccer_game } from "../soccer/soccer_game/soccer_game";
 import { Team_Soccer_Stas } from "../soccer/soccer_team_stats/team_soccer_stas";
 import { Stats_py_soccer } from "../soccer/soccer_py_stats/stats_py_soccer";
+import { Tournaments } from "../soccer/tournament/tournament";
 
 
 export const Links = () => {
@@ -41,7 +42,14 @@ export const Links = () => {
         <div> 
             {/* nfl */}
             <div className="accordion-item">
-                <div id="gameNFL" className="accordion-collapse collapse show" aria-labelledby="headingOne"  data-bs-parent="#allitems">
+                <div id="firsth_Show" className="accordion-collapse collapse show" aria-labelledby="headingOne"  data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        Primera cosa que se ve
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="gameNFL" className="accordion-collapse collapse" aria-labelledby="headingOne"  data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
                         <Nfl_game/>
                     </div>
@@ -248,6 +256,13 @@ export const Links = () => {
             </div>
             {/*  COLLEGE*/}
             {/*  soccer*/}
+            <div className="accordion-item">
+                <div id="Soccer_tournament" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                    <Tournaments/>
+                    </div>
+                </div>
+            </div>
             <div className="accordion-item">
                 <div id="Soccer" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">

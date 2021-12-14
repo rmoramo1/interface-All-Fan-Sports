@@ -61,7 +61,7 @@ export const Edit_stats_Nascar_Driver = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de Golfista se Actualizo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -73,7 +73,7 @@ export const Edit_stats_Nascar_Driver = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

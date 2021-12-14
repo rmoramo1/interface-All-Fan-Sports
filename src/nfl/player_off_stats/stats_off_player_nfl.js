@@ -117,7 +117,7 @@ export const Stats_off_player_nfl = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

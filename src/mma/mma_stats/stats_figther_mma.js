@@ -56,7 +56,7 @@ export const Stats_Fighter_mma = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

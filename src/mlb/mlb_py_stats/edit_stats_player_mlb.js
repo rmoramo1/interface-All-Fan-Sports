@@ -85,7 +85,7 @@ export const Edit_stats_player_mlb = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se Actualizo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -97,7 +97,7 @@ export const Edit_stats_player_mlb = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

@@ -52,7 +52,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			soccer:[],
 			soccer_tournament:[],
 			soccer_stats_teams:[],
-			soccer_stats_player:[]
+			soccer_stats_player:[],
+			tournaments:[],
+			//name temporal
+			username_temp: "",
 
 		},
 		actions: {
@@ -233,6 +236,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				setStore({ soccer_stats_player: results });
 			},
+			loadTournaments: async () => {
+				const url = "https://interfaceroy.herokuapp.com/soccer_tournament";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ tournaments: results });
+			},
 			
 			//casinos
 			loadCasinos: async () => {
@@ -241,6 +250,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				setStore({ casinos: results });
 			},
+			//name
+			changename: username => {
+				setStore({ username_temp: username });
+			}
 		}
 	};
 };

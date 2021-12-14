@@ -4,7 +4,6 @@ import "../../node_modules/aos/dist/aos.css";
 /*componentes*/
 /* img */
 
-
 export const Home = () => {
 	useEffect(() => {
 		AOS.init({ duration: 1500 });

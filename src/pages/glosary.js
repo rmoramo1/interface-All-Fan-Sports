@@ -12,9 +12,11 @@ import "../../node_modules/aos/dist/aos.css";
 
 export const Glosary = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		AOS.init({ duration: 1500 });
-	}, []);
+    useEffect(() => {
+        if(!store.username_temp){
+            window.location.href = '/';
+        }
+    }, [])
 	return (
 		<div className="container-fluid p-0 m-50">
 			<div className="slider">

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../store/appContext";
 import { CreateGames_NFL } from "../nfl/createGames_NFL";
 import { CreateGames_NBA } from "../nba/nba_game/createGames_NBA"
 import { CreateGames_MLB } from "../mlb/mlb_game/createGames_MLB";
@@ -11,6 +12,12 @@ import { CreateGames_Soccer } from "../soccer/soccer_game/createGames_Soccer";
 
 
 export const AllGames = () => {
+    const { store, actions } = useContext(Context);
+    useEffect(() => {
+        if(!store.username_temp){
+            window.location.href = '/';
+        }
+    }, [])
     const [tipe, setTipe] = useState("NFL")
     if (tipe === "NFL") {
         var NFL = "d-block";

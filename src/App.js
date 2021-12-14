@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import injectContext from "./store/appContext";
 
 /* pages*/
-
+import { Login } from "./pages/login";
 import { Home } from "./pages/home";
 import { Faqs } from "./pages/faqs";
 import { Glosary } from "./pages/glosary";
@@ -60,6 +60,9 @@ import { EdithGames_Soccer } from "./soccer/soccer_game/edtihGame_Soccer";
 import { List_Soccer_Stats } from "./soccer/soccer_team_stats/list_soccer_stats";
 import { Edit_Stats_Soccer_Team } from "./soccer/soccer_team_stats/edith_stats_soccer_team";
 import { List_Stats_Soccer_PY } from "./soccer/soccer_py_stats/list_stats_soccer_py";
+import { Edit_stats_player_soccer } from "./soccer/soccer_py_stats/edit_stats_player_soccer";
+import { List_Tournaments } from "./soccer/tournament/list_tournaments";
+import { Edit_Tournaments } from "./soccer/tournament/edith_tournaments";
 //all
 import { AllGames } from "./pages/allGames";
 /*components*/
@@ -74,6 +77,7 @@ function App() {
 				<Switch>
 					<Route exact path="/" component={Home}/>
 					<Route exact path="/home" component={Home}/>
+					<Route exact path="/login" component={Login}/>
 					<Route exact path="/faqs" component={Faqs}/>
 					<Route exact path="/glosary" component={Glosary}/>
 					<Route exact path="/contact" component={Contact}/>
@@ -81,6 +85,7 @@ function App() {
 					<Route exact path="/allGames" component={AllGames}/>
 					<Route exact path="/edtihGame/:theid" component={EdithGames}/>
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb}/>
+					<Route exact path="/edith_tournaments/:theid" component={ Edit_Tournaments }/>
 					<Route exact path="/edtihGame_nba/:theid" component={EdithGames_nba}/>
 					<Route exact path="/edtihGame_NHL/:theid" component={EdithGames_nhl}/>
 					<Route exact path="/edtihGame_Soccer/:theid" component={EdithGames_Soccer}/>
@@ -104,6 +109,7 @@ function App() {
 					<Route exact path="/list_nhl_stats" component={List_NHL_Stats}/>
 					<Route exact path="/listGameNBA" component={ ListGameNBA}/>
 					<Route exact path="/listGameNHL" component={ ListGameMLB}/>
+					<Route exact path="/list_tournaments" component={ List_Tournaments}/>
 					<Route exact path="/edith_stats_nfl_team/:theid" component={Edit_Team_Nfl_Stas}/>
 					<Route exact path="/edith_stats_nba_team/:theid" component={Edit_Stats_NBA_Team}/>
 					<Route exact path="/edith_stats_mlb_team/:theid" component={Edit_Stats_MLB_Team}/>
@@ -116,6 +122,7 @@ function App() {
 					<Route exact path="/edit_stats_fighter_mma/:theid" component={Edit_stats_Fighter_mma}/>
 					<Route exact path="/edit_stats_golfer/:theid" component={Edit_stats_Golfer}/>
 					<Route exact path="/edit_stats_nascar_driver/:theid" component={Edit_stats_Nascar_Driver}/>
+					<Route exact path="/edit_stats_player_soccer/:theid" component={Edit_stats_player_soccer}/>
 					<Route exact path="/edit_stats_deff_player_nfl/:theid" component={Stats_deff_player_nfl}/>
 					<Route exact path="/edit_stats_off_player_nfl/:theid" component={Stats_off_player_nfl}/>
 					<Route exact path="/edit_stats_ret_player_nfl/:theid" component={Stats_ret_player_nfl}/>

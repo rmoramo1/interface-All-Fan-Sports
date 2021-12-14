@@ -67,6 +67,8 @@ const injectContext = PassedComponent => {
 			state.actions.loadSoccer_tournament();
 			state.actions.loadSoccer_team_stats();
 			state.actions.loadSoccer_player_stats();
+			state.actions.loadTournaments();
+			//state.actions.changename();
 			
 			//casinos
 			state.actions.loadCasinos();

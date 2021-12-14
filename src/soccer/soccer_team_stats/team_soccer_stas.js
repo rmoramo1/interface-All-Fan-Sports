@@ -61,7 +61,7 @@ export const Team_Soccer_Stas = () => {
                 console.log(sessionStorage);
                 alert("Stadistica se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -102,6 +102,7 @@ export const Team_Soccer_Stas = () => {
                         <select className="form-select" name="league" aria-label="set league" onChange={e => setleague(e.target.value)} required>
                             {
                                 store.soccer_tournament.map((index) => {
+                                    
                                     return (
                                         <option key={index} name="conference" value={index.tournament}>{index.tournament}</option>
                                     )

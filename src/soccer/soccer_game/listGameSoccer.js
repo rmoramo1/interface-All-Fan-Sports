@@ -34,10 +34,10 @@ const ListGameSoccer = props => {
                         <div className="col-1 lines fw-bold">{props.date}</div>
                         <div className="col-2 lines">
                             <div className="row g-0">
-                                <div className="col-1">
-                                    {props.rotation_away}/
+                                <div className="col-2">
+                                    {props.rotation_away}|
                                 </div>
-                                <div className="col-11">
+                                <div className="col-10">
                                     {props.away}
                                 </div>
                             </div>
@@ -56,10 +56,10 @@ const ListGameSoccer = props => {
                         <div className="col-1 lines">{props.hour}</div>
                         <div className="col-2 lines">
                             <div className="row g-0">
-                                <div className="col-1">
-                                    {props.rotation_home}/
+                                <div className="col-2">
+                                    {props.rotation_home} |
                                 </div>
-                                <div className="col-11">
+                                <div className="col-10">
                                     {props.home}
                                 </div>
                             </div>

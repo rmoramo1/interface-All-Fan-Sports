@@ -9,9 +9,9 @@ export const Stats_py_soccer = () => {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
     const [birth, setBirth] = useState("");
-    const [position, setPosition] = useState("");
+    const [position, setPosition] = useState("GK");
     const [dorsal, setDorsal] = useState("");
-    const [team, setTeam] = useState("Team");
+    const [team, setTeam] = useState("Real Madrid");
     const [season, setseason] = useState("2021");
 
     const [games, setgames] = useState("");
@@ -68,7 +68,7 @@ export const Stats_py_soccer = () => {
                 console.log(sessionStorage);
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -109,7 +109,7 @@ export const Stats_py_soccer = () => {
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Position
-                        <select className="form-select selectInner" name="positions" aria-label="Positions" onChange={e => setPosition(e.target.value)} required>
+                        <select className="form-select selectInner" name="positions" aria-label="Positions" defaultValue={"GK"} onChange={e => setPosition(e.target.value)} required>
                             {
                                 positions.map((index) => {
                                     return (
@@ -135,7 +135,7 @@ export const Stats_py_soccer = () => {
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select" name="season" aria-label="Default select example" onChange={e => setTeam(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="season" aria-label="Default select example" onChange={e => setTeam(e.target.value)} defaultValue={"Real Madrid"} required>
                             {
                                 store.soccer_stats_teams.map((index) => {
                                     return (

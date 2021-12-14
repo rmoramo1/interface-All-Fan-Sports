@@ -63,7 +63,7 @@ export const Team_NHL_Stas = () => {
                 console.log(sessionStorage);
                 alert("Stadistica se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

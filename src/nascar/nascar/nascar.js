@@ -57,7 +57,7 @@ export const Nascar = () => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
                 alert("Evento se creo");
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

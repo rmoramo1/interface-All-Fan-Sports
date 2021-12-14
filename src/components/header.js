@@ -1,11 +1,18 @@
-
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-
+import { Context } from "../store/appContext";
+import { Redirect } from "react-router-dom";
 import logo from "../assets/img/logo.png"
 
 export const Header = () => {
+    const { store } = useContext(Context);
+    const [auth, setAuth] = useState(false);
+    console.log(store.username_temp);
+    let refrescar = () => {
+        localStorage.clear();
+        window.location.href = '/';
+    };
     return (
         <div className="container-fluid bg-header p-0">
             <div className="row g-0">
@@ -14,20 +21,24 @@ export const Header = () => {
                         <img src={logo} className="img-fluid" alt="logo of the site"></img>
                     </HashLink>
                 </div>
-                <div className="col-2  d-flex justify-content-center align-items-center d-block d-lg-none">
+                <div className="col-2 d-flex justify-content-center align-items-center d-block d-lg-none">
                     <HashLink className="navbar-toggler fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <i className="fas fa-bars"></i>
                     </HashLink>
                 </div>
-                <div className="col-4"></div>
+                <div className="col-2">
+
+                </div>
                 <div className="col-5 d-flex justify-content-center align-items-center">
                     <nav className="navbar navbar-expand-lg p-0">
                         <div className="container-fluid">
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <div className="navbar-nav">
-                                    <HashLink className="nav-link nav-link-pri" to="/faqs">FAQS</HashLink>
+                                <HashLink className="nav-link nav-link-pri" to="/login">Login</HashLink>
+                                <div className="navbar-nav d-none" id="st-pri">
+                                    {/* <HashLink className="nav-link nav-link-pri" to="/faqs">FAQS</HashLink>
                                     <HashLink className="nav-link nav-link-pri" to="/glosary">Glosary</HashLink>
-                                    <HashLink className="nav-link nav-link-pri" to="/contact">Contact</HashLink>
+                                    <HashLink className="nav-link nav-link-pri" to="/contact">Contact</HashLink> */}
+
                                     <HashLink className="nav-link nav-link-pri" to="/admin">Admin</HashLink>
                                     <HashLink className="nav-link ul-drop nav-link-pri" to="/allGames">Games</HashLink>
                                     <HashLink className="nav-link ul-drop" to="#">Stats
@@ -134,8 +145,6 @@ export const Header = () => {
                                                         </HashLink>
                                                     </ul>
                                                 </li>
-
-
                                             </li>
                                         </ul>
                                     </HashLink>
@@ -144,7 +153,19 @@ export const Header = () => {
                         </div>
                     </nav>
                 </div>
+
+                <div className="col-3 d-flex justify-content-center align-items-center">
+                    <div className="fw-bold">{store.username_temp}</div>
+                    <div className="col-1 float-left  d-flex justify-content-center align-items-center d-none" id="btnLogOut">
+                        <a href="#" onClick={refrescar} className="text-danger">
+                            <h4>
+                                <i className="fas fa-sign-out-alt" />
+                            </h4>
+                        </a>
+                    </div>
+                </div>
             </div>
+            {auth ? <Redirect to="/" /> : null}
         </div>
     )
 }

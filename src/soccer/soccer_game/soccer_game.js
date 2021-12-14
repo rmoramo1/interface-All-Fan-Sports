@@ -18,9 +18,16 @@ export const Soccer_game = () => {
     timeCrear = hourCrear + ":" + minCrear;
 
     const [country, setcountry] = useState("Espana");
+
     const [tournament, settournament] = useState("LaLiga");
-    const [away, setaway] = useState("FC Barcelona");
+
+    const [away, setaway] = useState("");
+
     const [home, sethome] = useState("FC Barcelona");
+
+    let tounamentSet = (e) => {
+        setcountry(e.target.value);
+    }
     //
     const [goal_line_away, setgoal_line_away] = useState("");
     const [goal_line_home, setgoal_line_home] = useState("-");
@@ -121,7 +128,7 @@ export const Soccer_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
                 alert("juego se creo");
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -289,11 +296,21 @@ export const Soccer_game = () => {
                         <div className="col-12 text-center">
                             Country
                         </div>
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcountry(e.target.value)}>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={country} onChange={tounamentSet}>
                             {
                                 store.soccer_tournament.map((item, index) => {
+                                    let data=[];
+                                    data.push(item.country);
+                                    console.log(data + ' 123');
+                                    const result = data.reduce((acc,item)=>{
+                                        if(!acc.includes(item)){
+                                            acc.push(item.country);
+                                        }
+                                        return acc;
+                                      },[])
+                  
                                     return (
-                                        <option key={index} name="promotions" value={item.country}>{item.country}</option>
+                                        <option key={index} name="promotions" value={result}>{result}</option>
                                     )
                                 })
                             }
@@ -303,9 +320,10 @@ export const Soccer_game = () => {
                         <div className="col-12 text-center">
                             Tournament
                         </div>
-                        <select className="form-select selectInner" name="Tournament" aria-label="Tournament" onChange={e => settournament(e.target.value)}>
+                        <select className="form-select selectInner" name="Tournament" aria-label="Tournament" defaultValue={tournament} onChange={e => settournament(e.target.value)}>
                             {
                                 store.soccer_tournament.map((item, index) => {
+                                    console.log(item.tournament);
                                     return (
                                         <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
                                     )
@@ -335,17 +353,7 @@ export const Soccer_game = () => {
                                     <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={country.tournament} onChange={e => setaway(e.target.value)}>
-                                        {
-                                            store.soccer_stats_teams.map((item, index) => {
-                                                if (item.league == tournament) {
-                                                    return (
-                                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                                    )
-                                                }
-                                            })
-                                        }
-                                    </select>
+                                    <input className="form-control selectInner" type="text" placeholder="Away" aria-label="Away Team" onChange={e => setaway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Goal Line" aria-label="default input example" onChange={e => setgoal_line_away(e.target.value)} required />
@@ -380,17 +388,7 @@ export const Soccer_game = () => {
                                     <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => sethome(e.target.value)}>
-                                        {
-                                            store.soccer_stats_teams.map((item, index) => {
-                                                if (item.league == tournament) {
-                                                    return (
-                                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                                    )
-                                                }
-                                            })
-                                        }
-                                    </select>
+                                    <input className="form-control selectInner" type="text" placeholder="Home" aria-label="home" onChange={e => sethome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Goal Line" aria-label="default input example" onChange={e => setgoal_line_home(e.target.value)} required />

@@ -83,7 +83,7 @@ export const Edit_Stats_NBA_Team = () => {
                 console.log(sessionStorage);
                 alert("Stadistica se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -95,7 +95,7 @@ export const Edit_Stats_NBA_Team = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

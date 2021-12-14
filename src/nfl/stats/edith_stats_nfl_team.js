@@ -142,7 +142,7 @@ export const Edit_Team_Nfl_Stas = () => {
                 console.log(sessionStorage);
                 alert("Stadistica se actualizo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -154,7 +154,7 @@ export const Edit_Team_Nfl_Stas = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

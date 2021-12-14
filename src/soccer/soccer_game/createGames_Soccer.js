@@ -88,10 +88,10 @@ export const CreateGames_Soccer = () => {
 								rotation_home={item.rotation_home}
 								status={item.status}
 								date={item.date}
-								spread_away={item.spread_away}
-								spread_home={item.spread_home}
-								juice_spread_away={item.juice_spread_away}
-								juice_spread_home={item.juice_spread_home}
+								goal_line_away={item.goal_line_away}
+								goal_line_home={item.goal_line_home}
+								juice_goal_away={item.juice_goal_away}
+								juice_goal_home={item.juice_goal_home}
 								moneyLineAway={item.moneyLineAway}
 								moneyLineHome={item.moneyLineHome}
 								total={item.total}

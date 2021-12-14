@@ -312,7 +312,7 @@ export const MLB_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 console.log(sessionStorage);
                 alert("Juego se creo");
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

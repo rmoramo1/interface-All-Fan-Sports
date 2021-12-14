@@ -62,7 +62,7 @@ export const Team_MLB_Stas = () => {
                 console.log(sessionStorage);
                 alert("Stadistica se creo");
                 setAuth(true);
-                actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
