@@ -1,14 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ListNascarRace from "./listNascar";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 
 export const CreateNascar = () => {
 	const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
 	const weekLux = DateTime.now().weekNumber;
 	const yearLux = DateTime.now().year;
 	const [week, setWeek] = useState(weekLux);
-	console.log(week + ' weel');
 	const [filterYear, setFilterYear] = useState(yearLux);
 	let race = store.nascar;
 

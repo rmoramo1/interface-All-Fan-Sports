@@ -1,4 +1,5 @@
 /*games*/
+import { Index } from ".";
 import { Nfl_game } from "../nfl/nfl_game";
 import { StatsNFL } from "../nfl/stats/statsNFL";
 import { Stats_off_player_nfl } from "../nfl/player_off_stats/stats_off_player_nfl";
@@ -44,7 +45,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="firsth_Show" className="accordion-collapse collapse show" aria-labelledby="headingOne"  data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        Primera cosa que se ve
+                       <Index/>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { Single_PY_NFL_STATS } from "./single_py_nfl_stats";
 import { Single_PY_NFL_DEFF_STATS } from "../player_deff_stats/single_py_nfl_deff_stats";
@@ -7,6 +7,15 @@ import { Single_PY_NFL_PUT_STATS } from "../player_punting_stats/single_py_nfl_p
 import {Single_PY_NFL_KIK_STATS} from "../player_kik_stats/single_py_nfl_kik_stats"
 export const List_Stats_NFL_PY = () => {
     const { store } = useContext(Context);
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     let ops = ["Ofensive", "Defensive", "Returning", "Punting" ,"Kicking"];
     const [tipe, setTipe] = useState("Ofensive")
     var sortStats_py_off = store.stats_offensive_player_nfl;

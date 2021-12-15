@@ -1,8 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 export const Fight_box = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -84,8 +93,8 @@ export const Fight_box = () => {
             r15_result: r15_result,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/boxeo", {
             method: "POST",
@@ -95,9 +104,9 @@ export const Fight_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Pelea se creo");
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

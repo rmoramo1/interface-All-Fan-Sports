@@ -1,9 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import GameMapNfl from "./listGameNfl";
 import { Context } from "../store/appContext";
 
 export const CreateGames_NFL = () => {
 	const { store } = useContext(Context);
+
+	useEffect(() => {
+        if(!store.username_temp){
+            window.location.href = '/';
+			teamFilter = store.nflGames;
+        }
+    }, [])
 	let teamFilter = store.nflGames;
 	const [team, setTeam] = useState("");
 

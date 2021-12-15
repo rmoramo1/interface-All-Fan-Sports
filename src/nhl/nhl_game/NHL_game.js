@@ -1,7 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 export const NHL_game = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("VIP Sportbook");
     const [rotation_home, setRotation_home] = useState("");
@@ -123,8 +133,8 @@ export const NHL_game = () => {
             sh_3Q: sh_3Q
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/nhl", {
             method: "POST",
@@ -134,9 +144,8 @@ export const NHL_game = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
                 alert("Juego se creo");
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

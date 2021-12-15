@@ -1,11 +1,22 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
 import DateTime from 'luxon/src/datetime.js'
 export const EdithGolf = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
+
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.golf[params.theid].status);
     const [casino, setcasino] = useState(store.golf[params.theid].casino);
@@ -40,8 +51,8 @@ export const EdithGolf = (props) => {
             place3: place3
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
         fetch("https://interfaceroy.herokuapp.com/golf/" + store.golf[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -52,10 +63,10 @@ export const EdithGolf = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
 
@@ -68,7 +79,7 @@ export const EdithGolf = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
 
 

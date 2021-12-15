@@ -1,8 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { Single_Fighter_mma } from "./single_fighter_stas_mma";
 export const List_Stats_Fighter_mma = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     var sortStats_py = store.mma_stats;
     sortStats_py.sort(function (a, b) {
         return b.season - a.season;

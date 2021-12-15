@@ -1,9 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { Stat_Single_NFL } from "./stat_single";
 
 export const List_NFL_Stats = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
 
     var sortStats = store.nfl_stats_teams;
     sortStats.sort(function (a, b) {

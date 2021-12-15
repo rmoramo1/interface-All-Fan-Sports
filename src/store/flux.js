@@ -59,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 		},
 		actions: {
-			loadNglGames: async () => {
+			loadNflGames: async () => {
 				const url = "https://interfaceroy.herokuapp.com/nfl";
 				const response = await fetch(url);
 				const results = await response.json();
@@ -106,7 +106,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const url = "https://interfaceroy.herokuapp.com/nba";
 				const response = await fetch(url);
 				const results = await response.json();
-				console.log(results)
 				setStore({ nbaGames: results });
 			},
 			loadStatsNBA: async () => {

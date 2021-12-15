@@ -1,11 +1,21 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../node_modules/aos/dist/aos.css";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const [statusCrear, setStatusCrear] = useState(store.nflGames[params.theid].status);
     const [casino, setCasino] = useState(store.nflGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nflGames[params.theid].rotation_home);
@@ -300,8 +310,8 @@ export const EdithGames = (props) => {
             q4_half_final_score_home: Q4fsHome,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
         fetch("https://interfaceroy.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -314,10 +324,10 @@ export const EdithGames = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
 
@@ -330,7 +340,7 @@ export const EdithGames = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
 
     //select

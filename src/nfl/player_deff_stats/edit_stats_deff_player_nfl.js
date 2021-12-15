@@ -1,9 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { HashLink } from 'react-router-hash-link';
 import { useParams, Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 export const Stats_deff_player_nfl = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const params = useParams();
 
     const [name, setName] = useState(store.stats_deff_player_nfl[params.theid].name);
@@ -65,8 +75,8 @@ export const Stats_deff_player_nfl = () => {
             ftd: ftd,
             kb: kb
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_defensive_player_nfl/" + store.stats_deff_player_nfl[params.theid].id, {
             method: "PUT",
@@ -76,10 +86,10 @@ export const Stats_deff_player_nfl = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -91,7 +101,7 @@ export const Stats_deff_player_nfl = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
     //select
     let selectYear = [];

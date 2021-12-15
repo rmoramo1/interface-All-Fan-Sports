@@ -1,4 +1,11 @@
 .slider{
     min-height: 50vh;
-    background-color:grey;
+}
+.title_slider{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: $white;
+    text-shadow: 0 0 1px rgba($black, .5),2px 2px 3px rgba($black, .5),-2px -2px 3px rgba($black, .5);   
+    text-align: center;
+    font-family: 'Alfa Slab One', cursive;
 }

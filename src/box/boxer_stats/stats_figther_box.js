@@ -1,9 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext , useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Stats_Fighter_box = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
 
     const [name, setName] = useState("");
     const [nickname, setNickname] = useState("");
@@ -42,8 +50,8 @@ export const Stats_Fighter_box = () => {
             L: L,
             L_by: L_by,
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_box_fighter", {
             method: "POST",
@@ -53,10 +61,10 @@ export const Stats_Fighter_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                ////actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };

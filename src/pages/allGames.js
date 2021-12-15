@@ -12,9 +12,12 @@ import { CreateGames_Soccer } from "../soccer/soccer_game/createGames_Soccer";
 
 
 export const AllGames = () => {
-    const { store, actions } = useContext(Context);
-    useEffect(() => {
-        if(!store.username_temp){
+    const { store } = useContext(Context);
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
             window.location.href = '/';
         }
     }, [])

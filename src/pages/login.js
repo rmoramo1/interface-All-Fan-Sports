@@ -22,7 +22,7 @@ export const Login = () => {
 	const enviar = e => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
-		console.log(body);
+		
 		fetch("https://interfaceroy.herokuapp.com/login", {
 			method: "POST",
 			body: JSON.stringify(body),
@@ -37,32 +37,24 @@ export const Login = () => {
 				return response.json();
 			})
 			.then(data => {
+				window.localStorage.setItem("my_token",JSON.stringify(data));
 				actions.changename(data.username);
-				console.log(data);
-				sessionStorage.setItem("my_token", data.token);
 				setAuth(true);
-				successfulLogin();
+				alert("has ingresado correctamente");
 			})
 			.catch(err => console.log(err));
 	};
 
-	function successfulLogin() {
-		let btnLog = document.getElementById("btnLogOut");
-		let pri = document.getElementById("st-pri");
-		btnLog.classList.remove("d-none");
-		pri.classList.remove("d-none");
-		alert("has ingresado correctamente");
-	}
 	return (
 		<div className="container-fluid  pt-5 m-50 login">
 			<div className="" id="nav-tabContent">
 				<div className="col-4 mx-auto rounded p-3 shadow-login" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 					<div className="col-12 text-center">
-						<h2 className="col-12">Login</h2>
+						<h2 className="col-12 text-white text_shadow">Login</h2>
 					</div>
 					{error ? (
-						<div className="alert alert-naranjaContraste text-center" role="alert">
-							Correo Electrónico o Contraseña erróneos
+						<div className="alert alert-naranjaContraste text-center fw-bold text-white bg-danger" role="alert">
+							Wrong E-mail or Password
 						</div>
 					) : null}
 					<form onSubmit={enviar}>
@@ -98,8 +90,8 @@ export const Login = () => {
 						</div>
 
 						<div className="col-12 text-center">
-							<button type="submit" className="btn btn-primary">
-								Ingresar
+							<button type="submit" className="btn bt_deg shadow-st">
+								Login
 							</button>
 						</div>
 					</form>

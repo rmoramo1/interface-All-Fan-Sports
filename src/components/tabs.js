@@ -5,7 +5,7 @@ export const Tabs = () => {
             <div className="accordion-item">
                 <div className="accordion-header" id="headingOneSHOW">
                     <HashLink className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#firsth_Show" aria-expanded="true" aria-controls="firsth_Show" id="nfl-item">
-                        INICIO <i className="fas fa-home ps-5 fs-5"></i>
+                        INDEX <i className="fas fa-home ps-5 fs-5"></i>
                     </HashLink>
                 </div>
             </div>

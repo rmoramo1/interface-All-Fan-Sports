@@ -1,9 +1,18 @@
-import React, { useState,  useContext } from "react";
+import React, { useState,  useContext ,useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Stats_off_player_nfl = () => {
     const { store} = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
 
     const [name, setName] = useState("");
     const [height, setHeight] = useState("");
@@ -103,8 +112,8 @@ export const Stats_off_player_nfl = () => {
             r_fd: r_fd,
             pts: pts
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_offensive_player_nfl", {
             method: "POST",
@@ -114,10 +123,10 @@ export const Stats_off_player_nfl = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

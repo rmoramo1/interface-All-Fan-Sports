@@ -1,10 +1,20 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames_mlb = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const [statusCrear, setStatusCrear] = useState(store.mlbGames[params.theid].status);
     const [casino, setcasino] = useState(store.mlbGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.mlbGames[params.theid].rotation_home);
@@ -321,8 +331,8 @@ export const EdithGames_mlb = (props) => {
             sh_40inning: sh_40inning
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
         fetch("https://interfaceroy.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -335,10 +345,10 @@ export const EdithGames_mlb = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
 
@@ -351,7 +361,7 @@ export const EdithGames_mlb = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
 
     //select

@@ -1,12 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext ,useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { Stat_Single_NBA } from "./stat_single_nba";
 
 export const List_NBA_Stats = () => {
     const { store } = useContext(Context);
 
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     var sortStats = store.nba_stats_teams;
-    console.log(sortStats);
     sortStats.sort(function (a, b) {
         return b.season - a.season;
     });

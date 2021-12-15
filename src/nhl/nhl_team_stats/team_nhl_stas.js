@@ -1,9 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Team_NHL_Stas = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
 
     const [season, setSeason] = useState("2021");
     const [team, setTeam] = useState("Boston Bruins");
@@ -49,8 +58,6 @@ export const Team_NHL_Stas = () => {
             sos_AVG: sos_AVG
 
         };
-        console.log(body);
-        console.log(body.date);
 
         fetch("https://interfaceroy.herokuapp.com/stats_nhl_team", {
             method: "POST",
@@ -60,10 +67,9 @@ export const Team_NHL_Stas = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
                 alert("Stadistica se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

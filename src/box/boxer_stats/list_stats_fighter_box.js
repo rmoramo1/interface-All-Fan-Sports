@@ -1,8 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { Single_Fighter_box } from "./single_fighter_stas";
 export const List_Stats_Fighter_Box = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     var sortStats_py = store.boxer_stats;
     sortStats_py.sort(function (a, b) {
         return b.season - a.season;

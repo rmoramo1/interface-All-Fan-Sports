@@ -1,15 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import  ListGameMLB  from "./listGameMLB"
 import { Context } from "../../store/appContext";
 
 export const CreateGames_MLB = () => {
 	const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
 	let teamFilter = store.mlbGames;
 	const [team, setTeam] = useState("");
-
-	// change page
-	// sort by born date
-	// use slice() to copy the array and not just make a reference
 	var byDate = teamFilter;
 	byDate.sort(function(a,b) {
 		return b.id - a.id;

@@ -1,10 +1,20 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames_nhl = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
+
     const [status, setStatus] = useState(store.nhlGames[params.theid].status);
     const [casino, setcasino] = useState(store.nhlGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nhlGames[params.theid].rotation_home);
@@ -119,8 +129,6 @@ export const EdithGames_nhl = (props) => {
             sa_3Q: sa_3Q,
             sh_3Q: sh_3Q,
         };
-        console.log(body);
-        console.log(body.date);
         fetch("https://interfaceroy.herokuapp.com/nhl/" + store.nhlGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -133,10 +141,9 @@ export const EdithGames_nhl = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
                 alert("juego se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
 
@@ -149,7 +156,7 @@ export const EdithGames_nhl = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
 
     //select

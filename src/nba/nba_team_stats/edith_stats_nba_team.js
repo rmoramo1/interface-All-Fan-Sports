@@ -1,10 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
 
 export const Edit_Stats_NBA_Team = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const params = useParams();
 
     const [season, setSeason] = useState(store.nba_stats_teams[params.theid].season);
@@ -69,8 +79,8 @@ export const Edit_Stats_NBA_Team = () => {
             pf: pf
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_nba_team/"+ store.nba_stats_teams[params.theid].id, {
             method: "PUT",
@@ -80,10 +90,10 @@ export const Edit_Stats_NBA_Team = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -95,7 +105,7 @@ export const Edit_Stats_NBA_Team = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
     //select
     let selectYear = [];

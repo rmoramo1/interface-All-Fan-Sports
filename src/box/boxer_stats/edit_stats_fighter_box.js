@@ -1,9 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
 export const Edit_stats_Fighter_box = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const params = useParams();
 
     const [name, setName] = useState(store.boxer_stats[params.theid].name);
@@ -42,8 +51,8 @@ export const Edit_stats_Fighter_box = () => {
             L: L,
             L_by: L_by,
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_box_fighter/" + store.boxer_stats[params.theid].id, {
             method: "PUT",
@@ -53,10 +62,10 @@ export const Edit_stats_Fighter_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de Boxeador se Actualizo");
                 setAuth(true);
-                ////actualizar();
+                //actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -68,7 +77,7 @@ export const Edit_stats_Fighter_box = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        ////actualizar();
+        //actualizar();
     };
     //select
     let selectYear = [];

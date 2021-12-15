@@ -1,9 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
 export const Edit_stats_player_nhl = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const params = useParams();
 
     const [name, setName] = useState(store.nhl_stats_player[params.theid].name);
@@ -67,8 +77,6 @@ export const Edit_stats_player_nhl = () => {
             toi_g: toi_g,
             prod: prod
         };
-        console.log(body);
-        console.log(body.date);
 
         fetch("https://interfaceroy.herokuapp.com/stats_nhl_player/" + store.nhl_stats_player[params.theid].id, {
             method: "PUT",
@@ -78,10 +86,10 @@ export const Edit_stats_player_nhl = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de jugador se Actualizo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -93,7 +101,7 @@ export const Edit_stats_player_nhl = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
     //select
     let selectYear = [];

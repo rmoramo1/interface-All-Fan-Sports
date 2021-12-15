@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { Single_Tournament } from "./single_tournament";
 
 export const List_Tournaments = () => {
     const { store } = useContext(Context);
-
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
     var sortStats = store.tournaments;
-    console.log(sortStats);
     sortStats.sort(function (a, b) {
         return b.season - a.season;
     });

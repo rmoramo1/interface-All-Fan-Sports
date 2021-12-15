@@ -1,7 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 export const Soccer_game = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
+
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
@@ -115,8 +126,8 @@ export const Soccer_game = () => {
             juice_under_home_1H: juice_under_home_1H,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/soccer", {
             method: "POST",
@@ -126,9 +137,8 @@ export const Soccer_game = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
                 alert("juego se creo");
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -301,7 +311,7 @@ export const Soccer_game = () => {
                                 store.soccer_tournament.map((item, index) => {
                                     let data=[];
                                     data.push(item.country);
-                                    console.log(data + ' 123');
+                        
                                     const result = data.reduce((acc,item)=>{
                                         if(!acc.includes(item)){
                                             acc.push(item.country);
@@ -323,7 +333,7 @@ export const Soccer_game = () => {
                         <select className="form-select selectInner" name="Tournament" aria-label="Tournament" defaultValue={tournament} onChange={e => settournament(e.target.value)}>
                             {
                                 store.soccer_tournament.map((item, index) => {
-                                    console.log(item.tournament);
+                                
                                     return (
                                         <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
                                     )

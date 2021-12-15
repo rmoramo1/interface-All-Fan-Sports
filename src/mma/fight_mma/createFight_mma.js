@@ -1,14 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ListFights_Mma from "./listFights_mma";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 
 export const CreateFight_mma = () => {
 	const { store } = useContext(Context);
+
+	useEffect(() => {
+		if (!store.username_temp) {
+			window.location.href = '/';
+		}
+	}, [])
+
 	const weekLux = DateTime.now().weekNumber;
 	const yearLux = DateTime.now().year;
 	const [week, setWeek] = useState(weekLux);
-	console.log(week + ' weel');
 	const [filterYear, setFilterYear] = useState(yearLux);
 	let fight = store.mma_fight;
 
@@ -27,7 +33,7 @@ export const CreateFight_mma = () => {
 			selectWeek.push(i);
 		}
 	}
-	
+
 	let selectYear = [];
 	for (let i = 2002; i < 2025; i++) {
 		selectYear.push(i);
@@ -70,7 +76,7 @@ export const CreateFight_mma = () => {
 				</div>
 				<div className="row g-0">
 					{fight.map((item, index) => {
-						if ( item.date.includes(filterYear) && item.week == week) {
+						if (item.date.includes(filterYear) && item.week == week) {
 							return (
 								<div key={index} className="col-6 p-1">
 									<ListFights_Mma

@@ -6,6 +6,7 @@ $font_blue:#283747;
 $lightGrey:#EDEEF0;
 $cyan:#34495E;
 $redLogo:#641E16;
+$grey:lighten($black, 90);
 
 /*gradiants*/
 $BGB:linear-gradient(to bottom, lighten($black, 70) 10%,lighten($black, 90) 50%,$white 100%);

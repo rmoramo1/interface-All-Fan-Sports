@@ -1,8 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 export const Golf = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -43,8 +53,8 @@ export const Golf = () => {
             place3: place3
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/golf", {
             method: "POST",
@@ -54,9 +64,9 @@ export const Golf = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Evento se creo");
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

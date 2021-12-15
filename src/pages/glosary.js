@@ -12,8 +12,11 @@ import "../../node_modules/aos/dist/aos.css";
 
 export const Glosary = () => {
 	const { store, actions } = useContext(Context);
-    useEffect(() => {
-        if(!store.username_temp){
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
             window.location.href = '/';
         }
     }, [])

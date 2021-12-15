@@ -1,11 +1,20 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
 import { Context } from "../../store/appContext";
 export const Stats_ret_player_nfl = () => {
     const { store } = useContext(Context);
-    const params = useParams();
 
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
+    const params = useParams();
     const [name, setName] = useState(store.stats_ret_player_nfl[params.theid].name);
     const [height, setHeight] = useState(store.stats_ret_player_nfl[params.theid].height);
     const [weight, setWeight] = useState(store.stats_ret_player_nfl[params.theid].weight);
@@ -59,8 +68,8 @@ export const Stats_ret_player_nfl = () => {
             pr_td: pr_td,
             punt_r_fair_carches: punt_r_fair_carches
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/stats_returning_player_nfl/" + store.stats_ret_player_nfl[params.theid].id, {
             method: "PUT",
@@ -70,10 +79,10 @@ export const Stats_ret_player_nfl = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -85,7 +94,7 @@ export const Stats_ret_player_nfl = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
     //select
     let selectYear = [];

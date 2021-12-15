@@ -1,9 +1,19 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import  ListGameSoccer  from "./listGameSoccer"
 import { Context } from "../../store/appContext";
 
 export const CreateGames_Soccer = () => {
 	const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
 	let teamFilter = store.soccer;
 	const [team, setTeam] = useState("");
 

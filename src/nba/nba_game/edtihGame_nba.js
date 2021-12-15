@@ -1,9 +1,19 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames_nba = (props) => {
     const params = useParams();
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState(store.nbaGames[params.theid].status);
     const [casino, setCasino] = useState(store.nbaGames[params.theid].casino);
@@ -300,8 +310,8 @@ export const EdithGames_nba = (props) => {
             q4_half_final_score_home: Q4fsHome,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
         fetch("https://interfaceroy.herokuapp.com/nba/" + store.nbaGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -312,10 +322,10 @@ export const EdithGames_nba = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
 
@@ -328,7 +338,7 @@ export const EdithGames_nba = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
 
     //select

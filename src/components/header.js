@@ -1,18 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Context } from "../store/appContext";
 import { Redirect } from "react-router-dom";
-import logo from "../assets/img/logo.png"
+import logo from "../assets/img/logo.webp"
 
 export const Header = () => {
     const { store } = useContext(Context);
     const [auth, setAuth] = useState(false);
-    console.log(store.username_temp);
     let refrescar = () => {
-        localStorage.clear();
-        window.location.href = '/';
+        window.localStorage.removeItem("my_token");
+        window.location.reload(true)
     };
+
+    useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+    }, [])
+
     return (
         <div className="container-fluid bg-header p-0">
             <div className="row g-0">
@@ -29,134 +34,135 @@ export const Header = () => {
                 <div className="col-2">
 
                 </div>
-                <div className="col-5 d-flex justify-content-center align-items-center">
-                    <nav className="navbar navbar-expand-lg p-0">
-                        <div className="container-fluid">
-                            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                                <HashLink className="nav-link nav-link-pri" to="/login">Login</HashLink>
-                                <div className="navbar-nav d-none" id="st-pri">
-                                    {/* <HashLink className="nav-link nav-link-pri" to="/faqs">FAQS</HashLink>
+                <div className="col-5" id="navbarNavAltMarkup">
+                    <div className="d-flex justify-content-center align-items-center">
+                        <nav className="navbar navbar-expand-lg p-0">
+                            <div className="container-fluid">
+                                <div className="collapse navbar-collapse" >
+                                    <div className="navbar-nav">
+                                        {/* <HashLink className="nav-link nav-link-pri" to="/faqs">FAQS</HashLink>
                                     <HashLink className="nav-link nav-link-pri" to="/glosary">Glosary</HashLink>
                                     <HashLink className="nav-link nav-link-pri" to="/contact">Contact</HashLink> */}
 
-                                    <HashLink className="nav-link nav-link-pri" to="/admin">Admin</HashLink>
-                                    <HashLink className="nav-link ul-drop nav-link-pri" to="/allGames">Games</HashLink>
-                                    <HashLink className="nav-link ul-drop" to="#">Stats
-                                        <ul className="">
-                                            <li className="li_drop one_ul">
-                                                NFL
-                                                <ul className="second_ul">
-                                                    <HashLink to="/list_nfl_stats">
+                                        <HashLink className="nav-link nav-link-pri" to="/admin">Admin</HashLink>
+                                        <HashLink className="nav-link ul-drop nav-link-pri" to="/allGames">Games</HashLink>
+                                        <HashLink className="nav-link ul-drop" to="#">Stats
+                                            <ul className="">
+                                                <li className="li_drop one_ul">
+                                                    NFL
+                                                    <ul className="second_ul">
+                                                        <HashLink to="/list_nfl_stats">
+                                                            <li className="li_drop">
+                                                                Team Stats
+                                                            </li>
+                                                        </HashLink>
+                                                        <HashLink to="/list_stats_nfl_py">
+                                                            <li className="li_drop">
+                                                                Players Stats
+                                                            </li>
+                                                        </HashLink>
+                                                    </ul>
+                                                </li>
+                                                <li className="li_drop one_ul">NBA
+                                                    <ul className="second_ul">
                                                         <li className="li_drop">
-                                                            Team Stats
+                                                            <HashLink to="/list_nba_stats">
+                                                                Team Stats
+                                                            </HashLink>
+
                                                         </li>
-                                                    </HashLink>
-                                                    <HashLink to="/list_stats_nfl_py">
                                                         <li className="li_drop">
-                                                            Players Stats
+                                                            <HashLink to="/list_stats_nba_py">
+                                                                Players Stats
+                                                            </HashLink>
                                                         </li>
-                                                    </HashLink>
-                                                </ul>
-                                            </li>
-                                            <li className="li_drop one_ul">NBA
-                                                <ul className="second_ul">
-                                                    <li className="li_drop">
-                                                        <HashLink to="/list_nba_stats">
-                                                            Team Stats
-                                                        </HashLink>
-
+                                                    </ul>
+                                                </li>
+                                                <li className="li_drop">
+                                                    <li className="li_drop one_ul">
+                                                        MLB
+                                                        <ul className="second_ul">
+                                                            <HashLink to="/list_mlb_stats">
+                                                                <li className="li_drop">
+                                                                    Team Stats
+                                                                </li>
+                                                            </HashLink>
+                                                            <HashLink to="/list_stats_mlb_py">
+                                                                <li className="li_drop">
+                                                                    Players Stats
+                                                                </li>
+                                                            </HashLink>
+                                                        </ul>
                                                     </li>
-                                                    <li className="li_drop">
-                                                        <HashLink to="/list_stats_nba_py">
-                                                            Players Stats
-                                                        </HashLink>
+                                                </li>
+                                                <li className="li_drop">
+                                                    <li className="li_drop one_ul">
+                                                        NHL
+                                                        <ul className="second_ul">
+                                                            <HashLink to="/list_nhl_stats">
+                                                                <li className="li_drop">
+                                                                    Team Stats
+                                                                </li>
+                                                            </HashLink>
+                                                            <HashLink to="/list_stats_nhl_py">
+                                                                <li className="li_drop">
+                                                                    Players Stats
+                                                                </li>
+                                                            </HashLink>
+                                                        </ul>
                                                     </li>
-                                                </ul>
-                                            </li>
-                                            <li className="li_drop">
-                                                <li className="li_drop one_ul">
-                                                    MLB
-                                                    <ul className="second_ul">
-                                                        <HashLink to="/list_mlb_stats">
-                                                            <li className="li_drop">
-                                                                Team Stats
-                                                            </li>
-                                                        </HashLink>
-                                                        <HashLink to="/list_stats_mlb_py">
-                                                            <li className="li_drop">
-                                                                Players Stats
-                                                            </li>
-                                                        </HashLink>
-                                                    </ul>
                                                 </li>
-                                            </li>
-                                            <li className="li_drop">
-                                                <li className="li_drop one_ul">
-                                                    NHL
-                                                    <ul className="second_ul">
-                                                        <HashLink to="/list_nhl_stats">
-                                                            <li className="li_drop">
-                                                                Team Stats
-                                                            </li>
-                                                        </HashLink>
-                                                        <HashLink to="/list_stats_nhl_py">
-                                                            <li className="li_drop">
-                                                                Players Stats
-                                                            </li>
-                                                        </HashLink>
-                                                    </ul>
-                                                </li>
-                                            </li>
-                                            <li className="li_drop">
-                                                <Link to="/list_stats_fighter_box">
-                                                    BOX
-                                                </Link>
+                                                <li className="li_drop">
+                                                    <Link to="/list_stats_fighter_box">
+                                                        BOX
+                                                    </Link>
 
-                                            </li>
-                                            <li className="li_drop">
-                                                <Link to="/list_stats_fighter_mma">
-                                                    MMA
-                                                </Link>
-                                            </li>
-                                            <li className="li_drop">
-                                                <Link to="list_stats_golfer">
-                                                    GOLF
-                                                </Link>
-                                            </li>
-                                            <li className="li_drop">
-                                                <Link to="/list_stats_nascar_driver">
-                                                    NASCAR
-                                                </Link>
-                                            </li>
-                                            <li className="li_drop">COLLEGE</li>
-                                            <li className="li_drop">
-                                                <li className="li_drop one_ul">
-                                                    SOCCER
-                                                    <ul className="second_ul">
-                                                        <HashLink to="/list_soccer_stats">
-                                                            <li className="li_drop">
-                                                                Team Stats
-                                                            </li>
-                                                        </HashLink>
-                                                        <HashLink to="/list_stats_soccer_py">
-                                                            <li className="li_drop">
-                                                                Players Stats
-                                                            </li>
-                                                        </HashLink>
-                                                    </ul>
                                                 </li>
-                                            </li>
-                                        </ul>
-                                    </HashLink>
+                                                <li className="li_drop">
+                                                    <Link to="/list_stats_fighter_mma">
+                                                        MMA
+                                                    </Link>
+                                                </li>
+                                                <li className="li_drop">
+                                                    <Link to="list_stats_golfer">
+                                                        GOLF
+                                                    </Link>
+                                                </li>
+                                                <li className="li_drop">
+                                                    <Link to="/list_stats_nascar_driver">
+                                                        NASCAR
+                                                    </Link>
+                                                </li>
+                                                <li className="li_drop">COLLEGE</li>
+                                                <li className="li_drop">
+                                                    <li className="li_drop one_ul">
+                                                        SOCCER
+                                                        <ul className="second_ul">
+                                                            <HashLink to="/list_soccer_stats">
+                                                                <li className="li_drop">
+                                                                    Team Stats
+                                                                </li>
+                                                            </HashLink>
+                                                            <HashLink to="/list_stats_soccer_py">
+                                                                <li className="li_drop">
+                                                                    Players Stats
+                                                                </li>
+                                                            </HashLink>
+                                                        </ul>
+                                                    </li>
+                                                </li>
+                                            </ul>
+                                        </HashLink>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
                 </div>
 
                 <div className="col-3 d-flex justify-content-center align-items-center">
                     <div className="fw-bold">{store.username_temp}</div>
-                    <div className="col-1 float-left  d-flex justify-content-center align-items-center d-none" id="btnLogOut">
+                    <div className="col-1 float-left d-flex justify-content-center align-items-center" id="btnLogOut">
                         <a href="#" onClick={refrescar} className="text-danger">
                             <h4>
                                 <i className="fas fa-sign-out-alt" />

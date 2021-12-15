@@ -1,7 +1,17 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 export const NBA_game = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
@@ -302,8 +312,8 @@ export const NBA_game = () => {
             q4_half_final_score_home: Q4fsHome,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/nba", {
             method: "POST",
@@ -313,9 +323,9 @@ export const NBA_game = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };

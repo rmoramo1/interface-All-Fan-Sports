@@ -1,8 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Redirect } from 'react-router-dom';
 import { Context } from "../store/appContext";
 import "../../node_modules/aos/dist/aos.css";
 export const Nfl_game = () => {
     const { store } = useContext(Context);
+
+        useEffect(() => {
+        const loggedUser = window.localStorage.getItem('my_token');
+        const user = JSON.parse(loggedUser);
+        
+        if(!user){
+            window.location.href = '/';
+        }
+    }, [])
+
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
@@ -150,8 +161,11 @@ export const Nfl_game = () => {
     const [Q4fsHome, setQ4fsHome] = useState("");
 
     let actualizar = () => {
-        window.location.reload(true);
+        window.location.replace('');
     }
+    
+    const [auth, setAuth] = useState(false);
+
     const crear = e => {
         e.preventDefault();
         const body = {
@@ -303,8 +317,8 @@ export const Nfl_game = () => {
             q4_half_final_score_home: Q4fsHome,
 
         };
-        console.log(body);
-        console.log(body.date);
+        
+       
 
         fetch("https://interfaceroy.herokuapp.com/nfl", {
             method: "POST",
@@ -314,9 +328,10 @@ export const Nfl_game = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                console.log(sessionStorage);
+                
                 alert("juego se creo");
-                //actualizar();
+                setAuth(true);
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -1050,6 +1065,7 @@ export const Nfl_game = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/allGames" /> : null}
         </div>
     )
 }
