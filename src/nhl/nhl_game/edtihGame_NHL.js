@@ -5,15 +5,13 @@ import { HashLink } from 'react-router-hash-link';
 export const EdithGames_nhl = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
-        
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
 
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
 
     const [status, setStatus] = useState(store.nhlGames[params.theid].status);
     const [casino, setcasino] = useState(store.nhlGames[params.theid].casino);

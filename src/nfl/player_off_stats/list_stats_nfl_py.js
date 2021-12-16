@@ -7,14 +7,13 @@ import { Single_PY_NFL_PUT_STATS } from "../player_punting_stats/single_py_nfl_p
 import {Single_PY_NFL_KIK_STATS} from "../player_kik_stats/single_py_nfl_kik_stats"
 export const List_Stats_NFL_PY = () => {
     const { store } = useContext(Context);
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     let ops = ["Ofensive", "Defensive", "Returning", "Punting" ,"Kicking"];
     const [tipe, setTipe] = useState("Ofensive")

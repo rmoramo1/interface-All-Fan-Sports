@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import ListNascarRace from "./listNascar";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
@@ -6,14 +6,12 @@ import DateTime from 'luxon/src/datetime.js'
 export const CreateNascar = () => {
 	const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
 	const weekLux = DateTime.now().weekNumber;
 	const yearLux = DateTime.now().year;

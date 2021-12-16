@@ -12,14 +12,13 @@ import "../../node_modules/aos/dist/aos.css";
 
 export const Glosary = () => {
 	const { store, actions } = useContext(Context);
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 	return (
 		<div className="container-fluid p-0 m-50">
 			<div className="slider">

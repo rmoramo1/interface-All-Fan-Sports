@@ -5,14 +5,12 @@ import { HashLink } from 'react-router-hash-link';
 export const EdithGames_nba = (props) => {
     const params = useParams();
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState(store.nbaGames[params.theid].status);
@@ -1026,7 +1024,7 @@ export const EdithGames_nba = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={delet} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/allGames" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>

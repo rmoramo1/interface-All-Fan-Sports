@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const ListGameNHL = props => {
     const { store } = useContext(Context);
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
+
     return (
         <div className="row g-0 listGames">
             <div className="col-1 d-flex justify-content-center align-items-center py-3">

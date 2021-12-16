@@ -7,14 +7,12 @@ export const EdithFight_mma = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.mma_fight[params.theid].status);
@@ -307,7 +305,7 @@ export const EdithFight_mma = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={deletFight} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/allGames" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>

@@ -5,14 +5,12 @@ import { Context } from "../../store/appContext";
 export const Stats_ret_player_nfl = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const params = useParams();
     const [name, setName] = useState(store.stats_ret_player_nfl[params.theid].name);

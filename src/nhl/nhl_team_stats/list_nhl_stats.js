@@ -5,14 +5,12 @@ import { Stat_Single_NHL } from "./stat_single_nhl";
 export const List_NHL_Stats = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     var sortStats = store.nhl_stats_teams;
     sortStats.sort(function (a, b) {

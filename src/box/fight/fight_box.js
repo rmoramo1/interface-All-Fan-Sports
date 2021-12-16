@@ -1,17 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
+import { Redirect } from "react-router-dom";
 import DateTime from 'luxon/src/datetime.js'
 export const Fight_box = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
-
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
+    const [auth, setAuth] = useState(false);
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -104,7 +104,7 @@ export const Fight_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+                setAuth(true);
                 alert("Pelea se creo");
                 actualizar();
             })
@@ -393,6 +393,7 @@ export const Fight_box = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/listFights_box/" /> : null}
         </div>
     )
 }

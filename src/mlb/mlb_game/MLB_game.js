@@ -1,16 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 export const MLB_game = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -172,6 +171,7 @@ export const MLB_game = () => {
 
     const [sa_40inning, setSa_40inning] = useState("");
     const [sh_40inning, setSh_40inning] = useState("");
+    const [auth, setAuth] = useState(false);
 
 
     let actualizar = () => {
@@ -1019,6 +1019,7 @@ export const MLB_game = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/listGameMLB/" /> : null}
         </div>
     )
 }

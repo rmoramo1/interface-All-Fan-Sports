@@ -5,14 +5,12 @@ import { Context } from "../../store/appContext";
 export const CreateGames_NBA = () => {
 	const { store } = useContext(Context);
 
-	    useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
 	let teamFilter = store.nbaGames;
 	const [team, setTeam] = useState("");

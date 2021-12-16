@@ -1,17 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 export const Fight_mma = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
@@ -53,6 +52,7 @@ export const Fight_mma = () => {
     const [r13_result, setr13_result] = useState("0");
     const [r14_result, setr14_result] = useState("0");
     const [r15_result, setr15_result] = useState("0");
+    const [auth, setAuth] = useState(false);
 
 
     let actualizar = () => {
@@ -394,6 +394,7 @@ export const Fight_mma = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/allGames/" /> : null}
         </div>
     )
 }

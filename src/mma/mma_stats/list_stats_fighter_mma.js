@@ -4,14 +4,12 @@ import { Single_Fighter_mma } from "./single_fighter_stas_mma";
 export const List_Stats_Fighter_mma = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     var sortStats_py = store.mma_stats;
     sortStats_py.sort(function (a, b) {

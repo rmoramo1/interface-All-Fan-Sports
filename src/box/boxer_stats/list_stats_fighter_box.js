@@ -4,13 +4,12 @@ import { Single_Fighter_box } from "./single_fighter_stas";
 export const List_Stats_Fighter_Box = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
 
     var sortStats_py = store.boxer_stats;
     sortStats_py.sort(function (a, b) {

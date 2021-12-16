@@ -1,17 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
+import { Redirect } from 'react-router-dom';
 export const Golf = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
@@ -33,7 +32,7 @@ export const Golf = () => {
     const [place1, setplace1] = useState("0");
     const [place2, setplace2] = useState("0");
     const [place3, setplace3] = useState("0");
-
+    const [auth, setAuth] = useState(false);
     let actualizar = () => {
         window.location.reload(true);
     }
@@ -64,7 +63,7 @@ export const Golf = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+                setAuth(true);
                 alert("Evento se creo");
                 actualizar();
             })
@@ -263,6 +262,7 @@ export const Golf = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/allGames" /> : null}
         </div>
     )
 }

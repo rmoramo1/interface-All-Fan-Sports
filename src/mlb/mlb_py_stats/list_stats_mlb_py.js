@@ -4,14 +4,12 @@ import { Single_py_mlb_stats } from "./single_py_mlb_stats";
 export const List_Stats_MLB_PY = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     var sortStats_py = store.mlb_stats_player;
     sortStats_py.sort(function (a, b) {

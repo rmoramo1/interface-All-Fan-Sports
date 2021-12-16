@@ -6,13 +6,12 @@ import DateTime from 'luxon/src/datetime.js'
 export const CreateFight = () => {
 	const { store } = useContext(Context);
 
-	    useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
 
 	const weekLux = DateTime.now().weekNumber;
 	const yearLux = DateTime.now().year;

@@ -5,13 +5,12 @@ import { Context } from "../../store/appContext";
 export const Edit_stats_Fighter_box = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
 
     const params = useParams();
 

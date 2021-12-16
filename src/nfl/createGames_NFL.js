@@ -5,12 +5,13 @@ import { Context } from "../store/appContext";
 export const CreateGames_NFL = () => {
 	const { store } = useContext(Context);
 
-	useEffect(() => {
-        if(!store.username_temp){
-            window.location.href = '/';
-			teamFilter = store.nflGames;
-        }
-    }, [])
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
+        
+    }
+
 	let teamFilter = store.nflGames;
 	const [team, setTeam] = useState("");
 

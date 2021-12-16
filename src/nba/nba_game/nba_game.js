@@ -1,16 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
+import {  Redirect } from 'react-router-dom';
 import { Context } from "../../store/appContext";
 export const NBA_game = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -157,9 +156,10 @@ export const NBA_game = () => {
     const [Q4juiceOverHome, setQ4juiceOverHome] = useState("-110");
     const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState("-110");
     const [Q4fsHome, setQ4fsHome] = useState("");
-
+    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        setTimeout(function () { window.location.reload(true); }, 800);
+
     }
     const crear = e => {
         e.preventDefault();
@@ -1060,6 +1060,7 @@ export const NBA_game = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
+            {auth ? <Redirect to="/allGames" /> : null}
         </div>
     )
 }

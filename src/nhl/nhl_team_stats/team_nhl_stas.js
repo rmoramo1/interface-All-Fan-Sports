@@ -5,14 +5,12 @@ import { Context } from "../../store/appContext";
 export const Team_NHL_Stas = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const [season, setSeason] = useState("2021");
     const [team, setTeam] = useState("Boston Bruins");

@@ -4,14 +4,12 @@ import { Single_Golfer } from "./single_golfer";
 export const List_Stats_Golfer = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     var sortStats_py = store.golfer_stats;
     sortStats_py.sort(function (a, b) {

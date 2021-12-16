@@ -17,12 +17,17 @@ export const Index = () => {
         }
     }, [])
 	return (
-		<div className="container-fluid p-0 m-50">
+		<div className="container-fluid p-0 pt-5 m-50 bg_blue text-white">
+            <div className="container">
+                <div className="col-12 text-center">
+                    <h2><span className="font_special"> WELCOME {store.username_temp} </span></h2>
+                </div>
+            </div>
 			<div className= "slider">
-			   <img src={logo} className=""></img>
+			   <img src={logo} className="img-fluid"></img>
 			</div>
             <div className="text-center fs-5">
-               <i> "Lo más importante del deporte no es ganar, sino participar, porque lo esencial en la vida no es el éxito, sino esforzarse por conseguirlo". </i>
+               <i> "The most important thing in sport is not to win, but to participate, because the most important thing in life is not success, but striving for it". </i>
             </div>
             <div className="ps-3 fw-bold">
                 Barón Pierre de Coubertin

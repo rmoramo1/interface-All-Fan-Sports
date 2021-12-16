@@ -6,14 +6,12 @@ export const EdithGames_mlb = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
 
-        useEffect(() => {
-        const loggedUser = window.localStorage.getItem('my_token');
-        const user = JSON.parse(loggedUser);
+    let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    if (!roy) {
+        window.location.href = '/';
+    } else {
         
-        if(!user){
-            window.location.href = '/';
-        }
-    }, [])
+    }
 
     const [statusCrear, setStatusCrear] = useState(store.mlbGames[params.theid].status);
     const [casino, setcasino] = useState(store.mlbGames[params.theid].casino);
@@ -1020,7 +1018,7 @@ export const EdithGames_mlb = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={delet} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/listGameMLB" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>
