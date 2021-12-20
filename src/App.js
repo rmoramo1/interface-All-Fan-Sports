@@ -40,6 +40,7 @@ import { Edit_stats_player_nhl } from "./nhl/nhl_py_stats/edit_stats_player_nhl"
 import { List_Stats_NHL_PY } from "./nhl/nhl_py_stats/list_stats_nhl_py";
 //box
 import { EdithFight } from "./box/fight/edtihFight";
+import ListFights_Box from "./box/fight/listFights_box";
 import { List_Stats_Fighter_Box } from "./box/boxer_stats/list_stats_fighter_box";
 import { Edit_stats_Fighter_box } from "./box/boxer_stats/edit_stats_fighter_box";
 //mma
@@ -87,8 +88,8 @@ function App() {
 					<Route exact path="/edtihGame_nba/:theid" component={EdithGames_nba} />
 					<Route exact path="/edtihGame_NHL/:theid" component={EdithGames_nhl} />
 					<Route exact path="/edtihGame_Soccer/:theid" component={EdithGames_Soccer} />
-					<Route exact path="/edtihFight/:theid" component={EdithFight_mma} />
-					<Route exact path="/edtihFight_mma/:theid" component={EdithFight} />
+					<Route exact path="/edtihFight/:theid" component={EdithFight} />
+					<Route exact path="/edtihFight_mma/:theid" component={EdithFight_mma} />
 					<Route exact path="/edtihGolf/:theid" component={EdithGolf} />
 					<Route exact path="/edtihNascar/:theid" component={EditNascar} />
 					<Route exact path="/list_nfl_stats" component={List_NFL_Stats} />
@@ -107,6 +108,7 @@ function App() {
 					<Route exact path="/list_nhl_stats" component={List_NHL_Stats} />
 					<Route exact path="/listGameNBA" component={ListGameNBA} />
 					<Route exact path="/listGameNHL" component={ListGameMLB} />
+					<Route exact path="/listFights_box" component={ListFights_Box} />
 					<Route exact path="/list_tournaments" component={List_Tournaments} />
 					<Route exact path="/edith_stats_nfl_team/:theid" component={Edit_Team_Nfl_Stas} />
 					<Route exact path="/edith_stats_nba_team/:theid" component={Edit_Stats_NBA_Team} />

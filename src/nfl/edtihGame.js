@@ -374,7 +374,7 @@ export const EdithGames = (props) => {
         }
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 1; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);

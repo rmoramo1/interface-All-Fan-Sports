@@ -104,7 +104,7 @@ export const Stats_py_mlb = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Create Stats NBA Player</h3>
+                    <h3>Create Stats MLB Player</h3>
                 </div>
             </div>
             <form onSubmit={crear}>

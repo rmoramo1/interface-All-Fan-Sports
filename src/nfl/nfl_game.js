@@ -367,7 +367,7 @@ export const Nfl_game = () => {
         }
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 1; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -1063,7 +1063,7 @@ export const Nfl_game = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
-            {auth ? <Redirect to="/allGames" /> : null}
+            {auth ? <Redirect to="/admin" /> : null}
         </div>
     )
 }

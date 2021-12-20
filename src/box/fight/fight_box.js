@@ -393,7 +393,7 @@ export const Fight_box = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
-            {auth ? <Redirect to="/listFights_box/" /> : null}
+            {auth ? <Redirect to="/admin/" /> : null}
         </div>
     )
 }
