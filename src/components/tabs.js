@@ -362,6 +362,13 @@ export const Tabs = () => {
                     </HashLink>
                 </h2>
             </div>
+            <div className="accordion-item">
+                <div className="accordion-header" id="headingLogos">
+                    <HashLink className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Logos" aria-expanded="false" aria-controls="Logos">
+                        LOGOS <i className="far fa-flag ps-5 fs-5"></i>
+                    </HashLink>
+                </div>
+            </div>
         </div>
     )
 }

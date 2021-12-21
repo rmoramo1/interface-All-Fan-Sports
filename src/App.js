@@ -7,6 +7,7 @@ import { Faqs } from "./pages/faqs";
 import { Glosary } from "./pages/glosary";
 import { Contact } from "./pages/contact";
 import { Admin } from "./pages/admin";
+import { Logos_page } from "./pages/logos_page";
 //nfl
 import { EdithGames } from "./nfl/edtihGame";
 import { List_NFL_Stats } from "./nfl/stats/list_nfl_stats";
@@ -63,6 +64,12 @@ import { List_Stats_Soccer_PY } from "./soccer/soccer_py_stats/list_stats_soccer
 import { Edit_stats_player_soccer } from "./soccer/soccer_py_stats/edit_stats_player_soccer";
 import { List_Tournaments } from "./soccer/tournament/list_tournaments";
 import { Edit_Tournaments } from "./soccer/tournament/edith_tournaments";
+//logo
+import { Edith_Logo_nfl } from "./logos/nfl/edith_logo_nfl";
+import { Edith_Logo_nba } from "./logos/nba/edith_logo_nba";
+import { Edith_Logo_nhl } from "./logos/nhl/edith_logo_nhl";
+import { Edith_Logo_mlb } from "./logos/mlb/edith_logo_mlb";
+import { Edith_Logo_soccer } from "./logos/soccer/edith_logo_soccer";
 //all
 import { AllGames } from "./pages/allGames";
 /*components*/
@@ -81,7 +88,13 @@ function App() {
 					<Route exact path="/glosary" component={Glosary} />
 					<Route exact path="/contact" component={Contact} />
 					<Route exact path="/admin" component={Admin} />
+					<Route exact path="/edith_logo_nfl/:theid" component={Edith_Logo_nfl} />
+					<Route exact path="/edith_logo_nba/:theid" component={ Edith_Logo_nba } />
+					<Route exact path="/edith_logo_nhl/:theid" component={ Edith_Logo_nhl } />
+					<Route exact path="/edith_logo_mlb/:theid" component={ Edith_Logo_mlb } />
+					<Route exact path="/edith_logo_soccer/:theid" component={ Edith_Logo_soccer } />
 					<Route exact path="/allGames" component={AllGames} />
+					<Route exact path="/logos" component={Logos_page} />
 					<Route exact path="/edtihGame/:theid" component={EdithGames} />
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb} />
 					<Route exact path="/edith_tournaments/:theid" component={Edit_Tournaments} />

@@ -37,6 +37,8 @@ import { Team_Soccer_Stas } from "../soccer/soccer_team_stats/team_soccer_stas";
 import { Stats_py_soccer } from "../soccer/soccer_py_stats/stats_py_soccer";
 import { Tournaments } from "../soccer/tournament/tournament";
 
+import { Logos } from "./logos";
+
 
 export const Links = () => {
     return (
@@ -286,6 +288,15 @@ export const Links = () => {
                 </div>
             </div>
             {/*  soccer*/}
+            {/* logos */}
+            <div className="accordion-item">
+                <div id="Logos" className="accordion-collapse collapse" aria-labelledby="Logos" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Logos/>
+                    </div>
+                </div>
+            </div>
+            {/* logos */}
 
         </div>
     )

@@ -30,7 +30,6 @@ export const EdithGolf = (props) => {
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
-
     }
     const crear = e => {
         e.preventDefault();

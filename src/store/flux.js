@@ -54,6 +54,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			soccer_stats_teams:[],
 			soccer_stats_player:[],
 			tournaments:[],
+			//logos
+			logos_nfl:[],
+			logos_nba:[],
+			logos_nhl:[],
+			logos_mlb:[],
+			logos_soccer:[],
 			//name temporal
 			username_temp: "",
 
@@ -241,7 +247,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				setStore({ tournaments: results });
 			},
-			
+			//logos
+			loadLogos_nfl: async () => {
+				const url = "https://interfaceroy.herokuapp.com/logos_nfl";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_nfl: results });
+			},	
+			loadLogos_nba: async () => {
+				const url = "https://interfaceroy.herokuapp.com/logos_nba";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_nba: results });
+			},	
+			loadLogos_nhl: async () => {
+				const url = "https://interfaceroy.herokuapp.com/logos_nhl";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_nhl: results });
+			},	
+			loadLogos_mlb: async () => {
+				const url = "https://interfaceroy.herokuapp.com/logos_mlb";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_mlb: results });
+			},	
+			loadLogos_soccer: async () => {
+				const url = "https://interfaceroy.herokuapp.com/logos_soccer";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_soccer: results });
+			},	
 			//casinos
 			loadCasinos: async () => {
 				const url = "https://interfaceroy.herokuapp.com/casinos";

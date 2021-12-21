@@ -163,6 +163,7 @@ export const Header = () => {
                                                         </li>
                                                     </ul>
                                                 </HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/logos">Logos</HashLink>
                                             </div>
                                         </div>
                                     </div>
