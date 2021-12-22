@@ -8,6 +8,7 @@ import { Glosary } from "./pages/glosary";
 import { Contact } from "./pages/contact";
 import { Admin } from "./pages/admin";
 import { Logos_page } from "./pages/logos_page";
+import { Casinos_page } from "./pages/casinos_page";
 //nfl
 import { EdithGames } from "./nfl/edtihGame";
 import { List_NFL_Stats } from "./nfl/stats/list_nfl_stats";
@@ -70,6 +71,8 @@ import { Edith_Logo_nba } from "./logos/nba/edith_logo_nba";
 import { Edith_Logo_nhl } from "./logos/nhl/edith_logo_nhl";
 import { Edith_Logo_mlb } from "./logos/mlb/edith_logo_mlb";
 import { Edith_Logo_soccer } from "./logos/soccer/edith_logo_soccer";
+//casino
+import { Edith_Casino } from "./casino/edith_casino";
 //all
 import { AllGames } from "./pages/allGames";
 /*components*/
@@ -87,7 +90,9 @@ function App() {
 					<Route exact path="/faqs" component={Faqs} />
 					<Route exact path="/glosary" component={Glosary} />
 					<Route exact path="/contact" component={Contact} />
+					<Route exact path="/casinos_page" component={Casinos_page} />
 					<Route exact path="/admin" component={Admin} />
+					<Route exact path="/edith_casino/:theid" component={Edith_Casino} />
 					<Route exact path="/edith_logo_nfl/:theid" component={Edith_Logo_nfl} />
 					<Route exact path="/edith_logo_nba/:theid" component={ Edith_Logo_nba } />
 					<Route exact path="/edith_logo_nhl/:theid" component={ Edith_Logo_nhl } />

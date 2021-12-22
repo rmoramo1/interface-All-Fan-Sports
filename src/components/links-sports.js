@@ -39,64 +39,66 @@ import { Tournaments } from "../soccer/tournament/tournament";
 
 import { Logos } from "./logos";
 
+import { Casino } from "../casino/casino";
+
 
 export const Links = () => {
     return (
-        <div> 
+        <div>
             {/* nfl */}
             <div className="accordion-item">
-                <div id="firsth_Show" className="accordion-collapse collapse show" aria-labelledby="headingOne"  data-bs-parent="#allitems">
+                <div id="firsth_Show" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                       <Index/>
+                        <Index />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="gameNFL" className="accordion-collapse collapse" aria-labelledby="headingOne"  data-bs-parent="#allitems">
+                <div id="gameNFL" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Nfl_game/>
+                        <Nfl_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="team" className="accordion-collapse collapse" aria-labelledby="headingTwo"  data-bs-parent="#allitems">
+                <div id="team" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                       <StatsNFL/>
+                        <StatsNFL />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="offplayer" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_off_player_nfl/>
+                        <Stats_off_player_nfl />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="deffPlayer" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_deff_player_nfl/>
+                        <Stats_deff_player_nfl />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="returningPlayer" className="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_ret_player_nfl/>
+                        <Stats_ret_player_nfl />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="puntingPlayer" className="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                    <Stats_put_player_nfl/>
+                        <Stats_put_player_nfl />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="kickingPlayer" className="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_kik_player_nfl/>
+                        <Stats_kik_player_nfl />
                     </div>
                 </div>
             </div>
@@ -105,21 +107,21 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="nbaStts" className="accordion-collapse collapse" aria-labelledby="nba-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <NBA_game/>
+                        <NBA_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nbaSttsTeam" className="accordion-collapse collapse" aria-labelledby="nba-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Team_Nba_Stas/>
+                        <Team_Nba_Stas />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nbaSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nba-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                       <Stats_py_nba/>
+                        <Stats_py_nba />
                     </div>
                 </div>
             </div>
@@ -129,21 +131,21 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="mlbGame" className="accordion-collapse collapse" aria-labelledby="mlb-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <MLB_game/>
+                        <MLB_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="mlbSttsTeam" className="accordion-collapse collapse" aria-labelledby="mlb-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                       <Team_MLB_Stas/>
+                        <Team_MLB_Stas />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="mlbSttsPlayer" className="accordion-collapse collapse" aria-labelledby="mlb-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_py_mlb/>
+                        <Stats_py_mlb />
                     </div>
                 </div>
             </div>
@@ -152,21 +154,21 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="nhlGame" className="accordion-collapse collapse" aria-labelledby="nhl-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                       <NHL_game/>
+                        <NHL_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nhlSttsTeam" className="accordion-collapse collapse" aria-labelledby="nhl-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Team_NHL_Stas/>
+                        <Team_NHL_Stas />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="nhlSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nhl-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                    <Stats_py_nhl/>
+                        <Stats_py_nhl />
                     </div>
                 </div>
             </div>
@@ -175,14 +177,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="boxGame" className="accordion-collapse collapse" aria-labelledby="box-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Fight_box/>
+                        <Fight_box />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="boxSttsTeam" className="accordion-collapse collapse" aria-labelledby="box-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_Fighter_box/>
+                        <Stats_Fighter_box />
                     </div>
                 </div>
             </div>
@@ -191,14 +193,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="mmaGame" className="accordion-collapse collapse" aria-labelledby="mma-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Fight_mma/>
+                        <Fight_mma />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="mmaSttsTeam" className="accordion-collapse collapse" aria-labelledby="mma-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_Fighter_mma/>
+                        <Stats_Fighter_mma />
                     </div>
                 </div>
             </div>
@@ -207,30 +209,30 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="golfGame" className="accordion-collapse collapse" aria-labelledby="golf-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Golf/>
+                        <Golf />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="golfSttsTeam" className="accordion-collapse collapse" aria-labelledby="golf-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_Golfer/>
+                        <Stats_Golfer />
                     </div>
                 </div>
             </div>
             {/*  golf*/}
             {/*  nascar*/}
             <div className="accordion-item">
-                <div id="nascarGame" className="accordion-collapse collapse" aria-labelledby="nascar-headingOne"  data-bs-parent="#allitems">
+                <div id="nascarGame" className="accordion-collapse collapse" aria-labelledby="nascar-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Nascar/>
+                        <Nascar />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="nascarSttsTeam" className="accordion-collapse collapse" aria-labelledby="nascar-headingTwo"  data-bs-parent="#allitems">
+                <div id="nascarSttsTeam" className="accordion-collapse collapse" aria-labelledby="nascar-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_Nascar_Driver/>
+                        <Stats_Nascar_Driver />
                     </div>
                 </div>
             </div>
@@ -262,41 +264,59 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="Soccer_tournament" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                    <Tournaments/>
+                        <Tournaments />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="Soccer" className="accordion-collapse collapse" aria-labelledby="soccer-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Soccer_game/>
+                        <Soccer_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="stats_soccer_player" className="accordion-collapse collapse" aria-labelledby="soccer-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                    <Stats_py_soccer/>
+                        <Stats_py_soccer />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="soccer_team_stats" className="accordion-collapse collapse" aria-labelledby="soccer team stats" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Team_Soccer_Stas/>
+                        <Team_Soccer_Stas />
                     </div>
                 </div>
             </div>
             {/*  soccer*/}
+            {/* odds */}
+            <div className="accordion-item">
+                <div id="odds" className="accordion-collapse collapse" aria-labelledby="odds" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        ODDS
+                    </div>
+                </div>
+            </div>
+            {/* odds */}
             {/* logos */}
             <div className="accordion-item">
                 <div id="Logos" className="accordion-collapse collapse" aria-labelledby="Logos" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Logos/>
+                        <Logos />
                     </div>
                 </div>
             </div>
             {/* logos */}
+            {/* Casinos */}
+            <div className="accordion-item">
+                <div id="Casinos" className="accordion-collapse collapse" aria-labelledby="Casinos" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Casino/>
+                    </div>
+                </div>
+            </div>
+            {/* Casinos */}
 
         </div>
     )

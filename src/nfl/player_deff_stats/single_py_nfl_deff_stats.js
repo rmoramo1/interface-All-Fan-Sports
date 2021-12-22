@@ -35,7 +35,7 @@ Single_PY_NFL_DEFF_STATS.propTypes = {
     id: PropTypes.number,
     team: PropTypes.string,
     name: PropTypes.string,
-    season: PropTypes.string,
-    conference: PropTypes.string,
+    dorsal: PropTypes.string,
+    games: PropTypes.string,
     division: PropTypes.string
 };

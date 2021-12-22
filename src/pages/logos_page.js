@@ -15,7 +15,6 @@ export const Logos_page = () => {
     } else {
 
     }
-
     return (
         <div className="container-fluid m-50">
             <div className="col-12 bg-title-edith my-2 p-3 text-center">
@@ -26,7 +25,6 @@ export const Logos_page = () => {
                     <div className="title-lines fw-bold text-center">NFL Logos</div>
                     {
                         store.logos_nfl.map((item, index) => {
-
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_nfl
@@ -43,7 +41,6 @@ export const Logos_page = () => {
                     <div className="title-lines fw-bold text-center">NBA Logos</div>
                     {
                         store.logos_nba.map((item, index) => {
-
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_nba
@@ -60,7 +57,6 @@ export const Logos_page = () => {
                     <div className="title-lines fw-bold text-center">NHL Logos</div>
                     {
                         store.logos_nhl.map((item, index) => {
-
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_nhl
@@ -77,7 +73,6 @@ export const Logos_page = () => {
                     <div className="title-lines fw-bold text-center">MLB Logos</div>
                     {
                         store.logos_mlb.map((item, index) => {
-
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_mlb
@@ -94,7 +89,6 @@ export const Logos_page = () => {
                     <div className="title-lines fw-bold text-center">SOCCER Logos</div>
                     {
                         store.logos_soccer.map((item, index) => {
-
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_soccer

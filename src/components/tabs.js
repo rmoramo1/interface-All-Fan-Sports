@@ -356,16 +356,23 @@ export const Tabs = () => {
                 </div>
             </div>
             <div className="accordion-item">
-                <h2 className="accordion-header" id="headingEightNFL">
-                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#oddsTW-NFL" aria-expanded="false" aria-controls="oddsTW-NFL">
+                <h2 className="accordion-header" id="headingOdds">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#odds" aria-expanded="false" aria-controls="odds">
                         Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
                     </HashLink>
                 </h2>
             </div>
             <div className="accordion-item">
                 <div className="accordion-header" id="headingLogos">
-                    <HashLink className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Logos" aria-expanded="false" aria-controls="Logos">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Logos" aria-expanded="false" aria-controls="Logos">
                         LOGOS <i className="far fa-flag ps-5 fs-5"></i>
+                    </HashLink>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div className="accordion-header" id="headingCasinos">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Casinos" aria-expanded="false" aria-controls="Casinos">
+                        Casinos <i className="fas fa-dice ps-5 fs-5"></i>
                     </HashLink>
                 </div>
             </div>

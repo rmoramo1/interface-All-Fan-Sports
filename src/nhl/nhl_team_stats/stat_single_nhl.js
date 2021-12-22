@@ -15,16 +15,14 @@ export const Stat_Single_NHL = props => {
                 </div>
                 <div className="col-11 bg-white my-3 shadow">
                     <div className="row g-0 text-center title-lines">
-                        <div className="col-3 lines">Team</div>
-                        <div className="col-2 lines">Season</div>
+                        <div className="col-4 lines">Season</div>
                         <div className="col-4 lines">Conference</div>
-                        <div className="col-3 lines">Division</div>
+                        <div className="col-4 lines">Division</div>
                     </div>
                     <div className="row g-0 text-center">
-                        <div className="col-3 lines">{props.team}</div>
-                        <div className="col-2 lines">{props.season}</div>
+                        <div className="col-4 lines">{props.season}</div>
                         <div className="col-4 lines">{props.conference}</div>
-                        <div className="col-3 lines">{props.division}</div>
+                        <div className="col-4 lines">{props.division}</div>
                     </div>
                 </div>
             </div>

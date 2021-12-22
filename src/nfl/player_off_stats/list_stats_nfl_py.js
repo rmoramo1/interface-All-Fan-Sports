@@ -28,6 +28,7 @@ export const List_Stats_NFL_PY = () => {
         var returning = "d-none";
         var punting = "d-none";
         var kick = "d-none";
+
     } if (tipe === "Defensive") {
         deffensive = "d-block";
         ofensive = "d-none";
