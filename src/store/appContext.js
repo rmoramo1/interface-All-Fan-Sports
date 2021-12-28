@@ -68,14 +68,35 @@ const injectContext = PassedComponent => {
 			state.actions.loadSoccer_team_stats();
 			state.actions.loadSoccer_player_stats();
 			state.actions.loadTournaments();
+			//ncaa football
+			state.actions.loadNcaa_football();
+			state.actions.loadStatsNcaa_Football_team();
+			state.actions.loadStats_deffensive_player_ncaa_foot();
+			state.actions.loadStats_offensive_player_ncaa_foot();
+			state.actions.loadStats_return_player_ncaa_foot();
+			state.actions.loadStats_punting_player_ncaa_foot();
+			state.actions.loadStats_Kiking_player_ncaa_foot();
+			//ncaa basket
+			state.actions.loadNcaa_basket();
+			state.actions.loadNcaa_basket_PY_Stats();
+			state.actions.loadNcaa_basket_team_Stats();
+			//ncaa baseball
+			state.actions.loadNcaa_baseball();
+			state.actions.loadNcaa_baseball_stats_player();
+			state.actions.loadNcaa_baseball_stats_team();
 			//name
 			state.actions.changename();
-			//logs
+			//logos
 			state.actions.loadLogos_nfl();
 			state.actions.loadLogos_nba();
 			state.actions.loadLogos_nhl();
 			state.actions.loadLogos_mlb();
 			state.actions.loadLogos_soccer();
+			// odds to win
+			state.actions.loadOdds_to_win();
+			//props
+			state.actions.loadProps();
+			
 			//casinos
 			state.actions.loadCasinos();
 		}, []);

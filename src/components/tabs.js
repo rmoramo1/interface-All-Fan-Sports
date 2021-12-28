@@ -281,35 +281,131 @@ export const Tabs = () => {
                 </div>
             </div>
             <div className="accordion-item">
-                <div className="accordion-header" id="headingEightColle">
-                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                        COLLEGE <i className="fas fa-university ps-5 fs-5"></i>
+                <div className="accordion-header" id="headingEightNAS">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_foot" aria-expanded="false" aria-controls="ncaa_foot">
+                        NCAA  FOOTBALL <i className="fas fa-football-ball ps-5 fs-5"></i>
                     </HashLink>
                 </div>
-                <div id="collapseNine" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingEightColle" data-bs-parent="#accordionPrincipal">
+                <div id="ncaa_foot" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingEightNAS" data-bs-parent="#accordionPrincipal">
                     <div className="allitems">
-                        <div className="accordion" id="nascar-items">
+                        <div className="accordion" id="ncaa-foot-items">
                             <div className="accordion-item">
-                                <h2 className="accordion-header" id="nascar-headingOne">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
                                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football" aria-expanded="false" aria-controls="ncaa_football">
-                                        NCAA  FOOTBALL <i className="fas fa-football-ball ps-5 fs-5"></i>
+                                        GAME <i className="fas fa-plus ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>
                             <div className="accordion-item">
-                                <h2 className="accordion-header" id="nascar-headingTwo">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_basket" aria-expanded="false" aria-controls="ncaa_basket">
-                                        NCAA BASKETBALL <i className="fas fa-basketball-ball ps-5 fs-5"></i>
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_team_stats" aria-expanded="false" aria-controls="ncaa_football_team_stats">
+                                        Team Statistics <i className="fas fa-chart-line ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>
                             <div className="accordion-item">
-                                <h2 className="accordion-header" id="nascar-headingTwo">
-                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_baseball" aria-expanded="false" aria-controls="ncaa_baseball">
-                                        NCAA BASEBALL <i className="fas fa-baseball-ball ps-5 fs-5"></i>
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_off_player" aria-expanded="false" aria-controls="ncaa_football_off_player">
+                                        Offensive Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>                           <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_deff_player" aria-expanded="false" aria-controls="ncaa_football_deff_player">
+                                        Defensive Player <i className="fas fa-chart-line ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_ret_player" aria-expanded="false" aria-controls="ncaa_football_ret_player">
+                                        Returning Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_punt_player" aria-expanded="false" aria-controls="ncaa_football_punt_player">
+                                        Punting Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_football_kiking_player" aria-expanded="false" aria-controls="ncaa_football_kiking_player">
+                                        Kicking Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header" id="ncaaa-headingTwo">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_basketball" aria-expanded="false" aria-controls="ncaa_basketball">
+                        NCAA BASKETBALL <i className="fas fa-basketball-ball ps-5 fs-5"></i>
+                    </HashLink>
+                </h2>
+                <div id="ncaa_basketball" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingEightNAS" data-bs-parent="#accordionPrincipal">
+                    <div className="allitems">
+                        <div className="accordion" id="ncaa-foot-items">
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_basket_game" aria-expanded="false" aria-controls="ncaa_basket_game">
+                                        GAME <i className="fas fa-plus ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_basket_team_stas" aria-expanded="false" aria-controls="ncaa_basket_team_stas">
+                                        Team Statistics <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_basket_player_stas" aria-expanded="false" aria-controls="ncaa_basket_player_stas">
+                                      Player Stats <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header" id="nascar-headingTwo">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_baseball" aria-expanded="false" aria-controls="ncaa_baseball">
+                        NCAA BASEBALL <i className="fas fa-baseball-ball ps-5 fs-5"></i>
+                    </HashLink>
+                </h2>
+                <div id="ncaa_baseball" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingEightNAS" data-bs-parent="#accordionPrincipal">
+                    <div className="allitems">
+                        <div className="accordion" id="ncaa-foot-items">
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_baseball_game" aria-expanded="false" aria-controls="ncaa_baseball_game">
+                                        GAME <i className="fas fa-plus ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_baseball_team_stats" aria-expanded="false" aria-controls="ncaa_baseball_team_stats">
+                                        Team Statistics <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ncaa_baseball_py_stats" aria-expanded="false" aria-controls="ncaa_baseball_py_stats">
+                                        Stats Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>                          
                         </div>
                     </div>
                 </div>
@@ -359,6 +455,13 @@ export const Tabs = () => {
                 <h2 className="accordion-header" id="headingOdds">
                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#odds" aria-expanded="false" aria-controls="odds">
                         Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>
+                    </HashLink>
+                </h2>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header" id="headingProps">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#props" aria-expanded="false" aria-controls="props">
+                        Props  <i className="fas fa-trophy ps-2 fs-5"></i>
                     </HashLink>
                 </h2>
             </div>

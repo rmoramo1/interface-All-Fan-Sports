@@ -40,7 +40,6 @@ export const Login = () => {
 				window.localStorage.setItem("my_token",JSON.stringify(data));
 				actions.changename(data.username);
 				setAuth(true);
-				alert("has ingresado correctamente");
 			})
 			.catch(err => console.log(err));
 	};

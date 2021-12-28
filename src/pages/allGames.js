@@ -9,6 +9,9 @@ import { CreateFight_mma } from "../mma/fight_mma/createFight_mma";
 import { CreateGolf } from "../golf/golf/createGolf";
 import { CreateNascar } from "../nascar/nascar/createNascar";
 import { CreateGames_Soccer } from "../soccer/soccer_game/createGames_Soccer";
+import { CreateGames_Ncaa_Football } from "../ncaa_football/game/createGames_Ncaa_footbal";
+import { CreateGames_Ncaa_Basket } from "../ncaa_basketball/game/createGames_Ncaa_basket";
+import { CreateGames_Ncaa_Baseball } from "../ncaa_baseball/game/createGames_Ncaa_Baseball";
 
 
 export const AllGames = () => {
@@ -31,6 +34,9 @@ export const AllGames = () => {
         var GOLF = "d-none";
         var NASCAR = "d-none";
         var SOCCER = "d-none";
+        var NCAA_FOOT = "d-none";
+        var NCAA_BASKET = "d-none";
+        var NCAA_BASEBALL = "d-none";
 
     } if (tipe === "NBA") {
         NBA = "d-block";
@@ -42,6 +48,9 @@ export const AllGames = () => {
         GOLF = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
         
     } if (tipe === "MLB") {
         MLB = "d-block";
@@ -53,6 +62,9 @@ export const AllGames = () => {
         GOLF = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
 
     }if (tipe === "NHL") {
         NHL = "d-block";
@@ -64,6 +76,9 @@ export const AllGames = () => {
         GOLF = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
     }
     if (tipe === "BOX") {
         BOX = "d-block";
@@ -75,6 +90,9 @@ export const AllGames = () => {
         GOLF = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
     }
     if (tipe === "MMA") {
         MMA = "d-block";
@@ -86,6 +104,9 @@ export const AllGames = () => {
         GOLF = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
     }
     if (tipe === "GOLF") {
         GOLF = "d-block";
@@ -97,6 +118,9 @@ export const AllGames = () => {
         NFL = "d-none";
         NASCAR = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
     }
     if (tipe === "NASCAR") {
         NASCAR = "d-block";
@@ -108,9 +132,57 @@ export const AllGames = () => {
         NBA = "d-none";
         NFL = "d-none";
         SOCCER = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
     }
     if (tipe === "SOCCER") {
         SOCCER = "d-block";
+        NASCAR = "d-none";
+        GOLF = "d-none";
+        MMA = "d-none";
+        BOX = "d-none";
+        NHL = "d-none";
+        MLB = "d-none";
+        NBA = "d-none";
+        NFL = "d-none";
+        NCAA_FOOT = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
+    }
+    if (tipe === "NCAA_FOOT") {
+        NCAA_FOOT = "d-block";
+        SOCCER = "d-none";
+        NASCAR = "d-none";
+        GOLF = "d-none";
+        MMA = "d-none";
+        BOX = "d-none";
+        NHL = "d-none";
+        MLB = "d-none";
+        NBA = "d-none";
+        NFL = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_BASEBALL = "d-none";
+    }
+    if (tipe === "NCAA_BASKET") {
+        NCAA_BASKET = "d-block";
+        NCAA_FOOT = "d-none";
+        SOCCER = "d-none";
+        NASCAR = "d-none";
+        GOLF = "d-none";
+        MMA = "d-none";
+        BOX = "d-none";
+        NHL = "d-none";
+        MLB = "d-none";
+        NBA = "d-none";
+        NFL = "d-none";
+        NCAA_BASEBALL = "d-none";
+    }
+    if (tipe === "NCAA_BASEBALL") {
+        NCAA_BASEBALL = "d-block";
+        NCAA_BASKET = "d-none";
+        NCAA_FOOT = "d-none";
+        SOCCER = "d-none";
         NASCAR = "d-none";
         GOLF = "d-none";
         MMA = "d-none";
@@ -135,6 +207,9 @@ export const AllGames = () => {
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("GOLF")} value={GOLF}>GOLF</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("NASCAR")} value={NASCAR}>NASCAR</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("SOCCER")} value={SOCCER}>SOCCER</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_FOOT")} value={NCAA_FOOT}>NCAA FOOTBALL</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_BASKET")} value={NCAA_BASKET}>NCAA BASKETBALL</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_BASEBALL")} value={NCAA_BASEBALL}>NCAA BASEBALL</button>
                     </div>
                 </div>
                 <div className="">
@@ -166,6 +241,15 @@ export const AllGames = () => {
                 </div>
                 <div className={SOCCER}>
                     <CreateGames_Soccer/>
+                </div>
+                <div className={NCAA_FOOT}>
+                    <CreateGames_Ncaa_Football/>
+                </div>
+                <div className={NCAA_BASKET}>
+                    <CreateGames_Ncaa_Basket/>
+                </div>
+                <div className={NCAA_BASEBALL}>
+                    <CreateGames_Ncaa_Baseball/>
                 </div>
             </div>
         </div>

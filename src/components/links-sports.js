@@ -37,6 +37,26 @@ import { Team_Soccer_Stas } from "../soccer/soccer_team_stats/team_soccer_stas";
 import { Stats_py_soccer } from "../soccer/soccer_py_stats/stats_py_soccer";
 import { Tournaments } from "../soccer/tournament/tournament";
 
+import { Ncaa_Football_game } from "../ncaa_football/game/ncaa_football_game";
+import { Team_Stas_Ncaa_Fot } from "../ncaa_football/team_stats/team_stas_ncaa_fot";
+import { Stats_off_player_ncaa_foot } from "../ncaa_football/player_off_stats/stats_off_player_ncaa_foot";
+import { Stats_deff_player_ncaa_foot } from "../ncaa_football/player_deff_stats/stats_deff_player_ncaa_foot";
+import { Stats_ret_player_ncaa_foot } from "../ncaa_football/returning_py_stats/stats_ret_player_ncaa_foot";
+import { Stats_put_player_ncaa_foot } from "../ncaa_football/player_punting_stats/stats_put_player_ncaa_foot";
+import { Stats_kik_player_ncaa_foot } from "../ncaa_football/player_kik_stats/stats_kik_player_ncaa_foot";
+
+import { Ncaa_Basket_game } from "../ncaa_basketball/game/ncaa_basket_game";
+import { Stats_py_ncaa_basketball } from "../ncaa_basketball/ncaa_basketballl_py_stats/stats_py_ncaa";
+import { Team_Ncaa_basket_Stas } from "../ncaa_basketball/ncaa_basket_team_stats/team_ncaa_basket_stas"
+
+import { Ncaa_Baseball_game } from "../ncaa_baseball/game/ncaa_baseball_game";
+import { Stats_py_ncaa_baseball } from "../ncaa_baseball/ncaa_baseball_py_stats/stats_py_baseball";
+import { Team_NCAA_BASEBALL_Stas } from "../ncaa_baseball/ncaa_baseball_team_stats/team_ncaa_baseball_stas";
+
+import { Odds_to_win } from "../odds/odds_to_win";
+
+import { Props } from "../props/props";
+
 import { Logos } from "./logos";
 
 import { Casino } from "../casino/casino";
@@ -238,27 +258,104 @@ export const Links = () => {
             </div>
             {/*  nascar*/}
             {/*  college*/}
+            {/* football */}
             <div className="accordion-item">
                 <div id="ncaa_football" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        ncaa footbal
+                        <Ncaa_Football_game />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="ncaa_basket" className="accordion-collapse collapse" aria-labelledby="college-headingTwo" data-bs-parent="#allitems">
+                <div id="ncaa_football_team_stats" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        ncaa basket
+                        <Team_Stas_Ncaa_Fot />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
-                <div id="ncaa_baseball" className="accordion-collapse collapse" aria-labelledby="college-headingThree" data-bs-parent="#allitems">
+                <div id="ncaa_football_off_player" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        ncaa baseball
+                        <Stats_off_player_ncaa_foot />
                     </div>
                 </div>
             </div>
+            <div className="accordion-item">
+                <div id="ncaa_football_deff_player" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_deff_player_ncaa_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_football_ret_player" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_ret_player_ncaa_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_football_punt_player" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_put_player_ncaa_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_football_kiking_player" className="accordion-collapse collapse" aria-labelledby="college-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_kik_player_ncaa_foot />
+                    </div>
+                </div>
+            </div>
+            {/* fooball */}
+            {/* basket */}
+            <div className="accordion-item">
+                <div id="ncaa_basket_game" className="accordion-collapse collapse" aria-labelledby="college-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Ncaa_Basket_game />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_basket_team_stas" className="accordion-collapse collapse" aria-labelledby="college-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Team_Ncaa_basket_Stas />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_basket_player_stas" className="accordion-collapse collapse" aria-labelledby="college-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_py_ncaa_basketball />
+                    </div>
+                </div>
+            </div>
+            {/* basket */}
+            {/* baseball */}
+            <div className="accordion-item">
+                <div id="ncaa_baseball_game" className="accordion-collapse collapse" aria-labelledby="college-headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Ncaa_Baseball_game />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_baseball_team_stats" className="accordion-collapse collapse" aria-labelledby="college-headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Team_NCAA_BASEBALL_Stas />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="ncaa_baseball_py_stats" className="accordion-collapse collapse" aria-labelledby="college-headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+
+                        <Stats_py_ncaa_baseball />
+                    </div>
+                </div>
+            </div>
+            {/* baseball */}
             {/*  COLLEGE*/}
             {/*  soccer*/}
             <div className="accordion-item">
@@ -294,11 +391,20 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="odds" className="accordion-collapse collapse" aria-labelledby="odds" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        ODDS
+                        <Odds_to_win />
                     </div>
                 </div>
             </div>
             {/* odds */}
+            {/* props */}
+            <div className="accordion-item">
+                <div id="props" className="accordion-collapse collapse" aria-labelledby="props" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Props/>
+                    </div>
+                </div>
+            </div>
+            {/* props */}
             {/* logos */}
             <div className="accordion-item">
                 <div id="Logos" className="accordion-collapse collapse" aria-labelledby="Logos" data-bs-parent="#allitems">
@@ -312,7 +418,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="Casinos" className="accordion-collapse collapse" aria-labelledby="Casinos" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Casino/>
+                        <Casino />
                     </div>
                 </div>
             </div>
