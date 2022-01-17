@@ -84,7 +84,7 @@ export const Stats_py_nba = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_nba_player", {
+        fetch("https://allfansports.herokuapp.com/stats_nba_player", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

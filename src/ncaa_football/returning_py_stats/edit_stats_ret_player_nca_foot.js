@@ -69,7 +69,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -85,7 +85,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://interfaceroy.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

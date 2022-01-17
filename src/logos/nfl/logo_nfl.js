@@ -27,7 +27,7 @@ export const Logo_nfl = () => {
 
         };
 
-        fetch("https://interfaceroy.herokuapp.com/logos_nfl", {
+        fetch("https://allfansports.herokuapp.com/logos_nfl", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

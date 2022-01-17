@@ -55,7 +55,7 @@ export const Golf = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/golf", {
+        fetch("https://allfansports.herokuapp.com/golf", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

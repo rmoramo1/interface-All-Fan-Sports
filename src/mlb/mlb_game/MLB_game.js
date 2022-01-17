@@ -312,7 +312,7 @@ export const MLB_game = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/mlb", {
+        fetch("https://allfansports.herokuapp.com/mlb", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

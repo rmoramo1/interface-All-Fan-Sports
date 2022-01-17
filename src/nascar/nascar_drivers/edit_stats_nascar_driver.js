@@ -57,7 +57,7 @@ export const Edit_stats_Nascar_Driver = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -73,7 +73,7 @@ export const Edit_stats_Nascar_Driver = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://interfaceroy.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

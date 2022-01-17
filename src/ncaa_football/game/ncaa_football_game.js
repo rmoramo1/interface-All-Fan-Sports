@@ -317,7 +317,7 @@ export const Ncaa_Football_game = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/ncaa_football", {
+        fetch("https://allfansports.herokuapp.com/ncaa_football", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

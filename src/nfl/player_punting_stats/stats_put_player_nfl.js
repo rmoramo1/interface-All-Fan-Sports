@@ -69,7 +69,7 @@ export const Stats_put_player_nfl = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_punting_player_nfl", {
+        fetch("https://allfansports.herokuapp.com/stats_punting_player_nfl", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

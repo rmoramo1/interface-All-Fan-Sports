@@ -65,7 +65,7 @@ export const Stats_ret_player_ncaa_foot = () => {
             punt_r_fair_carches: punt_r_fair_carches
         };
         
-        fetch("https://interfaceroy.herokuapp.com/stats_returning_player_ncaa_football", {
+        fetch("https://allfansports.herokuapp.com/stats_returning_player_ncaa_football", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

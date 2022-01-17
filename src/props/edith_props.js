@@ -37,7 +37,7 @@ export const Edith_PROPS = (props) => {
             type_prop: type_prop
         };
 
-        fetch("https://interfaceroy.herokuapp.com/props/" + store.props[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/props/" + store.props[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -52,7 +52,7 @@ export const Edith_PROPS = (props) => {
             .catch(err => console.log(err));
     };
     const deletOdd = e => {
-        fetch("https://interfaceroy.herokuapp.com/props/" + store.props[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/props/" + store.props[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

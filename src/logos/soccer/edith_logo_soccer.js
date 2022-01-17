@@ -28,7 +28,7 @@ export const Edith_Logo_soccer = (props) => {
 
         };
 
-        fetch("https://interfaceroy.herokuapp.com/logos_soccer/" + store.logos_soccer[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/logos_soccer/" + store.logos_soccer[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -43,7 +43,7 @@ export const Edith_Logo_soccer = (props) => {
             .catch(err => console.log(err));
     };
     const deletLogo = e => {
-        fetch("https://interfaceroy.herokuapp.com/logos_soccer/" + store.logos_soccer[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/logos_soccer/" + store.logos_soccer[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

@@ -36,7 +36,7 @@ export const Props = () => {
             type_prop: type_prop
         };
 
-        fetch("https://interfaceroy.herokuapp.com/props", {
+        fetch("https://allfansports.herokuapp.com/props", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

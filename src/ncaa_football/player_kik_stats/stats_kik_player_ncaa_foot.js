@@ -69,7 +69,7 @@ export const Stats_kik_player_ncaa_foot = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_kiking_player_ncaa_football", {
+        fetch("https://allfansports.herokuapp.com/stats_kiking_player_ncaa_football", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

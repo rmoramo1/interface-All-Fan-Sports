@@ -310,7 +310,7 @@ export const EdithGames = (props) => {
         };
         
        
-        fetch("https://interfaceroy.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -331,7 +331,7 @@ export const EdithGames = (props) => {
 
     };
     const delet = e => {
-        fetch("https://interfaceroy.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nfl/" + store.nflGames[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

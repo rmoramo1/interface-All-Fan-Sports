@@ -55,7 +55,7 @@ export const Nascar = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/nascar", {
+        fetch("https://allfansports.herokuapp.com/nascar", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

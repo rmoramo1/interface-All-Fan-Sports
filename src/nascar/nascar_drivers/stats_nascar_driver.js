@@ -57,7 +57,7 @@ export const Stats_Nascar_Driver = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/nascar_drivers", {
+        fetch("https://allfansports.herokuapp.com/nascar_drivers", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

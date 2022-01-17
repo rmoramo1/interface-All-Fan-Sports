@@ -310,7 +310,7 @@ export const EdithGames_nba = (props) => {
         };
         
        
-        fetch("https://interfaceroy.herokuapp.com/nba/" + store.nbaGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nba/" + store.nbaGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -329,7 +329,7 @@ export const EdithGames_nba = (props) => {
 
     };
     const delet = e => {
-        fetch("https://interfaceroy.herokuapp.com/nba/" + store.nbaGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/nba/" + store.nbaGames[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

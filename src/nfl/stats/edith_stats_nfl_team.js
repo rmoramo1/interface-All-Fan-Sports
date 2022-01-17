@@ -140,7 +140,7 @@ export const Edit_Team_Nfl_Stas = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -156,7 +156,7 @@ export const Edit_Team_Nfl_Stas = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://interfaceroy.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

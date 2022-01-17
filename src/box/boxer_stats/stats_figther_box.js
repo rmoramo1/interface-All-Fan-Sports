@@ -52,7 +52,7 @@ export const Stats_Fighter_box = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_box_fighter", {
+        fetch("https://allfansports.herokuapp.com/stats_box_fighter", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

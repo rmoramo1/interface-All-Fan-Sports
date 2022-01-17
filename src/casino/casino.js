@@ -24,7 +24,7 @@ export const Casino = () => {
             name: name,
         };
 
-        fetch("https://interfaceroy.herokuapp.com/casinos", {
+        fetch("https://allfansports.herokuapp.com/casinos", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

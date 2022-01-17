@@ -32,7 +32,7 @@ export const Edith_ODD = (props) => {
             team: team
         };
 
-        fetch("https://interfaceroy.herokuapp.com/odds_to_win/" + store.odds_to_win[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/odds_to_win/" + store.odds_to_win[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -47,7 +47,7 @@ export const Edith_ODD = (props) => {
             .catch(err => console.log(err));
     };
     const deletOdd = e => {
-        fetch("https://interfaceroy.herokuapp.com/odds_to_win/" + store.odds_to_win[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/odds_to_win/" + store.odds_to_win[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

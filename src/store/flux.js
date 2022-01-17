@@ -91,316 +91,316 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			loadNflGames: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nfl";
+				const url = "https://allfansports.herokuapp.com/nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nflGames: results });
 			},
 			loadStatsNFL: async () => {
-				const url = "https://interfaceroy.herokuapp.com	/stats_nfl_team";
+				const url = "https://allfansports.herokuapp.com	/stats_nfl_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nfl_stats_teams: results });
 			},
 			loadStatsNFL_Off_player: async () => {
-				const url = "https://interfaceroy.herokuapp.com	/stats_offensive_player_nfl";
+				const url = "https://allfansports.herokuapp.com	/stats_offensive_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_offensive_player_nfl: results });
 			},
 			loadStats_deff_player_nfl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_defensive_player_nfl";
+				const url = "https://allfansports.herokuapp.com/stats_defensive_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_deff_player_nfl: results });
 			},
 			loadStats_ret_player_nfl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_returning_player_nfl";
+				const url = "https://allfansports.herokuapp.com/stats_returning_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_ret_player_nfl: results });
 			},
 			loadStats_put_player_nfl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_punting_player_nfl";
+				const url = "https://allfansports.herokuapp.com/stats_punting_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_put_player_nfl: results });
 			},
 			loadStats_kik_player_nfl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_kiking_player_nfl";
+				const url = "https://allfansports.herokuapp.com/stats_kiking_player_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_kik_player_nfl: results });
 			},
 			//nba
 			loadGamesNBA: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nba";
+				const url = "https://allfansports.herokuapp.com/nba";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nbaGames: results });
 			},
 			loadStatsNBA: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_nba_team";
+				const url = "https://allfansports.herokuapp.com/stats_nba_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nba_stats_teams: results });
 			},
 			loadStats_player_NBA: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_nba_player";
+				const url = "https://allfansports.herokuapp.com/stats_nba_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nba_stats_player: results });
 			},
 			//mlb
 			loadGamesMLB: async () => {
-				const url = "https://interfaceroy.herokuapp.com/mlb";
+				const url = "https://allfansports.herokuapp.com/mlb";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mlbGames: results });
 			},
 			loadStatsMLB: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_mlb_team";
+				const url = "https://allfansports.herokuapp.com/stats_mlb_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mlb_stats_teams: results });
 			},
 			loadStats_player_MLB: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_mlb_player";
+				const url = "https://allfansports.herokuapp.com/stats_mlb_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mlb_stats_player: results });
 			},
 			//nhl
 			loadGamesNHL: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nhl";
+				const url = "https://allfansports.herokuapp.com/nhl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nhlGames: results });
 			},
 			loadStatsNHL: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_nhl_team";
+				const url = "https://allfansports.herokuapp.com/stats_nhl_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nhl_stats_teams: results });
 			},
 			loadStats_player_NHL: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_nhl_player";
+				const url = "https://allfansports.herokuapp.com/stats_nhl_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nhl_stats_player: results });
 			},
 			//box
 			loadBox_Fight: async () => {
-				const url = "https://interfaceroy.herokuapp.com/boxeo";
+				const url = "https://allfansports.herokuapp.com/boxeo";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ box_fight: results });
 			},
 			loadBoxer_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_box_fighter";
+				const url = "https://allfansports.herokuapp.com/stats_box_fighter";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ boxer_stats: results });
 			},
 			//MMA
 			loadMMA_Fight: async () => {
-				const url = "https://interfaceroy.herokuapp.com/mma";
+				const url = "https://allfansports.herokuapp.com/mma";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mma_fight: results });
 			},
 			loadMMA_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_mma_fighter";
+				const url = "https://allfansports.herokuapp.com/stats_mma_fighter";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mma_stats: results });
 			},
 			//GOLF
 			loadGOLF: async () => {
-				const url = "https://interfaceroy.herokuapp.com/golf";
+				const url = "https://allfansports.herokuapp.com/golf";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ golf: results });
 			},
 			loadGOLFER_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/golfer";
+				const url = "https://allfansports.herokuapp.com/golfer";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ golfer_stats: results });
 			},
 			//nascar
 			loadNascar: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nascar";
+				const url = "https://allfansports.herokuapp.com/nascar";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nascar: results });
 			},
 			loadNascar_driver_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/nascar_drivers";
+				const url = "https://allfansports.herokuapp.com/nascar_drivers";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ nascar_driver_stats: results });
 			},
 			//soccer_tournament
 			loadSoccer: async () => {
-				const url = "https://interfaceroy.herokuapp.com/soccer";
+				const url = "https://allfansports.herokuapp.com/soccer";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer: results });
 			},
 			loadSoccer_tournament: async () => {
-				const url = "https://interfaceroy.herokuapp.com/soccer_tournament";
+				const url = "https://allfansports.herokuapp.com/soccer_tournament";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer_tournament: results });
 			},
 			loadSoccer_team_stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_soccer_team";
+				const url = "https://allfansports.herokuapp.com/stats_soccer_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer_stats_teams: results });
 			},
 			loadSoccer_player_stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_soccer_player";
+				const url = "https://allfansports.herokuapp.com/stats_soccer_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer_stats_player: results });
 			},
 			loadTournaments: async () => {
-				const url = "https://interfaceroy.herokuapp.com/soccer_tournament";
+				const url = "https://allfansports.herokuapp.com/soccer_tournament";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ tournaments: results });
 			},
 			//logos
 			loadLogos_nfl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/logos_nfl";
+				const url = "https://allfansports.herokuapp.com/logos_nfl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_nfl: results });
 			},
 			loadLogos_nba: async () => {
-				const url = "https://interfaceroy.herokuapp.com/logos_nba";
+				const url = "https://allfansports.herokuapp.com/logos_nba";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_nba: results });
 			},
 			loadLogos_nhl: async () => {
-				const url = "https://interfaceroy.herokuapp.com/logos_nhl";
+				const url = "https://allfansports.herokuapp.com/logos_nhl";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_nhl: results });
 			},
 			loadLogos_mlb: async () => {
-				const url = "https://interfaceroy.herokuapp.com/logos_mlb";
+				const url = "https://allfansports.herokuapp.com/logos_mlb";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_mlb: results });
 			},
 			loadLogos_soccer: async () => {
-				const url = "https://interfaceroy.herokuapp.com/logos_soccer";
+				const url = "https://allfansports.herokuapp.com/logos_soccer";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_soccer: results });
 			},
 			//ncaa football
 			loadNcaa_football: async () => {
-				const url = "https://interfaceroy.herokuapp.com/ncaa_football";
+				const url = "https://allfansports.herokuapp.com/ncaa_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_football: results });
 			},
 			loadStatsNcaa_Football_team: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_ncaa_football_team";
+				const url = "https://allfansports.herokuapp.com/stats_ncaa_football_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_football_team_stats: results });
 			},
 			loadStats_offensive_player_ncaa_foot: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_offensive_player_ncaa_football";
+				const url = "https://allfansports.herokuapp.com/stats_offensive_player_ncaa_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_offensive_player_ncaa_foot: results });
 			},
 			loadStats_deffensive_player_ncaa_foot: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_defensive_player_ncca_football";
+				const url = "https://allfansports.herokuapp.com/stats_defensive_player_ncca_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_deffensive_player_ncaa_foot: results });
 			},
 			loadStats_return_player_ncaa_foot: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_returning_player_ncaa_football";
+				const url = "https://allfansports.herokuapp.com/stats_returning_player_ncaa_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_return_player_ncaa_foot: results });
 			},
 			loadStats_punting_player_ncaa_foot: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_punting_player_ncaa_football";
+				const url = "https://allfansports.herokuapp.com/stats_punting_player_ncaa_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_punting_player_ncaa_foot: results });
 			},
 			loadStats_Kiking_player_ncaa_foot: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_kiking_player_ncaa_football";
+				const url = "https://allfansports.herokuapp.com/stats_kiking_player_ncaa_football";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ stats_kiking_player_ncaa_foot: results });
 			},
 			//ncaa basket
 			loadNcaa_basket: async () => {
-				const url = "https://interfaceroy.herokuapp.com/ncaa_basketball";
+				const url = "https://allfansports.herokuapp.com/ncaa_basketball";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_basket: results });
 			},
 			loadNcaa_basket_PY_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_ncaa_basket_player";
+				const url = "https://allfansports.herokuapp.com/stats_ncaa_basket_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_basket_stats_player: results });
 			},
 			loadNcaa_basket_team_Stats: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_ncaa_basket_team";
+				const url = "https://allfansports.herokuapp.com/stats_ncaa_basket_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_basket_team_player: results });
 			},
 			//ncaa baseball
 			loadNcaa_baseball: async () => {
-				const url = "https://interfaceroy.herokuapp.com/ncaa_baseball";
+				const url = "https://allfansports.herokuapp.com/ncaa_baseball";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_baseball: results });
 			},
 			loadNcaa_baseball_stats_player: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_ncaa_baseball_player";
+				const url = "https://allfansports.herokuapp.com/stats_ncaa_baseball_player";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_baseball_stats_player: results });
 			},
 			loadNcaa_baseball_stats_team: async () => {
-				const url = "https://interfaceroy.herokuapp.com/stats_ncaa_baseball_team";
+				const url = "https://allfansports.herokuapp.com/stats_ncaa_baseball_team";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ ncaa_baseball_stats_team: results });
 			},
 			//odds_to_win
 			loadOdds_to_win: async () => {
-				const url = "https://interfaceroy.herokuapp.com/odds_to_win";
+				const url = "https://allfansports.herokuapp.com/odds_to_win";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ odds_to_win: results });
 			},
 			//props
 			loadProps: async () => {
-				const url = "https://interfaceroy.herokuapp.com/props";
+				const url = "https://allfansports.herokuapp.com/props";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ props: results });
 			},
 			//casinos
 			loadCasinos: async () => {
-				const url = "https://interfaceroy.herokuapp.com/casinos";
+				const url = "https://allfansports.herokuapp.com/casinos";
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ casinos: results });

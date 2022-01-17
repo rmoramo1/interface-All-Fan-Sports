@@ -76,7 +76,7 @@ export const Stats_deff_player_nfl = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_defensive_player_nfl", {
+        fetch("https://allfansports.herokuapp.com/stats_defensive_player_nfl", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

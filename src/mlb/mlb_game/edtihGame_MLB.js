@@ -331,7 +331,7 @@ export const EdithGames_mlb = (props) => {
         };
         
        
-        fetch("https://interfaceroy.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -352,7 +352,7 @@ export const EdithGames_mlb = (props) => {
 
     };
     const delet = e => {
-        fetch("https://interfaceroy.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

@@ -97,7 +97,7 @@ export const Fight_mma = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/mma", {
+        fetch("https://allfansports.herokuapp.com/mma", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

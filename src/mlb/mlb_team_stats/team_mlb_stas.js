@@ -58,7 +58,7 @@ export const Team_MLB_Stas = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_mlb_team", {
+        fetch("https://allfansports.herokuapp.com/stats_mlb_team", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

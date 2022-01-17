@@ -76,7 +76,7 @@ export const Stats_deff_player_ncaa_foot = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_defensive_player_ncca_football", {
+        fetch("https://allfansports.herokuapp.com/stats_defensive_player_ncca_football", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

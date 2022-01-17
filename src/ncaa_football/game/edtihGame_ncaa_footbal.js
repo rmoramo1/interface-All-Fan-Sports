@@ -309,7 +309,7 @@ export const EdithGames_Ncaa_football = (props) => {
         };
         
        
-        fetch("https://interfaceroy.herokuapp.com/ncaa_football/" + store.ncaa_football[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/ncaa_football/" + store.ncaa_football[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -330,7 +330,7 @@ export const EdithGames_Ncaa_football = (props) => {
 
     };
     const delet = e => {
-        fetch("https://interfaceroy.herokuapp.com/ncaa_football/" + store.ncaa_football[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/ncaa_football/" + store.ncaa_football[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

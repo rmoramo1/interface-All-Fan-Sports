@@ -52,7 +52,7 @@ export const Stats_Fighter_mma = () => {
         
        
 
-        fetch("https://interfaceroy.herokuapp.com/stats_mma_fighter", {
+        fetch("https://allfansports.herokuapp.com/stats_mma_fighter", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

@@ -90,7 +90,7 @@ export const EdithFight = (props) => {
         };
         
        
-        fetch("https://interfaceroy.herokuapp.com/boxeo/" + store.box_fight[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/boxeo/" + store.box_fight[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -109,7 +109,7 @@ export const EdithFight = (props) => {
 
     };
     const deletFight = e => {
-        fetch("https://interfaceroy.herokuapp.com/boxeo/" + store.box_fight[params.theid].id, {
+        fetch("https://allfansports.herokuapp.com/boxeo/" + store.box_fight[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
