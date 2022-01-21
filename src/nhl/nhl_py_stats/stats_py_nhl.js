@@ -16,10 +16,11 @@ export const Stats_py_nhl = () => {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
     const [birth, setBirth] = useState("");
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [team, setTeam] = useState("Boston Bruins");
     const [dorsal, setDorsal] = useState("");
     const [position, setPosition] = useState("C");
+    const [headshot, setheadshot] = useState("");
 
     const [gp, setGp] = useState("");
     const [g, setG] = useState("");
@@ -55,6 +56,7 @@ export const Stats_py_nhl = () => {
             team: team,
             dorsal: dorsal,
             position: position,
+            headshot: headshot,
 
             gp: gp,
             g: g,
@@ -74,7 +76,7 @@ export const Stats_py_nhl = () => {
             prod: prod
         };
 
-        fetch("https://allfansports.herokuapp.com/stats_nhl_player", {
+        fetch("https://sportsdata365.com/stats_nhl_player", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -99,7 +101,7 @@ export const Stats_py_nhl = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate-nhl" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Create Stats NBA Player</h3>
+                    <h3>Create Stats NHL Player</h3>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -139,7 +141,10 @@ export const Stats_py_nhl = () => {
                         Dorsal
                         <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
-
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
@@ -156,7 +161,7 @@ export const Stats_py_nhl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2022} required>
                             {
                                 selectYear.map((index) => {
                                     return (

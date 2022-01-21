@@ -28,7 +28,7 @@ export const Edith_Logo_mlb = (props) => {
 
         };
 
-        fetch("https://allfansports.herokuapp.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
+        fetch("https://sportsdata365.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -43,7 +43,7 @@ export const Edith_Logo_mlb = (props) => {
             .catch(err => console.log(err));
     };
     const deletLogo = e => {
-        fetch("https://allfansports.herokuapp.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
+        fetch("https://sportsdata365.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

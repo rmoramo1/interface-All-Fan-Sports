@@ -452,6 +452,20 @@ export const Tabs = () => {
                 </div>
             </div>
             <div className="accordion-item">
+                <h2 className="accordion-header" id="headingInjuries">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Injuries" aria-expanded="false" aria-controls="Injuries">
+                        INJURIES  <i className="fas fa-user-injured ps-2 fs-5"></i>
+                    </HashLink>
+                </h2>
+            </div>
+            <div className="accordion-item">
+                <h2 className="accordion-header" id="headingFutures">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Futures" aria-expanded="false" aria-controls="Futures">
+                        FUTURES  <i className="fas fa-user-injured ps-2 fs-5"></i>
+                    </HashLink>
+                </h2>
+            </div>
+            <div className="accordion-item">
                 <h2 className="accordion-header" id="headingOdds">
                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#odds" aria-expanded="false" aria-controls="odds">
                         Odds to Win  <i className="fas fa-trophy ps-2 fs-5"></i>

@@ -61,6 +61,10 @@ import { Logos } from "./logos";
 
 import { Casino } from "../casino/casino";
 
+import { Injuries } from "../injuries/injuries";
+
+import { Future } from "../future/future";
+
 
 export const Links = () => {
     return (
@@ -387,6 +391,24 @@ export const Links = () => {
                 </div>
             </div>
             {/*  soccer*/}
+            {/* Injuries */}
+            <div className="accordion-item">
+                <div id="Injuries" className="accordion-collapse collapse" aria-labelledby="Injuries" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Injuries />
+                    </div>
+                </div>
+            </div>
+            {/* Injuries */}
+            {/* Futures */}
+            <div className="accordion-item">
+                <div id="Futures" className="accordion-collapse collapse" aria-labelledby="Futures" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Future />
+                    </div>
+                </div>
+            </div>
+            {/* Injuries */}
             {/* odds */}
             <div className="accordion-item">
                 <div id="odds" className="accordion-collapse collapse" aria-labelledby="odds" data-bs-parent="#allitems">
@@ -400,7 +422,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="props" className="accordion-collapse collapse" aria-labelledby="props" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Props/>
+                        <Props />
                     </div>
                 </div>
             </div>

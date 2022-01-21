@@ -15,6 +15,8 @@ export const Stats_Nascar_Driver = () => {
     const [name, setName] = useState("");
     const [country, setcountry] = useState("");
     const [birth, setBirth] = useState("");
+    const [headshot, setheadshot] = useState("");
+    
 
     const [sponsor, setsponsor] = useState("");
     const [engine, setengine] = useState("");
@@ -40,6 +42,7 @@ export const Stats_Nascar_Driver = () => {
             name: name,
             country: country,
             birth: birth,
+            headshot: headshot,
 
             sponsor: sponsor,
             engine: engine,
@@ -57,7 +60,7 @@ export const Stats_Nascar_Driver = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/nascar_drivers", {
+        fetch("https://sportsdata365.com/nascar_drivers", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -82,7 +85,7 @@ export const Stats_Nascar_Driver = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate-nhl" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Create Stats Golfer</h3>
+                    <h3>Create Stats Nascar Driver</h3>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -98,6 +101,10 @@ export const Stats_Nascar_Driver = () => {
                     <div className="text-center col-2 p-1">
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" onChange={e => setBirth(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

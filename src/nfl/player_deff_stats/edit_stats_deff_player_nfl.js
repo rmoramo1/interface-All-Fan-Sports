@@ -9,7 +9,7 @@ export const Stats_deff_player_nfl = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
@@ -23,6 +23,7 @@ export const Stats_deff_player_nfl = () => {
     const [season, setSeason] = useState(store.stats_deff_player_nfl[params.theid].season);
     const [team, setTeam] = useState(store.stats_deff_player_nfl[params.theid].team);
     const [games, setGames] = useState(store.stats_deff_player_nfl[params.theid].games);
+    const [headshot, setheadshot] = useState(store.stats_deff_player_nfl[params.theid].headshot);
 
     const [tack_solo, setTack_solo] = useState(store.stats_deff_player_nfl[params.theid].tack_solo);
     const [tack_ast, setTack_ast] = useState(store.stats_deff_player_nfl[params.theid].tack_ast);
@@ -56,6 +57,7 @@ export const Stats_deff_player_nfl = () => {
             season: season,
             team: team,
             games: games,
+            headshot: headshot,
 
             tack_solo: tack_solo,
             tack_ast: tack_ast,
@@ -73,10 +75,10 @@ export const Stats_deff_player_nfl = () => {
             ftd: ftd,
             kb: kb
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_defensive_player_nfl/" + store.stats_deff_player_nfl[params.theid].id, {
+
+
+        fetch("https://sportsdata365.com/stats_defensive_player_nfl/" + store.stats_deff_player_nfl[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -84,7 +86,7 @@ export const Stats_deff_player_nfl = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
                 actualizar();
@@ -92,7 +94,7 @@ export const Stats_deff_player_nfl = () => {
             .catch(err => console.log(err));
     };
     const delet_py_nfl_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_defensive_player_nfl/" + store.stats_deff_player_nfl[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_defensive_player_nfl/" + store.stats_deff_player_nfl[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -110,8 +112,15 @@ export const Stats_deff_player_nfl = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.stats_deff_player_nfl[params.theid].name} </h3>
+                <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.stats_deff_player_nfl[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.stats_deff_player_nfl[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -155,6 +164,10 @@ export const Stats_deff_player_nfl = () => {
                     <div className="text-center col-3 p-1">
                         Games
                         <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].games} onChange={e => setGames(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.stats_deff_player_nfl[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">

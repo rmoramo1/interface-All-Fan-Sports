@@ -16,6 +16,7 @@ export const Stats_Golfer = () => {
     const [country, setcountry] = useState("");
     const [swing, setswing] = useState("");
     const [birth, setBirth] = useState("");
+    const [headshot, setheadshot] = useState("");
 
     const [cuts, setcuts] = useState("2021");
     const [top10, settop10] = useState("Boston Bruins");
@@ -36,6 +37,7 @@ export const Stats_Golfer = () => {
             country: country,
             swing: swing,
             birth: birth,
+            headshot: headshot,
 
             cuts: cuts,
             top10: top10,
@@ -47,7 +49,7 @@ export const Stats_Golfer = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/golfer", {
+        fetch("https://sportsdata365.com/golfer", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -92,6 +94,10 @@ export const Stats_Golfer = () => {
                     <div className="text-center col-2 p-1">
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" onChange={e => setBirth(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

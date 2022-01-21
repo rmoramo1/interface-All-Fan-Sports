@@ -23,7 +23,7 @@ export const List_Tournaments = () => {
                 <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
                     <div className="row g-0 w-100">
                         <div className="col-12">
-                            <h4 className="fw-bold text-center">LIST TOURNAMEnTS SOCCER</h4>
+                            <h4 className="fw-bold text-center">LIST TOURNAMENTS SOCCER</h4>
                         </div>
                     </div>
                 </div>

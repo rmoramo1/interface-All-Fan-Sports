@@ -1,4 +1,5 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useContext,useState } from "react";
+import DateTime from 'luxon/src/datetime.js'
 import { Context } from "../store/appContext";
 import { Single_PY_NCAA_STATS } from "./player_off_stats/single_py_ncaa_foot_stats";
 import { Single_PY_NCAA_FOOT_DEFF_STATS } from "./player_deff_stats/single_py_ncaa_foot_deff_stats";
@@ -14,6 +15,13 @@ export const List_Stats_Ncaa_py = () => {
         window.location.href = '/';
     } else {
         
+    }
+
+    const yearLux = DateTime.now().year;
+    const [yearF, setyearF] = useState(yearLux);
+    let selectYear = [];
+    for (let i = 2002; i < 2025; i++) {
+        selectYear.push(i);
     }
 
     let ops = ["Ofensive", "Defensive", "Returning", "Punting" ,"Kicking"];
@@ -78,9 +86,22 @@ export const List_Stats_Ncaa_py = () => {
             <div className="row g-0">
                 <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
                     <div className="row g-0 w-100">
-                        <div className="col-12">
-                            <h4 className="fw-bold text-center">NCAA FOOTBALL STATS BY PLAYER</h4>
+                    <div className="row g-0 w-100">
+                        <div className="col-8">
+                            <h4 className="fw-bold text-center">NCAA FOOTBALL PLAYER STATS </h4>
                         </div>
+                        <div className="col-4">
+                            <select className="form-select selectInner" name="selectYear" aria-label="select Year" onChange={e => setyearF(e.target.value)} defaultValue={yearLux} required>
+                                {
+                                    selectYear.map((index) => {
+                                        return (
+                                            <option key={index} name="team" value={index}>{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 {
@@ -107,7 +128,7 @@ export const List_Stats_Ncaa_py = () => {
                                 </div>
                                 <div className={ofensive}>
                                     {sortStats_py_off.map((item, index2) => {
-                                        if (item.team === index && item.season === "2021") {
+                                        if (item.team === index && item.season == yearF) {
                                             return (
                                                 <div className="col-12 px-1 bg_grey_medium" key={index2}>
                                                     <Single_PY_NCAA_STATS
@@ -127,7 +148,7 @@ export const List_Stats_Ncaa_py = () => {
                                 </div>
                                 <div className={deffensive}>
                                     {sortStats_py_Deff.map((item, index3) => {
-                                        if (item.team === index && item.season === "2021") {
+                                        if (item.team === index && item.season == yearF) {
                                             return (
                                                 <div className="col-12 px-1 bg_grey_medium" key={index3}>
                                                     <Single_PY_NCAA_FOOT_DEFF_STATS
@@ -147,7 +168,7 @@ export const List_Stats_Ncaa_py = () => {
                                 </div>
                                 <div className={returning}>
                                     {sortStats_py_Ret.map((item, index4) => {
-                                        if (item.team === index && item.season === "2021") {
+                                        if (item.team === index && item.season == yearF) {
                                             return (
                                                 <div className="col-12 px-1 bg_grey_medium" key={index4}>
                                                     <Single_PY_NCAA_FOOT_RET_STATS
@@ -167,7 +188,7 @@ export const List_Stats_Ncaa_py = () => {
                                 </div>
                                 <div className={punting}>
                                     {sortStats_py_Put.map((item, index5) => {
-                                        if (item.team === index && item.season === "2021") {
+                                        if (item.team === index && item.season == yearF) {
                                             return (
                                                 <div className="col-12 px-1 bg_grey_medium" key={index5}>
                                                     <Single_PY_NCAA_FOOT_PUT_STATS
@@ -187,7 +208,7 @@ export const List_Stats_Ncaa_py = () => {
                                 </div>
                                 <div className={kick}>
                                     {sortStats_py_Kick.map((item, index5) => {
-                                        if (item.team === index && item.season === "2021") {
+                                        if (item.team === index && item.season == yearF) {
                                             return (
                                                 <div className="col-12 px-1 bg_grey_medium" key={index5}>
                                                     <Single_PY_NCAA_FOOT_KIK_STATS

@@ -22,6 +22,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
     const [season, setSeason] = useState(store.stats_return_player_ncaa_foot[params.theid].season);
     const [team, setTeam] = useState(store.stats_return_player_ncaa_foot[params.theid].team);
     const [games, setGames] = useState(store.stats_return_player_ncaa_foot[params.theid].games);
+    const [headshot, setheadshot] = useState(store.stats_return_player_ncaa_foot[params.theid].headshot);
 
     const [kick_returns, setKick_returns] = useState(store.stats_return_player_ncaa_foot[params.theid].kick_returns);
     const [kick_returns_yards, setKick_returns_yards] = useState(store.stats_return_player_ncaa_foot[params.theid].kick_returns_yards);
@@ -53,6 +54,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
             season: season,
             team: team,
             games: games,
+            headshot: headshot,
 
             kick_returns: kick_returns,
             kick_returns_yards: kick_returns_yards,
@@ -69,7 +71,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -85,7 +87,7 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_returning_player_ncaa_football/" + store.stats_return_player_ncaa_foot[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -104,7 +106,14 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.stats_return_player_ncaa_foot[params.theid].name} </h3>
+                <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.stats_return_player_ncaa_foot[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start ps-3">
+                            <img className="img_picture" src={store.stats_return_player_ncaa_foot[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -148,6 +157,10 @@ export const Edith_Stats_ret_player_ncaa_foot = () => {
                     <div className="text-center col-3 p-1">
                         Games
                         <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.stats_return_player_ncaa_foot[params.theid].games} onChange={e => setGames(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.stats_return_player_ncaa_foot[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">

@@ -10,7 +10,7 @@ export const Edit_Stats_MLB_Team = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
@@ -19,6 +19,8 @@ export const Edit_Stats_MLB_Team = () => {
     const [team, setTeam] = useState(store.mlb_stats_teams[params.theid].team);
     const [league, setLeague] = useState(store.mlb_stats_teams[params.theid].league);
     const [division, setDivision] = useState(store.mlb_stats_teams[params.theid].division);
+    const [group_type_comparation, setGroup_type_comparation] = useState(store.mlb_stats_teams[params.theid].group_type_comparation);
+    const [season_type, setSeason_type] = useState(store.mlb_stats_teams[params.theid].season_type);
 
     const [w, setW] = useState(store.mlb_stats_teams[params.theid].w);
     const [L, setL] = useState(store.mlb_stats_teams[params.theid].L);
@@ -31,7 +33,6 @@ export const Edit_Stats_MLB_Team = () => {
     const [diff, setDiff] = useState(store.mlb_stats_teams[params.theid].diff);
     const [strk, setStrk] = useState(store.mlb_stats_teams[params.theid].strk);
     const [L10, setL10] = useState(store.mlb_stats_teams[params.theid].L10);
-    const [poff, setPoff] = useState(store.mlb_stats_teams[params.theid].poff);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -44,6 +45,8 @@ export const Edit_Stats_MLB_Team = () => {
             team: team,
             league: league,
             division: division,
+            season_type: season_type,
+            group_type_comparation: group_type_comparation,
             w: w,
             L: L,
             pct: pct,
@@ -54,14 +57,11 @@ export const Edit_Stats_MLB_Team = () => {
             ra: ra,
             diff: diff,
             strk: strk,
-            L10: L10,
-            poff: poff
+            L10: L10
 
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_mlb_team/"+ store.mlb_stats_teams[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_mlb_team/" + store.mlb_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -69,7 +69,7 @@ export const Edit_Stats_MLB_Team = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica se creo");
                 setAuth(true);
                 actualizar();
@@ -77,7 +77,7 @@ export const Edit_Stats_MLB_Team = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_mlb_team/" + store.mlb_stats_teams[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_mlb_team/" + store.mlb_stats_teams[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -94,12 +94,14 @@ export const Edit_Stats_MLB_Team = () => {
 
     let selectLiga = ["American League", "National League"];
     let selectDivision = ["East", "Central", "West"];
+    let season_Type = ["Regular Season", "Spring Training"];
+    let comparation = ["Division", "League", "Overall"];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Create stats by NBA team</h3>
+                    <h3>Edith stats by MLB team</h3>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -116,9 +118,9 @@ export const Edit_Stats_MLB_Team = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example"  onChange={e => setSeason(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -128,8 +130,20 @@ export const Edit_Stats_MLB_Team = () => {
                             }
                         </select>
                     </div>
+                    <div className="text-center col-2 p-1">
+                        Season Type
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season_type} required>
+                            {
+                                season_Type.map((index) => {
+                                    return (
+                                        <option key={index} name="season" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className="text-center col-3 p-1">
-                    League
+                        League
                         <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].league} onChange={e => setLeague(e.target.value)} required>
                             {
                                 selectLiga.map((index) => {
@@ -140,13 +154,27 @@ export const Edit_Stats_MLB_Team = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Division
                         <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {
                                 selectDivision.map((index) => {
                                     return (
                                         <option key={index} name="setDivision" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div className="row g-0">
+                    <div className="text-center col-2 p-1">
+                        Comparation
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].group_type_comparation} onChange={e => setGroup_type_comparation(e.target.value)} required>
+                            {
+                                comparation.map((index) => {
+                                    return (
+                                        <option key={index} name="setGroup_type_comparation" value={index}>{index}</option>
                                     )
                                 })
                             }
@@ -188,7 +216,6 @@ export const Edit_Stats_MLB_Team = () => {
                         <div className="col-2 title-lines">Diff</div>
                         <div className="col-2 title-lines">Strk</div>
                         <div className="col-2 title-lines">L10</div>
-                        <div className="col-2 title-lines">Poff</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -204,10 +231,7 @@ export const Edit_Stats_MLB_Team = () => {
                             <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].strk} onChange={e => setStrk(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L10" aria-label="default input example"defaultValue={store.mlb_stats_teams[params.theid].L10} onChange={e => setL10(e.target.value)} required />
-                        </div>
-                        <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="poff" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].poff} onChange={e => setPoff(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L10" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].L10} onChange={e => setL10(e.target.value)} required />
                         </div>
                     </div>
                 </div>

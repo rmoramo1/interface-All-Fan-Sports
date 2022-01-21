@@ -102,9 +102,14 @@ import { EdithGames_Ncaa_Baseball } from "./ncaa_baseball/game/edtihGame_Ncaa_Ba
 import { List_NCAA_BASEBALL_Stats } from "./ncaa_baseball/ncaa_baseball_team_stats/list_ncaa_baseball_stats";
 import { Edit_Stats_NCAA_BASEBALL_Team } from "./ncaa_baseball/ncaa_baseball_team_stats/edith_stats_ncaa_baseball_team"
 
- 
 //casino
 import { Edith_Casino } from "./casino/edith_casino";
+//injuries
+import { Edith_Injuries } from "./injuries/edith_injuries";
+import { Injuries_page } from "./pages/injuries_page";
+//futures
+import { Futures_page } from "./pages/futures_page";
+import { Edith_Future } from "./future/edith_future";
 //all
 import { AllGames } from "./pages/allGames";
 /*components*/
@@ -125,6 +130,8 @@ function App() {
 					<Route exact path="/casinos_page" component={Casinos_page} />
 					<Route exact path="/odds_page" component={ODDS_page} />
 					<Route exact path="/props_page" component={Props_page} />
+					<Route exact path="/injuries_page" component={Injuries_page} />
+					<Route exact path="/futures_page" component={Futures_page} />
 					<Route exact path="/admin" component={Admin} />
 					<Route exact path="/edith_casino/:theid" component={Edith_Casino} />
 					<Route exact path="/edith_logo_nfl/:theid" component={Edith_Logo_nfl} />
@@ -135,8 +142,10 @@ function App() {
 					<Route exact path="/allGames" component={AllGames} />
 					<Route exact path="/logos" component={Logos_page} />
 					<Route exact path="/edtihGame/:theid" component={EdithGames} />
+					<Route exact path="/edith_future/:theid" component={Edith_Future} />
 					<Route exact path="/edith_odds/:theid" component={Edith_ODD} />
 					<Route exact path="/edith_props/:theid" component={Edith_PROPS} />
+					<Route exact path="/edith_injuries/:theid" component={Edith_Injuries} />
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb} />
 					<Route exact path="/edtihGame_Ncaa_Baseball/:theid" component={EdithGames_Ncaa_Baseball} />
 					<Route exact path="/edith_tournaments/:theid" component={Edit_Tournaments} />

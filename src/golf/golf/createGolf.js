@@ -27,12 +27,7 @@ export const CreateGolf = () => {
 
 	let selectWeek = [];
 	for (let i = 1; i < 53; i++) {
-		if (i < 10) {
-			i = "0" + i;
-			selectWeek.push(i);
-		} else {
-			selectWeek.push(i);
-		}
+		selectWeek.push(i);
 	}
 	
 	let selectYear = [];

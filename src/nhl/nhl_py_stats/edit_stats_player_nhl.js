@@ -22,6 +22,7 @@ export const Edit_stats_player_nhl = () => {
     const [team, setTeam] = useState(store.nhl_stats_player[params.theid].team);
     const [dorsal, setDorsal] = useState(store.nhl_stats_player[params.theid].dorsal);
     const [position, setPosition] = useState(store.nhl_stats_player[params.theid].position);
+    const [headshot, setheadshot] = useState(store.nhl_stats_player[params.theid].headshot);
 
     const [gp, setGp] = useState(store.nhl_stats_player[params.theid].gp);
     const [g, setg] = useState(store.nhl_stats_player[params.theid].g);
@@ -57,6 +58,7 @@ export const Edit_stats_player_nhl = () => {
             team: team,
             dorsal: dorsal,
             position: position,
+            headshot: headshot,
 
             gp: gp,
             g: g,
@@ -76,7 +78,7 @@ export const Edit_stats_player_nhl = () => {
             prod: prod
         };
 
-        fetch("https://allfansports.herokuapp.com/stats_nhl_player/" + store.nhl_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_nhl_player/" + store.nhl_stats_player[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -92,7 +94,7 @@ export const Edit_stats_player_nhl = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_nhl_player/" + store.nhl_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_nhl_player/" + store.nhl_stats_player[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -110,8 +112,15 @@ export const Edit_stats_player_nhl = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.nhl_stats_player[params.theid].name} </h3>
+            <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.nhl_stats_player[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.nhl_stats_player[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -151,7 +160,10 @@ export const Edit_stats_player_nhl = () => {
                         Dorsal
                         <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
-
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.nhl_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">

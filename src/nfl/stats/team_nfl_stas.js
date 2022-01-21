@@ -1,23 +1,28 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Team_Nfl_Stas = () => {
     const { store } = useContext(Context);
 
-        useEffect(() => {
+    let date = new Date();
+    let year = date.getFullYear();
+
+
+    useEffect(() => {
         const loggedUser = window.localStorage.getItem('my_token');
         const user = JSON.parse(loggedUser);
-        
-        if(!user){
+
+        if (!user) {
             window.location.href = '/';
         }
     }, [])
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState(year);
     const [team, setTeam] = useState("Arizona Cardinals");
     const [conference, setConference] = useState("American Football Conference");
     const [division, setDivision] = useState("East Division");
+    const [season_type, setSeason_type] = useState("Regular Season");
 
     const [TP, setTP] = useState("");
     const [ttpg, setTtpg] = useState("");
@@ -31,7 +36,7 @@ export const Team_Nfl_Stas = () => {
     const [down_3_AVG, setDown_3_AVG] = useState("");
     const [down_4_eff, setDown_4_eff] = useState("");
     const [down_4_AVG, setDown_4_AVG] = useState("");
-    
+
     const [comp_att, setComp_att] = useState("");
     const [net_pass_y, setNet_pass_y] = useState("");
     const [y_p_pas_attps, setY_p_pas_attps] = useState("");
@@ -39,24 +44,24 @@ export const Team_Nfl_Stas = () => {
     const [pass_td, setPass_td] = useState("");
     const [interceptions, setInterceptions] = useState("");
     const [sacks_y_lost, setSacks_y_lost] = useState("");
-    
+
     const [russ_attps, setRuss_attps] = useState("");
     const [russ_y, setRuss_y] = useState("");
     const [y_p_russ_attp, setY_p_russ_attp] = useState("");
     const [russ_y_pg, setRuss_y_pg] = useState("");
     const [russ_td, setRuss_td] = useState("");
-    
+
     const [total_of_plays, setTotal_of_plays] = useState("");
     const [total_y, setTotal_y] = useState("");
     const [y_pg, setY_pg] = useState("");
-    
+
     const [kickoffs_t, setKickoffs_t] = useState("0");
     const [AVG_kickoff_return_y, setAVG_kickoff_return_y] = useState("");
     const [punt_t, setPunt_t] = useState("");
     const [AVG_punt_ruturn_y, setAVG_punt_ruturn_y] = useState("");
     const [int_t, setint_t] = useState("");
     const [AVG_intercept_y, setAVG_intercept_y] = useState("");
-    
+
     const [net_AVG_punt_y, setNet_AVG_punt_y] = useState("");
     const [punt_ty, setPunt_ty] = useState("");
     const [fg_goog_attps, setFg_goog_attps] = useState("");
@@ -82,6 +87,7 @@ export const Team_Nfl_Stas = () => {
             team: team,
             conference: conference,
             division: division,
+            season_type: season_type,
 
             TP: TP,
             ttpg: ttpg,
@@ -109,7 +115,7 @@ export const Team_Nfl_Stas = () => {
             y_p_russ_attp: y_p_russ_attp,
             russ_y_pg: russ_y_pg,
             russ_td: russ_td,
-            
+
             total_of_plays: total_of_plays,
             total_y: total_y,
             y_pg: y_pg,
@@ -120,7 +126,7 @@ export const Team_Nfl_Stas = () => {
             AVG_punt_ruturn_y: AVG_punt_ruturn_y,
             int_t: int_t,
             AVG_intercept_y: AVG_intercept_y,
-            
+
             net_AVG_punt_y: net_AVG_punt_y,
             punt_ty: punt_ty,
             fg_goog_attps: fg_goog_attps,
@@ -130,15 +136,15 @@ export const Team_Nfl_Stas = () => {
             penal_y_AVG_pg: penal_y_AVG_pg,
 
             possesion_time: possesion_time,
-            
+
             fumbles_lost: fumbles_lost,
             turnover_ratio: turnover_ratio,
 
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_nfl_team", {
+
+
+        fetch("https://sportsdata365.com/stats_nfl_team", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -146,7 +152,7 @@ export const Team_Nfl_Stas = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica se creo");
                 setAuth(true);
                 actualizar();
@@ -162,6 +168,8 @@ export const Team_Nfl_Stas = () => {
 
     let selectConference = ["American Football Conference", "National Football Conference"];
     let selectDivision = ["East Division", "West Division", "North Division", "South Division"];
+    let season_Type = ["Regular Season", "Preseason","Wild Card", "Divisional Round", "Conference Chapionship", "Pro Bowl", "Super Bowl"];
+    let comparation = [];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
@@ -184,13 +192,25 @@ export const Team_Nfl_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={ year } required>
                             {
                                 selectYear.map((index) => {
                                     return (
                                         <option key={index} name="season" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-2 p-1">
+                        Season Type
+                        <select className="form-select" name="year" aria-label="Season type" onChange={e => setSeason_type(e.target.value)}  required>
+                            {
+                                season_Type.map((index) => {
+                                    return (
+                                        <option key={index} name="season type" value={index} >{index}</option>
                                     )
                                 })
                             }
@@ -208,7 +228,7 @@ export const Team_Nfl_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Division
                         <select className="form-select" name="month" aria-label="Default select example" onChange={e => setDivision(e.target.value)} required>
                             {

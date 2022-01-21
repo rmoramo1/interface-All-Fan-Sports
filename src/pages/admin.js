@@ -26,7 +26,7 @@ export const Admin = () => {
                     <Tabs/>
                 </div>
                 <div className="col-10" id="inputs-span">
-                    <div id="allitems">
+                    <div id="allitems" className="sticky-top">
                         <Links/>
                     </div>
                 </div>

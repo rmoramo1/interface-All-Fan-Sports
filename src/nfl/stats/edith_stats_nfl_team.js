@@ -7,11 +7,11 @@ export const Edit_Team_Nfl_Stas = () => {
     const { store } = useContext(Context);
     const params = useParams();
 
-        useEffect(() => {
+    useEffect(() => {
         const loggedUser = window.localStorage.getItem('my_token');
         const user = JSON.parse(loggedUser);
-        
-        if(!user){
+
+        if (!user) {
             window.location.href = '/';
         }
     }, [])
@@ -20,6 +20,8 @@ export const Edit_Team_Nfl_Stas = () => {
     const [team, setTeam] = useState(store.nfl_stats_teams[params.theid].team);
     const [conference, setConference] = useState(store.nfl_stats_teams[params.theid].conference);
     const [division, setDivision] = useState(store.nfl_stats_teams[params.theid].division);
+    const [group_type_comparation, setGroup_type_comparation] = useState(store.nfl_stats_teams[params.theid].group_type_comparation);
+    const [season_type, setSeason_type] = useState(store.nfl_stats_teams[params.theid].season_type);
 
     const [TP, setTP] = useState(store.nfl_stats_teams[params.theid].TP);
     const [ttpg, setTtpg] = useState(store.nfl_stats_teams[params.theid].ttpg);
@@ -84,6 +86,8 @@ export const Edit_Team_Nfl_Stas = () => {
             team: team,
             conference: conference,
             division: division,
+            season_type: season_type,
+            group_type_comparation: group_type_comparation,
 
             TP: TP,
             ttpg: ttpg,
@@ -137,10 +141,10 @@ export const Edit_Team_Nfl_Stas = () => {
             turnover_ratio: turnover_ratio,
 
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
+
+
+        fetch("https://sportsdata365.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -148,7 +152,7 @@ export const Edit_Team_Nfl_Stas = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica se actualizo");
                 setAuth(true);
                 actualizar();
@@ -156,7 +160,7 @@ export const Edit_Team_Nfl_Stas = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -173,6 +177,7 @@ export const Edit_Team_Nfl_Stas = () => {
 
     let selectConference = ["American Football Conference", "National Football Conference"];
     let selectDivision = ["East Division", "West Division", "North Division", "South Division"];
+    let season_Type = ["Regular Season", "Preseason","Wild Card", "Divisional Round", "Conference Chapionship", "Pro Bowl", "Super Bowl"];
 
     return (
         <div className="container-fluid" id="statsEdith" >
@@ -195,11 +200,23 @@ export const Edit_Team_Nfl_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Season
                         <select className="form-select" name="season" defaultValue={store.nfl_stats_teams[params.theid].season} onChange={e => setSeason(e.target.value)} required>
                             {
                                 selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="season" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-2 p-1">
+                        Season Type
+                        <select className="form-select" name="season" defaultValue={store.nfl_stats_teams[params.theid].season} onChange={e => setSeason_type(e.target.value)} defaultValue={store.nfl_stats_teams[params.theid].season_type} required>
+                            {
+                                season_Type.map((index) => {
                                     return (
                                         <option key={index} name="season" value={index}>{index}</option>
                                     )
@@ -219,7 +236,7 @@ export const Edit_Team_Nfl_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Division
                         <select className="form-select" name="month" defaultValue={store.nfl_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {

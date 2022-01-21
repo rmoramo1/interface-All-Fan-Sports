@@ -21,7 +21,7 @@ export const Ncaa_Football_game = () => {
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState("01");
+    const [weekCrear, setWeekCrear] = useState("1");
     const [hourCrear, setHourCrear] = useState("01");
     const [minCrear, setMinCrear] = useState("01");
     let [timeCrear] = useState("01");
@@ -317,7 +317,7 @@ export const Ncaa_Football_game = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/ncaa_football", {
+        fetch("https://sportsdata365.com/ncaa_football", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -356,14 +356,9 @@ export const Ncaa_Football_game = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 25; i++) {

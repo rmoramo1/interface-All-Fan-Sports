@@ -18,9 +18,10 @@ export const Stats_put_player_nfl = () => {
     const [birth, setBirth] = useState("");
     const [position, setPosition] = useState("QB");
     const [dorsal, setDorsal] = useState("");
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [team, setTeam] = useState("Arizona Cardinals");
     const [games, setGames] = useState("");
+    const [headshot, setheadshot] = useState("");
 
     const [punts, setPunts] = useState("");
     const [yards, setYards] = useState("");
@@ -48,6 +49,7 @@ export const Stats_put_player_nfl = () => {
             weight: weight,
             birth: birth,
             position: position,
+            headshot: headshot,
             dorsal: dorsal,
             season: season,
             team: team,
@@ -69,7 +71,7 @@ export const Stats_put_player_nfl = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_punting_player_nfl", {
+        fetch("https://sportsdata365.com/stats_punting_player_nfl", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -140,6 +142,10 @@ export const Stats_put_player_nfl = () => {
                         Games
                         <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" onChange={e => setGames(e.target.value)} required ></input>
                     </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
@@ -156,7 +162,7 @@ export const Stats_put_player_nfl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2022} required>
                             {
                                 selectYear.map((index) => {
                                     return (

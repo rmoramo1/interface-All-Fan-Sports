@@ -140,7 +140,7 @@ export const Edit_Team_Ncaa_Fot_Stas = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_ncaa_football_team/" + store.ncaa_football_team_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_ncaa_football_team/" + store.ncaa_football_team_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -156,7 +156,7 @@ export const Edit_Team_Ncaa_Fot_Stas = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_ncaa_football_team/" + store.ncaa_football_team_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_ncaa_football_team/" + store.ncaa_football_team_stats[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

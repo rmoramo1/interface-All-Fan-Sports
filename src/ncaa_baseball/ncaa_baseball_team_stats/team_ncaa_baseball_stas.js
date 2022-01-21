@@ -58,7 +58,7 @@ export const Team_NCAA_BASEBALL_Stas = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_ncaa_baseball_team", {
+        fetch("https://sportsdata365.com/stats_ncaa_baseball_team", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

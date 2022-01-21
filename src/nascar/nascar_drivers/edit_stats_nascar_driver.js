@@ -16,6 +16,7 @@ export const Edit_stats_Nascar_Driver = () => {
     const [name, setName] = useState(store.nascar_driver_stats[params.theid].name);
     const [country, setCountry] = useState(store.nascar_driver_stats[params.theid].country);
     const [birth, setBirth] = useState(store.nascar_driver_stats[params.theid].birth);
+    const [headshot, setheadshot] = useState(store.nascar_driver_stats[params.theid].headshot);
 
     const [sponsor, setsponsor] = useState(store.nascar_driver_stats[params.theid].sponsor);
     const [engine, setengine] = useState(store.nascar_driver_stats[params.theid].engine);
@@ -40,6 +41,7 @@ export const Edit_stats_Nascar_Driver = () => {
             name: name,
             country: country,
             birth: birth,
+            headshot: headshot,
 
             sponsor: sponsor,
             engine: engine,
@@ -57,7 +59,7 @@ export const Edit_stats_Nascar_Driver = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -73,7 +75,7 @@ export const Edit_stats_Nascar_Driver = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/nascar_drivers/" + store.nascar_driver_stats[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -90,8 +92,15 @@ export const Edit_stats_Nascar_Driver = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.nascar_driver_stats[params.theid].name} </h3>
+            <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.nascar_driver_stats[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.nascar_driver_stats[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -107,6 +116,10 @@ export const Edit_stats_Nascar_Driver = () => {
                     <div className="text-center col-2 p-1">
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.nascar_driver_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.nascar_driver_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

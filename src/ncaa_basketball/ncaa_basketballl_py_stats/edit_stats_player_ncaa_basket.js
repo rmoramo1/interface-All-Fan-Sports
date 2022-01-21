@@ -9,7 +9,7 @@ export const Edit_stats_player_ncaa_basket = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
@@ -23,6 +23,7 @@ export const Edit_stats_player_ncaa_basket = () => {
     const [dorsal, setDorsal] = useState(store.ncaa_basket_stats_player[params.theid].dorsal);
     const [minutes, setMinutes] = useState(store.ncaa_basket_stats_player[params.theid].minutes);
     const [position, setPosition] = useState(store.ncaa_basket_stats_player[params.theid].position);
+    const [headshot, setheadshot] = useState(store.stats_deff_player_nfl[params.theid].headshot);
 
     const [gp, setGp] = useState(store.ncaa_basket_stats_player[params.theid].gp);
     const [gs, setGs] = useState(store.ncaa_basket_stats_player[params.theid].gs);
@@ -62,6 +63,7 @@ export const Edit_stats_player_ncaa_basket = () => {
             dorsal: dorsal,
             minutes: minutes,
             position: position,
+            eadshot: headshot,
 
             gp: gp,
             gs: gs,
@@ -81,10 +83,10 @@ export const Edit_stats_player_ncaa_basket = () => {
             pf: pf,
             pts: pts
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_ncaa_basket_player/" + store.ncaa_basket_stats_player[params.theid].id, {
+
+
+        fetch("https://sportsdata365.com/stats_ncaa_basket_player/" + store.ncaa_basket_stats_player[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -92,7 +94,7 @@ export const Edit_stats_player_ncaa_basket = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se Actualizo");
                 setAuth(true);
                 actualizar();
@@ -100,7 +102,7 @@ export const Edit_stats_player_ncaa_basket = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_ncaa_basket_player/" + store.ncaa_basket_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_ncaa_basket_player/" + store.ncaa_basket_stats_player[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -119,7 +121,14 @@ export const Edit_stats_player_ncaa_basket = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.ncaa_basket_stats_player[params.theid].name} </h3>
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.ncaa_basket_stats_player[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.ncaa_basket_stats_player[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -163,6 +172,10 @@ export const Edit_stats_player_ncaa_basket = () => {
                     <div className="text-center col-3 p-1">
                         Minutes
                         <input className="form-control selectInner" type="text" placeholder="Minutes" aria-label="default input example" defaultValue={store.ncaa_basket_stats_player[params.theid].minutes} onChange={e => setMinutes(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.ncaa_basket_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">

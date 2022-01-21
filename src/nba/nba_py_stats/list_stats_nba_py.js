@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext,useState } from "react";
+import DateTime from 'luxon/src/datetime.js'
 import { Context } from "../../store/appContext";
 import { Single_py_nba_stats } from "./single_py_nba_stats";
 export const List_Stats_NBA_PY = () => {
@@ -11,6 +12,12 @@ export const List_Stats_NBA_PY = () => {
         
     }
 
+    const yearLux = DateTime.now().year;
+    const [yearF, setyearF] = useState(yearLux);
+    let selectYear = [];
+    for (let i = 2002; i < 2025; i++) {
+        selectYear.push(i);
+    }
     var sortStats_py = store.nba_stats_player;
     sortStats_py.sort(function (a, b) {
         return b.season - a.season;
@@ -19,9 +26,20 @@ export const List_Stats_NBA_PY = () => {
         <div className="container-fluid m-50">
             <div className="row g-0">
                 <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
-                    <div className="row g-0 w-100">
-                        <div className="col-12">
-                            <h4 className="fw-bold text-center">NFL STATS BY PLAYER</h4>
+                <div className="row g-0 w-100">
+                        <div className="col-8">
+                            <h4 className="fw-bold text-center">NBA PLAYER STATS </h4>
+                        </div>
+                        <div className="col-4">
+                            <select className="form-select selectInner" name="selectYear" aria-label="select Year" onChange={e => setyearF(e.target.value)} defaultValue={yearLux} required>
+                                {
+                                    selectYear.map((index) => {
+                                        return (
+                                            <option key={index} name="team" value={index}>{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -37,7 +55,7 @@ export const List_Stats_NBA_PY = () => {
                                     </div>
                                 </div>
                                 {sortStats_py.map((item, index2) => {
-                                    if (item.team === index && item.season === "2021") {
+                                    if (item.team === index && item.season == yearF) {
                                         return (
                                             <div className="col-12 px-1 bg_grey_medium" key={index2}>
                                                 <Single_py_nba_stats

@@ -4,22 +4,26 @@ import { Context } from "../../store/appContext";
 
 export const Team_Nba_Stas = () => {
     const { store } = useContext(Context);
+    let date = new Date();
+    let year = date.getFullYear();
 
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState(year);
     const [team, setTeam] = useState("Atlanta Hawks");
     const [conference, setConference] = useState("Eastern Conference");
     const [division, setDivision] = useState("Northwest");
-
+    const [group_type_comparation, setGroup_type_comparation] = useState("League");
+    const [season_type, setSeason_type] = useState("Regular Season");
     const [w, setw] = useState("");
     const [L, setL] = useState("");
     const [ptc, setptc] = useState("");
+    const [gb, setGb] = useState("");
     const [home, sethome] = useState("");
     const [away, setaway] = useState("");
     const [div, setdiv] = useState("");
@@ -42,10 +46,13 @@ export const Team_Nba_Stas = () => {
             team: team,
             conference: conference,
             division: division,
+            season_type: season_type,
+            group_type_comparation: group_type_comparation,
 
             w: w,
             L: L,
             ptc: ptc,
+            gb: gb,
             home: home,
             away: away,
             div: div,
@@ -58,7 +65,7 @@ export const Team_Nba_Stas = () => {
 
         };
 
-        fetch("https://allfansports.herokuapp.com/stats_nba_team", {
+        fetch("https://sportsdata365.com/stats_nba_team", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -66,7 +73,7 @@ export const Team_Nba_Stas = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica se creo");
                 setAuth(true);
                 actualizar();
@@ -82,6 +89,8 @@ export const Team_Nba_Stas = () => {
 
     let selectConference = ["Eastern Conference", "Western Conference"];
     let selectDivision = ["Northwest", "Southwest", "Pacific", "Atlantic", "Central", "Southeastern"];
+    let season_Type = ["Regular Season", "Preseason"];
+    let comparation = ["League", "Conference", "Division"];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
@@ -92,7 +101,7 @@ export const Team_Nba_Stas = () => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-3 text-center p-1">
+                    <div className="col-2 text-center p-1">
                         Team
                         <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setTeam(e.target.value)} required>
                             {
@@ -104,9 +113,9 @@ export const Team_Nba_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={year} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -116,7 +125,19 @@ export const Team_Nba_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
+                        Season Type
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={"Regular Season"} required>
+                            {
+                                season_Type.map((index) => {
+                                    return (
+                                        <option key={index} name="season" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-2 p-1">
                         Conference
                         <select className="form-select" name="month" aria-label="Default select example" onChange={e => setConference(e.target.value)} required>
                             {
@@ -128,7 +149,7 @@ export const Team_Nba_Stas = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Division
                         <select className="form-select" name="month" aria-label="Default select example" onChange={e => setDivision(e.target.value)} required>
                             {
@@ -140,15 +161,27 @@ export const Team_Nba_Stas = () => {
                             }
                         </select>
                     </div>
+                    <div className="text-center col-2 p-1">
+                        Comparation
+                        <select className="form-select" name="League" aria-label="Comparision" onChange={e => setGroup_type_comparation(e.target.value)} required>
+                            {
+                                comparation.map((index) => {
+                                    return (
+                                        <option key={index} name="League" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
                 <div id="crear-stats" className="py-3">
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">W</div>
                         <div className="col-2 title-lines">L</div>
                         <div className="col-2 title-lines">PTC</div>
+                        <div className="col-2 title-lines">GB</div>
                         <div className="col-2 title-lines">Home</div>
                         <div className="col-2 title-lines">Away</div>
-                        <div className="col-2 title-lines">Div</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -161,24 +194,28 @@ export const Team_Nba_Stas = () => {
                             <input className="form-control selectInner" type="text" placeholder="PTC" aria-label="default input example" onChange={e => setptc(e.target.value)} required />
                         </div>
                         <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="GB" aria-label="GB" onChange={e => setGb(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" onChange={e => sethome(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" onChange={e => setaway(e.target.value)} required />
                         </div>
-                        <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" onChange={e => setdiv(e.target.value)} required />
-                        </div>
+
                     </div>
                     <div className="row g-0 text-center mt-3">
+                        <div className="col-2 title-lines">Div</div>
                         <div className="col-2 title-lines">Conf</div>
                         <div className="col-2 title-lines">PPG</div>
                         <div className="col-2 title-lines">Opp Ppg</div>
                         <div className="col-2 title-lines">Diff</div>
                         <div className="col-2 title-lines">Strk</div>
-                        <div className="col-2 title-lines">L 10</div>
                     </div>
                     <div className="row g-0">
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" onChange={e => setdiv(e.target.value)} required />
+                        </div>
                         <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Conf" name="rotation_home" onChange={e => setconf(e.target.value)} required />
                         </div>
@@ -194,10 +231,15 @@ export const Team_Nba_Stas = () => {
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" onChange={e => setstrk(e.target.value)} required />
                         </div>
+
+                    </div>
+                    <div className="row g-0 text-center mt-3">
+                        <div className="col-2 title-lines">L 10</div>
+                    </div>
+                    <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L 10" aria-label="default input example" onChange={e => setl10(e.target.value)} required />
                         </div>
-
                     </div>
                 </div>
                 <div className="col-10 text-end py-3">

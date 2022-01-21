@@ -25,7 +25,7 @@ export const Edith_Casino = (props) => {
             name: name,
         };
 
-        fetch("https://allfansports.herokuapp.com/casinos/" + store.casinos[params.theid].id, {
+        fetch("https://sportsdata365.com/casinos/" + store.casinos[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -40,7 +40,7 @@ export const Edith_Casino = (props) => {
             .catch(err => console.log(err));
     };
     const deletLogo = e => {
-        fetch("https://allfansports.herokuapp.com/casinos/" + store.casinos[params.theid].id, {
+        fetch("https://sportsdata365.com/casinos/" + store.casinos[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

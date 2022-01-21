@@ -19,6 +19,7 @@ export const Edit_stats_Fighter_box = () => {
     const [height, setHeight] = useState(store.boxer_stats[params.theid].height);
     const [weight, setWeight] = useState(store.boxer_stats[params.theid].weight);
     const [birth, setBirth] = useState(store.boxer_stats[params.theid].birth);
+    const [headshot, setheadshot] = useState(store.boxer_stats[params.theid].headshot);
 
     const [country, setCountry] = useState(store.boxer_stats[params.theid].country);
     const [association, setAssociation] = useState(store.boxer_stats[params.theid].association);
@@ -41,6 +42,7 @@ export const Edit_stats_Fighter_box = () => {
             height: height,
             weight: weight,
             birth: birth,
+            headshot: headshot,
 
             country: country,
             association: association,
@@ -53,7 +55,7 @@ export const Edit_stats_Fighter_box = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_box_fighter/" + store.boxer_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_box_fighter/" + store.boxer_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -69,7 +71,7 @@ export const Edit_stats_Fighter_box = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_box_fighter/" + store.boxer_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_box_fighter/" + store.boxer_stats[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -86,8 +88,15 @@ export const Edit_stats_Fighter_box = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.boxer_stats[params.theid].name} </h3>
+            <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.boxer_stats[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.boxer_stats[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -126,6 +135,10 @@ export const Edit_stats_Fighter_box = () => {
                     <div className="text-center col-3 p-1">
                         Category
                         <input className="form-control selectInner" type="text" placeholder="Category" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].category} onChange={e => setCategory(e.target.value)} ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.boxer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

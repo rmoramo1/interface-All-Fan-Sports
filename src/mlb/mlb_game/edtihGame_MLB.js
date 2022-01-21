@@ -331,12 +331,12 @@ export const EdithGames_mlb = (props) => {
         };
         
        
-        fetch("https://allfansports.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
+        fetch("https://sportsdata365.com/mlb/" + store.mlbGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Origin": "http://localhost:3000/",
+                "Access-Control-Allow-Origin": "https://localhost:3000/",
                 "Access-Control-Allow-Methods": "PUT"
             }
         })
@@ -352,7 +352,7 @@ export const EdithGames_mlb = (props) => {
 
     };
     const delet = e => {
-        fetch("https://allfansports.herokuapp.com/mlb/" + store.mlbGames[params.theid].id, {
+        fetch("https://sportsdata365.com/mlb/" + store.mlbGames[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -385,14 +385,9 @@ export const EdithGames_mlb = (props) => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 13; i++) {

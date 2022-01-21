@@ -9,7 +9,7 @@ export const Edit_stats_player_nba = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
@@ -24,6 +24,7 @@ export const Edit_stats_player_nba = () => {
     const [dorsal, setDorsal] = useState(store.nba_stats_player[params.theid].dorsal);
     const [minutes, setMinutes] = useState(store.nba_stats_player[params.theid].minutes);
     const [position, setPosition] = useState(store.nba_stats_player[params.theid].position);
+    const [headshot, setheadshot] = useState(store.nba_stats_player[params.theid].headshot);
 
     const [gp, setGp] = useState(store.nba_stats_player[params.theid].gp);
     const [gs, setGs] = useState(store.nba_stats_player[params.theid].gs);
@@ -63,6 +64,7 @@ export const Edit_stats_player_nba = () => {
             dorsal: dorsal,
             minutes: minutes,
             position: position,
+            headshot: headshot,
 
             gp: gp,
             gs: gs,
@@ -82,10 +84,10 @@ export const Edit_stats_player_nba = () => {
             pf: pf,
             pts: pts
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_nba_player/" + store.nba_stats_player[params.theid].id, {
+
+
+        fetch("https://sportsdata365.com/stats_nba_player/" + store.nba_stats_player[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -93,7 +95,7 @@ export const Edit_stats_player_nba = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se Actualizo");
                 setAuth(true);
                 actualizar();
@@ -101,7 +103,7 @@ export const Edit_stats_player_nba = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_nba_player/" + store.nba_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_nba_player/" + store.nba_stats_player[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -119,8 +121,15 @@ export const Edit_stats_player_nba = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.nba_stats_player[params.theid].name} </h3>
+                <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.nba_stats_player[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.nba_stats_player[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -165,6 +174,10 @@ export const Edit_stats_player_nba = () => {
                         Minutes
                         <input className="form-control selectInner" type="text" placeholder="Minutes" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid].minutes} onChange={e => setMinutes(e.target.value)} required ></input>
                     </div>
+                    <div className="text-center col-3 p-1">
+                        College
+                        <input className="form-control selectInner" type="text" placeholder="College" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid].college} onChange={e => setCollege(e.target.value)} required ></input>
+                    </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
@@ -190,6 +203,10 @@ export const Edit_stats_player_nba = () => {
                                 })
                             }
                         </select>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.nba_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="mt-3">

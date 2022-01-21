@@ -32,7 +32,7 @@ export const Odds_to_win = () => {
             team: team
         };
 
-        fetch("https://allfansports.herokuapp.com/odds_to_win", {
+        fetch("https://sportsdata365.com/odds_to_win", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

@@ -202,14 +202,14 @@ export const AllGames = () => {
                         <button type="button" className="btn bt_deg" onClick={e => setTipe("NBA")} value={NBA}>NBA</button>
                         <button type="button" className="btn bt_deg" onClick={e => setTipe("MLB")} value={MLB}>MLB</button>
                         <button type="button" className="btn bt_deg" onClick={e => setTipe("NHL")} value={NHL}>NHL</button>
-                        <button type="button" className="btn bt_deg" onClick={e => setTipe("BOX")} value={BOX}>BOX</button>
-                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("MMA")} value={MMA}>MMA</button>
-                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("GOLF")} value={GOLF}>GOLF</button>
-                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("NASCAR")} value={NASCAR}>NASCAR</button>
-                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("SOCCER")} value={SOCCER}>SOCCER</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_FOOT")} value={NCAA_FOOT}>NCAA FOOTBALL</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_BASKET")} value={NCAA_BASKET}>NCAA BASKETBALL</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("NCAA_BASEBALL")} value={NCAA_BASEBALL}>NCAA BASEBALL</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("SOCCER")} value={SOCCER}>SOCCER</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("NASCAR")} value={NASCAR}>NASCAR</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("GOLF")} value={GOLF}>GOLF</button>
+                        <button type="button" className="btn bt_deg" onClick={e => setTipe("BOX")} value={BOX}>BOX</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("MMA")} value={MMA}>MMA</button>
                     </div>
                 </div>
                 <div className="">

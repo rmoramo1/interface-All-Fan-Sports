@@ -312,7 +312,7 @@ export const Ncaa_Baseball_game = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/ncaa_baseball", {
+        fetch("https://sportsdata365.com/ncaa_baseball", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -350,14 +350,9 @@ export const Ncaa_Baseball_game = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 0; i < 24; i++) {

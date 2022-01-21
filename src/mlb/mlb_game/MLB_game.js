@@ -4,6 +4,9 @@ import { Context } from "../../store/appContext";
 export const MLB_game = () => {
     const { store } = useContext(Context);
 
+    let date = new Date();
+	let year = date.getFullYear();
+
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
@@ -15,7 +18,7 @@ export const MLB_game = () => {
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState(year);
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -312,7 +315,7 @@ export const MLB_game = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/mlb", {
+        fetch("https://sportsdata365.com/mlb", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -350,14 +353,9 @@ export const MLB_game = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 0; i < 24; i++) {
@@ -399,7 +397,7 @@ export const MLB_game = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Year
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={year} required>
                             {
                                 selectYear.map((index) => {
                                     return (

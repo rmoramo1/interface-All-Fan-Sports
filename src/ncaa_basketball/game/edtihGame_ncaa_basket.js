@@ -310,7 +310,7 @@ export const EdithGames_ncaa_basket = (props) => {
         };
         
        
-        fetch("https://allfansports.herokuapp.com/ncaa_basketball/" + store.ncaa_basket[params.theid].id, {
+        fetch("https://sportsdata365.com/ncaa_basketball/" + store.ncaa_basket[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -329,7 +329,7 @@ export const EdithGames_ncaa_basket = (props) => {
 
     };
     const delet = e => {
-        fetch("https://allfansports.herokuapp.com/ncaa_basketball/" + store.ncaa_basket[params.theid].id, {
+        fetch("https://sportsdata365.com/ncaa_basketball/" + store.ncaa_basket[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -362,14 +362,9 @@ export const EdithGames_ncaa_basket = (props) => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 13; i++) {

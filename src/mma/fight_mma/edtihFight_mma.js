@@ -90,7 +90,7 @@ export const EdithFight_mma = (props) => {
         };
         
        
-        fetch("https://allfansports.herokuapp.com/mma/" + store.mma_fight[params.theid].id, {
+        fetch("https://sportsdata365.com/mma/" + store.mma_fight[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: {
@@ -109,7 +109,7 @@ export const EdithFight_mma = (props) => {
 
     };
     const deletFight = e => {
-        fetch("https://allfansports.herokuapp.com/mma/" + store.mma_fight[params.theid].id, {
+        fetch("https://sportsdata365.com/mma/" + store.mma_fight[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })

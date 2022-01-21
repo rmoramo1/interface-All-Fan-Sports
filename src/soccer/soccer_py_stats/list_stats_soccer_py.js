@@ -39,7 +39,7 @@ export const List_Stats_Soccer_PY = () => {
                                     </div>
                                 </div>
                                 {sortStats_py.map((item, index2) => {
-                                    if (item.team === index.name && item.season === "2021") {
+                                    if (item.team === index.name && item.season === "2022") {
                                         return (
                                             <div className="col-12 px-1 bg_grey_medium" key={index2}>
                                                 <Single_py_soccer_stats

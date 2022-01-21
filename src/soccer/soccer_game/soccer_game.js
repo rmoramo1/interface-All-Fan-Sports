@@ -129,7 +129,7 @@ export const Soccer_game = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/soccer", {
+        fetch("https://sportsdata365.com/soccer", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -166,14 +166,9 @@ export const Soccer_game = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 25; i++) {
@@ -306,25 +301,7 @@ export const Soccer_game = () => {
                         <div className="col-12 text-center">
                             Country
                         </div>
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={country} onChange={tounamentSet}>
-                            {
-                                store.soccer_tournament.map((item, index) => {
-                                    let data=[];
-                                    data.push(item.country);
-                        
-                                    const result = data.reduce((acc,item)=>{
-                                        if(!acc.includes(item)){
-                                            acc.push(item.country);
-                                        }
-                                        return acc;
-                                      },[])
-                  
-                                    return (
-                                        <option key={index} name="promotions" value={result}>{result}</option>
-                                    )
-                                })
-                            }
-                        </select>
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Country" onChange={e => setcountry(e.target.value)} required />
                     </div>
                     <div className="col-3">
                         <div className="col-12 text-center">

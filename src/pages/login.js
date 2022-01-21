@@ -23,7 +23,7 @@ export const Login = () => {
 		e.preventDefault();
 		const body = { mail: mail, password: password };
 		
-		fetch("https://allfansports.herokuapp.com/login", {
+		fetch("https://sportsdata365.com/login", {
 			method: "POST",
 			body: JSON.stringify(body),
 			headers: { "Content-Type": "application/json" }

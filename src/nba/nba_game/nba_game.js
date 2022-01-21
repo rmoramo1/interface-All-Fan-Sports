@@ -1,9 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {  Redirect } from 'react-router-dom';
 import { Context } from "../../store/appContext";
 export const NBA_game = () => {
     const { store } = useContext(Context);
-
+    let date = new Date();
+	let year = date.getFullYear();
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
@@ -15,13 +16,13 @@ export const NBA_game = () => {
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState(year);
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState("01");
+    const [weekCrear, setWeekCrear] = useState("1");
     const [hourCrear, setHourCrear] = useState("01");
     const [minCrear, setMinCrear] = useState("01");
     let [timeCrear] = useState("01");
@@ -315,7 +316,7 @@ export const NBA_game = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/nba", {
+        fetch("https://sportsdata365.com/nba", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -353,14 +354,9 @@ export const NBA_game = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 25; i++) {
@@ -400,9 +396,9 @@ export const NBA_game = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-1 p-1">
+                    <div className="text-center col-2 p-1">
                         Year
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={year} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -472,7 +468,7 @@ export const NBA_game = () => {
                             }
                         </select>
                     </div>
-                    <div className="col-4">
+                    <div className="col-3">
                         <div className="row g-0">
                             <div className="btn-group">
                                 <button className="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">

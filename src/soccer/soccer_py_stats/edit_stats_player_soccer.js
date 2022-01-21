@@ -23,6 +23,7 @@ export const Edit_stats_player_soccer = () => {
     const [dorsal, setDorsal] = useState(store.soccer_stats_player[params.theid].dorsal);
     const [team, setTeam] = useState(store.soccer_stats_player[params.theid].team);
     const [season, setSeason] = useState(store.soccer_stats_player[params.theid].season);
+    const [headshot, setheadshot] = useState(store.soccer_stats_player[params.theid].headshot);
 
     const [games, setgames] = useState(store.soccer_stats_player[params.theid].games);
     const [strt, setstrt] = useState(store.soccer_stats_player[params.theid].strt);
@@ -51,6 +52,7 @@ export const Edit_stats_player_soccer = () => {
             weight: weight,
             birth: birth,
             position: position,
+            headshot: headshot,
             dorsal: dorsal,
             season: season,
             team: team,
@@ -67,7 +69,7 @@ export const Edit_stats_player_soccer = () => {
             off: off,
         };
 
-        fetch("https://allfansports.herokuapp.com/stats_soccer_player/" + store.soccer_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_soccer_player/" + store.soccer_stats_player[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -82,7 +84,7 @@ export const Edit_stats_player_soccer = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_soccer_player/" + store.soccer_stats_player[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_soccer_player/" + store.soccer_stats_player[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -101,7 +103,14 @@ export const Edit_stats_player_soccer = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.soccer_stats_player[params.theid].name} </h3>
+                <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.soccer_stats_player[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.soccer_stats_player[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -141,15 +150,19 @@ export const Edit_stats_player_soccer = () => {
                         Dorsal
                         <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.soccer_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
                 </div>
                 <div className="row g-0">
-                    <div className="col-3 text-center p-1">
+                <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.soccer_stats_player[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select" name="team" aria-label="Default select example" onChange={e => setTeam(e.target.value)} defaultValue={store.soccer_stats_player[params.theid].team} required>
                             {
-                                store.nba_teams.map((index) => {
+                                store.soccer_stats_teams.map((index) => {
                                     return (
-                                        <option key={index} name="team" value={index}>{index}</option>
+                                        <option key={index} name="season" value={index.name} >{index.name}</option>
                                     )
                                 })
                             }

@@ -55,7 +55,7 @@ export const Golf = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/golf", {
+        fetch("https://sportsdata365.com/golf", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -93,14 +93,9 @@ export const Golf = () => {
             selectDay.push(i);
         }
     }
-    let selectWeek = [];
+   let selectWeek = [];
     for (let i = 1; i < 53; i++) {
-        if (i < 10) {
-            i = "0" + i;
-            selectWeek.push(i);
-        } else {
-            selectWeek.push(i);
-        }
+        selectWeek.push(i);
     }
     let selectHour = [];
     for (let i = 1; i < 25; i++) {

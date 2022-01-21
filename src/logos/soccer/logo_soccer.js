@@ -27,7 +27,7 @@ export const Logo_soccer = () => {
 
         };
 
-        fetch("https://allfansports.herokuapp.com/logos_soccer", {
+        fetch("https://sportsdata365.com/logos_soccer", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

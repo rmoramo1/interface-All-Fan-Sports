@@ -28,7 +28,7 @@ export const Tournaments = () => {
 
         };
 
-        fetch("https://allfansports.herokuapp.com/soccer_tournament", {
+        fetch("https://sportsdata365.com/soccer_tournament", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }

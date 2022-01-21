@@ -24,7 +24,7 @@ export const Casino = () => {
             name: name,
         };
 
-        fetch("https://allfansports.herokuapp.com/casinos", {
+        fetch("https://sportsdata365.com/casinos", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -32,7 +32,7 @@ export const Casino = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                alert("Logo se creo");
+                alert("Casino se creo");
                 setAuth(true);
                 actualizar();
             })

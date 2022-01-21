@@ -20,7 +20,8 @@ export const Stats_py_soccer = () => {
     const [position, setPosition] = useState("GK");
     const [dorsal, setDorsal] = useState("");
     const [team, setTeam] = useState("Real Madrid");
-    const [season, setseason] = useState("2021");
+    const [season, setseason] = useState("2022");
+    const [headshot, setheadshot] = useState("");
 
     const [games, setgames] = useState("");
     const [strt, setstrt] = useState("");
@@ -47,6 +48,7 @@ export const Stats_py_soccer = () => {
             weight: weight,
             birth: birth,
             position: position,
+            headshot: headshot,
             dorsal: dorsal,
             season: season,
             team: team,
@@ -65,7 +67,7 @@ export const Stats_py_soccer = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_soccer_player", {
+        fetch("https://sportsdata365.com/stats_soccer_player", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -154,7 +156,7 @@ export const Stats_py_soccer = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="season" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="season" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={2022} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -163,6 +165,10 @@ export const Stats_py_soccer = () => {
                                 })
                             }
                         </select>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="mt-3">

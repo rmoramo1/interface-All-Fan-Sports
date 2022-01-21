@@ -17,6 +17,7 @@ export const Stats_Fighter_box = () => {
     const [height, setHeight] = useState("");
     const [weight, setWeight] = useState("");
     const [birth, setBirth] = useState("");
+    const [headshot, setheadshot] = useState("");
 
     const [country, setCountry] = useState("2021");
     const [association, setAssociation] = useState("Boston Bruins");
@@ -40,6 +41,7 @@ export const Stats_Fighter_box = () => {
             height: height,
             weight: weight,
             birth: birth,
+            headshot: headshot,
 
             country: country,
             association: association,
@@ -52,7 +54,7 @@ export const Stats_Fighter_box = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/stats_box_fighter", {
+        fetch("https://sportsdata365.com/stats_box_fighter", {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -116,6 +118,10 @@ export const Stats_Fighter_box = () => {
                     <div className="text-center col-3 p-1">
                         Category
                         <input className="form-control selectInner" type="text" placeholder="Category" aria-label="default input example" onChange={e => setCategory(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

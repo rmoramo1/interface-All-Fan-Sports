@@ -10,7 +10,7 @@ export const Edit_Stats_NBA_Team = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
@@ -19,10 +19,13 @@ export const Edit_Stats_NBA_Team = () => {
     const [team, setTeam] = useState(store.nba_stats_teams[params.theid].team);
     const [conference, setConference] = useState(store.nba_stats_teams[params.theid].conference);
     const [division, setDivision] = useState(store.nba_stats_teams[params.theid].division);
+    const [group_type_comparation, setGroup_type_comparation] = useState(store.nba_stats_teams[params.theid].group_type_comparation);
+    const [season_type, setSeason_type] = useState(store.nba_stats_teams[params.theid].season_type);
 
     const [w, setw] = useState(store.nba_stats_teams[params.theid].w);
     const [L, setL] = useState(store.nba_stats_teams[params.theid].L);
     const [ptc, setptc] = useState(store.nba_stats_teams[params.theid].ptc);
+    const [gb, setGb] = useState(store.nba_stats_teams[params.theid].gb);
     const [home, sethome] = useState(store.nba_stats_teams[params.theid].home);
     const [away, setaway] = useState(store.nba_stats_teams[params.theid].away);
     const [div, setdiv] = useState(store.nba_stats_teams[params.theid].div);
@@ -45,10 +48,13 @@ export const Edit_Stats_NBA_Team = () => {
             team: team,
             conference: conference,
             division: division,
+            season_type: season_type,
+            group_type_comparation: group_type_comparation,
 
             w: w,
             L: L,
             ptc: ptc,
+            gb: gb,
             home: home,
             away: away,
             div: div,
@@ -60,10 +66,10 @@ export const Edit_Stats_NBA_Team = () => {
             l10: l10
 
         };
-        
-       
 
-        fetch("https://allfansports.herokuapp.com/stats_nba_team/"+ store.nba_stats_teams[params.theid].id, {
+
+
+        fetch("https://sportsdata365.com/stats_nba_team/" + store.nba_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -71,7 +77,7 @@ export const Edit_Stats_NBA_Team = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica se creo");
                 setAuth(true);
                 actualizar();
@@ -79,7 +85,7 @@ export const Edit_Stats_NBA_Team = () => {
             .catch(err => console.log(err));
     };
     const delet_team_nfl_stat = e => {
-        fetch("https://allfansports.herokuapp.com/stats_nba_team/" + store.nba_stats_teams[params.theid].id, {
+        fetch("https://sportsdata365.com/stats_nba_team/" + store.nba_stats_teams[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -96,6 +102,8 @@ export const Edit_Stats_NBA_Team = () => {
 
     let selectConference = ["Eastern Conference", "Western Conference"];
     let selectDivision = ["Northwest", "Southwest", "Pacific", "Atlantic", "Central", "Southeastern"];
+    let season_Type = ["Regular Season", "Preseason"];
+    let comparation = ["League", "Conference", "Division"];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
@@ -106,7 +114,7 @@ export const Edit_Stats_NBA_Team = () => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-3 text-center p-1">
+                    <div className="col-2 text-center p-1">
                         Team
                         <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
@@ -118,9 +126,9 @@ export const Edit_Stats_NBA_Team = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example"  onChange={e => setSeason(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -130,7 +138,19 @@ export const Edit_Stats_NBA_Team = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
+                        Season Type
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season_type} required>
+                            {
+                                season_Type.map((index) => {
+                                    return (
+                                        <option key={index} name="season" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-2 p-1">
                         Conference
                         <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].conference} onChange={e => setConference(e.target.value)} required>
                             {
@@ -142,7 +162,7 @@ export const Edit_Stats_NBA_Team = () => {
                             }
                         </select>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Division
                         <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {
@@ -154,15 +174,28 @@ export const Edit_Stats_NBA_Team = () => {
                             }
                         </select>
                     </div>
+                    <div className="text-center col-2 p-1">
+                        Comparation
+                        <select className="form-select" name="League" aria-label="Comparision" onChange={e => setGroup_type_comparation(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].group_type_comparation} required>
+                            {
+                                comparation.map((index) => {
+                                    return (
+                                        <option key={index} name="League" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
                 <div id="crear-stats" className="py-3">
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">W</div>
                         <div className="col-2 title-lines">L</div>
                         <div className="col-2 title-lines">Ptc</div>
+                        <div className="col-2 title-lines">GB</div>
                         <div className="col-2 title-lines">Home</div>
                         <div className="col-2 title-lines">Away</div>
-                        <div className="col-2 title-lines">Div</div>
+
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -175,24 +208,27 @@ export const Edit_Stats_NBA_Team = () => {
                             <input className="form-control selectInner" type="text" placeholder="Ptc" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ptc} onChange={e => setptc(e.target.value)} required />
                         </div>
                         <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="GB" aria-label="GB" defaultValue={store.nba_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].home} onChange={e => sethome(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].away} onChange={e => setaway(e.target.value)} required />
                         </div>
-                        <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].div} onChange={e => setdiv(e.target.value)} required />
-                        </div>
                     </div>
                     <div className="row g-0 text-center mt-3">
+                        <div className="col-2 title-lines">Div</div>
                         <div className="col-2 title-lines">Conf</div>
                         <div className="col-2 title-lines">Ppg</div>
                         <div className="col-2 title-lines">Opp Ppg</div>
                         <div className="col-2 title-lines">Diff</div>
                         <div className="col-2 title-lines">Strk</div>
-                        <div className="col-2 title-lines">L 10</div>
                     </div>
                     <div className="row g-0">
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].div} onChange={e => setdiv(e.target.value)} required />
+                        </div>
                         <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Conf" name="rotation_home" defaultValue={store.nba_stats_teams[params.theid].conf} onChange={e => setconf(e.target.value)} required />
                         </div>
@@ -208,6 +244,12 @@ export const Edit_Stats_NBA_Team = () => {
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].strk} onChange={e => setstrk(e.target.value)} required />
                         </div>
+
+                    </div>
+                    <div className="row g-0 text-center mt-3">
+                        <div className="col-2 title-lines">L 10</div>
+                    </div>
+                    <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L 10" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].l10} onChange={e => setl10(e.target.value)} required />
                         </div>

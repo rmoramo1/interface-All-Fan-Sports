@@ -24,6 +24,7 @@ export const Edit_stats_Golfer = () => {
     const [rnds, setrnds] = useState(store.golfer_stats[params.theid].rnds);
     const [holes, setholes] = useState(store.golfer_stats[params.theid].holes);
     const [avg, setavg] = useState(store.golfer_stats[params.theid].avg);
+    const [headshot, setheadshot] = useState(store.golfer_stats[params.theid].headshot);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -36,6 +37,7 @@ export const Edit_stats_Golfer = () => {
             country: country,
             swing: swing,
             birth: birth,
+            headshot: headshot,
 
             cuts: cuts,
             top10: top10,
@@ -47,7 +49,7 @@ export const Edit_stats_Golfer = () => {
         
        
 
-        fetch("https://allfansports.herokuapp.com/golfer/" + store.golfer_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/golfer/" + store.golfer_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -63,7 +65,7 @@ export const Edit_stats_Golfer = () => {
             .catch(err => console.log(err));
     };
     const delet_py_ret_stat = e => {
-        fetch("https://allfansports.herokuapp.com/golfer/" + store.golfer_stats[params.theid].id, {
+        fetch("https://sportsdata365.com/golfer/" + store.golfer_stats[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -80,8 +82,15 @@ export const Edit_stats_Golfer = () => {
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-                <div className="col-12 bg-title-edith mt-5 p-3 text-center">
-                    <h3>Edit stats of {store.golfer_stats[params.theid].name} </h3>
+            <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                    <div className="row g-0">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
+                            <h3>Edit stats of {store.golfer_stats[params.theid].name} </h3>
+                        </div>
+                        <div className="col-6 text-start">
+                            <img className="img_picture" src={store.golfer_stats[params.theid].headshot} alt="image of player"></img>
+                        </div>
+                    </div>
                 </div>
             </div>
             <form onSubmit={crear}>
@@ -101,6 +110,10 @@ export const Edit_stats_Golfer = () => {
                     <div className="text-center col-2 p-1">
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
+                    </div>
+                    <div className="text-center col-3 p-1">
+                        Headshot
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.golfer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 

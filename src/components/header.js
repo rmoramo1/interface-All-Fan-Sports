@@ -28,7 +28,7 @@ export const Header = () => {
         <div className="container-fluid bg-header p-0">
             <div className="row g-0" id="navbarNavAltMarkup">
                 <div className="col-10 col-lg-2">
-                    <HashLink to="/">
+                    <HashLink to="/admin">
                         <img src={logo} className="img-fluid" alt="logo of the site"></img>
                     </HashLink>
                 </div>
@@ -42,8 +42,6 @@ export const Header = () => {
                 </div>
                 <div className={nav}>
                     <div className="row g-0">
-
-
                         <div className="col-5">
                             <div className="d-flex justify-content-center align-items-center">
                                 <nav className="navbar navbar-expand-lg p-0">
@@ -209,8 +207,10 @@ export const Header = () => {
                                                 </HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/logos">Logos</HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/casinos_page">Casinos</HashLink>
-                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/odds_page">ODDS</HashLink>
-                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/props_page">PROPS</HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/odds_page">Odds</HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/props_page">Props</HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/injuries_page">Injuries</HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/futures_page">Futures</HashLink>
                                             </div>
                                         </div>
                                     </div>
