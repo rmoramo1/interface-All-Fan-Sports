@@ -66,7 +66,7 @@ export const Edit_stats_Fighter_box = () => {
                 
                 alert("Stadistica de Boxeador se Actualizo");
                 setAuth(true);
-                //actualizar();
+                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -78,7 +78,7 @@ export const Edit_stats_Fighter_box = () => {
             .then(res => res.json())
             .catch(err => console.log(err));
         setAuth(true);
-        //actualizar();
+        actualizar();
     };
     //select
     let selectYear = [];

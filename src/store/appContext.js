@@ -67,7 +67,6 @@ const injectContext = PassedComponent => {
 			state.actions.loadSoccer_tournament();
 			state.actions.loadSoccer_team_stats();
 			state.actions.loadSoccer_player_stats();
-			state.actions.loadTournaments();
 			//ncaa football
 			state.actions.loadNcaa_football();
 			state.actions.loadStatsNcaa_Football_team();

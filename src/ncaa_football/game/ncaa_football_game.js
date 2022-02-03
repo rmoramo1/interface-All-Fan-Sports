@@ -15,7 +15,7 @@ export const Ncaa_Football_game = () => {
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState("2022");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -31,7 +31,7 @@ export const Ncaa_Football_game = () => {
     const [juiceTotalOver, setjuiceTotalOver] = useState("-110");
     const [juiceTotalUnder, setjuiceTotalUnder] = useState("-110");
     //away
-    const [awayCrear, setAwayCrear] = useState("Arizona Cardinals");
+    const [awayCrear, setAwayCrear] = useState("Cincinnati");
     const [spreadAwayCrear, setSpreadAwayCrear] = useState("");
     const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState("-110");
     const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState("");
@@ -40,7 +40,7 @@ export const Ncaa_Football_game = () => {
     const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState("-110");
     const [finalScoreA, setFinalScoreA] = useState("");
     //home
-    const [HomeCrear, setHomeCrear] = useState("Arizona Cardinals");
+    const [HomeCrear, setHomeCrear] = useState("Cincinnati");
     const [spreadHomeCrear, setSpreadHomeCrear] = useState("");
     const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState("-110");
     const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState("");

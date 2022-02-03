@@ -13,6 +13,7 @@ export const Edith_PROPS = (props) => {
 
     }
 
+    const [date, setdate] = useState(store.props[params.theid].date);
     const [title, settitle] = useState(store.props[params.theid].title);
     const [sport, setsport] = useState(store.props[params.theid].sport);
     const [away, setaway] = useState(store.props[params.theid].away);
@@ -34,6 +35,7 @@ export const Edith_PROPS = (props) => {
             line: line,
             sport: sport,
             title: title,
+            date: date,
             type_prop: type_prop
         };
 
@@ -78,10 +80,13 @@ export const Edith_PROPS = (props) => {
             <div className="row g-0 rounded overflow-hidden shadow">
                 <form onSubmit={edit}>
                     <div className="row g-0">
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
+                            Date
+                        </div>
+                        <div className="col-2 title-lines text-center">
                             Title
                         </div>
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
                             Sport
                         </div>
                         <div className="col-2 title-lines text-center">
@@ -95,20 +100,23 @@ export const Edith_PROPS = (props) => {
                         </div>
                     </div>
                     <div className="row g-0">
-                        <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" defaultValue={store.props[params.theid].title} onChange={e => settitle(e.target.value)} required />
-                        </div>
-                        <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" defaultValue={store.props[params.theid].sport} onChange={e => setsport(e.target.value)} required />
+                    <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" defaultValue={store.props[params.theid].date} onChange={e => setdate(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" defaultValue={store.props[params.theid].away} onChange={e => setaway(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Title" name="title" defaultValue={store.props[params.theid].title} onChange={e => settitle(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Home" name="rotation_home" defaultValue={store.props[params.theid].type_prop} onChange={e => sethome(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.props[params.theid].sport} onChange={e => setsport(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" required defaultValue={store.props[params.theid].line} onChange={e => setline(e.target.value)} />
+                            <input type="text" className="form-control selectInner" placeholder="Team" name="team" defaultValue={store.props[params.theid].away} onChange={e => setaway(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Home" name="home" defaultValue={store.props[params.theid].type_prop} onChange={e => sethome(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Line" name="line" required defaultValue={store.props[params.theid].line} onChange={e => setline(e.target.value)} />
                         </div>
                     </div>
                     <div className="row g-0 pt-2">

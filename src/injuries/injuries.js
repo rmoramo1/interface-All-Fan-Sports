@@ -17,6 +17,7 @@ export const Injuries = () => {
     const [name_player, setname_player] = useState();
     const [time_injurie, settime_injurie] = useState();
     const [team, setteam] = useState();
+    const [sport, setsport] = useState();
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -29,6 +30,7 @@ export const Injuries = () => {
             injurie: injurie,
             name_player: name_player,
             time_injurie: time_injurie,
+            sport: sport,
             team: team
         };
 
@@ -53,10 +55,13 @@ export const Injuries = () => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-3 title-lines text-center">
+                    <div className="col-2 title-lines text-center">
                         Team
                     </div>
-                    <div className="col-3 title-lines text-center">
+                    <div className="col-2 title-lines text-center">
+                        Sport
+                    </div>
+                    <div className="col-2 title-lines text-center">
                         Name Player
                     </div>
                     <div className="col-2 title-lines text-center">
@@ -70,14 +75,17 @@ export const Injuries = () => {
                     </div>
                 </div>
                 <div className="row g-0">
-                    <div className="col-3">
-                        <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setteam(e.target.value)} required />
-                    </div>
-                    <div className="col-3">
-                        <input type="text" className="form-control selectInner" placeholder="Name Player" name="rotation_home" onChange={e => setname_player(e.target.value)} required />
+                    <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Team" name="team" onChange={e => setteam(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Injurie" name="rotation_home" onChange={e => setinjurie(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" onChange={e => setsport(e.target.value)} required />
+                    </div>
+                    <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Name Player" name="player" onChange={e => setname_player(e.target.value)} required />
+                    </div>
+                    <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Injurie" name="injurie" onChange={e => setinjurie(e.target.value)} required />
                     </div>
                     <div className="col-2">
                         <input type="text" className="form-control selectInner" placeholder="Date" name="setdate" onChange={e => setdate(e.target.value)} required />

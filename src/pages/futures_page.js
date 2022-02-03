@@ -15,7 +15,7 @@ export const Futures_page = () => {
     return (
         <div className="container-fluid m-50">
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                <h3>Injuries</h3>
+                <h3>Futures</h3>
             </div>
             <div className="container mt-3">
                 <div className="row g-0">

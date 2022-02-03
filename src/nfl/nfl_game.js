@@ -25,6 +25,7 @@ export const Nfl_game = () => {
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
     const [weekCrear, setWeekCrear] = useState("1");
+    
     const [hourCrear, setHourCrear] = useState("01");
     const [minCrear, setMinCrear] = useState("01");
     let [timeCrear] = useState("01");

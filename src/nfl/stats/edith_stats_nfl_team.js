@@ -260,10 +260,10 @@ export const Edit_Team_Nfl_Stas = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-4">
-                            <input className="form-control selectInner" type="text" placeholder="TP" aria-label="default input example" defaultValue={store.nfl_stats_teams[params.theid].TP} onChange={e => setTP(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="TP PG" aria-label="default input example" defaultValue={store.nfl_stats_teams[params.theid].ttpg} onChange={e => setTtpg(e.target.value)} required />
                         </div>
                         <div className="col-4">
-                            <input className="form-control selectInner" type="text" placeholder="TP PG" aria-label="default input example" defaultValue={store.nfl_stats_teams[params.theid].ttpg} onChange={e => setTtpg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="TP" aria-label="default input example" defaultValue={store.nfl_stats_teams[params.theid].TP} onChange={e => setTP(e.target.value)} required />
                         </div>
                         <div className="col-4">
                             <input className="form-control selectInner" type="text" placeholder="T TD" aria-label="default input example" defaultValue={store.nfl_stats_teams[params.theid].t_td} onChange={e => setT_td(e.target.value)} required />

@@ -9,7 +9,7 @@ export const EdithGames_nba = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const { store } = useContext(Context);
@@ -17,9 +17,30 @@ export const EdithGames_nba = (props) => {
     const [casino, setCasino] = useState(store.nbaGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nbaGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nbaGames[params.theid].rotation_away);
-    const [week, setWeek] = useState(store.nbaGames[params.theid].week);
+
+    const [week, setWeekCrear] = useState(store.nbaGames[params.theid].week);
     const [date, setdate] = useState(store.nbaGames[params.theid].date);
     const [hour, sethour] = useState(store.nbaGames[params.theid].hour);
+
+    let only_year = date[0]+date[1]+date[2]+date[3];
+    let only_month = date[5]+date[6];
+    let only_day = date[8]+date[9];
+    let only_hour = hour[0]+hour[1];
+    let only_min = hour[3]+hour[4];
+
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+
+    
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
+    let [timeCrear] = useState(store.nbaGames[params.theid].hour);
+    timeCrear = hourCrear + ":" + minCrear;
 
     //totals
     const [totalCrear, setTotalAwayCrear] = useState(store.nbaGames[params.theid].total);
@@ -162,9 +183,9 @@ export const EdithGames_nba = (props) => {
         const body = {
             status: statusCrear,
             casino: casino,
-            week:week,
-            date:date,
-            hour:hour,
+            week: week,
+            date: yearSendCrear,
+            hour: timeCrear,
             rotation_home: rotation_home,
             rotation_away: rotation_away,
             away: awayCrear,
@@ -308,8 +329,8 @@ export const EdithGames_nba = (props) => {
             q4_half_final_score_home: Q4fsHome,
 
         };
-        
-       
+
+
         fetch("https://sportsdata365.com/nba/" + store.nbaGames[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -320,7 +341,7 @@ export const EdithGames_nba = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("juego se creo");
                 setAuth(true);
                 actualizar();
@@ -362,7 +383,7 @@ export const EdithGames_nba = (props) => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -400,49 +421,104 @@ export const EdithGames_nba = (props) => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-2">
-                        <div className="col-12 text-center px-1">
-                            Casino
-                            <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nbaGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
-                                {
-                                    store.casinos.map((item, index) => {
-                                        return (
-                                            <option key={index} name="casinos" value={item.name}>{item.name}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-                        <div className="col-12 text-center px-1">
-                            Status
-                            <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nbaGames[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
-                                {
-                                    store.status.map((index) => {
-                                        return (
-                                            <option key={index} name="promotions" value={index}>{index}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-
+                    <div className="col-2 text-center p-1">
+                        Status
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nbaGames[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                            {
+                                store.status.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <div className="col-10 d-flex align-items-center">
-                        <div className="row g-0 w-100 ps-5">
-                            <div className="col-4">
-                                <div className="row g-0 py-3">
-                                    <button className="btn rounded-start accordion-button col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
-                                        Game
-                                    </button>
-                                    <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
-                                        1st Half
-                                    </button>
-                                    <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
-                                        2dn Half
-                                    </button>
-                                </div>
+                    <div className="text-center col-2 p-1">
+                        Year
+                        <select className="form-select" name="year" aria-label="Default select example" defaultValue={only_year} onChange={e => setYearCrear(e.target.value)} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Month
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={only_month} onChange={e => setMonthCrear(e.target.value)} required>
+                            {
+                                selectMonth.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Day
+                        <select className="form-select" name="day" aria-label="Default select example" defaultValue={only_day} onChange={e => setDayCrear(e.target.value)} required>
+                            {
+                                selectDay.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Week
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={store.nbaGames[params.theid].week} onChange={e => setWeekCrear(e.target.value)} required>
+                            {
+                                selectWeek.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Hour
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_hour} onChange={e => setHourCrear(e.target.value)} required>
+                            {
+                                selectHour.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Min
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_min} onChange={e => setMinCrear(e.target.value)} required>
+                            {
+                                selectMin.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3">
+                        <div className="row g-0">
+                            <div className="btn-group">
+                                <button className="btn btn-dark col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
+                                    Game
+                                </button>
+                                <button className="btn btn-dark collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
+                                    1st Half
+                                </button>
+                                <button className="btn btn-dark collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#secondHalf" aria-expanded="false" aria-controls="secondHalf">
+                                    2dn Half
+                                </button>
                             </div>
-                            <div className="col-3 rounded-end overflow-hidden py-3">
+                            <div className="col-12 rounded-end overflow-hidden py-3">
                                 <a className="quarters collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Q1" aria-expanded="false" aria-controls="Q1">
                                     Q1
                                 </a>
@@ -458,6 +534,18 @@ export const EdithGames_nba = (props) => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="col-2 text-center px-1">
+                    Casino
+                    <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nbaGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
+                        {
+                            store.casinos.map((item, index) => {
+                                return (
+                                    <option key={index} name="casinos" value={item.name}>{item.name}</option>
+                                )
+                            })
+                        }
+                    </select>
                 </div>
                 <div className="accordion-item ">
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameEdith">

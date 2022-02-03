@@ -17,6 +17,7 @@ export const Edith_Injuries = (props) => {
     const [name_player, setname_player] = useState(store.injuries[params.theid].name_player);
     const [time_injurie, settime_injurie] = useState(store.injuries[params.theid].time_injurie);
     const [team, setteam] = useState(store.injuries[params.theid].team);
+    const [sport, setsport] = useState(store.injuries[params.theid].sport);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -29,6 +30,7 @@ export const Edith_Injuries = (props) => {
             injurie: injurie,
             name_player: name_player,
             time_injurie: time_injurie,
+            sport: sport,
             team: team
         };
 
@@ -73,10 +75,13 @@ export const Edith_Injuries = (props) => {
             <div className="row g-0 rounded overflow-hidden shadow">
                 <form onSubmit={edit}>
                     <div className="row g-0">
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
                             Team
                         </div>
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
+                            Sport
+                        </div>
+                        <div className="col-2 title-lines text-center">
                             Name Player
                         </div>
                         <div className="col-2 title-lines text-center">
@@ -90,20 +95,23 @@ export const Edith_Injuries = (props) => {
                         </div>
                     </div>
                     <div className="row g-0">
-                        <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" defaultValue={store.injuries[params.theid].team} onChange={e => setteam(e.target.value)} required />
+                        <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Title" name="team" defaultValue={store.injuries[params.theid].team} onChange={e => setteam(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setname_player(e.target.value)} defaultValue={store.injuries[params.theid].name_player} required />
-                        </div>
-                        <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setinjurie(e.target.value)} defaultValue={store.injuries[params.theid].injurie} required />
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.injuries[params.theid].sport} onChange={e => setsport(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Type" name="rotation_home" onChange={e => setdate(e.target.value)} required defaultValue={store.injuries[params.theid].date} />
+                            <input type="text" className="form-control selectInner" placeholder="Player" name="rotation_home" onChange={e => setname_player(e.target.value)} defaultValue={store.injuries[params.theid].name_player} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => settime_injurie(e.target.value)} required defaultValue={store.injuries[params.theid].time_injurie} />
+                            <input type="text" className="form-control selectInner" placeholder="Injurie" name="rotation_home" onChange={e => setinjurie(e.target.value)} defaultValue={store.injuries[params.theid].injurie} required />
+                        </div>
+                        <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" onChange={e => setdate(e.target.value)} required defaultValue={store.injuries[params.theid].date} />
+                        </div>
+                        <div className="col-2">
+                            <input type="text" className="form-control selectInner" placeholder="Time" name="time injurie" onChange={e => settime_injurie(e.target.value)} required defaultValue={store.injuries[params.theid].time_injurie} />
                         </div>
                         <div className="row g-0">
                             <div className="col-4 p-3 text-end">

@@ -243,13 +243,13 @@ export const Stats_deff_player_nfl = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">FF</div>
+                        <div className="col-2 title-lines">FR</div>
                         <div className="col-2 title-lines">FTD</div>
                         <div className="col-2 title-lines">KB</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="FF" aria-label="default input example" onChange={e => setFr(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="FR" aria-label="default input example" onChange={e => setFr(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="FTD" aria-label="default input example" onChange={e => setFtd(e.target.value)} required />

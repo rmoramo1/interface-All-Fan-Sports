@@ -13,13 +13,28 @@ export const EdithGolf = (props) => {
     } else {
         
     }
+    const [date, setdate] = useState(store.golf[params.theid].date);
+    const [hour, sethour] = useState(store.golf[params.theid].hour);
+    let only_year = date[0]+date[1]+date[2]+date[3];
+    let only_month = date[5]+date[6];
+    let only_day = date[8]+date[9];
+    let only_hour = hour[0]+hour[1];
+    let only_min = hour[3]+hour[4];
 
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.golf[params.theid].status);
     const [casino, setcasino] = useState(store.golf[params.theid].casino);
-    const [week, setWeek] = useState(store.golf[params.theid].week);
-    const [date, setdate] = useState(store.golf[params.theid].date);
-    const [hour, sethour] = useState(store.golf[params.theid].hour);
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSend);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    const [weekCrear, setWeekCrear] = useState(store.golf[params.theid].week);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+    let [timeCrear] = useState("01");
+    timeCrear = hourCrear + ":" + minCrear;
     const [event, setevent] = useState(store.golf[params.theid].event);
     //
     const [location, setlocation] = useState(store.golf[params.theid].location);
@@ -34,9 +49,9 @@ export const EdithGolf = (props) => {
     const crear = e => {
         e.preventDefault();
         const body = {
-            date: date,
-            hour: hour,
-            week: week,
+            date: yearSendCrear,
+            hour: timeCrear,
+            week: weekCrear,
             status: statusCrear,
             casino: casino,
             event: event,
@@ -77,7 +92,51 @@ export const EdithGolf = (props) => {
         setAuth(true);
         actualizar();
     };
-
+    //select
+    let selectYear = [];
+    for (let i = 2002; i < 2025; i++) {
+        selectYear.push(i);
+    }
+    let selectMonth = [];
+    for (let i = 1; i < 13; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectMonth.push(i);
+        } else {
+            selectMonth.push(i);
+        }
+    }
+    let selectDay = [];
+    for (let i = 1; i < 32; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectDay.push(i);
+        } else {
+            selectDay.push(i);
+        }
+    }
+   let selectWeek = [];
+    for (let i = 1; i < 53; i++) {
+        selectWeek.push(i);
+    }
+    let selectHour = [];
+    for (let i = 1; i < 25; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectHour.push(i);
+        } else {
+            selectHour.push(i);
+        }
+    }
+    let selectMin = [];
+    for (let i = 0; i < 60; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectMin.push(i);
+        } else {
+            selectMin.push(i);
+        }
+    }
 
     return (
         <div className="container-fluid accordion" id="fightEdith" >
@@ -94,10 +153,10 @@ export const EdithGolf = (props) => {
                 </div>
             </div>
             <form onSubmit={crear}>
-                <div className="row g-0">
-                    <div className="col-2 text-center">
+            <div className="row g-0">
+                    <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.golf[params.theid].status} onChange={e => setStatusCrear(e.target.value)}>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.golf[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -107,20 +166,92 @@ export const EdithGolf = (props) => {
                             }
                         </select>
                     </div>
-                    <div className="col-3">
-                        <div className="col-12 text-center">
-                            Casino <span className="fst-italic small ">*no</span>
-                        </div>
-                        <select className="form-select" name="casino" aria-label="Default select example" defaultValue={store.golf[params.theid].casino} onChange={e => setcasino(e.target.value)}>
+                    <div className="text-center col-1 p-1">
+                        Year
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={only_year} required>
                             {
-                                store.casinos.map((item, index) => {
+                                selectYear.map((index) => {
                                     return (
-                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                        <option key={index} name="promotions" value={index} >{index}</option>
                                     )
                                 })
                             }
                         </select>
                     </div>
+                    <div className="text-center col-1 p-1">
+                        Month
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={only_month} onChange={e => setMonthCrear(e.target.value)} required>
+                            {
+                                selectMonth.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Day
+                        <select className="form-select" name="day" aria-label="Default select example" defaultValue={only_day} onChange={e => setDayCrear(e.target.value)} required>
+                            {
+                                selectDay.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Week
+                        <select className="form-select" name="week" aria-label="Default select example" onChange={e => setWeekCrear(e.target.value)} defaultValue={weekCrear} required>
+                            {
+                                selectWeek.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Hour
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_hour} onChange={e => setHourCrear(e.target.value)} required>
+                            {
+                                selectHour.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Min
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_min} onChange={e => setMinCrear(e.target.value)} required>
+                            {
+                                selectMin.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div className="col-3">
+                    <div className="col-12 text-center">
+                        Casino <span className="fst-italic small ">*no required</span>
+                    </div>
+                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                        {
+                            store.casinos.map((item, index) => {
+                                return (
+                                    <option key={index} name="casino" value={item.name}>{item.name}</option>
+                                )
+                            })
+                        }
+                    </select>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">

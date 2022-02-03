@@ -50,7 +50,6 @@ export const Nascar = () => {
             place1: place1,
             place2: place2,
             place3: place3
-
         };
         
        

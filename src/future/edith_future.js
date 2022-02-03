@@ -13,6 +13,7 @@ export const Edith_Future = (props) => {
 
     }
 
+    const [sport, setsport] = useState(store.futures[params.theid].sport);
     const [future, setfuture] = useState(store.futures[params.theid].future);
     const [line, setline] = useState(store.futures[params.theid].line);
 
@@ -23,6 +24,7 @@ export const Edith_Future = (props) => {
     const edit = e => {
         e.preventDefault();
         const body = {
+            sport: sport,
             future: future,
             line: line,
         };
@@ -67,22 +69,28 @@ export const Edith_Future = (props) => {
             </div>
             <div className="row g-0 rounded overflow-hidden shadow">
                 <form onSubmit={edit}>
-                <div className="row g-0">
-                    <div className="col-6 title-lines text-center">
-                        Future
+                    <div className="row g-0">
+                        <div className="col-4 title-lines text-center">
+                            Sport
+                        </div>
+                        <div className="col-4 title-lines text-center">
+                            Future
+                        </div>
+                        <div className="col-4 title-lines text-center">
+                            Line
+                        </div>
                     </div>
-                    <div className="col-6 title-lines text-center">
-                        Line
+                    <div className="row g-0">
+                        <div className="col-4">
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="Sport" defaultValue={store.futures[params.theid].sport} onChange={e => setsport(e.target.value)} required />
+                        </div>
+                        <div className="col-4">
+                            <input type="text" className="form-control selectInner" placeholder="Future" name="setfuture" defaultValue={store.futures[params.theid].future} onChange={e => setfuture(e.target.value)} required />
+                        </div>
+                        <div className="col-4">
+                            <input type="text" className="form-control selectInner" placeholder="Line" name="setline" defaultValue={store.futures[params.theid].line} onChange={e => setline(e.target.value)} required />
+                        </div>
                     </div>
-                </div>
-                <div className="row g-0">
-                    <div className="col-6">
-                        <input type="text" className="form-control selectInner" placeholder="Future" name="setfuture" defaultValue={store.futures[params.theid].future} onChange={e => setfuture(e.target.value)} required />
-                    </div>
-                    <div className="col-6">
-                        <input type="text" className="form-control selectInner" placeholder="Line" name="setline" defaultValue={store.futures[params.theid].line} onChange={e => setline(e.target.value)} required />
-                    </div>
-                </div>
 
                     <div className="row g-0">
                         <div className="col-4 p-3 text-end">

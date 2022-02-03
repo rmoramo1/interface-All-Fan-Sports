@@ -12,6 +12,7 @@ export const Future = () => {
 
     }
 
+    const [sport, setsport] = useState();
     const [future, setfuture] = useState();
     const [line, setline] = useState();
 
@@ -22,6 +23,7 @@ export const Future = () => {
     const crear = e => {
         e.preventDefault();
         const body = {
+            sport: sport,
             future: future,
             line: line,
         };
@@ -40,22 +42,37 @@ export const Future = () => {
             })
             .catch(err => console.log(err));
     };
+    let sports = ["FOOTBALL", "BASKETBALL", "BASEBALL", "HOCKEY", "BOX", "MMA", "GOLF", "NACASCAR", "SOCCER", "NCAA FOOTBALL", "NCAA BASKETBALL", "NCAA BASEBALL"]
     return (
         <div className="col-8 mx-auto mt-5 rounded overflow-hidden shadow">
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-6 title-lines text-center">
+                <div className="col-4 title-lines text-center">
+                        Sport
+                    </div>
+                    <div className="col-4 title-lines text-center">
                         Future
                     </div>
-                    <div className="col-6 title-lines text-center">
+                    <div className="col-4 title-lines text-center">
                         Line
                     </div>
                 </div>
                 <div className="row g-0">
-                    <div className="col-6">
+                <div className="col-4">
+                        <select className="form-select selectInner" name="Tournament" aria-label="Tournament" defaultValue={"FOOTBALL"} onChange={e => setsport(e.target.value)}>
+                            {
+                                sports.map((item, index) => {
+                                    return (
+                                        <option key={index} name="sports" value={item}>{item}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-4">
                         <input type="text" className="form-control selectInner" placeholder="Future" name="setfuture" onChange={e => setfuture(e.target.value)} required />
                     </div>
-                    <div className="col-6">
+                    <div className="col-4">
                         <input type="text" className="form-control selectInner" placeholder="Line" name="setline" onChange={e => setline(e.target.value)} required />
                     </div>
                 </div>

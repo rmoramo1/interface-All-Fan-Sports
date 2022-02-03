@@ -10,17 +10,35 @@ export const EdithGames_Ncaa_Baseball = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const [statusCrear, setStatusCrear] = useState(store.ncaa_baseball[params.theid].status);
     const [casino, setcasino] = useState(store.ncaa_baseball[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.ncaa_baseball[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.ncaa_baseball[params.theid].rotation_away);
-    //
+
     const [date, setdate] = useState(store.ncaa_baseball[params.theid].date);
     const [hour, sethour] = useState(store.ncaa_baseball[params.theid].hour);
 
+    let only_year = date[0]+date[1]+date[2]+date[3];
+    let only_month = date[5]+date[6];
+    let only_day = date[8]+date[9];
+    let only_hour = hour[0]+hour[1];
+    let only_min = hour[3]+hour[4];
+    //
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
+    let [timeCrear] = useState(store.nflGames[params.theid].hour);
+    timeCrear = hourCrear + ":" + minCrear;
     const [awayCrear, setAwayCrear] = useState(store.ncaa_baseball[params.theid].away);
     const [pitcher_a, setPitcher_a] = useState(store.ncaa_baseball[params.theid].pitcher_a);
     const [HomeCrear, setHomeCrear] = useState(store.ncaa_baseball[params.theid].home);
@@ -195,8 +213,8 @@ export const EdithGames_Ncaa_Baseball = (props) => {
             rotation_away: rotation_away,
             away: awayCrear,
             home: HomeCrear,
-            date: date,
-            hour: hour,
+            date: yearSendCrear,
+            hour: timeCrear,
 
             pitcher_a: pitcher_a,
             pitcher_h: pitcher_h,
@@ -329,8 +347,8 @@ export const EdithGames_Ncaa_Baseball = (props) => {
             sh_40inning: sh_40inning
 
         };
-        
-       
+
+
         fetch("https://sportsdata365.com/ncaa_baseball/" + store.ncaa_baseball[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -343,7 +361,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("juego se creo");
                 setAuth(true);
                 actualizar();
@@ -385,7 +403,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -429,11 +447,75 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             {
                                 store.status.map((index) => {
                                     return (
-                                        <option key={index} name="status" value={index}>{index}</option>
+                                        <option key={index} name="promotions" value={index}>{index}</option>
                                     )
                                 })
                             }
                         </select>
+                    </div>
+                    <div className="col-6 ps-2">
+                        <div className="row">
+                            <div className="text-center col-2 p-1">
+                                Year
+                                <select className="form-select" name="year" aria-label="Default select example" defaultValue={only_year} onChange={e => setYearCrear(e.target.value)} required>
+                                    {
+                                        selectYear.map((index) => {
+                                            return (
+                                                <option key={index} name="promotions" value={index} >{index}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="text-center col-2 p-1">
+                                Month
+                                <select className="form-select" name="month" aria-label="Default select example" defaultValue={only_month} onChange={e => setMonthCrear(e.target.value)} required>
+                                    {
+                                        selectMonth.map((index) => {
+                                            return (
+                                                <option key={index} name="promotions" value={index}>{index}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="text-center col-2 p-1">
+                                Day
+                                <select className="form-select" name="day" aria-label="Default select example" defaultValue={only_day} onChange={e => setDayCrear(e.target.value)} required>
+                                    {
+                                        selectDay.map((index) => {
+                                            return (
+                                                <option key={index} name="promotions" value={index}>{index}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="text-center col-2 p-1">
+                                Hour
+                                <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_hour} onChange={e => setHourCrear(e.target.value)} required>
+                                    {
+                                        selectHour.map((index) => {
+                                            return (
+                                                <option key={index} name="promotions" value={index}>{index}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div className="text-center col-2 p-1">
+                                Min
+                                <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_min} onChange={e => setMinCrear(e.target.value)} required>
+                                    {
+                                        selectMin.map((index) => {
+                                            return (
+                                                <option key={index} name="promotions" value={index}>{index}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div className="col-4">
                         <div className="row g-0">
@@ -455,7 +537,6 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                     </div>
                 </div>
                 <div className="row g-0">
-
                     <div className="col-3">
                         <div className="col-12 text-center">
                             Casino <span className="fst-italic small ">*no required</span>
@@ -548,7 +629,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_baseball[params.theid].rotation_home}  onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_baseball[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
                                     <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>

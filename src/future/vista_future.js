@@ -21,8 +21,8 @@ import { Link } from "react-router-dom";
 
                         </div>
                         <div className="row g-0">
-                        <div className="col-12 lines">{props.future}</div>
-                        <div className="col-12 lines">{props.line}</div>
+                        <div className="col-6 lines">{props.future}</div>
+                        <div className="col-6 lines">{props.line}</div>
 
                         </div>
                     </div>

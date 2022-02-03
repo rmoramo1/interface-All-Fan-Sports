@@ -1,26 +1,46 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext ,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
 export const EdithGames_Soccer = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
 
-        useEffect(() => {
+    useEffect(() => {
         const loggedUser = window.localStorage.getItem('my_token');
         const user = JSON.parse(loggedUser);
-        
-        if(!user){
+
+        if (!user) {
             window.location.href = '/';
         }
     }, [])
 
     const [statusCrear, setStatusCrear] = useState(store.soccer[params.theid].status);
-    const [casino, setCasino] = useState(store.soccer[params.theid].casino);
+    const [casino, setcasino] = useState(store.soccer[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.soccer[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.soccer[params.theid].rotation_away);
+
+    const [yearCrear, setYearCrear] = useState("2022");
+    const [monthCrear, setMonthCrear] = useState("01");
+    const [dayCrear, setDayCrear] = useState("01");
+    const [hourCrear, setHourCrear] = useState("01");
+    const [minCrear, setMinCrear] = useState("01");
+
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
+    let [timeCrear] = useState(store.soccer[params.theid].hour);
+    timeCrear = hourCrear + ":" + minCrear;
+
     const [date, setdate] = useState(store.soccer[params.theid].date);
     const [hour, sethour] = useState(store.soccer[params.theid].hour);
+
+    let only_year = date[0]+date[1]+date[2]+date[3];
+    let only_month = date[5]+date[6];
+    let only_day = date[8]+date[9];
+    let only_hour = hour[0]+hour[1];
+    let only_min = hour[3]+hour[4];
 
     const [tournament, settournament] = useState(store.soccer[params.theid].tournament);
     const [country, setcountry] = useState(store.soccer[params.theid].country);
@@ -69,8 +89,8 @@ export const EdithGames_Soccer = (props) => {
     const crear = e => {
         e.preventDefault();
         const body = {
-            date: date,
-            hour: hour,
+            date: yearSendCrear,
+            hour: timeCrear,
             status: statusCrear,
             casino: casino,
             tournament: tournament,
@@ -115,8 +135,8 @@ export const EdithGames_Soccer = (props) => {
             juice_under_home_1H: juice_under_home_1H,
 
         };
-        
-       
+
+
         fetch("https://sportsdata365.com/soccer/" + store.soccer[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -145,7 +165,51 @@ export const EdithGames_Soccer = (props) => {
         actualizar();
     };
 
-
+    //select
+    let selectYear = [];
+    for (let i = 2002; i < 2025; i++) {
+        selectYear.push(i);
+    }
+    let selectMonth = [];
+    for (let i = 1; i < 13; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectMonth.push(i);
+        } else {
+            selectMonth.push(i);
+        }
+    }
+    let selectDay = [];
+    for (let i = 1; i < 32; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectDay.push(i);
+        } else {
+            selectDay.push(i);
+        }
+    }
+    let selectWeek = [];
+    for (let i = 1; i < 53; i++) {
+        selectWeek.push(i);
+    }
+    let selectHour = [];
+    for (let i = 1; i < 13; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectHour.push(i);
+        } else {
+            selectHour.push(i);
+        }
+    }
+    let selectMin = [];
+    for (let i = 1; i < 60; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectMin.push(i);
+        } else {
+            selectMin.push(i);
+        }
+    }
     return (
         <div className="container-fluid accordion" id="gameEdith" >
             <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
@@ -162,46 +226,127 @@ export const EdithGames_Soccer = (props) => {
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
-                    <div className="col-2">
-                        <div className="col-12 text-center px-1">
-                            Casino
-                            <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.soccer[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
-                                {
-                                    store.casinos.map((item, index) => {
-                                        return (
-                                            <option key={index} name="casinos" value={item.name}>{item.name}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-                        <div className="col-12 text-center px-1">
-                            Status
-                            <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.soccer[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
-                                {
-                                    store.status.map((index) => {
-                                        return (
-                                            <option key={index} name="promotions" value={index}>{index}</option>
-                                        )
-                                    })
-                                }
-                            </select>
-                        </div>
-
+                    <div className="col-2 text-center p-1">
+                        Status
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.soccer[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                            {
+                                store.status.map((index) => {
+                                    return (
+                                        <option key={index} name="status" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <div className="col-10 d-flex align-items-center">
-                        <div className="row g-0 w-100 ps-5">
-                            <div className="col-4">
-                                <div className="row g-0 py-3">
-                                    <button className="btn rounded-start accordion-button col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego" aria-expanded="true" aria-controls="crear-juego">
-                                        Game
-                                    </button>
-                                    <button className="btn accordion-button collapsed col-4 justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
-                                        1st Half
-                                    </button>
-                                </div>
+                    <div className="text-center col-1 p-1">
+                        Year
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={only_year} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Month
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={only_month} onChange={e => setMonthCrear(e.target.value)} required>
+                            {
+                                selectMonth.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Day
+                        <select className="form-select" name="day" aria-label="Default select example" defaultValue={only_day} onChange={e => setDayCrear(e.target.value)} required>
+                            {
+                                selectDay.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Hour
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_hour} onChange={e => setHourCrear(e.target.value)} required>
+                            {
+                                selectHour.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1 p-1">
+                        Min
+                        <select className="form-select" name="week" aria-label="Default select example" defaultValue={only_min} onChange={e => setMinCrear(e.target.value)} required>
+                            {
+                                selectMin.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-4 pt-3">
+                        <div className="row g-0">
+                            <div className="btn-group">
+                                <button className="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego-soccer" aria-expanded="true" aria-controls="crear-juego-soccer">
+                                    Game
+                                </button>
+                                <button className="btn btn-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#firstHalf" aria-expanded="false" aria-controls="firstHalf">
+                                    1st Half
+                                </button>
+
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="row g-0">
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3 px-3">
+                        <div className="col-12 text-center">
+                            Country
+                        </div>
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Country" defaultValue={store.soccer[params.theid].country} onChange={e => setcountry(e.target.value)} required />
+                    </div>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Tournament
+                        </div>
+                        <select className="form-select selectInner" name="Tournament" aria-label="Tournament" defaultValue={tournament} onChange={e => settournament(e.target.value)}>
+                            {
+                                store.soccer_tournament.map((item, index) => {
+
+                                    return (
+                                        <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                 </div>
                 <div className="accordion-item ">

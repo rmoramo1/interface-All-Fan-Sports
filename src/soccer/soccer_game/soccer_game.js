@@ -267,7 +267,7 @@ export const Soccer_game = () => {
                             }
                         </select>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 pt-3">
                         <div className="row g-0">
                             <div className="btn-group">
                                 <button className="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#crear-juego-soccer" aria-expanded="true" aria-controls="crear-juego-soccer">
@@ -282,7 +282,6 @@ export const Soccer_game = () => {
                     </div>
                 </div>
                 <div className="row g-0">
-
                     <div className="col-3">
                         <div className="col-12 text-center">
                             Casino <span className="fst-italic small ">*no required</span>

@@ -312,7 +312,7 @@ export const Stats_off_player_nfl = () => {
                         <div className="col-2 title-lines">Lst</div>
                         <div className="col-2 title-lines">FD</div>
                         <div className="col-2 title-lines">REC</div>
-                        <div className="col-2 title-lines">T tgts</div>
+                        <div className="col-2 title-lines">R tgts</div>
                         <div className="col-2 title-lines">R Yards</div>
                         <div className="col-2 title-lines">Yards P R</div>
                     </div>
@@ -327,7 +327,7 @@ export const Stats_off_player_nfl = () => {
                             <input className="form-control selectInner" type="text" placeholder="REC" aria-label="default input example" onChange={e => setRec(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="T tgts" aria-label="default input example" onChange={e => setR_Tgts(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="R TGTS" aria-label="default input example" onChange={e => setR_Tgts(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="R Yards" aria-label="default input example" onChange={e => setR_Yards(e.target.value)} required />

@@ -13,6 +13,7 @@ export const Props = () => {
     }
 
     const [title, settitle] = useState();
+    const [date, setdate] = useState();
     const [sport, setsport] = useState();
     const [away, setaway] = useState();
     const [home, sethome] = useState();
@@ -32,6 +33,7 @@ export const Props = () => {
             home: home,
             line: line,
             sport: sport,
+            date: date,
             title: title,
             type_prop: type_prop
         };
@@ -58,6 +60,9 @@ export const Props = () => {
             <form onSubmit={crear}>
                 <div className="row g-0">
                     <div className="col-2 title-lines text-center">
+                        Date
+                    </div>
+                    <div className="col-2 title-lines text-center">
                         Title
                     </div>
                     <div className="col-2 title-lines text-center">
@@ -74,20 +79,23 @@ export const Props = () => {
                     </div>
                 </div>
                 <div className="row g-0">
-                    <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" onChange={e => settitle(e.target.value)} required />
+                <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Date" name="Date" onChange={e => setdate(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setsport(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Title" name="Title" onChange={e => settitle(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Away" name="rotation_home" onChange={e => setaway(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" onChange={e => setsport(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Home" name="rotation_home" onChange={e => sethome(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Away" name="away" onChange={e => setaway(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => setline(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Home" name="home" onChange={e => sethome(e.target.value)} required />
+                    </div>
+                    <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Line" name="line" onChange={e => setline(e.target.value)} required />
                     </div>
                 </div>
                 <div className="row g-0 pt-2">
