@@ -20,6 +20,7 @@ export const Edit_stats_Fighter_box = () => {
     const [weight, setWeight] = useState(store.boxer_stats[params.theid].weight);
     const [birth, setBirth] = useState(store.boxer_stats[params.theid].birth);
     const [headshot, setheadshot] = useState(store.boxer_stats[params.theid].headshot);
+    const [season, setseason] = useState(store.boxer_stats[params.theid].season);
 
     const [country, setCountry] = useState(store.boxer_stats[params.theid].country);
     const [association, setAssociation] = useState(store.boxer_stats[params.theid].association);
@@ -43,6 +44,7 @@ export const Edit_stats_Fighter_box = () => {
             weight: weight,
             birth: birth,
             headshot: headshot,
+            season: season,
 
             country: country,
             association: association,
@@ -128,6 +130,18 @@ export const Edit_stats_Fighter_box = () => {
                     </div>
                 </div>
                 <div className="row g-0">
+                <div className="text-center col-2 p-1">
+                        Season
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className="text-center col-3 p-1">
                         Association
                         <input className="form-control selectInner" type="text" placeholder="Association" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].association} onChange={e => setAssociation(e.target.value)} ></input>

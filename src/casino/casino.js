@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Casino = () => {
@@ -11,14 +10,12 @@ export const Casino = () => {
     } else {
 
     }
-
     const [name, setname] = useState();
-
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormBOX").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             name: name,
@@ -33,8 +30,6 @@ export const Casino = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Casino se creo");
-                setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -51,7 +46,6 @@ export const Casino = () => {
                 <div className="col-12 text-center py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/admin/" /> : null}
             </form>
         </div>
     )

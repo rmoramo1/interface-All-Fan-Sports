@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
-import { Redirect } from "react-router-dom";
 import DateTime from 'luxon/src/datetime.js'
 export const Fight_box = () => {
     const { store } = useContext(Context);
@@ -11,7 +10,6 @@ export const Fight_box = () => {
     } else {
         
     }
-    const [auth, setAuth] = useState(false);
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
@@ -55,9 +53,10 @@ export const Fight_box = () => {
 
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormBOX").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -91,11 +90,7 @@ export const Fight_box = () => {
             r13_result: r13_result,
             r14_result: r14_result,
             r15_result: r15_result,
-
         };
-        
-       
-
         fetch("https://sportsdata365.com/boxeo", {
             method: "POST",
             body: JSON.stringify(body),
@@ -104,9 +99,7 @@ export const Fight_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                setAuth(true);
                 alert("Pelea se creo");
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -162,7 +155,7 @@ export const Fight_box = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create BOX Fight</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormBOX">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
@@ -388,7 +381,6 @@ export const Fight_box = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
-            {auth ? <Redirect to="/admin/" /> : null}
         </div>
     )
 }

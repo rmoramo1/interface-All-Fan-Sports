@@ -13,7 +13,7 @@ export const Edit_stats_Golfer = () => {
     }
 
     const params = useParams();
-
+    const [season, setseason] = useState(store.golfer_stats[params.theid].season);
     const [name, setName] = useState(store.golfer_stats[params.theid].name);
     const [country, setCountry] = useState(store.golfer_stats[params.theid].country);
     const [swing, setswing] = useState(store.golfer_stats[params.theid].swing);
@@ -38,6 +38,7 @@ export const Edit_stats_Golfer = () => {
             swing: swing,
             birth: birth,
             headshot: headshot,
+            season: season,
 
             cuts: cuts,
             top10: top10,
@@ -111,9 +112,21 @@ export const Edit_stats_Golfer = () => {
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Headshot
                         <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.golfer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-2 p-1">
+                        Season
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                 </div>
 

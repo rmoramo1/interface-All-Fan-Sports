@@ -44,9 +44,10 @@ export const Stats_py_ncaa_baseball = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNCAA_BASEBALL_PY").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             name: name,
@@ -77,9 +78,6 @@ export const Stats_py_ncaa_baseball = () => {
             ops: ops,
             war: war
         };
-        
-       
-
         fetch("https://sportsdata365.com/stats_ncaa_baseball_player", {
             method: "POST",
             body: JSON.stringify(body),
@@ -91,7 +89,7 @@ export const Stats_py_ncaa_baseball = () => {
                 
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -109,7 +107,7 @@ export const Stats_py_ncaa_baseball = () => {
                     <h3>Create Stats NCAA BASEBALL Player</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNCAA_BASEBALL_PY">
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Name

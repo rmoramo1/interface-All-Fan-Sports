@@ -1,4 +1,4 @@
-import React, { useState, useContext , useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
@@ -9,7 +9,7 @@ export const Stats_Fighter_box = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const [name, setName] = useState("");
@@ -18,8 +18,9 @@ export const Stats_Fighter_box = () => {
     const [weight, setWeight] = useState("");
     const [birth, setBirth] = useState("");
     const [headshot, setheadshot] = useState("");
+    const [season, setseason] = useState("2022");
 
-    const [country, setCountry] = useState("2021");
+    const [country, setCountry] = useState("");
     const [association, setAssociation] = useState("Boston Bruins");
     const [category, setCategory] = useState("");
 
@@ -42,6 +43,7 @@ export const Stats_Fighter_box = () => {
             weight: weight,
             birth: birth,
             headshot: headshot,
+            season: season,
 
             country: country,
             association: association,
@@ -51,8 +53,8 @@ export const Stats_Fighter_box = () => {
             L: L,
             L_by: L_by,
         };
-        
-       
+
+
 
         fetch("https://sportsdata365.com/stats_box_fighter", {
             method: "POST",
@@ -62,7 +64,7 @@ export const Stats_Fighter_box = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
                 actualizar();
@@ -96,7 +98,6 @@ export const Stats_Fighter_box = () => {
                         Height
                         <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" onChange={e => setHeight(e.target.value)} required ></input>
                     </div>
-
                     <div className="text-center col-2 p-1">
                         Weight
                         <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" onChange={e => setWeight(e.target.value)} required ></input>
@@ -111,6 +112,18 @@ export const Stats_Fighter_box = () => {
                     </div>
                 </div>
                 <div className="row g-0">
+                    <div className="text-center col-2 p-1">
+                        Season
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className="text-center col-3 p-1">
                         Association
                         <input className="form-control selectInner" type="text" placeholder="Association" aria-label="default input example" onChange={e => setAssociation(e.target.value)} required ></input>

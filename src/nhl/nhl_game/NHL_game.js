@@ -7,6 +7,7 @@ export const NHL_game = () => {
 	let year = date.getFullYear();
 
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
+    
     if (!roy) {
         window.location.href = '/';
     } else {
@@ -76,9 +77,10 @@ export const NHL_game = () => {
     const [sh_3Q, setSh_3Q] = useState("");
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNHL").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -146,7 +148,7 @@ export const NHL_game = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Juego se creo");
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -202,7 +204,7 @@ export const NHL_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create NHL Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNHL">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

@@ -178,9 +178,10 @@ export const MLB_game = () => {
 
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormMLB").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -325,7 +326,7 @@ export const MLB_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Juego se creo");
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -381,7 +382,7 @@ export const MLB_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create MLB Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormMLB">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

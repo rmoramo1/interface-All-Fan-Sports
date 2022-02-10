@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import {  Redirect } from 'react-router-dom';
 import { Context } from "../../store/appContext";
 export const NBA_game = () => {
     const { store } = useContext(Context);
@@ -11,7 +10,6 @@ export const NBA_game = () => {
     } else {
         
     }
-
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
@@ -50,7 +48,7 @@ export const NBA_game = () => {
     const [juiceTeamTotalHomeU, setjuiceTeamTotalHomeU] = useState("-110");
     const [finalScoreH, setFinalScoreH] = useState("");
     //first half
-    const [FHspreadAway, setFHspreadAway] = useState("0");
+    const [FHspreadAway, setFHspreadAway] = useState("");
     const [FHjuiceSpreadAway, setFHjuiceSpreadAway] = useState("-110");
     const [FHmoneyLineAway, setFHmoneyLineAway] = useState("");
     const [FHtotal, setFHtotal] = useState("");
@@ -157,12 +155,11 @@ export const NBA_game = () => {
     const [Q4juiceOverHome, setQ4juiceOverHome] = useState("-110");
     const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState("-110");
     const [Q4fsHome, setQ4fsHome] = useState("");
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        setTimeout(function () { window.location.reload(true); }, 800);
-
+        document.getElementById("miFormNBA").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -324,9 +321,8 @@ export const NBA_game = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
                 alert("juego se creo");
-                actualizar();
+                
             })
             .catch(err => console.log(err));
     };
@@ -382,7 +378,7 @@ export const NBA_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create NBA Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNBA">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
@@ -1056,7 +1052,7 @@ export const NBA_game = () => {
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
             </form>
-            {auth ? <Redirect to="/allGames" /> : null}
+           
         </div>
     )
 }

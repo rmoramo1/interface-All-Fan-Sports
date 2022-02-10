@@ -158,10 +158,10 @@ export const Ncaa_Basket_game = () => {
     const [Q4fsHome, setQ4fsHome] = useState("");
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        setTimeout(function () { window.location.reload(true); }, 800);
-
+        document.getElementById("miFormNCAA_BASKET_GAME").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -310,11 +310,8 @@ export const Ncaa_Basket_game = () => {
             q4_half_juice_over_home: Q4juiceOverHome,
             q4_half_juice_under_home: Q4juiceUnderHome,
             q4_half_final_score_home: Q4fsHome,
-
         };
         
-       
-
         fetch("https://sportsdata365.com/ncaa_basketball", {
             method: "POST",
             body: JSON.stringify(body),
@@ -325,7 +322,6 @@ export const Ncaa_Basket_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("juego se creo");
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -381,7 +377,7 @@ export const Ncaa_Basket_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create NCAA BASKETBALL Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNCAA_BASKET_GAME">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

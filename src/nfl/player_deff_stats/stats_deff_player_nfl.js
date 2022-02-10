@@ -44,9 +44,10 @@ export const Stats_deff_player_nfl = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNFL_DEFF_PY").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             name: name,
@@ -90,7 +91,7 @@ export const Stats_deff_player_nfl = () => {
                 
                 alert("Stadistica de jugador se creo");
                 setAuth(true);
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -108,7 +109,7 @@ export const Stats_deff_player_nfl = () => {
                     <h3>Create Stats Deffensive Player of NFL</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNFL_DEFF_PY">
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Name

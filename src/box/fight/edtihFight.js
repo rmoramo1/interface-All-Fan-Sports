@@ -24,16 +24,16 @@ export const EdithFight = (props) => {
 
     const [statusCrear, setStatusCrear] = useState(store.box_fight[params.theid].status);
     const [casino, setcasino] = useState(store.box_fight[params.theid].casino);
-    const [yearCrear, setYearCrear] = useState("2021");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
     const [weekCrear, setWeekCrear] = useState(store.box_fight[params.theid].week);
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
-    let [timeCrear] = useState("01");
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+    let [timeCrear] = useState("");
     timeCrear = hourCrear + ":" + minCrear;
 
     //
@@ -66,7 +66,6 @@ export const EdithFight = (props) => {
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
-
     }
     const crear = e => {
         e.preventDefault();

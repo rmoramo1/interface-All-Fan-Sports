@@ -1,22 +1,18 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Stats_Nascar_Driver = () => {
     const { store } = useContext(Context);
-
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
     } else {
         
     }
-
     const [name, setName] = useState("");
     const [country, setcountry] = useState("");
     const [birth, setBirth] = useState("");
     const [headshot, setheadshot] = useState("");
-    
 
     const [sponsor, setsponsor] = useState("");
     const [engine, setengine] = useState("");
@@ -30,13 +26,11 @@ export const Stats_Nascar_Driver = () => {
     const [pts, setpts] = useState("");
     const [AVG_laps, setAVG_laps] = useState("");
     const [AVG_finish, setAVG_finish] = useState("");
-
-
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNASCAR_DRIVER").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             name: name,
@@ -70,8 +64,6 @@ export const Stats_Nascar_Driver = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica de Golfista se creo");
-                setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -88,7 +80,7 @@ export const Stats_Nascar_Driver = () => {
                     <h3>Create Stats Nascar Driver</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNASCAR_DRIVER">
                 <div className="row g-0">
                     <div className="text-center col-2 p-1">
                         Name
@@ -172,7 +164,6 @@ export const Stats_Nascar_Driver = () => {
                 <div className="col-10 text-end py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/list_stats_nascar_driver/" /> : null}
             </form>
         </div>
 

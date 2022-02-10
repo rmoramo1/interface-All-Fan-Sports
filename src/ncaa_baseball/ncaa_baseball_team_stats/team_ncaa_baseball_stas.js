@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
@@ -30,11 +30,12 @@ export const Team_NCAA_BASEBALL_Stas = () => {
     const [L10, setL10] = useState("");
     const [poff, setPoff] = useState("");
 
-    const [auth, setAuth] = useState(false);
+   
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNCAA_BASEBALL_TEAM_ST").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             season: season,
@@ -56,8 +57,6 @@ export const Team_NCAA_BASEBALL_Stas = () => {
 
         };
         
-       
-
         fetch("https://sportsdata365.com/stats_ncaa_baseball_team", {
             method: "POST",
             body: JSON.stringify(body),
@@ -68,8 +67,7 @@ export const Team_NCAA_BASEBALL_Stas = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica se creo");
-                setAuth(true);
-                actualizar();
+         
             })
             .catch(err => console.log(err));
     };
@@ -90,7 +88,7 @@ export const Team_NCAA_BASEBALL_Stas = () => {
                     <h3>Create stats by NCAA BASEBALL team</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNCAA_BASEBALL_TEAM_ST">
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
@@ -202,7 +200,6 @@ export const Team_NCAA_BASEBALL_Stas = () => {
                 <div className="col-10 text-end py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/list_ncaa_baseball_stats/" /> : null}
             </form>
         </div>
     )

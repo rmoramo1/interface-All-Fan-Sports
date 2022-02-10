@@ -175,9 +175,10 @@ export const Ncaa_Baseball_game = () => {
 
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNCAA_BASEBALL").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -322,7 +323,7 @@ export const Ncaa_Baseball_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Juego se creo");
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -378,7 +379,7 @@ export const Ncaa_Baseball_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create NCAA BASEBALL Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNCAA_BASEBALL">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

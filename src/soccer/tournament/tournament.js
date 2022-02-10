@@ -18,9 +18,10 @@ export const Tournaments = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormTourn").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             country: country,
@@ -38,7 +39,6 @@ export const Tournaments = () => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Stadistica se creo");
                 setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -56,7 +56,7 @@ export const Tournaments = () => {
                     <h3>Create Soccer Tournament</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormTourn">
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Country

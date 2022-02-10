@@ -14,25 +14,6 @@ export const EdithGames_Soccer = (props) => {
             window.location.href = '/';
         }
     }, [])
-
-    const [statusCrear, setStatusCrear] = useState(store.soccer[params.theid].status);
-    const [casino, setcasino] = useState(store.soccer[params.theid].casino);
-    const [rotation_home, setRotation_home] = useState(store.soccer[params.theid].rotation_home);
-    const [rotation_away, setRotation_away] = useState(store.soccer[params.theid].rotation_away);
-
-    const [yearCrear, setYearCrear] = useState("2022");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
-
-    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    let [yearSendCrear] = useState(yearSE);
-    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-
-    let [timeCrear] = useState(store.soccer[params.theid].hour);
-    timeCrear = hourCrear + ":" + minCrear;
-
     const [date, setdate] = useState(store.soccer[params.theid].date);
     const [hour, sethour] = useState(store.soccer[params.theid].hour);
 
@@ -41,7 +22,23 @@ export const EdithGames_Soccer = (props) => {
     let only_day = date[8]+date[9];
     let only_hour = hour[0]+hour[1];
     let only_min = hour[3]+hour[4];
+    const [statusCrear, setStatusCrear] = useState(store.soccer[params.theid].status);
+    const [casino, setcasino] = useState(store.soccer[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.soccer[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.soccer[params.theid].rotation_away);
 
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
+    let [timeCrear] = useState(store.soccer[params.theid].hour);
+    timeCrear = hourCrear + ":" + minCrear;
     const [tournament, settournament] = useState(store.soccer[params.theid].tournament);
     const [country, setcountry] = useState(store.soccer[params.theid].country);
     const [away, setaway] = useState(store.soccer[params.theid].away);

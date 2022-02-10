@@ -162,13 +162,14 @@ export const Nfl_game = () => {
     const [Q4fsHome, setQ4fsHome] = useState("");
 
     let actualizar = () => {
-        window.location.replace('');
+        document.getElementById("miFormNFL").reset();
     }
     
     const [auth, setAuth] = useState(false);
 
     const crear = e => {
         e.preventDefault();
+        actualizar();
         const body = {
             date: yearSendCrear,
             hour: timeCrear,
@@ -330,7 +331,7 @@ export const Nfl_game = () => {
                 
                 alert("juego se creo");
                 setAuth(true);
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -385,7 +386,7 @@ export const Nfl_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create NFL Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNFL">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

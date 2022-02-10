@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Odds_to_win = () => {
@@ -17,12 +16,11 @@ export const Odds_to_win = () => {
     const [type_odd, settype_odd] = useState();
     const [line, setline] = useState();
     const [team, setteam] = useState();
-
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormODDS").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             title: title,
@@ -41,8 +39,6 @@ export const Odds_to_win = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("ODD se creo");
-                setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -51,7 +47,7 @@ export const Odds_to_win = () => {
             <div className="col-12 bg-title-edith my-2 p-3 text-center">
                 <h3>Odds To Win</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormODDS">
                 <div className="row g-0">
                     <div className="col-3 title-lines text-center">
                         Title
@@ -90,7 +86,6 @@ export const Odds_to_win = () => {
                 <div className="col-12 text-center py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/admin/" /> : null}
             </form>
         </div>
     )

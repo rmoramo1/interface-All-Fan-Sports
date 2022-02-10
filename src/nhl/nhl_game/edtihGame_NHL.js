@@ -10,36 +10,31 @@ export const EdithGames_nhl = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-
+        
     }
-
+    
+    const [date, setdate] = useState(store.nhlGames[params.theid].date);
+    const [hour, sethour] = useState(store.nhlGames[params.theid].hour);
     const [status, setStatus] = useState(store.nhlGames[params.theid].status);
     const [casino, setcasino] = useState(store.nhlGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nhlGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nhlGames[params.theid].rotation_away);
     //
-    const [yearCrear, setYearCrear] = useState("2022");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
-
-    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    let [yearSendCrear] = useState(yearSE);
-    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-
-    let [timeCrear] = useState(store.nhlGames[params.theid].hour);
-    timeCrear = hourCrear + ":" + minCrear;
-
-    const [date, setdate] = useState(store.nhlGames[params.theid].date);
-    const [hour, sethour] = useState(store.nhlGames[params.theid].hour);
-
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
     let only_day = date[8]+date[9];
     let only_hour = hour[0]+hour[1];
     let only_min = hour[3]+hour[4];
-
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [timeCrear] = useState(store.nhlGames[params.theid].hour);
+    timeCrear = hourCrear + ":" + minCrear;
     const [away, setAway] = useState(store.nhlGames[params.theid].away);
     const [home, setHome] = useState(store.nhlGames[params.theid].home);
     const [puck_line_away, setpuck_line_away] = useState(store.nhlGames[params.theid].puck_line_away);
@@ -75,22 +70,16 @@ export const EdithGames_nhl = (props) => {
     const [tt_home_1Q, settt_home_1Q] = useState(store.nhlGames[params.theid].tt_home_1Q);
     const [juice_over_home_1Q, setjuice_over_home_1Q] = useState(store.nhlGames[params.theid].juice_over_home_1Q);
     const [juice_under_home_1Q, setjuice_under_home_1Q] = useState(store.nhlGames[params.theid].juice_under_home_1Q);
-
     //second half
-
     const [sa_1Q, setsa_1Q] = useState(store.nhlGames[params.theid].sa_1Q);
     const [sh_1Q, setsh_1Q] = useState(store.nhlGames[params.theid].sh_1Q);
-
     const [sa_2Q, setsa_2Q] = useState(store.nhlGames[params.theid].sa_2Q);
     const [sh_2Q, setsh_2Q] = useState(store.nhlGames[params.theid].sh_2Q);
-
     const [sa_3Q, setsa_3Q] = useState(store.nhlGames[params.theid].sa_3Q);
     const [sh_3Q, setsh_3Q] = useState(store.nhlGames[params.theid].sh_3Q);
-
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
-
     }
     const crear = e => {
         e.preventDefault();
@@ -566,7 +555,7 @@ export const EdithGames_nhl = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={delet} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/allGames" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>

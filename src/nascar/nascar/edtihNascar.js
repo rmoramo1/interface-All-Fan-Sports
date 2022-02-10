@@ -12,23 +12,6 @@ export const EditNascar = (props) => {
     } else {
 
     }
-
-    const { store } = useContext(Context);
-    const dateLux = DateTime.now().weekNumber;
-    const [statusCrear, setStatusCrear] = useState(store.nascar[params.theid].status);
-    const [casino, setcasino] = useState(store.nascar[params.theid].casino);
-    const [yearCrear, setYearCrear] = useState("2021");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    let [yearSendCrear] = useState(yearSend);
-    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState(store.nascar[params.theid].week);
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
-    let [timeCrear] = useState("01");
-    timeCrear = hourCrear + ":" + minCrear;
-
     const [date, setdate] = useState(store.nascar[params.theid].date);
     const [hour, sethour] = useState(store.nascar[params.theid].hour);
 
@@ -37,6 +20,23 @@ export const EditNascar = (props) => {
     let only_day = date[8] + date[9];
     let only_hour = hour[0] + hour[1];
     let only_min = hour[3] + hour[4];
+    const { store } = useContext(Context);
+    const dateLux = DateTime.now().weekNumber;
+    const [statusCrear, setStatusCrear] = useState(store.nascar[params.theid].status);
+    const [casino, setcasino] = useState(store.nascar[params.theid].casino);
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSend);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    const [weekCrear, setWeekCrear] = useState(store.nascar[params.theid].week);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+    let [timeCrear] = useState("01");
+    timeCrear = hourCrear + ":" + minCrear;
+
+
     //
     const [race, setrace] = useState(store.nascar[params.theid].race);
     const [track, settrack] = useState(store.nascar[params.theid].track);

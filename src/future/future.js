@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Future = () => {
@@ -15,12 +14,11 @@ export const Future = () => {
     const [sport, setsport] = useState();
     const [future, setfuture] = useState();
     const [line, setline] = useState();
-
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormFuture").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             sport: sport,
@@ -37,15 +35,13 @@ export const Future = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Future se creo");
-                setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
-    let sports = ["FOOTBALL", "BASKETBALL", "BASEBALL", "HOCKEY", "BOX", "MMA", "GOLF", "NACASCAR", "SOCCER", "NCAA FOOTBALL", "NCAA BASKETBALL", "NCAA BASEBALL"]
+    let sports = ["FOOTBALL", "BASKETBALL", "BASEBALL", "HOCKEY", "BOX", "MMA", "GOLF", "NASCAR", "SOCCER", "NCAA FOOTBALL", "NCAA BASKETBALL", "NCAA BASEBALL"]
     return (
         <div className="col-8 mx-auto mt-5 rounded overflow-hidden shadow">
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormFuture">
                 <div className="row g-0">
                 <div className="col-4 title-lines text-center">
                         Sport
@@ -79,7 +75,6 @@ export const Future = () => {
                 <div className="col-12 text-center py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/admin/" /> : null}
             </form>
         </div>
     )

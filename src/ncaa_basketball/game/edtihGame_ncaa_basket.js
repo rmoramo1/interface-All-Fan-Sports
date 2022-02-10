@@ -28,11 +28,11 @@ export const EdithGames_ncaa_basket = (props) => {
     let only_hour = hour[0]+hour[1];
     let only_min = hour[3]+hour[4];
 
-    const [yearCrear, setYearCrear] = useState("2022");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
 
     let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSE);

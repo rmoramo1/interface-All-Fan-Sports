@@ -75,9 +75,10 @@ export const Soccer_game = () => {
     const [juice_under_home_1H, setjuice_under_home_1H] = useState("-110");
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormSOCCER").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -138,7 +139,6 @@ export const Soccer_game = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("juego se creo");
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -193,7 +193,7 @@ export const Soccer_game = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create Soccer Game</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormSOCCER">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

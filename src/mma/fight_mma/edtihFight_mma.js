@@ -14,22 +14,6 @@ export const EdithFight_mma = (props) => {
         
     }
 
-
-
-    const dateLux = DateTime.now().weekNumber;
-    const [statusCrear, setStatusCrear] = useState(store.mma_fight[params.theid].status);
-    const [casino, setcasino] = useState(store.mma_fight[params.theid].casino);
-    const [yearCrear, setYearCrear] = useState("2021");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    let [yearSendCrear] = useState(yearSend);
-    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
-    let [timeCrear] = useState("01");
-    timeCrear = hourCrear + ":" + minCrear;
-
     const [weekCrear, setWeekCrear] = useState(store.mma_fight[params.theid].week);
     const [date, setdate] = useState(store.mma_fight[params.theid].date);
     const [hour, sethour] = useState(store.mma_fight[params.theid].hour);
@@ -39,6 +23,20 @@ export const EdithFight_mma = (props) => {
     let only_hour = hour[0]+hour[1];
     let only_min = hour[3]+hour[4];
     
+    const dateLux = DateTime.now().weekNumber;
+    const [statusCrear, setStatusCrear] = useState(store.mma_fight[params.theid].status);
+    const [casino, setcasino] = useState(store.mma_fight[params.theid].casino);
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSend);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
+    let [timeCrear] = useState("01");
+    timeCrear = hourCrear + ":" + minCrear;
+
     //
     const [event, setevent] = useState(store.mma_fight[params.theid].event);
     const [rounds, setrounds] = useState(store.mma_fight[params.theid].rounds);
@@ -69,7 +67,6 @@ export const EdithFight_mma = (props) => {
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
-
     }
     const crear = e => {
         e.preventDefault();

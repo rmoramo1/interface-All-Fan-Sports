@@ -34,9 +34,10 @@ export const Nascar = () => {
     const [place3, setplace3] = useState("0");
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNASCAR").reset();
     }
     const crear = e => {
+        actualizar()
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -64,7 +65,7 @@ export const Nascar = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Evento se creo");
-                actualizar();
+;
             })
             .catch(err => console.log(err));
     };
@@ -120,7 +121,7 @@ export const Nascar = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create Nascar Race</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNASCAR" >
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

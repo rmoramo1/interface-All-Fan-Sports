@@ -13,11 +13,19 @@ export const EdithGames = (props) => {
     } else {
 
     }
-    const [yearCrear, setYearCrear] = useState("2022");
-    const [monthCrear, setMonthCrear] = useState("01");
-    const [dayCrear, setDayCrear] = useState("01");
-    const [hourCrear, setHourCrear] = useState("01");
-    const [minCrear, setMinCrear] = useState("01");
+    const [date, setdate] = useState(store.nflGames[params.theid].date);
+    const [hour, sethour] = useState(store.nflGames[params.theid].hour);
+
+    let only_year = date[0]+date[1]+date[2]+date[3];
+    let only_month = date[5]+date[6];
+    let only_day = date[8]+date[9];
+    let only_hour = hour[0]+hour[1];
+    let only_min = hour[3]+hour[4];
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+    const [hourCrear, setHourCrear] = useState(only_hour);
+    const [minCrear, setMinCrear] = useState(only_min);
 
     const [statusCrear, setStatusCrear] = useState(store.nflGames[params.theid].status);
     const [casino, setCasino] = useState(store.nflGames[params.theid].casino);
@@ -30,16 +38,6 @@ export const EdithGames = (props) => {
 
     let [timeCrear] = useState(store.nflGames[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
-
-    const [date, setdate] = useState(store.nflGames[params.theid].date);
-    const [hour, sethour] = useState(store.nflGames[params.theid].hour);
-
-    let only_year = date[0]+date[1]+date[2]+date[3];
-    let only_month = date[5]+date[6];
-    let only_day = date[8]+date[9];
-    let only_hour = hour[0]+hour[1];
-    let only_min = hour[3]+hour[4];
-
     //totals
     const [totalCrear, setTotalAwayCrear] = useState(store.nflGames[params.theid].total);
     const [juiceTotalOver, setjuiceTotalOver] = useState(store.nflGames[params.theid].juice_total_over);

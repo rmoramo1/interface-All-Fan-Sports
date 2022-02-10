@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Props = () => {
@@ -21,11 +20,11 @@ export const Props = () => {
     const [feature, setfeature] = useState();
     const [type_prop, settype_prop] = useState();
 
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormPROPS").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             away: away,
@@ -47,8 +46,6 @@ export const Props = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Prop se creo");
-                setAuth(true);
-                actualizar();
             })
             .catch(err => console.log(err));
     };
@@ -57,7 +54,7 @@ export const Props = () => {
             <div className="col-12 bg-title-edith my-2 p-3 text-center">
                 <h3>Odds To Win</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormPROPS">
                 <div className="row g-0">
                     <div className="col-2 title-lines text-center">
                         Date
@@ -118,7 +115,6 @@ export const Props = () => {
                 <div className="col-12 text-center py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/admin/" /> : null}
             </form>
         </div>
     )

@@ -17,6 +17,7 @@ export const Stats_Golfer = () => {
     const [swing, setswing] = useState("");
     const [birth, setBirth] = useState("");
     const [headshot, setheadshot] = useState("");
+    const [season, setseason] = useState("");
 
     const [cuts, setcuts] = useState("2021");
     const [top10, settop10] = useState("Boston Bruins");
@@ -38,6 +39,7 @@ export const Stats_Golfer = () => {
             swing: swing,
             birth: birth,
             headshot: headshot,
+            season: season,
 
             cuts: cuts,
             top10: top10,
@@ -47,8 +49,6 @@ export const Stats_Golfer = () => {
             avg: avg
         };
         
-       
-
         fetch("https://sportsdata365.com/golfer", {
             method: "POST",
             body: JSON.stringify(body),
@@ -95,9 +95,21 @@ export const Stats_Golfer = () => {
                         Birth
                         <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" onChange={e => setBirth(e.target.value)} required ></input>
                     </div>
-                    <div className="text-center col-3 p-1">
+                    <div className="text-center col-2 p-1">
                         Headshot
                         <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" onChange={e => setheadshot(e.target.value)} required ></input>
+                    </div>
+                    <div className="text-center col-2 p-1">
+                        Season
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={2021} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                 </div>
 

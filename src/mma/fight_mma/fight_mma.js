@@ -56,9 +56,10 @@ export const Fight_mma = () => {
 
 
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormMMA").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -107,7 +108,7 @@ export const Fight_mma = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Pelea se creo");
-                actualizar();
+
             })
             .catch(err => console.log(err));
     };
@@ -163,7 +164,7 @@ export const Fight_mma = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create MMA Fight</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormMMA">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status

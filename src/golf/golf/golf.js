@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 import DateTime from 'luxon/src/datetime.js'
 import { Redirect } from 'react-router-dom';
@@ -34,9 +34,10 @@ export const Golf = () => {
     const [place3, setplace3] = useState("0");
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormGOLF").reset();
     }
     const crear = e => {
+        actualizar();
         e.preventDefault();
         const body = {
             date: yearSendCrear,
@@ -45,15 +46,12 @@ export const Golf = () => {
             status: statusCrear,
             casino: casino,
             event: event,
-
             location: location,
             place1: place1,
             place2: place2,
             place3: place3
         };
         
-       
-
         fetch("https://sportsdata365.com/golf", {
             method: "POST",
             body: JSON.stringify(body),
@@ -64,11 +62,9 @@ export const Golf = () => {
                 sessionStorage.setItem("my_token", data.token);
                 setAuth(true);
                 alert("Evento se creo");
-                actualizar();
             })
             .catch(err => console.log(err));
     };
-
     //select
     let selectYear = [];
     for (let i = 2002; i < 2025; i++) {
@@ -120,7 +116,7 @@ export const Golf = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                 <h3>Create Golf Event</h3>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormGOLF">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
