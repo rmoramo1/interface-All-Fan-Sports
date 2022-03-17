@@ -13,12 +13,12 @@ export const EdithGames_nhl = (props) => {
         
     }
     
-    const [date, setdate] = useState(store.nhlGames[params.theid].date);
-    const [hour, sethour] = useState(store.nhlGames[params.theid].hour);
-    const [status, setStatus] = useState(store.nhlGames[params.theid].status);
-    const [casino, setcasino] = useState(store.nhlGames[params.theid].casino);
-    const [rotation_home, setRotation_home] = useState(store.nhlGames[params.theid].rotation_home);
-    const [rotation_away, setRotation_away] = useState(store.nhlGames[params.theid].rotation_away);
+    const [date, setdate] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].date);
+    const [hour, sethour] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].hour);
+    const [status, setStatus] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].status);
+    const [casino, setcasino] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_away);
     //
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
@@ -33,50 +33,50 @@ export const EdithGames_nhl = (props) => {
     let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSE);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    let [timeCrear] = useState(store.nhlGames[params.theid].hour);
+    let [timeCrear] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
-    const [away, setAway] = useState(store.nhlGames[params.theid].away);
-    const [home, setHome] = useState(store.nhlGames[params.theid].home);
-    const [puck_line_away, setpuck_line_away] = useState(store.nhlGames[params.theid].puck_line_away);
-    const [puck_line_home, setpuck_line_home] = useState(store.nhlGames[params.theid].puck_line_home);
-    const [juice_puck_away, setjuice_puck_away] = useState(store.nhlGames[params.theid].juice_puck_away);
-    const [juice_puck_home, setjuice_puck_home] = useState(store.nhlGames[params.theid].juice_puck_home);
-    const [moneyLineAway, setMoneyLineAway] = useState(store.nhlGames[params.theid].moneyLineAway);
-    const [moneyLineHome, setMoneyLineHome] = useState(store.nhlGames[params.theid].moneyLineHome);
-    const [total, setTotal] = useState(store.nhlGames[params.theid].total);
-    const [juice_total_over, setJuice_total_over] = useState(store.nhlGames[params.theid].juice_total_over);
-    const [juice_total_under, setJuice_total_under] = useState(store.nhlGames[params.theid].juice_total_under);
-    const [tt_away, setTt_away] = useState(store.nhlGames[params.theid].tt_away);
-    const [juice_over_away, setJuice_over_away] = useState(store.nhlGames[params.theid].juice_over_away);
-    const [juice_under_away, setJuice_under_away] = useState(store.nhlGames[params.theid].juice_under_away);
-    const [tt_home, setTt_home] = useState(store.nhlGames[params.theid].tt_home);
-    const [juice_over_home, setJuice_over_home] = useState(store.nhlGames[params.theid].juice_over_home);
-    const [juice_under_home, setJuice_under_home] = useState(store.nhlGames[params.theid].juice_under_home);
-    const [final_score_away, setFinal_score_away] = useState(store.nhlGames[params.theid].final_score_away);
-    const [final_score_home, setFinal_score_home] = useState(store.nhlGames[params.theid].final_score_home);
+    const [away, setAway] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].away);
+    const [home, setHome] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].home);
+    const [puck_line_away, setpuck_line_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_line_away);
+    const [puck_line_home, setpuck_line_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_line_home);
+    const [juice_puck_away, setjuice_puck_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_away);
+    const [juice_puck_home, setjuice_puck_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_home);
+    const [moneyLineAway, setMoneyLineAway] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineAway);
+    const [moneyLineHome, setMoneyLineHome] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineHome);
+    const [total, setTotal] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].total);
+    const [juice_total_over, setJuice_total_over] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_total_over);
+    const [juice_total_under, setJuice_total_under] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_total_under);
+    const [tt_away, setTt_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_away);
+    const [juice_over_away, setJuice_over_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_away);
+    const [juice_under_away, setJuice_under_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_away);
+    const [tt_home, setTt_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_home);
+    const [juice_over_home, setJuice_over_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_home);
+    const [juice_under_home, setJuice_under_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_home);
+    const [final_score_away, setFinal_score_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].final_score_away);
+    const [final_score_home, setFinal_score_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].final_score_home);
     //f5
-    const [puck_away_1Q, setpuck_away_1Q] = useState(store.nhlGames[params.theid].puck_away_1Q);
-    const [puck_home_1Q, setpuck_home_1Q] = useState(store.nhlGames[params.theid].puck_home_1Q);
-    const [juice_puck_away_1Q, setjuice_puck_away_1Q] = useState(store.nhlGames[params.theid].juice_puck_away_1Q);
-    const [juice_puck_home_1Q, setjuice_puck_home_1Q] = useState(store.nhlGames[params.theid].juice_puck_home_1Q);
-    const [moneyLineAway_1Q, setmoneyLineAway_1Q] = useState(store.nhlGames[params.theid].moneyLineAway_1Q);
-    const [moneyLineHome_1Q, setmoneyLineHome_1Q] = useState(store.nhlGames[params.theid].moneyLineHome_1Q);
-    const [total_1Q, settotal_1Q] = useState(store.nhlGames[params.theid].total_1Q);
-    const [Q1_juice_over, setQ1_juice_over] = useState(store.nhlGames[params.theid].Q1_juice_over);
-    const [Q1_juice_under, setQ1_juice_under] = useState(store.nhlGames[params.theid].Q1_juice_under);
-    const [tt_away_1Q, settt_away_1Q] = useState(store.nhlGames[params.theid].tt_away_1Q);
-    const [juice_over_away_1Q, setjuice_over_away_1Q] = useState(store.nhlGames[params.theid].juice_over_away_1Q);
-    const [juice_under_away_1Q, setjuice_under_away_1Q] = useState(store.nhlGames[params.theid].juice_under_away_1Q);
-    const [tt_home_1Q, settt_home_1Q] = useState(store.nhlGames[params.theid].tt_home_1Q);
-    const [juice_over_home_1Q, setjuice_over_home_1Q] = useState(store.nhlGames[params.theid].juice_over_home_1Q);
-    const [juice_under_home_1Q, setjuice_under_home_1Q] = useState(store.nhlGames[params.theid].juice_under_home_1Q);
+    const [puck_away_1Q, setpuck_away_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_away_1Q);
+    const [puck_home_1Q, setpuck_home_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_home_1Q);
+    const [juice_puck_away_1Q, setjuice_puck_away_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_away_1Q);
+    const [juice_puck_home_1Q, setjuice_puck_home_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_home_1Q);
+    const [moneyLineAway_1Q, setmoneyLineAway_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineAway_1Q);
+    const [moneyLineHome_1Q, setmoneyLineHome_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineHome_1Q);
+    const [total_1Q, settotal_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].total_1Q);
+    const [Q1_juice_over, setQ1_juice_over] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].Q1_juice_over);
+    const [Q1_juice_under, setQ1_juice_under] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].Q1_juice_under);
+    const [tt_away_1Q, settt_away_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_away_1Q);
+    const [juice_over_away_1Q, setjuice_over_away_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_away_1Q);
+    const [juice_under_away_1Q, setjuice_under_away_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_away_1Q);
+    const [tt_home_1Q, settt_home_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_home_1Q);
+    const [juice_over_home_1Q, setjuice_over_home_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_home_1Q);
+    const [juice_under_home_1Q, setjuice_under_home_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_home_1Q);
     //second half
-    const [sa_1Q, setsa_1Q] = useState(store.nhlGames[params.theid].sa_1Q);
-    const [sh_1Q, setsh_1Q] = useState(store.nhlGames[params.theid].sh_1Q);
-    const [sa_2Q, setsa_2Q] = useState(store.nhlGames[params.theid].sa_2Q);
-    const [sh_2Q, setsh_2Q] = useState(store.nhlGames[params.theid].sh_2Q);
-    const [sa_3Q, setsa_3Q] = useState(store.nhlGames[params.theid].sa_3Q);
-    const [sh_3Q, setsh_3Q] = useState(store.nhlGames[params.theid].sh_3Q);
+    const [sa_1Q, setsa_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_1Q);
+    const [sh_1Q, setsh_1Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_1Q);
+    const [sa_2Q, setsa_2Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_2Q);
+    const [sh_2Q, setsh_2Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_2Q);
+    const [sa_3Q, setsa_3Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_3Q);
+    const [sh_3Q, setsh_3Q] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_3Q);
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
@@ -171,7 +171,7 @@ export const EdithGames_nhl = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -193,7 +193,7 @@ export const EdithGames_nhl = (props) => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -219,7 +219,7 @@ export const EdithGames_nhl = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.nhlGames[params.theid].away} vrs {store.nhlGames[params.theid].home}
+                            {store.nhlGames[params.theid] && store.nhlGames[params.theid].away} vrs {store.nhlGames[params.theid] && store.nhlGames[params.theid].home}
                         </h4>
                     </div>
                 </div>
@@ -228,7 +228,7 @@ export const EdithGames_nhl = (props) => {
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nhlGames[params.theid].status} onChange={e => setStatus(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].status} onChange={e => setStatus(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -319,7 +319,7 @@ export const EdithGames_nhl = (props) => {
                         <div className="col-12 text-center">
                             Casino <span className="fst-italic small ">*no required</span>
                         </div>
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhlGames[params.theid].casino} onChange={e => setcasino(e.target.value)}>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].casino} onChange={e => setcasino(e.target.value)}>
                             {
                                 store.casinos.map((item, index) => {
                                     return (
@@ -348,10 +348,10 @@ export const EdithGames_nhl = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.nhlGames[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="team away" aria-label="Default select example" defaultValue={store.nhlGames[params.theid].away} onChange={e => setAway(e.target.value)} required>
+                                    <select className="form-select selectInner" name="team away" aria-label="Default select example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].away} onChange={e => setAway(e.target.value)} required>
                                         {
                                             store.nhl_teams.map((index) => {
                                                 return (
@@ -362,39 +362,39 @@ export const EdithGames_nhl = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid].puck_line_away} onChange={e => setpuck_line_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_line_away} onChange={e => setpuck_line_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_puck_away} onChange={e => setjuice_puck_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_away} onChange={e => setjuice_puck_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid].moneyLineAway} onChange={e => setMoneyLineAway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineAway} onChange={e => setMoneyLineAway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid].total} onChange={e => setTotal(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].total} onChange={e => setTotal(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_total_over} onChange={e => setJuice_total_over(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_total_over} onChange={e => setJuice_total_over(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid].tt_away} onChange={e => setTt_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_away} onChange={e => setTt_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_over_away} onChange={e => setJuice_over_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_away} onChange={e => setJuice_over_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_under_away} onChange={e => setJuice_under_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_away} onChange={e => setJuice_under_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].final_score_away} onChange={e => setFinal_score_away(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].final_score_away} onChange={e => setFinal_score_away(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.nhlGames[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhlGames[params.theid].home} onChange={e => setHome(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].home} onChange={e => setHome(e.target.value)} required>
                                         {
                                             store.nhl_teams.map((index) => {
                                                 return (
@@ -405,31 +405,31 @@ export const EdithGames_nhl = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid].puck_line_home} onChange={e => setpuck_line_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_line_home} onChange={e => setpuck_line_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_puck_home} onChange={e => setjuice_puck_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_home} onChange={e => setjuice_puck_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid].moneyLineHome} onChange={e => setMoneyLineHome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineHome} onChange={e => setMoneyLineHome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_total_under} onChange={e => setJuice_total_under(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_total_under} onChange={e => setJuice_total_under(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid].tt_home} onChange={e => setTt_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_home} onChange={e => setTt_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_over_home} onChange={e => setJuice_over_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_home} onChange={e => setJuice_over_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Under" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_under_home} onChange={e => setJuice_under_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Under" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_home} onChange={e => setJuice_under_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].final_score_home} onChange={e => setFinal_score_home(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].final_score_home} onChange={e => setFinal_score_home(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -448,55 +448,55 @@ export const EdithGames_nhl = (props) => {
 
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid].puck_away_1Q} onChange={e => setpuck_away_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_away_1Q} onChange={e => setpuck_away_1Q(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].puck_away_1Q} onChange={e => setjuice_puck_away_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_away_1Q} onChange={e => setjuice_puck_away_1Q(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid].moneyLineAway_1Q} onChange={e => setmoneyLineAway_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineAway_1Q} onChange={e => setmoneyLineAway_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid].total_1Q} onChange={e => settotal_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].total_1Q} onChange={e => settotal_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].Q1_juice_over} onChange={e => setQ1_juice_over(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].Q1_juice_over} onChange={e => setQ1_juice_over(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nhlGames[params.theid].tt_away_1Q} onChange={e => settt_away_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_away_1Q} onChange={e => settt_away_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JO A" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_over_away_1Q} onChange={e => setjuice_over_away_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JO A" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_away_1Q} onChange={e => setjuice_over_away_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JU A" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_under_away_1Q} onChange={e => setjuice_under_away_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JU A" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_away_1Q} onChange={e => setjuice_under_away_1Q(e.target.value)} />
                             </div>
 
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid].puck_home_1Q} onChange={e => setpuck_home_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="PUCK L" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].puck_home_1Q} onChange={e => setpuck_home_1Q(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_puck_home_1Q} onChange={e => setjuice_puck_home_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_puck_home_1Q} onChange={e => setjuice_puck_home_1Q(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid].moneyLineHome_1Q} onChange={e => setmoneyLineHome_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].moneyLineHome_1Q} onChange={e => setmoneyLineHome_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice A" aria-label="default input example" defaultValue={store.nhlGames[params.theid].Q1_juice_under} onChange={e => setQ1_juice_under(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice A" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].Q1_juice_under} onChange={e => setQ1_juice_under(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nhlGames[params.theid].tt_home_1Q} onChange={e => settt_home_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].tt_home_1Q} onChange={e => settt_home_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JO H" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_over_home_1Q} onChange={e => setjuice_over_home_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JO H" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_over_home_1Q} onChange={e => setjuice_over_home_1Q(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JU A" aria-label="default input example" defaultValue={store.nhlGames[params.theid].juice_under_home_1Q} onChange={e => setjuice_under_home_1Q(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JU A" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].juice_under_home_1Q} onChange={e => setjuice_under_home_1Q(e.target.value)} />
                             </div>
                         </div>
 
@@ -506,28 +506,28 @@ export const EdithGames_nhl = (props) => {
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">S 1Q</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sa_1Q} onChange={e => setsa_1Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_1Q} onChange={e => setsa_1Q(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sh_1Q} onChange={e => setsh_1Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_1Q} onChange={e => setsh_1Q(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">S 2Q</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sa_2Q} onChange={e => setsa_2Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_2Q} onChange={e => setsa_2Q(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sh_2Q} onChange={e => setsh_2Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_2Q} onChange={e => setsh_2Q(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">S 3Q</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sa_3Q} onChange={e => setsa_3Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sa_3Q} onChange={e => setsa_3Q(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid].sh_3Q} onChange={e => setsh_3Q(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].sh_3Q} onChange={e => setsh_3Q(e.target.value)} />
                                 </div>
                             </div>
 

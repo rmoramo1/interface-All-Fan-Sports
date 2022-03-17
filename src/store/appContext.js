@@ -91,6 +91,12 @@ const injectContext = PassedComponent => {
 			state.actions.loadLogos_nhl();
 			state.actions.loadLogos_mlb();
 			state.actions.loadLogos_soccer();
+			state.actions.logos_ncaa_basketball();
+			state.actions.logos_ncaa_baseball();
+			state.actions.logos_ncaa_football();
+			//loadmoto_gp
+			state.actions.loadmoto_gp();
+			state.actions.load_stats_driver_moto_gp();
 			// odds to win
 			state.actions.loadOdds_to_win();
 			//props

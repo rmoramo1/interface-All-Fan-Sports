@@ -14,18 +14,19 @@ export const EdithGames_Soccer = (props) => {
             window.location.href = '/';
         }
     }, [])
-    const [date, setdate] = useState(store.soccer[params.theid].date);
-    const [hour, sethour] = useState(store.soccer[params.theid].hour);
+    
+    const [date, setdate] = useState(store.soccer[params.theid] && store.soccer[params.theid].date);
+    const [hour, sethour] = useState(store.soccer[params.theid] && store.soccer[params.theid].hour);
 
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
     let only_day = date[8]+date[9];
     let only_hour = hour[0]+hour[1];
     let only_min = hour[3]+hour[4];
-    const [statusCrear, setStatusCrear] = useState(store.soccer[params.theid].status);
-    const [casino, setcasino] = useState(store.soccer[params.theid].casino);
-    const [rotation_home, setRotation_home] = useState(store.soccer[params.theid].rotation_home);
-    const [rotation_away, setRotation_away] = useState(store.soccer[params.theid].rotation_away);
+    const [statusCrear, setStatusCrear] = useState(store.soccer[params.theid] && store.soccer[params.theid].status);
+    const [casino, setcasino] = useState(store.soccer[params.theid] && store.soccer[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].rotation_away);
 
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
@@ -37,46 +38,46 @@ export const EdithGames_Soccer = (props) => {
     let [yearSendCrear] = useState(yearSE);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
 
-    let [timeCrear] = useState(store.soccer[params.theid].hour);
+    let [timeCrear] = useState(store.soccer[params.theid] && store.soccer[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
-    const [tournament, settournament] = useState(store.soccer[params.theid].tournament);
-    const [country, setcountry] = useState(store.soccer[params.theid].country);
-    const [away, setaway] = useState(store.soccer[params.theid].away);
-    const [home, sethome] = useState(store.soccer[params.theid].home);
+    const [tournament, settournament] = useState(store.soccer[params.theid] && store.soccer[params.theid].tournament);
+    const [country, setcountry] = useState(store.soccer[params.theid] && store.soccer[params.theid].country);
+    const [away, setaway] = useState(store.soccer[params.theid] && store.soccer[params.theid].away);
+    const [home, sethome] = useState(store.soccer[params.theid] && store.soccer[params.theid].home);
     //
-    const [goal_line_away, setgoal_line_away] = useState(store.soccer[params.theid].goal_line_away);
+    const [goal_line_away, setgoal_line_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].goal_line_away);
     const [goal_line_home, setgoal_line_home] = useState("-");
-    const [juice_goal_away, setjuice_goal_away] = useState(store.soccer[params.theid].juice_goal_away);
-    const [juice_goal_home, setjuice_goal_home] = useState(store.soccer[params.theid].juice_goal_home);
-    const [moneyLineAway, setmoneyLineAway] = useState(store.soccer[params.theid].moneyLineAway);
-    const [moneyLineHome, setmoneyLineHome] = useState(store.soccer[params.theid].moneyLineHome);
-    const [total, settotal] = useState(store.soccer[params.theid].total);
-    const [juice_total_over, setjuice_total_over] = useState(store.soccer[params.theid].juice_total_over);
-    const [juice_total_under, setjuice_total_under] = useState(store.soccer[params.theid].juice_total_under);
-    const [tt_away, settt_away] = useState(store.soccer[params.theid].tt_away);
-    const [juice_over_away, setjuice_over_away] = useState(store.soccer[params.theid].juice_over_away);
-    const [juice_under_away, setjuice_under_away] = useState(store.soccer[params.theid].juice_under_away);
-    const [tt_home, settt_home] = useState(store.soccer[params.theid].tt_home);
-    const [juice_over_home, setjuice_over_home] = useState(store.soccer[params.theid].juice_over_home);
-    const [juice_under_home, setjuice_under_home] = useState(store.soccer[params.theid].juice_under_home);
-    const [final_score_away, setfinal_score_away] = useState(store.soccer[params.theid].final_score_away);
-    const [final_score_home, setfinal_score_home] = useState(store.soccer[params.theid].final_score_home);
+    const [juice_goal_away, setjuice_goal_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_away);
+    const [juice_goal_home, setjuice_goal_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home);
+    const [moneyLineAway, setmoneyLineAway] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway);
+    const [moneyLineHome, setmoneyLineHome] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome);
+    const [total, settotal] = useState(store.soccer[params.theid] && store.soccer[params.theid].total);
+    const [juice_total_over, setjuice_total_over] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_total_over);
+    const [juice_total_under, setjuice_total_under] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_total_under);
+    const [tt_away, settt_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].tt_away);
+    const [juice_over_away, setjuice_over_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_over_away);
+    const [juice_under_away, setjuice_under_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_under_away);
+    const [tt_home, settt_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].tt_home);
+    const [juice_over_home, setjuice_over_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_over_home);
+    const [juice_under_home, setjuice_under_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_under_home);
+    const [final_score_away, setfinal_score_away] = useState(store.soccer[params.theid] && store.soccer[params.theid].final_score_away);
+    const [final_score_home, setfinal_score_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].final_score_home);
     //first half
-    const [goal_away_1H, setgoal_away_1H] = useState(store.soccer[params.theid].goal_away_1H);
-    const [goal_home_1H, setgoal_home_1H] = useState(store.soccer[params.theid].goal_home_1H);
-    const [juice_goal_away_1H, setjuice_goal_away_1H] = useState(store.soccer[params.theid].juice_goal_away_1H);
-    const [juice_goal_home_1H, setjuice_goal_home_1H] = useState(store.soccer[params.theid].juice_goal_home_1H);
-    const [moneyLineAway_1H, setmoneyLineAway_1H] = useState(store.soccer[params.theid].moneyLineAway_1H);
-    const [moneyLineHome_1H, setmoneyLineHome_1H] = useState(store.soccer[params.theid].moneyLineHome_1H);
-    const [total_1H, settotal_1H] = useState(store.soccer[params.theid].total_1H);
-    const [H1_juice_over, setH1_juice_over] = useState(store.soccer[params.theid].H1_juice_over);
-    const [H1_juice_under, setH1_juice_under] = useState(store.soccer[params.theid].H1_juice_under);
-    const [tt_away_1H, settt_away_1H] = useState(store.soccer[params.theid].tt_away_1H);
-    const [juice_over_away_1H, setjuice_over_away_1H] = useState(store.soccer[params.theid].juice_over_away_1H);
-    const [juice_under_away_1H, setjuice_under_away_1H] = useState(store.soccer[params.theid].juice_under_away_1H);
-    const [tt_home_1H, settt_home_1H] = useState(store.soccer[params.theid].tt_home_1H);
-    const [juice_over_home_1H, setjuice_over_home_1H] = useState(store.soccer[params.theid].juice_over_home_1H);
-    const [juice_under_home_1H, setjuice_under_home_1H] = useState(store.soccer[params.theid].juice_under_home_1H);
+    const [goal_away_1H, setgoal_away_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].goal_away_1H);
+    const [goal_home_1H, setgoal_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].goal_home_1H);
+    const [juice_goal_away_1H, setjuice_goal_away_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_away_1H);
+    const [juice_goal_home_1H, setjuice_goal_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home_1H);
+    const [moneyLineAway_1H, setmoneyLineAway_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway_1H);
+    const [moneyLineHome_1H, setmoneyLineHome_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome_1H);
+    const [total_1H, settotal_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].total_1H);
+    const [H1_juice_over, setH1_juice_over] = useState(store.soccer[params.theid] && store.soccer[params.theid].H1_juice_over);
+    const [H1_juice_under, setH1_juice_under] = useState(store.soccer[params.theid] && store.soccer[params.theid].H1_juice_under);
+    const [tt_away_1H, settt_away_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].tt_away_1H);
+    const [juice_over_away_1H, setjuice_over_away_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_over_away_1H);
+    const [juice_under_away_1H, setjuice_under_away_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_under_away_1H);
+    const [tt_home_1H, settt_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].tt_home_1H);
+    const [juice_over_home_1H, setjuice_over_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_over_home_1H);
+    const [juice_under_home_1H, setjuice_under_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_under_home_1H);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -168,7 +169,7 @@ export const EdithGames_Soccer = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -190,7 +191,7 @@ export const EdithGames_Soccer = (props) => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -216,7 +217,7 @@ export const EdithGames_Soccer = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.soccer[params.theid].away} vrs {store.soccer[params.theid].home}
+                            {store.soccer[params.theid] && store.soccer[params.theid].away} vrs {store.soccer[params.theid] && store.soccer[params.theid].home}
                         </h4>
                     </div>
                 </div>
@@ -225,7 +226,7 @@ export const EdithGames_Soccer = (props) => {
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.soccer[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -328,7 +329,7 @@ export const EdithGames_Soccer = (props) => {
                         <div className="col-12 text-center">
                             Country
                         </div>
-                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Country" defaultValue={store.soccer[params.theid].country} onChange={e => setcountry(e.target.value)} required />
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Country" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].country} onChange={e => setcountry(e.target.value)} required />
                     </div>
                     <div className="col-3">
                         <div className="col-12 text-center">
@@ -364,72 +365,72 @@ export const EdithGames_Soccer = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.soccer[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.soccer[params.theid].away} onChange={e => setaway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].away} onChange={e => setaway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="GL" aria-label="default input example" defaultValue={store.soccer[params.theid].goal_line_away} onChange={e => setgoal_line_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="GL" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].goal_line_away} onChange={e => setgoal_line_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_goal_away} onChange={e => setjuice_goal_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_goal_away} onChange={e => setjuice_goal_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid].moneyLineAway} onChange={e => setmoneyLineAway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway} onChange={e => setmoneyLineAway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.soccer[params.theid].total} onChange={e => settotal(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].total} onChange={e => settotal(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_total_over} onChange={e => setjuice_total_over(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_total_over} onChange={e => setjuice_total_over(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.soccer[params.theid].tt_away} onChange={e => settt_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].tt_away} onChange={e => settt_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_over_away} onChange={e => setjuice_over_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_over_away} onChange={e => setjuice_over_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_under_away} onChange={e => setjuice_under_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_under_away} onChange={e => setjuice_under_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid].final_score_away} onChange={e => setfinal_score_away(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].final_score_away} onChange={e => setfinal_score_away(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.soccer[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.soccer[params.theid].home} onChange={e => sethome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].home} onChange={e => sethome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="GL" aria-label="default input example" defaultValue={store.soccer[params.theid].goal_line_home} onChange={e => setgoal_line_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="GL" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].goal_line_home} onChange={e => setgoal_line_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_goal_home} onChange={e => setjuice_goal_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home} onChange={e => setjuice_goal_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid].moneyLineHome} onChange={e => setmoneyLineHome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome} onChange={e => setmoneyLineHome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_total_under} onChange={e => setjuice_total_under(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_total_under} onChange={e => setjuice_total_under(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.soccer[params.theid].tt_home} onChange={e => settt_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].tt_home} onChange={e => settt_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_over_home} onChange={e => setjuice_over_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_over_home} onChange={e => setjuice_over_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_under_home} onChange={e => setjuice_under_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_under_home} onChange={e => setjuice_under_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.soccer[params.theid].final_score_home} onChange={e => setfinal_score_home(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].final_score_home} onChange={e => setfinal_score_home(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -447,54 +448,54 @@ export const EdithGames_Soccer = (props) => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH GL" aria-label="default input example" defaultValue={store.soccer[params.theid].goal_away_1H} onChange={e => setgoal_away_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH GL" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].goal_away_1H} onChange={e => setgoal_away_1H(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_goal_away_1H} onChange={e => setjuice_goal_away_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_goal_away_1H} onChange={e => setjuice_goal_away_1H(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid].moneyLineAway_1H} onChange={e => setmoneyLineAway_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway_1H} onChange={e => setmoneyLineAway_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.soccer[params.theid].total_1H} onChange={e => settotal_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].total_1H} onChange={e => settotal_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.soccer[params.theid].H1_juice_over} onChange={e => setH1_juice_over(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].H1_juice_over} onChange={e => setH1_juice_over(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.soccer[params.theid].tt_away_1H} onChange={e => settt_away_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].tt_away_1H} onChange={e => settt_away_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_over_away_1H} onChange={e => setjuice_over_away_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_over_away_1H} onChange={e => setjuice_over_away_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_under_away_1H} onChange={e => setjuice_under_away_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_under_away_1H} onChange={e => setjuice_under_away_1H(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH GL" aria-label="default input example" defaultValue={store.soccer[params.theid].goal_home_1H} onChange={e => setgoal_home_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH GL" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].goal_home_1H} onChange={e => setgoal_home_1H(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_goal_home_1H} onChange={e => setjuice_goal_home_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home_1H} onChange={e => setjuice_goal_home_1H(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid].moneyLineHome_1H} onChange={e => setmoneyLineHome_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome_1H} onChange={e => setmoneyLineHome_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={store.soccer[params.theid].H1_juice_under} onChange={e => setH1_juice_under(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].H1_juice_under} onChange={e => setH1_juice_under(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.soccer[params.theid].tt_home_1H} onChange={e => settt_home_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].tt_home_1H} onChange={e => settt_home_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_over_home_1H} onChange={e => setjuice_over_home_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_over_home_1H} onChange={e => setjuice_over_home_1H(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.soccer[params.theid].juice_under_home_1H} onChange={e => setjuice_under_home_1H(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_under_home_1H} onChange={e => setjuice_under_home_1H(e.target.value)} />
                             </div>
 
                         </div>

@@ -11,20 +11,20 @@ export const Edit_stats_Golfer = () => {
     } else {
         
     }
-
+    
     const params = useParams();
-    const [season, setseason] = useState(store.golfer_stats[params.theid].season);
-    const [name, setName] = useState(store.golfer_stats[params.theid].name);
-    const [country, setCountry] = useState(store.golfer_stats[params.theid].country);
-    const [swing, setswing] = useState(store.golfer_stats[params.theid].swing);
-    const [birth, setBirth] = useState(store.golfer_stats[params.theid].birth);
-    const [cuts, setcuts] = useState(store.golfer_stats[params.theid].cuts);
-    const [top10, settop10] = useState(store.golfer_stats[params.theid].top10);
-    const [w, setW] = useState(store.golfer_stats[params.theid].w);
-    const [rnds, setrnds] = useState(store.golfer_stats[params.theid].rnds);
-    const [holes, setholes] = useState(store.golfer_stats[params.theid].holes);
-    const [avg, setavg] = useState(store.golfer_stats[params.theid].avg);
-    const [headshot, setheadshot] = useState(store.golfer_stats[params.theid].headshot);
+    const [season, setseason] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].season);
+    const [name, setName] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].name);
+    const [country, setCountry] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].country);
+    const [swing, setswing] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].swing);
+    const [birth, setBirth] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].birth);
+    const [cuts, setcuts] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].cuts);
+    const [top10, settop10] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].top10);
+    const [w, setW] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].w);
+    const [rnds, setrnds] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].rnds);
+    const [holes, setholes] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].holes);
+    const [avg, setavg] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].avg);
+    const [headshot, setheadshot] = useState(store.golfer_stats[params.theid] && store.golfer_stats[params.theid].headshot);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -48,8 +48,6 @@ export const Edit_stats_Golfer = () => {
             avg: avg
         };
         
-       
-
         fetch("https://sportsdata365.com/golfer/" + store.golfer_stats[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -86,10 +84,10 @@ export const Edit_stats_Golfer = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <div className="row g-0">
                         <div className="col-6 d-flex align-items-center justify-content-end">
-                            <h3>Edit stats of {store.golfer_stats[params.theid].name} </h3>
+                            <h3>Edit stats of {store.golfer_stats[params.theid] && store.golfer_stats[params.theid].name} </h3>
                         </div>
                         <div className="col-6 text-start">
-                            <img className="img_picture" src={store.golfer_stats[params.theid].headshot} alt="image of player"></img>
+                            <img className="img_picture" src={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].headshot} alt="image of player"></img>
                         </div>
                     </div>
                 </div>
@@ -98,23 +96,23 @@ export const Edit_stats_Golfer = () => {
             <div className="row g-0">
                     <div className="text-center col-2 p-1">
                         Name
-                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].name} onChange={e => setName(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].name} onChange={e => setName(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Country
-                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].country} onChange={e => setCountry(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].country} onChange={e => setCountry(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Swing 
-                        <input className="form-control selectInner" type="text" placeholder="Swing" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].swing} onChange={e => setswing(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Swing" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].swing} onChange={e => setswing(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Birth
-                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Headshot
-                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.golfer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Season
@@ -141,22 +139,22 @@ export const Edit_stats_Golfer = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Cuts" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].cuts} onChange={e => setcuts(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="Cuts" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].cuts} onChange={e => setcuts(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Top 10" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].top10} onChange={e => settop10(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="Top 10" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].top10} onChange={e => settop10(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].w} onChange={e => setW(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].w} onChange={e => setW(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Rnds" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].rnds} onChange={e => setrnds(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="Rnds" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].rnds} onChange={e => setrnds(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Holes" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].holes} onChange={e => setholes(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="Holes" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].holes} onChange={e => setholes(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Avg" aria-label="default input example" defaultValue={store.golfer_stats[params.theid].avg} onChange={e => setavg(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="Avg" aria-label="default input example" defaultValue={store.golfer_stats[params.theid] && store.golfer_stats[params.theid].avg} onChange={e => setavg(e.target.value)} />
                         </div>
                     </div>
                 </div>

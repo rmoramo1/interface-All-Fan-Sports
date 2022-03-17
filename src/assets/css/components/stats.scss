@@ -5,6 +5,8 @@
 }
 .span_logos_list{
     max-height: 300px;
+    width: 32%;
+    margin: .5%;
     overflow: auto;
-    border-radius: 10px;
+    border:1px solid lighten($black, 70);
 }

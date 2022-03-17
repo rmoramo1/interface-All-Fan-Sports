@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
- const Vista_logo_mlb = props => {
+ const Vista_logo_MLB= props => {
     return (
         <div className="col-12 g-0">
             <div className="row g-0">
@@ -27,9 +27,9 @@ import { Link } from "react-router-dom";
         </div>
     )
 };
-Vista_logo_mlb.propTypes = {
+Vista_logo_MLB.propTypes = {
     id: PropTypes.number,
     team: PropTypes.string,
     url: PropTypes.string,
 };
-export default Vista_logo_mlb;
+export default Vista_logo_MLB;

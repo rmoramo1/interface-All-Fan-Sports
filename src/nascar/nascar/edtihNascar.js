@@ -12,8 +12,9 @@ export const EditNascar = (props) => {
     } else {
 
     }
-    const [date, setdate] = useState(store.nascar[params.theid].date);
-    const [hour, sethour] = useState(store.nascar[params.theid].hour);
+
+    const [date, setdate] = useState(store.nascar[params.theid] && store.nascar[params.theid].date);
+    const [hour, sethour] = useState(store.nascar[params.theid] && store.nascar[params.theid].hour);
 
     let only_year = date[0] + date[1] + date[2] + date[3];
     let only_month = date[5] + date[6];
@@ -22,15 +23,15 @@ export const EditNascar = (props) => {
     let only_min = hour[3] + hour[4];
     const { store } = useContext(Context);
     const dateLux = DateTime.now().weekNumber;
-    const [statusCrear, setStatusCrear] = useState(store.nascar[params.theid].status);
-    const [casino, setcasino] = useState(store.nascar[params.theid].casino);
+    const [statusCrear, setStatusCrear] = useState(store.nascar[params.theid] && store.nascar[params.theid].status);
+    const [casino, setcasino] = useState(store.nascar[params.theid] && store.nascar[params.theid].casino);
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
     const [dayCrear, setDayCrear] = useState(only_day);
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState(store.nascar[params.theid].week);
+    const [weekCrear, setWeekCrear] = useState(store.nascar[params.theid] && store.nascar[params.theid].week);
     const [hourCrear, setHourCrear] = useState(only_hour);
     const [minCrear, setMinCrear] = useState(only_min);
     let [timeCrear] = useState("01");
@@ -38,12 +39,12 @@ export const EditNascar = (props) => {
 
 
     //
-    const [race, setrace] = useState(store.nascar[params.theid].race);
-    const [track, settrack] = useState(store.nascar[params.theid].track);
-    const [location, setlocation] = useState(store.nascar[params.theid].location);
-    const [place1, setplace1] = useState(store.nascar[params.theid].place1);
-    const [place2, setplace2] = useState(store.nascar[params.theid].place2);
-    const [place3, setplace3] = useState(store.nascar[params.theid].place3);
+    const [race, setrace] = useState(store.nascar[params.theid] && store.nascar[params.theid].race);
+    const [track, settrack] = useState(store.nascar[params.theid] && store.nascar[params.theid].track);
+    const [location, setlocation] = useState(store.nascar[params.theid] && store.nascar[params.theid].location);
+    const [place1, setplace1] = useState(store.nascar[params.theid] && store.nascar[params.theid].place1);
+    const [place2, setplace2] = useState(store.nascar[params.theid] && store.nascar[params.theid].place2);
+    const [place3, setplace3] = useState(store.nascar[params.theid] && store.nascar[params.theid].place3);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -101,7 +102,7 @@ export const EditNascar = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -150,7 +151,7 @@ export const EditNascar = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.nascar[params.theid].event}
+                            {store.nascar[params.theid] && store.nascar[params.theid].event}
                         </h4>
                     </div>
                 </div>
@@ -159,7 +160,7 @@ export const EditNascar = (props) => {
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nascar[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -246,7 +247,7 @@ export const EditNascar = (props) => {
                     <div className="col-12 text-center">
                         Casino <span className="fst-italic small ">*no required</span>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)} defaultValue={store.nascar[params.theid].casino}>
+                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)} defaultValue={store.nascar[params.theid] && store.nascar[params.theid].casino}>
                         {
                             store.casinos.map((item, index) => {
                                 return (
@@ -269,22 +270,22 @@ export const EditNascar = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Race" name="race" defaultValue={store.nascar[params.theid].race} onChange={e => setrace(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Race" name="race" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].race} onChange={e => setrace(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Track" name="Track" defaultValue={store.nascar[params.theid].track} onChange={e => settrack(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Track" name="Track" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].track} onChange={e => settrack(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Location" name="location" defaultValue={store.nascar[params.theid].location} onChange={e => setlocation(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Location" name="location" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].location} onChange={e => setlocation(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 1" aria-label="default input example" defaultValue={store.nascar[params.theid].place1} onChange={e => setplace1(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 1" aria-label="default input example" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].place1} onChange={e => setplace1(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 2" aria-label="default input example" defaultValue={store.nascar[params.theid].place2} onChange={e => setplace2(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 2" aria-label="default input example" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].place2} onChange={e => setplace2(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" defaultValue={store.nascar[params.theid].place3} onChange={e => setplace3(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].place3} onChange={e => setplace3(e.target.value)} />
                                 </div>
                             </div>
                         </div>

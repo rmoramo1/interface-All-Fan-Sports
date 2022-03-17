@@ -159,7 +159,7 @@ export const NHL_game = () => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);

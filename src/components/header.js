@@ -141,6 +141,11 @@ export const Header = () => {
                                                                 NASCAR
                                                             </Link>
                                                         </li>
+                                                        <li className="li_drop">
+                                                            <Link to="/list_stats_moto_gp_driver">
+                                                                Moto GP
+                                                            </Link>
+                                                        </li>
                                                         <li className="li_drop one_ul">
                                                             NCAA FOOTBALL
                                                             <ul className="second_ul">

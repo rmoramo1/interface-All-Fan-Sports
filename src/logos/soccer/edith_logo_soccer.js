@@ -91,7 +91,7 @@ export const Edith_Logo_soccer = (props) => {
                             <div data-bs-toggle="modal" data-bs-target="#delete_Fight" className="btn btn-danger">Delet</div>
                         </div>
                     </div>
-                    {auth ? <Redirect to="/admin/" /> : null}
+                    {auth ? <Redirect to="/logos/" /> : null}
                 </form>
             </div>
             <div className="modal fade" id="delete_Fight" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
@@ -103,7 +103,7 @@ export const Edith_Logo_soccer = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={deletLogo} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/logos" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>

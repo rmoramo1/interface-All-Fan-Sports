@@ -14,28 +14,28 @@ export const Edit_Stats_NBA_Team = () => {
     }
 
     const params = useParams();
+    
+    const [season, setSeason] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].season);
+    const [team, setTeam] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].team);
+    const [conference, setConference] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].conference);
+    const [division, setDivision] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].division);
+    const [group_type_comparation, setGroup_type_comparation] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].group_type_comparation);
+    const [season_type, setSeason_type] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].season_type);
 
-    const [season, setSeason] = useState(store.nba_stats_teams[params.theid].season);
-    const [team, setTeam] = useState(store.nba_stats_teams[params.theid].team);
-    const [conference, setConference] = useState(store.nba_stats_teams[params.theid].conference);
-    const [division, setDivision] = useState(store.nba_stats_teams[params.theid].division);
-    const [group_type_comparation, setGroup_type_comparation] = useState(store.nba_stats_teams[params.theid].group_type_comparation);
-    const [season_type, setSeason_type] = useState(store.nba_stats_teams[params.theid].season_type);
+    const [w, setw] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].w);
+    const [L, setL] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].L);
+    const [ptc, setptc] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].ptc);
+    const [gb, setGb] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].gb);
+    const [home, sethome] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].home);
+    const [away, setaway] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].away);
+    const [div, setdiv] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].div);
 
-    const [w, setw] = useState(store.nba_stats_teams[params.theid].w);
-    const [L, setL] = useState(store.nba_stats_teams[params.theid].L);
-    const [ptc, setptc] = useState(store.nba_stats_teams[params.theid].ptc);
-    const [gb, setGb] = useState(store.nba_stats_teams[params.theid].gb);
-    const [home, sethome] = useState(store.nba_stats_teams[params.theid].home);
-    const [away, setaway] = useState(store.nba_stats_teams[params.theid].away);
-    const [div, setdiv] = useState(store.nba_stats_teams[params.theid].div);
-
-    const [conf, setconf] = useState(store.nba_stats_teams[params.theid].conf);
-    const [ppg, setppg] = useState(store.nba_stats_teams[params.theid].ppg);
-    const [opp_ppg, setopp_ppg] = useState(store.nba_stats_teams[params.theid].opp_ppg);
-    const [diff, setdiff] = useState(store.nba_stats_teams[params.theid].diff);
-    const [strk, setstrk] = useState(store.nba_stats_teams[params.theid].strk);
-    const [l10, setl10] = useState(store.nba_stats_teams[params.theid].l10);
+    const [conf, setconf] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].conf);
+    const [ppg, setppg] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].ppg);
+    const [opp_ppg, setopp_ppg] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].opp_ppg);
+    const [diff, setdiff] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].diff);
+    const [strk, setstrk] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].strk);
+    const [l10, setl10] = useState(store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].l10);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -116,7 +116,7 @@ export const Edit_Stats_NBA_Team = () => {
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
                                 store.nba_teams.map((index) => {
                                     return (
@@ -128,7 +128,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -140,7 +140,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Season Type
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].season_type} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].season_type} required>
                             {
                                 season_Type.map((index) => {
                                     return (
@@ -152,7 +152,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Conference
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].conference} onChange={e => setConference(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].conference} onChange={e => setConference(e.target.value)} required>
                             {
                                 selectConference.map((index) => {
                                     return (
@@ -164,7 +164,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Division
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {
                                 selectDivision.map((index) => {
                                     return (
@@ -176,7 +176,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Comparation
-                        <select className="form-select" name="League" aria-label="Comparision" onChange={e => setGroup_type_comparation(e.target.value)} defaultValue={store.nba_stats_teams[params.theid].group_type_comparation} required>
+                        <select className="form-select" name="League" aria-label="Comparision" onChange={e => setGroup_type_comparation(e.target.value)} defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].group_type_comparation} required>
                             {
                                 comparation.map((index) => {
                                     return (
@@ -199,22 +199,22 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].w} onChange={e => setw(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].w} onChange={e => setw(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].L} onChange={e => setL(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].L} onChange={e => setL(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ptc" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ptc} onChange={e => setptc(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ptc" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].ptc} onChange={e => setptc(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="GB" aria-label="GB" defaultValue={store.nba_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="GB" aria-label="GB" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].home} onChange={e => sethome(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].home} onChange={e => sethome(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].away} onChange={e => setaway(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].away} onChange={e => setaway(e.target.value)} required />
                         </div>
                     </div>
                     <div className="row g-0 text-center mt-3">
@@ -227,22 +227,22 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].div} onChange={e => setdiv(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Div" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].div} onChange={e => setdiv(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Conf" name="rotation_home" defaultValue={store.nba_stats_teams[params.theid].conf} onChange={e => setconf(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Conf" name="rotation_home" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].conf} onChange={e => setconf(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ppg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].ppg} onChange={e => setppg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ppg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].ppg} onChange={e => setppg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Opp Ppg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].opp_ppg} onChange={e => setopp_ppg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Opp Ppg" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].opp_ppg} onChange={e => setopp_ppg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Diff" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].diff} onChange={e => setdiff(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Diff" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].diff} onChange={e => setdiff(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].strk} onChange={e => setstrk(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].strk} onChange={e => setstrk(e.target.value)} required />
                         </div>
 
                     </div>
@@ -251,7 +251,7 @@ export const Edit_Stats_NBA_Team = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L 10" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid].l10} onChange={e => setl10(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L 10" aria-label="default input example" defaultValue={store.nba_stats_teams[params.theid] && store.nba_stats_teams[params.theid].l10} onChange={e => setl10(e.target.value)} required />
                         </div>
                     </div>
                 </div>

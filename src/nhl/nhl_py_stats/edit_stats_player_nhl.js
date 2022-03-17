@@ -13,35 +13,34 @@ export const Edit_stats_player_nhl = () => {
     }
 
     const params = useParams();
+    const [name, setName] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].name);
+    const [height, setHeight] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].height);
+    const [weight, setWeight] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].weight);
+    const [birth, setBirth] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].birth);
+    const [season, setSeason] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].season);
+    const [team, setTeam] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].team);
+    const [dorsal, setDorsal] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].dorsal);
+    const [position, setPosition] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].position);
+    const [headshot, setheadshot] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].headshot);
 
-    const [name, setName] = useState(store.nhl_stats_player[params.theid].name);
-    const [height, setHeight] = useState(store.nhl_stats_player[params.theid].height);
-    const [weight, setWeight] = useState(store.nhl_stats_player[params.theid].weight);
-    const [birth, setBirth] = useState(store.nhl_stats_player[params.theid].birth);
-    const [season, setSeason] = useState(store.nhl_stats_player[params.theid].season);
-    const [team, setTeam] = useState(store.nhl_stats_player[params.theid].team);
-    const [dorsal, setDorsal] = useState(store.nhl_stats_player[params.theid].dorsal);
-    const [position, setPosition] = useState(store.nhl_stats_player[params.theid].position);
-    const [headshot, setheadshot] = useState(store.nhl_stats_player[params.theid].headshot);
+    const [gp, setGp] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gp);
+    const [g, setg] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].g);
+    const [a, seta] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].a);
+    const [pts, setpts] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].pts);
+    const [p_m_rating, setp_m_rating] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].p_m_rating);
+    const [pim, setpim] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].pim);
+    const [sog, setsog] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].sog);
 
-    const [gp, setGp] = useState(store.nhl_stats_player[params.theid].gp);
-    const [g, setg] = useState(store.nhl_stats_player[params.theid].g);
-    const [a, seta] = useState(store.nhl_stats_player[params.theid].a);
-    const [pts, setpts] = useState(store.nhl_stats_player[params.theid].pts);
-    const [p_m_rating, setp_m_rating] = useState(store.nhl_stats_player[params.theid].p_m_rating);
-    const [pim, setpim] = useState(store.nhl_stats_player[params.theid].pim);
-    const [sog, setsog] = useState(store.nhl_stats_player[params.theid].sog);
+    const [spct, setspct] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].spct);
+    const [ppg, setppg] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].ppg);
+    const [ppa, setppa] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].ppa);
+    const [shg, setshg] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].shg);
+    const [sha, setsha] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].sha);
+    const [gwg, setgwg] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gwg);
 
-    const [spct, setspct] = useState(store.nhl_stats_player[params.theid].spct);
-    const [ppg, setppg] = useState(store.nhl_stats_player[params.theid].ppg);
-    const [ppa, setppa] = useState(store.nhl_stats_player[params.theid].ppa);
-    const [shg, setshg] = useState(store.nhl_stats_player[params.theid].shg);
-    const [sha, setsha] = useState(store.nhl_stats_player[params.theid].sha);
-    const [gwg, setgwg] = useState(store.nhl_stats_player[params.theid].gwg);
-
-    const [gtg, setgtg] = useState(store.nhl_stats_player[params.theid].gtg);
-    const [toi_g, settoi_g] = useState(store.nhl_stats_player[params.theid].toi_g);
-    const [prod, setprod] = useState(store.nhl_stats_player[params.theid].prod);
+    const [gtg, setgtg] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gtg);
+    const [toi_g, settoi_g] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].toi_g);
+    const [prod, setprod] = useState(store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].prod);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -115,10 +114,10 @@ export const Edit_stats_player_nhl = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <div className="row g-0">
                         <div className="col-6 d-flex align-items-center justify-content-end">
-                            <h3>Edit stats of {store.nhl_stats_player[params.theid].name} </h3>
+                            <h3>Edit stats of {store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].name} </h3>
                         </div>
                         <div className="col-6 text-start">
-                            <img className="img_picture" src={store.nhl_stats_player[params.theid].headshot} alt="image of player"></img>
+                            <img className="img_picture" src={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].headshot} alt="image of player"></img>
                         </div>
                     </div>
                 </div>
@@ -127,26 +126,26 @@ export const Edit_stats_player_nhl = () => {
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Name
-                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].name} onChange={e => setName(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].name} onChange={e => setName(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Height
-                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].height} onChange={e => setHeight(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].height} onChange={e => setHeight(e.target.value)} required ></input>
                     </div>
 
                     <div className="text-center col-3 p-1">
                         Weight
-                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].weight} onChange={e => setWeight(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].weight} onChange={e => setWeight(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Birth
-                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].birth} onChange={e => setBirth(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].birth} onChange={e => setBirth(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Position
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhl_stats_player[params.theid].position}  onChange={e => setPosition(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].position}  onChange={e => setPosition(e.target.value)} required>
                             {
                                 positions.map((index) => {
                                     return (
@@ -158,17 +157,17 @@ export const Edit_stats_player_nhl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Dorsal
-                        <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Headshot
-                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.nhl_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" defaultValue={store.nhl_stats_player[params.theid].team} aria-label="Default select example" onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].team} aria-label="Default select example" onChange={e => setTeam(e.target.value)} required>
                             {
                                 store.mlb_teams.map((index) => {
                                     return (
@@ -180,7 +179,7 @@ export const Edit_stats_player_nhl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.nhl_stats_player[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -202,22 +201,22 @@ export const Edit_stats_player_nhl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Gp" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].gp} onChange={e => setGp(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Gp" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gp} onChange={e => setGp(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="G" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].g} onChange={e => setg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="G" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].g} onChange={e => setg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="A" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].a} onChange={e => seta(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="A" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].a} onChange={e => seta(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Pts" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].pts} onChange={e => setpts(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pts" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].pts} onChange={e => setpts(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="P M Rating" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].p_m_rating} onChange={e => setp_m_rating(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="P M Rating" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].p_m_rating} onChange={e => setp_m_rating(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Pim" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].pim} onChange={e => setpim(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pim" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].pim} onChange={e => setpim(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -232,22 +231,22 @@ export const Edit_stats_player_nhl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Sog" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].sog} onChange={e => setsog(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Sog" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].sog} onChange={e => setsog(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Spct" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].spct} onChange={e => setspct(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Spct" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].spct} onChange={e => setspct(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ppg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].ppg} onChange={e => setppg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ppg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].ppg} onChange={e => setppg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ppa" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].ppa} onChange={e => setppa(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ppa" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].ppa} onChange={e => setppa(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Shg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].shg} onChange={e => setshg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Shg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].shg} onChange={e => setshg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Sha" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].sha} onChange={e => setsha(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Sha" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].sha} onChange={e => setsha(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -260,16 +259,16 @@ export const Edit_stats_player_nhl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Gwg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].gwg} onChange={e => setgwg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Gwg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gwg} onChange={e => setgwg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Gtg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].gtg} onChange={e => setgtg(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Gtg" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].gtg} onChange={e => setgtg(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Toi G" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].toi_g} onChange={e => settoi_g(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Toi G" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].toi_g} onChange={e => settoi_g(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Prod" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid].prod} onChange={e => setprod(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Prod" aria-label="default input example" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].prod} onChange={e => setprod(e.target.value)} required />
                         </div>
                     </div>
                 </div>

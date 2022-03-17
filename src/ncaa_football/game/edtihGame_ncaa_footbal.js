@@ -12,8 +12,9 @@ export const EdithGames_Ncaa_football = (props) => {
     } else {
 
     }
-    const [date, setdate] = useState(store.ncaa_football[params.theid].date);
-    const [hour, sethour] = useState(store.ncaa_football[params.theid].hour);
+    
+    const [date, setdate] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].date);
+    const [hour, sethour] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].hour);
 
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
@@ -26,147 +27,147 @@ export const EdithGames_Ncaa_football = (props) => {
     const [hourCrear, setHourCrear] = useState(only_hour);
     const [minCrear, setMinCrear] = useState(only_min);
     
-    const [statusCrear, setStatusCrear] = useState(store.ncaa_football  [params.theid].status);
-    const [casino, setCasino] = useState(store.ncaa_football    [params.theid].casino);
-    const [rotation_home, setRotation_home] = useState(store.ncaa_football  [params.theid].rotation_home);
-    const [rotation_away, setRotation_away] = useState(store.ncaa_football  [params.theid].rotation_away);
+    const [statusCrear, setStatusCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].status);
+    const [casino, setCasino] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].rotation_away);
     let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSE);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState(store.ncaa_football  [params.theid].week);
+    const [weekCrear, setWeekCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].week);
     
-    let [timeCrear] = useState(store.ncaa_football  [params.theid].hour);
+    let [timeCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
     //totals
-    const [totalCrear, setTotalAwayCrear] = useState(store.ncaa_football[params.theid].total);
-    const [juiceTotalOver, setjuiceTotalOver] = useState(store.ncaa_football[params.theid].juice_total_over);
-    const [juiceTotalUnder, setjuiceTotalUnder] = useState(store.ncaa_football[params.theid].juice_total_under);
+    const [totalCrear, setTotalAwayCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].total);
+    const [juiceTotalOver, setjuiceTotalOver] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_total_over);
+    const [juiceTotalUnder, setjuiceTotalUnder] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_total_under);
     //away
-    const [awayCrear, setAwayCrear] = useState(store.ncaa_football[params.theid].away);
-    const [spreadAwayCrear, setSpreadAwayCrear] = useState(store.ncaa_football[params.theid].spread_away);
-    const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState(store.ncaa_football[params.theid].juice_spread_away);
-    const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState(store.ncaa_football[params.theid].moneyLineAway);
-    const [teamTotalAway, setTeamTotalAway] = useState(store.ncaa_football[params.theid].tt_away);
-    const [juiceTeamTotalAwayO, setjuiceTeamTotalAwayO] = useState(store.ncaa_football[params.theid].juice_over_away);
-    const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState(store.ncaa_football[params.theid].juice_under_away);
-    const [finalScoreA, setFinalScoreA] = useState(store.ncaa_football[params.theid].final_score_away);
+    const [awayCrear, setAwayCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].away);
+    const [spreadAwayCrear, setSpreadAwayCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].spread_away);
+    const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_spread_away);
+    const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].moneyLineAway);
+    const [teamTotalAway, setTeamTotalAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].tt_away);
+    const [juiceTeamTotalAwayO, setjuiceTeamTotalAwayO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_over_away);
+    const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_under_away);
+    const [finalScoreA, setFinalScoreA] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].final_score_away);
     //home
-    const [HomeCrear, setHomeCrear] = useState(store.ncaa_football[params.theid].home);
-    const [spreadHomeCrear, setSpreadHomeCrear] = useState(store.ncaa_football[params.theid].spread_home);
-    const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState(store.ncaa_football[params.theid].juice_spread_home);
-    const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState(store.ncaa_football[params.theid].moneyLineHome);
-    const [teamTotalHome, setTeamTotalHome] = useState(store.ncaa_football[params.theid].tt_home);
-    const [juiceTeamTotalHomeO, setjuiceTeamTotalHomeO] = useState(store.ncaa_football[params.theid].juice_over_home);
-    const [juiceTeamTotalHomeU, setjuiceTeamTotalHomeU] = useState(store.ncaa_football[params.theid].juice_under_home);
-    const [finalScoreH, setFinalScoreH] = useState(store.ncaa_football[params.theid].final_score_home);
+    const [HomeCrear, setHomeCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].home);
+    const [spreadHomeCrear, setSpreadHomeCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].spread_home);
+    const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_spread_home);
+    const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].moneyLineHome);
+    const [teamTotalHome, setTeamTotalHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].tt_home);
+    const [juiceTeamTotalHomeO, setjuiceTeamTotalHomeO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_over_home);
+    const [juiceTeamTotalHomeU, setjuiceTeamTotalHomeU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_under_home);
+    const [finalScoreH, setFinalScoreH] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].final_score_home);
     //first half
-    const [FHspreadAway, setFHspreadAway] = useState(store.ncaa_football[params.theid].first_half_spread_away);
-    const [FHjuiceSpreadAway, setFHjuiceSpreadAway] = useState(store.ncaa_football[params.theid].first_half_juice_spread_away);
-    const [FHmoneyLineAway, setFHmoneyLineAway] = useState(store.ncaa_football[params.theid].first_half_moneyLineAway);
-    const [FHtotal, setFHtotal] = useState(store.ncaa_football[params.theid].first_half_total);
-    const [FHjuiceTO, setFHjuiceTO] = useState(store.ncaa_football[params.theid].fh_juice_total_over);
-    const [FHttAway, setFHttAway] = useState(store.ncaa_football[params.theid].first_half_tt_away);
-    const [FHjuiceOverAway, setFHjuiceOverAway] = useState(store.ncaa_football[params.theid].first_half_juice_over_away);
-    const [FHjuiceUnderAway, setFHjuiceUnderAway] = useState(store.ncaa_football[params.theid].first_half_juice_under_away);
-    const [FHfsAway, setFHfsAway] = useState(store.ncaa_football[params.theid].first_half_final_score_away);
-    const [FHspreadHome, setFHspreadHome] = useState(store.ncaa_football[params.theid].first_half_spread_home);
-    const [FHjuiceSpreadHome, setFHjuiceSpreadHome] = useState(store.ncaa_football[params.theid].first_half_juice_spread_home);
-    const [FHmoneyLineHome, setFHmoneyLineHome] = useState(store.ncaa_football[params.theid].first_half_moneyLineHome);
-    const [FHjuiceTU, setFHjuiceTU] = useState(store.ncaa_football[params.theid].first_half_moneyLineHome);
-    const [FHttHome, setFHttHome] = useState(store.ncaa_football[params.theid].fh_juice_total_under);
-    const [FHjuiceOverHome, setFHjuiceOverHome] = useState(store.ncaa_football[params.theid].first_half_juice_over_home);
-    const [FHjuiceUnderHome, setFHjuiceUnderHome] = useState(store.ncaa_football[params.theid].first_half_juice_under_home);
-    const [FHfsHome, setFHfsHome] = useState(store.ncaa_football[params.theid].first_half_final_score_home);
+    const [FHspreadAway, setFHspreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_spread_away);
+    const [FHjuiceSpreadAway, setFHjuiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_spread_away);
+    const [FHmoneyLineAway, setFHmoneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_moneyLineAway);
+    const [FHtotal, setFHtotal] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_total);
+    const [FHjuiceTO, setFHjuiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].fh_juice_total_over);
+    const [FHttAway, setFHttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_tt_away);
+    const [FHjuiceOverAway, setFHjuiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_over_away);
+    const [FHjuiceUnderAway, setFHjuiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_under_away);
+    const [FHfsAway, setFHfsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_final_score_away);
+    const [FHspreadHome, setFHspreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_spread_home);
+    const [FHjuiceSpreadHome, setFHjuiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_spread_home);
+    const [FHmoneyLineHome, setFHmoneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_moneyLineHome);
+    const [FHjuiceTU, setFHjuiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_moneyLineHome);
+    const [FHttHome, setFHttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].fh_juice_total_under);
+    const [FHjuiceOverHome, setFHjuiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_over_home);
+    const [FHjuiceUnderHome, setFHjuiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_under_home);
+    const [FHfsHome, setFHfsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_final_score_home);
     //second half
-    const [SHspreadAway, setSHspreadAway] = useState(store.ncaa_football[params.theid].second_half_spread_away);
-    const [SHjuiceSpreadAway, setSHjuiceSpreadAway] = useState(store.ncaa_football[params.theid].second_half_juice_spread_away);
-    const [SHmoneyLineAway, setSHmoneyLineAway] = useState(store.ncaa_football[params.theid].second_half_moneyLineAway);
-    const [SHtotal, setSHtotal] = useState(store.ncaa_football[params.theid].second_half_total);
-    const [SHjuiceTO, setSHjuiceTO] = useState(store.ncaa_football[params.theid].sh_juice_total_over);
-    const [SHttAway, setSHttAway] = useState(store.ncaa_football[params.theid].second_half_tt_away);
-    const [SHjuiceOverAway, setSHjuiceOverAway] = useState(store.ncaa_football[params.theid].second_half_juice_over_away);
-    const [SHjuiceUnderAway, setSHjuiceUnderAway] = useState(store.ncaa_football[params.theid].second_half_juice_under_away);
-    const [SHfsAway, setSHfsAway] = useState(store.ncaa_football[params.theid].second_half_final_score_away);
-    const [SHspreadHome, setSHspreadHome] = useState(store.ncaa_football[params.theid].second_half_spread_home);
-    const [SHjuiceSpreadHome, setSHjuiceSpreadHome] = useState(store.ncaa_football[params.theid].second_half_juice_spread_home);
-    const [SHmoneyLineHome, setSHmoneyLineHome] = useState(store.ncaa_football[params.theid].second_half_moneyLineHome);
-    const [SHjuiceTU, setSHjuiceTU] = useState(store.ncaa_football[params.theid].sh_juice_total_under);
-    const [SHttHome, setSHttHome] = useState(store.ncaa_football[params.theid].second_half_tt_home);
-    const [SHjuiceOverHome, setSHjuiceOverHome] = useState(store.ncaa_football[params.theid].second_half_juice_over_home);
-    const [SHjuiceUnderHome, setSHjuiceUnderHome] = useState(store.ncaa_football[params.theid].second_half_juice_under_home);
-    const [SHfsHome, setSHfsHome] = useState(store.ncaa_football[params.theid].second_half_final_score_home);
+    const [SHspreadAway, setSHspreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_spread_away);
+    const [SHjuiceSpreadAway, setSHjuiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_spread_away);
+    const [SHmoneyLineAway, setSHmoneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_moneyLineAway);
+    const [SHtotal, setSHtotal] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_total);
+    const [SHjuiceTO, setSHjuiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].sh_juice_total_over);
+    const [SHttAway, setSHttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_tt_away);
+    const [SHjuiceOverAway, setSHjuiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_over_away);
+    const [SHjuiceUnderAway, setSHjuiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_under_away);
+    const [SHfsAway, setSHfsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_final_score_away);
+    const [SHspreadHome, setSHspreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_spread_home);
+    const [SHjuiceSpreadHome, setSHjuiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_spread_home);
+    const [SHmoneyLineHome, setSHmoneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_moneyLineHome);
+    const [SHjuiceTU, setSHjuiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].sh_juice_total_under);
+    const [SHttHome, setSHttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_tt_home);
+    const [SHjuiceOverHome, setSHjuiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_over_home);
+    const [SHjuiceUnderHome, setSHjuiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_under_home);
+    const [SHfsHome, setSHfsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_final_score_home);
     //Q1
-    const [Q1spreadAway, setQ1spreadAway] = useState(store.ncaa_football[params.theid].q1_half_spread_away);
-    const [Q1juiceSpreadAway, setQ1juiceSpreadAway] = useState(store.ncaa_football[params.theid].q1_half_juice_spread_away);
-    const [Q1moneyLineAway, setQ1moneyLineAway] = useState(store.ncaa_football[params.theid].q1_half_moneyLineAway);
-    const [Q1total, setQ1total] = useState(store.ncaa_football[params.theid].q1_half_total);
-    const [Q1juiceTO, setQ1juiceTO] = useState(store.ncaa_football[params.theid].q1_juice_over);
-    const [Q1ttAway, setQ1ttAway] = useState(store.ncaa_football[params.theid].q1_half_tt_away);
-    const [Q1juiceOverAway, setQ1juiceOverAway] = useState(store.ncaa_football[params.theid].q1_half_juice_over_away);
-    const [Q1juiceUnderAway, setQ1juiceUnderAway] = useState(store.ncaa_football[params.theid].q1_half_juice_under_away);
-    const [Q1fsAway, setQ1fsAway] = useState(store.ncaa_football[params.theid].q1_half_final_score_away);
-    const [Q1spreadHome, setQ1spreadHome] = useState(store.ncaa_football[params.theid].q1_half_spread_home);
-    const [Q1juiceSpreadHome, setQ1juiceSpreadHome] = useState(store.ncaa_football[params.theid].q1_half_juice_spread_home);
-    const [Q1moneyLineHome, setQ1moneyLineHome] = useState(store.ncaa_football[params.theid].q1_half_moneyLineHome);
-    const [Q1juiceTU, setQ1juiceTU] = useState(store.ncaa_football[params.theid].q1_juice_under);
-    const [Q1ttHome, setQ1ttHome] = useState(store.ncaa_football[params.theid].q1_half_tt_home);
-    const [Q1juiceOverHome, setQ1juiceOverHome] = useState(store.ncaa_football[params.theid].q1_half_juice_over_home);
-    const [Q1juiceUnderHome, setQ1juiceUnderHome] = useState(store.ncaa_football[params.theid].q1_half_juice_under_home);
-    const [Q1fsHome, setQ1fsHome] = useState(store.ncaa_football[params.theid].q1_half_final_score_home);
+    const [Q1spreadAway, setQ1spreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_spread_away);
+    const [Q1juiceSpreadAway, setQ1juiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_spread_away);
+    const [Q1moneyLineAway, setQ1moneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_moneyLineAway);
+    const [Q1total, setQ1total] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_total);
+    const [Q1juiceTO, setQ1juiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_juice_over);
+    const [Q1ttAway, setQ1ttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_tt_away);
+    const [Q1juiceOverAway, setQ1juiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_over_away);
+    const [Q1juiceUnderAway, setQ1juiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_under_away);
+    const [Q1fsAway, setQ1fsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_final_score_away);
+    const [Q1spreadHome, setQ1spreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_spread_home);
+    const [Q1juiceSpreadHome, setQ1juiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_spread_home);
+    const [Q1moneyLineHome, setQ1moneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_moneyLineHome);
+    const [Q1juiceTU, setQ1juiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_juice_under);
+    const [Q1ttHome, setQ1ttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_tt_home);
+    const [Q1juiceOverHome, setQ1juiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_over_home);
+    const [Q1juiceUnderHome, setQ1juiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_under_home);
+    const [Q1fsHome, setQ1fsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_final_score_home);
     //Q2
-    const [Q2spreadAway, setQ2spreadAway] = useState(store.ncaa_football[params.theid].q2_half_spread_away);
-    const [Q2juiceSpreadAway, setQ2juiceSpreadAway] = useState(store.ncaa_football[params.theid].q2_half_juice_spread_away);
-    const [Q2moneyLineAway, setQ2moneyLineAway] = useState(store.ncaa_football[params.theid].q2_half_moneyLineAway);
-    const [Q2total, setQ2total] = useState(store.ncaa_football[params.theid].q2_half_total);
-    const [Q2juiceTO, setQ2juiceTO] = useState(store.ncaa_football[params.theid].q2_juice_over);
-    const [Q2ttAway, setQ2ttAway] = useState(store.ncaa_football[params.theid].q2_half_tt_away);
-    const [Q2juiceOverAway, setQ2juiceOverAway] = useState(store.ncaa_football[params.theid].q2_half_juice_over_away);
-    const [Q2juiceUnderAway, setQ2juiceUnderAway] = useState(store.ncaa_football[params.theid].q2_half_juice_under_away);
-    const [Q2fsAway, setQ2fsAway] = useState(store.ncaa_football[params.theid].q2_half_final_score_away);
-    const [Q2spreadHome, setQ2spreadHome] = useState(store.ncaa_football[params.theid].q2_half_spread_home);
-    const [Q2juiceSpreadHome, setQ2juiceSpreadHome] = useState(store.ncaa_football[params.theid].q2_half_juice_spread_home);
-    const [Q2moneyLineHome, setQ2moneyLineHome] = useState(store.ncaa_football[params.theid].q2_half_moneyLineHome);
-    const [Q2juiceTU, setQ2juiceTU] = useState(store.ncaa_football[params.theid].q2_juice_under);
-    const [Q2ttHome, setQ2ttHome] = useState(store.ncaa_football[params.theid].q2_half_tt_home);
-    const [Q2juiceOverHome, setQ2juiceOverHome] = useState(store.ncaa_football[params.theid].q2_half_juice_over_home);
-    const [Q2juiceUnderHome, setQ2juiceUnderHome] = useState(store.ncaa_football[params.theid].q2_half_juice_under_home);
-    const [Q2fsHome, setQ2fsHome] = useState(store.ncaa_football[params.theid].q2_half_final_score_home);
+    const [Q2spreadAway, setQ2spreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_spread_away);
+    const [Q2juiceSpreadAway, setQ2juiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_spread_away);
+    const [Q2moneyLineAway, setQ2moneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_moneyLineAway);
+    const [Q2total, setQ2total] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_total);
+    const [Q2juiceTO, setQ2juiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_juice_over);
+    const [Q2ttAway, setQ2ttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_tt_away);
+    const [Q2juiceOverAway, setQ2juiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_over_away);
+    const [Q2juiceUnderAway, setQ2juiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_under_away);
+    const [Q2fsAway, setQ2fsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_final_score_away);
+    const [Q2spreadHome, setQ2spreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_spread_home);
+    const [Q2juiceSpreadHome, setQ2juiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_spread_home);
+    const [Q2moneyLineHome, setQ2moneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_moneyLineHome);
+    const [Q2juiceTU, setQ2juiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_juice_under);
+    const [Q2ttHome, setQ2ttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_tt_home);
+    const [Q2juiceOverHome, setQ2juiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_over_home);
+    const [Q2juiceUnderHome, setQ2juiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_under_home);
+    const [Q2fsHome, setQ2fsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_final_score_home);
     //Q3
-    const [Q3spreadAway, setQ3spreadAway] = useState(store.ncaa_football[params.theid].q3_half_spread_away);
-    const [Q3juiceSpreadAway, setQ3juiceSpreadAway] = useState(store.ncaa_football[params.theid].q3_half_juice_spread_away);
-    const [Q3moneyLineAway, setQ3moneyLineAway] = useState(store.ncaa_football[params.theid].q3_half_moneyLineAway);
-    const [Q3total, setQ3total] = useState(store.ncaa_football[params.theid].q3_half_total);
-    const [Q3juiceTO, setQ3juiceTO] = useState(store.ncaa_football[params.theid].q3_juice_over);
-    const [Q3ttAway, setQ3ttAway] = useState(store.ncaa_football[params.theid].q3_half_tt_away);
-    const [Q3juiceOverAway, setQ3juiceOverAway] = useState(store.ncaa_football[params.theid].q3_half_juice_over_away);
-    const [Q3juiceUnderAway, setQ3juiceUnderAway] = useState(store.ncaa_football[params.theid].q3_half_juice_under_away);
-    const [Q3fsAway, setQ3fsAway] = useState(store.ncaa_football[params.theid].q3_half_final_score_away);
-    const [Q3spreadHome, setQ3spreadHome] = useState(store.ncaa_football[params.theid].q3_half_spread_home);
-    const [Q3juiceSpreadHome, setQ3juiceSpreadHome] = useState(store.ncaa_football[params.theid].q3_half_juice_spread_home);
-    const [Q3moneyLineHome, setQ3moneyLineHome] = useState(store.ncaa_football[params.theid].q3_half_moneyLineHome);
-    const [Q3juiceTU, setQ3juiceTU] = useState(store.ncaa_football[params.theid].q3_juice_under);
-    const [Q3ttHome, setQ3ttHome] = useState(store.ncaa_football[params.theid].q3_half_tt_home);
-    const [Q3juiceOverHome, setQ3juiceOverHome] = useState(store.ncaa_football[params.theid].q3_half_juice_over_home);
-    const [Q3juiceUnderHome, setQ3juiceUnderHome] = useState(store.ncaa_football[params.theid].q3_half_juice_under_home);
-    const [Q3fsHome, setQ3fsHome] = useState(store.ncaa_football[params.theid].q3_half_final_score_home);
+    const [Q3spreadAway, setQ3spreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_spread_away);
+    const [Q3juiceSpreadAway, setQ3juiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_spread_away);
+    const [Q3moneyLineAway, setQ3moneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_moneyLineAway);
+    const [Q3total, setQ3total] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_total);
+    const [Q3juiceTO, setQ3juiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_juice_over);
+    const [Q3ttAway, setQ3ttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_tt_away);
+    const [Q3juiceOverAway, setQ3juiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_over_away);
+    const [Q3juiceUnderAway, setQ3juiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_under_away);
+    const [Q3fsAway, setQ3fsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_final_score_away);
+    const [Q3spreadHome, setQ3spreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_spread_home);
+    const [Q3juiceSpreadHome, setQ3juiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_spread_home);
+    const [Q3moneyLineHome, setQ3moneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_moneyLineHome);
+    const [Q3juiceTU, setQ3juiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_juice_under);
+    const [Q3ttHome, setQ3ttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_tt_home);
+    const [Q3juiceOverHome, setQ3juiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_over_home);
+    const [Q3juiceUnderHome, setQ3juiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_under_home);
+    const [Q3fsHome, setQ3fsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_final_score_home);
     //Q4
-    const [Q4spreadAway, setQ4spreadAway] = useState(store.ncaa_football[params.theid].q4_half_spread_away);
-    const [Q4juiceSpreadAway, setQ4juiceSpreadAway] = useState(store.ncaa_football[params.theid].q4_half_juice_spread_away);
-    const [Q4moneyLineAway, setQ4moneyLineAway] = useState(store.ncaa_football[params.theid].q4_half_moneyLineAway);
-    const [Q4total, setQ4total] = useState(store.ncaa_football[params.theid].q4_half_total);
-    const [Q4juiceTO, setQ4juiceTO] = useState(store.ncaa_football[params.theid].q4_juice_over);
-    const [Q4ttAway, setQ4ttAway] = useState(store.ncaa_football[params.theid].q4_half_tt_away);
-    const [Q4juiceOverAway, setQ4juiceOverAway] = useState(store.ncaa_football[params.theid].q4_half_juice_over_away);
-    const [Q4juiceUnderAway, setQ4juiceUnderAway] = useState(store.ncaa_football[params.theid].q4_half_juice_under_away);
-    const [Q4fsAway, setQ4fsAway] = useState(store.ncaa_football[params.theid].q4_half_final_score_away);
-    const [Q4spreadHome, setQ4spreadHome] = useState(store.ncaa_football[params.theid].q4_half_spread_home);
-    const [Q4juiceSpreadHome, setQ4juiceSpreadHome] = useState(store.ncaa_football[params.theid].q4_half_juice_spread_home);
-    const [Q4moneyLineHome, setQ4moneyLineHome] = useState(store.ncaa_football[params.theid].q4_half_moneyLineHome);
-    const [Q4juiceTU, setQ4juiceTU] = useState(store.ncaa_football[params.theid].q4_juice_under);
-    const [Q4ttHome, setQ4ttHome] = useState(store.ncaa_football[params.theid].q4_half_tt_home);
-    const [Q4juiceOverHome, setQ4juiceOverHome] = useState(store.ncaa_football[params.theid].q4_half_juice_over_home);
-    const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState(store.ncaa_football[params.theid].q4_half_juice_under_home);
-    const [Q4fsHome, setQ4fsHome] = useState(store.ncaa_football[params.theid].q4_half_final_score_home);
+    const [Q4spreadAway, setQ4spreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_spread_away);
+    const [Q4juiceSpreadAway, setQ4juiceSpreadAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_spread_away);
+    const [Q4moneyLineAway, setQ4moneyLineAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_moneyLineAway);
+    const [Q4total, setQ4total] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_total);
+    const [Q4juiceTO, setQ4juiceTO] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_juice_over);
+    const [Q4ttAway, setQ4ttAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_tt_away);
+    const [Q4juiceOverAway, setQ4juiceOverAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_over_away);
+    const [Q4juiceUnderAway, setQ4juiceUnderAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_under_away);
+    const [Q4fsAway, setQ4fsAway] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_final_score_away);
+    const [Q4spreadHome, setQ4spreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_spread_home);
+    const [Q4juiceSpreadHome, setQ4juiceSpreadHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_spread_home);
+    const [Q4moneyLineHome, setQ4moneyLineHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_moneyLineHome);
+    const [Q4juiceTU, setQ4juiceTU] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_juice_under);
+    const [Q4ttHome, setQ4ttHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_tt_home);
+    const [Q4juiceOverHome, setQ4juiceOverHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_over_home);
+    const [Q4juiceUnderHome, setQ4juiceUnderHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_under_home);
+    const [Q4fsHome, setQ4fsHome] = useState(store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_final_score_home);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -363,7 +364,7 @@ export const EdithGames_Ncaa_football = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -411,7 +412,7 @@ export const EdithGames_Ncaa_football = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.ncaa_football[params.theid].away} vrs {store.ncaa_football[params.theid].home}
+                            {store.ncaa_football[params.theid] && store.ncaa_football[params.theid].away} vrs {store.ncaa_football[params.theid] && store.ncaa_football[params.theid].home}
                         </h4>
                     </div>
                 </div>
@@ -562,10 +563,10 @@ export const EdithGames_Ncaa_football = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.ncaa_football[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_football[params.theid].away} onChange={e => setAwayCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].away} onChange={e => setAwayCrear(e.target.value)} required>
                                         {
                                             store.ncaa_foot_teams.map((index) => {
                                                 return (
@@ -576,39 +577,39 @@ export const EdithGames_Ncaa_football = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].spread_away} onChange={e => setSpreadAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].spread_away} onChange={e => setSpreadAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_spread_away} onChange={e => setJuiceSpreadAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_spread_away} onChange={e => setJuiceSpreadAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].moneyLineAway} onChange={e => setMonelLineAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].moneyLineAway} onChange={e => setMonelLineAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].total} onChange={e => setTotalAwayCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].total} onChange={e => setTotalAwayCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_total_over} onChange={e => setjuiceTotalOver(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_total_over} onChange={e => setjuiceTotalOver(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].tt_away} onChange={e => setTeamTotalAway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].tt_away} onChange={e => setTeamTotalAway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_over_away} onChange={e => setjuiceTeamTotalAwayO(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_over_away} onChange={e => setjuiceTeamTotalAwayO(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_under_away} onChange={e => setjuiceTeamTotalAwayU(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_under_away} onChange={e => setjuiceTeamTotalAwayU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].final_score_away} onChange={e => setFinalScoreA(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].final_score_away} onChange={e => setFinalScoreA(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_football[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_football[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>
                                         {
                                             store.ncaa_foot_teams.map((index) => {
                                                 return (
@@ -619,31 +620,31 @@ export const EdithGames_Ncaa_football = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].spread_home} onChange={e => setSpreadHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].spread_home} onChange={e => setSpreadHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_spread_home} onChange={e => setJuiceSpreadHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_spread_home} onChange={e => setJuiceSpreadHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].moneyLineHome} onChange={e => setMonelLineHomeCrear(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].moneyLineHome} onChange={e => setMonelLineHomeCrear(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_total_under} onChange={e => setjuiceTotalUnder(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_total_under} onChange={e => setjuiceTotalUnder(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].tt_home} onChange={e => setTeamTotalHome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].tt_home} onChange={e => setTeamTotalHome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_over_home} onChange={e => setjuiceTeamTotalHomeO(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_over_home} onChange={e => setjuiceTeamTotalHomeO(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].juice_under_home} onChange={e => setjuiceTeamTotalHomeU(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].juice_under_home} onChange={e => setjuiceTeamTotalHomeU(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].final_score_home} onChange={e => setFinalScoreH(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].final_score_home} onChange={e => setFinalScoreH(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -662,60 +663,60 @@ export const EdithGames_Ncaa_football = (props) => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_spread_away} onChange={e => setFHspreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_spread_away} onChange={e => setFHspreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_spread_away} onChange={e => setFHjuiceSpreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_spread_away} onChange={e => setFHjuiceSpreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_moneyLineAway} onChange={e => setFHmoneyLineAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_moneyLineAway} onChange={e => setFHmoneyLineAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_total} onChange={e => setFHtotal(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_total} onChange={e => setFHtotal(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].fh_juice_total_over} onChange={e => setFHjuiceTO(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].fh_juice_total_over} onChange={e => setFHjuiceTO(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_tt_away} onChange={e => setFHttAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_tt_away} onChange={e => setFHttAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceOverAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceOverAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceUnderAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_over_away} onChange={e => setFHjuiceUnderAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_final_score_away} onChange={e => setFHfsAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_final_score_away} onChange={e => setFHfsAway(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_spread_home} onChange={e => setFHspreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_spread_home} onChange={e => setFHspreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_spread_home} onChange={e => setFHjuiceSpreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_spread_home} onChange={e => setFHjuiceSpreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_moneyLineHome} onChange={e => setFHmoneyLineHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_moneyLineHome} onChange={e => setFHmoneyLineHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].fh_juice_total_under} onChange={e => setFHjuiceTU(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].fh_juice_total_under} onChange={e => setFHjuiceTU(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_tt_home} onChange={e => setFHttHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_tt_home} onChange={e => setFHttHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_over_home} onChange={e => setFHjuiceOverHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_over_home} onChange={e => setFHjuiceOverHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_juice_under_home} onChange={e => setFHjuiceUnderHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_juice_under_home} onChange={e => setFHjuiceUnderHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].first_half_final_score_home} onChange={e => setFHfsHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].first_half_final_score_home} onChange={e => setFHfsHome(e.target.value)} />
                             </div>
                         </div>
                     </div>
@@ -733,60 +734,60 @@ export const EdithGames_Ncaa_football = (props) => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_spread_away} onChange={e => setSHspreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_spread_away} onChange={e => setSHspreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_spread_away} onChange={e => setSHjuiceSpreadAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_spread_away} onChange={e => setSHjuiceSpreadAway(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_moneyLineAway} onChange={e => setSHmoneyLineAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_moneyLineAway} onChange={e => setSHmoneyLineAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_total} onChange={e => setSHtotal(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_total} onChange={e => setSHtotal(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].sh_juice_total_over} onChange={e => setSHjuiceTO(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].sh_juice_total_over} onChange={e => setSHjuiceTO(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_tt_away} onChange={e => setSHttAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_tt_away} onChange={e => setSHttAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_over_away} onChange={e => setSHjuiceOverAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_over_away} onChange={e => setSHjuiceOverAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_under_away} onChange={e => setSHjuiceUnderAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_under_away} onChange={e => setSHjuiceUnderAway(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_final_score_away} onChange={e => setSHfsAway(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_final_score_away} onChange={e => setSHfsAway(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_spread_home} onChange={e => setSHspreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_spread_home} onChange={e => setSHspreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_spread_home} onChange={e => setSHjuiceSpreadHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_spread_home} onChange={e => setSHjuiceSpreadHome(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_moneyLineHome} onChange={e => setSHmoneyLineHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_moneyLineHome} onChange={e => setSHmoneyLineHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].sh_juice_total_under} onChange={e => setSHjuiceTU(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].sh_juice_total_under} onChange={e => setSHjuiceTU(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_tt_home} onChange={e => setSHttHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_tt_home} onChange={e => setSHttHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_over_home} onChange={e => setSHjuiceOverHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_over_home} onChange={e => setSHjuiceOverHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_juice_under_home} onChange={e => setSHjuiceUnderHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_juice_under_home} onChange={e => setSHjuiceUnderHome(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].second_half_final_score_home} onChange={e => setSHfsHome(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].second_half_final_score_home} onChange={e => setSHfsHome(e.target.value)} />
                             </div>
                         </div>
                     </div>
@@ -805,60 +806,60 @@ export const EdithGames_Ncaa_football = (props) => {
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q1 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_spread_away} onChange={e => setQ1spreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q1 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_spread_away} onChange={e => setQ1spreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_spread_away} onChange={e => setQ1juiceSpreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_spread_away} onChange={e => setQ1juiceSpreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q1 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_moneyLineAway} onChange={e => setQ1moneyLineAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q1 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_moneyLineAway} onChange={e => setQ1moneyLineAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_total} onChange={e => setQ1total(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_total} onChange={e => setQ1total(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_juice_over} onChange={e => setQ1juiceTO(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_juice_over} onChange={e => setQ1juiceTO(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_tt_away} onChange={e => setQ1ttAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_tt_away} onChange={e => setQ1ttAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_over_away} onChange={e => setQ1juiceOverAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_over_away} onChange={e => setQ1juiceOverAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_under_away} onChange={e => setQ1juiceUnderAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_under_away} onChange={e => setQ1juiceUnderAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_final_score_away} onChange={e => setQ1fsAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_final_score_away} onChange={e => setQ1fsAway(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q1 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_spread_home} onChange={e => setQ1spreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q1 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_spread_home} onChange={e => setQ1spreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_spread_home} onChange={e => setQ1juiceSpreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_spread_home} onChange={e => setQ1juiceSpreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q1 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_moneyLineHome} onChange={e => setQ1moneyLineHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q1 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_moneyLineHome} onChange={e => setQ1moneyLineHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
                                     <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_juice_under} onChange={e => setQ1juiceTU(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_juice_under} onChange={e => setQ1juiceTU(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_tt_home} onChange={e => setQ1ttHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_tt_home} onChange={e => setQ1ttHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_over_home} onChange={e => setQ1juiceOverHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_over_home} onChange={e => setQ1juiceOverHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_juice_under_home} onChange={e => setQ1juiceUnderHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_juice_under_home} onChange={e => setQ1juiceUnderHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q1_half_final_score_home} onChange={e => setQ1fsHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q1_half_final_score_home} onChange={e => setQ1fsHome(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -878,60 +879,60 @@ export const EdithGames_Ncaa_football = (props) => {
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q2 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_spread_away} onChange={e => setQ2spreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q2 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_spread_away} onChange={e => setQ2spreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_spread_away} onChange={e => setQ2juiceSpreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_spread_away} onChange={e => setQ2juiceSpreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q2 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_moneyLineAway} onChange={e => setQ2moneyLineAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q2 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_moneyLineAway} onChange={e => setQ2moneyLineAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_total} onChange={e => setQ2total(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_total} onChange={e => setQ2total(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_juice_over} onChange={e => setQ2juiceTO(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_juice_over} onChange={e => setQ2juiceTO(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_tt_away} onChange={e => setQ2ttAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_tt_away} onChange={e => setQ2ttAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_over_away} onChange={e => setQ2juiceOverAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_over_away} onChange={e => setQ2juiceOverAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_under_away} onChange={e => setQ2juiceUnderAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_under_away} onChange={e => setQ2juiceUnderAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_final_score_away} onChange={e => setQ2fsAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_final_score_away} onChange={e => setQ2fsAway(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q2 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_spread_home} onChange={e => setQ2spreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q2 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_spread_home} onChange={e => setQ2spreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_spread_home} onChange={e => setQ2juiceSpreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_spread_home} onChange={e => setQ2juiceSpreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q2 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_moneyLineHome} onChange={e => setQ2moneyLineHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q2 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_moneyLineHome} onChange={e => setQ2moneyLineHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
                                     <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_juice_under} onChange={e => setQ2juiceTU(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_juice_under} onChange={e => setQ2juiceTU(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_tt_home} onChange={e => setQ2ttHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_tt_home} onChange={e => setQ2ttHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_over_home} onChange={e => setQ2juiceOverHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_over_home} onChange={e => setQ2juiceOverHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_juice_under_home} onChange={e => setQ2juiceUnderHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_juice_under_home} onChange={e => setQ2juiceUnderHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q2_half_final_score_home} onChange={e => setQ2fsHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q2_half_final_score_home} onChange={e => setQ2fsHome(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -951,60 +952,60 @@ export const EdithGames_Ncaa_football = (props) => {
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q3 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_spread_away} onChange={e => setQ3spreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q3 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_spread_away} onChange={e => setQ3spreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_spread_away} onChange={e => setQ3juiceSpreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_spread_away} onChange={e => setQ3juiceSpreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q3 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_moneyLineAway} onChange={e => setQ3moneyLineAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q3 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_moneyLineAway} onChange={e => setQ3moneyLineAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_total} onChange={e => setQ3total(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_total} onChange={e => setQ3total(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_juice_over} onChange={e => setQ3juiceTO(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_juice_over} onChange={e => setQ3juiceTO(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_tt_away} onChange={e => setQ3ttAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_tt_away} onChange={e => setQ3ttAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_over_away} onChange={e => setQ3juiceOverAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_over_away} onChange={e => setQ3juiceOverAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_under_away} onChange={e => setQ3juiceUnderAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_under_away} onChange={e => setQ3juiceUnderAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_final_score_away} onChange={e => setQ3fsAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_final_score_away} onChange={e => setQ3fsAway(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q3 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_spread_home} onChange={e => setQ3spreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q3 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_spread_home} onChange={e => setQ3spreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_spread_home} onChange={e => setQ3juiceSpreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_spread_home} onChange={e => setQ3juiceSpreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_moneyLineHome} onChange={e => setQ3moneyLineHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_moneyLineHome} onChange={e => setQ3moneyLineHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
                                     <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_juice_under} onChange={e => setQ3juiceTU(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_juice_under} onChange={e => setQ3juiceTU(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_tt_home} onChange={e => setQ3ttHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_tt_home} onChange={e => setQ3ttHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_over_home} onChange={e => setQ3juiceOverHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_over_home} onChange={e => setQ3juiceOverHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_juice_under_home} onChange={e => setQ3juiceUnderHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_juice_under_home} onChange={e => setQ3juiceUnderHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q3_half_final_score_home} onChange={e => setQ3fsHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q3_half_final_score_home} onChange={e => setQ3fsHome(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -1024,60 +1025,60 @@ export const EdithGames_Ncaa_football = (props) => {
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q4 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_spread_away} onChange={e => setQ4spreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q4 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_spread_away} onChange={e => setQ4spreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_spread_away} onChange={e => setQ4juiceSpreadAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_spread_away} onChange={e => setQ4juiceSpreadAway(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_moneyLineAway} onChange={e => setQ4moneyLineAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_moneyLineAway} onChange={e => setQ4moneyLineAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_total} onChange={e => setQ4total(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_total} onChange={e => setQ4total(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_juice_over} onChange={e => setQ4juiceTO(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice A" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_juice_over} onChange={e => setQ4juiceTO(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_tt_away} onChange={e => setQ4ttAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_tt_away} onChange={e => setQ4ttAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_over_away} onChange={e => setQ4juiceOverAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_over_away} onChange={e => setQ4juiceOverAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_under_away} onChange={e => setQ4juiceUnderAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_under_away} onChange={e => setQ4juiceUnderAway(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_final_score_away} onChange={e => setQ4fsAway(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_final_score_away} onChange={e => setQ4fsAway(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0 text-center">
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q4 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_spread_home} onChange={e => setQ4spreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q4 Spread" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_spread_home} onChange={e => setQ4spreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_spread_home} onChange={e => setQ4juiceSpreadHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_spread_home} onChange={e => setQ4juiceSpreadHome(e.target.value)} />
                                 </div>
                                 <div className="col-2 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_moneyLineHome} onChange={e => setQ4moneyLineHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Q4 ML" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_moneyLineHome} onChange={e => setQ4moneyLineHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
                                     <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_juice_under} onChange={e => setQ4juiceTU(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="SH Juice H" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_juice_under} onChange={e => setQ4juiceTU(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_tt_home} onChange={e => setQ4ttHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_tt_home} onChange={e => setQ4ttHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_over_home} onChange={e => setQ4juiceOverHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_over_home} onChange={e => setQ4juiceOverHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_juice_under_home} onChange={e => setQ4juiceUnderHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_juice_under_home} onChange={e => setQ4juiceUnderHome(e.target.value)} />
                                 </div>
                                 <div className="col-1 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid].q4_half_final_score_home} onChange={e => setQ4fsHome(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_football[params.theid] && store.ncaa_football[params.theid].q4_half_final_score_home} onChange={e => setQ4fsHome(e.target.value)} />
                                 </div>
                             </div>
                         </div>

@@ -18,6 +18,7 @@ export const Stats_Fighter_mma = () => {
     const [weight, setWeight] = useState("");
     const [birth, setBirth] = useState("");
     const [headshot, setheadshot] = useState("");
+    const [season, setseason] = useState("2022");
 
     const [country, setCountry] = useState("");
     const [association, setAssociation] = useState("");
@@ -42,6 +43,7 @@ export const Stats_Fighter_mma = () => {
             weight: weight,
             birth: birth,
             headshot: headshot,
+            season: season,
 
             country: country,
             association: association,
@@ -111,6 +113,18 @@ export const Stats_Fighter_mma = () => {
                     </div>
                 </div>
                 <div className="row g-0">
+                <div className="text-center col-2 p-1">
+                        Season
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                     <div className="text-center col-3 p-1">
                         Association
                         <input className="form-control selectInner" type="text" placeholder="Association" aria-label="default input example" onChange={e => setAssociation(e.target.value)} required ></input>

@@ -52,6 +52,8 @@ import { Team_Ncaa_basket_Stas } from "../ncaa_basketball/ncaa_basket_team_stats
 import { Ncaa_Baseball_game } from "../ncaa_baseball/game/ncaa_baseball_game";
 import { Stats_py_ncaa_baseball } from "../ncaa_baseball/ncaa_baseball_py_stats/stats_py_baseball";
 import { Team_NCAA_BASEBALL_Stas } from "../ncaa_baseball/ncaa_baseball_team_stats/team_ncaa_baseball_stas";
+import { Moto_GP } from "../moto_gp/moto_gp/moto_gp";
+import { Stats_Moto_GP_Driver } from "../moto_gp/moto_gp_drivers/stats_moto_gp_driver";
 
 import { Odds_to_win } from "../odds/odds_to_win";
 
@@ -260,7 +262,22 @@ export const Links = () => {
                     </div>
                 </div>
             </div>
-            {/*  nascar*/}
+            {/*  moto gp*/}
+            <div className="accordion-item">
+                <div id="moto_gp_Game" className="accordion-collapse collapse" aria-labelledby="moto_gp_-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Moto_GP/>
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="moto_gp_stats_player" className="accordion-collapse collapse" aria-labelledby="moto_gp-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_Moto_GP_Driver/>
+                    </div>
+                </div>
+            </div>
+            {/*  moto gp*/}
             {/*  college*/}
             {/* football */}
             <div className="accordion-item">

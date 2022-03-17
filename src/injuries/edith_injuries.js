@@ -12,12 +12,13 @@ export const Edith_Injuries = (props) => {
     } else {
 
     }
-    const [date, setdate] = useState(store.injuries[params.theid].date);
-    const [injurie, setinjurie] = useState(store.injuries[params.theid].injurie);
-    const [name_player, setname_player] = useState(store.injuries[params.theid].name_player);
-    const [time_injurie, settime_injurie] = useState(store.injuries[params.theid].time_injurie);
-    const [team, setteam] = useState(store.injuries[params.theid].team);
-    const [sport, setsport] = useState(store.injuries[params.theid].sport);
+    
+    const [date, setdate] = useState(store.injuries[params.theid] && store.injuries[params.theid].date);
+    const [injurie, setinjurie] = useState(store.injuries[params.theid] && store.injuries[params.theid].injurie);
+    const [name_player, setname_player] = useState(store.injuries[params.theid] && store.injuries[params.theid].name_player);
+    const [time_injurie, settime_injurie] = useState(store.injuries[params.theid] && store.injuries[params.theid].time_injurie);
+    const [team, setteam] = useState(store.injuries[params.theid] && store.injuries[params.theid].team);
+    const [sport, setsport] = useState(store.injuries[params.theid] && store.injuries[params.theid].sport);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -67,7 +68,7 @@ export const Edith_Injuries = (props) => {
                     </div>
                     <div className="col-6 tetx-center">
                         <h4>
-                            {store.injuries[params.theid].title}
+                            {store.injuries[params.theid] && store.injuries[params.theid].title}
                         </h4>
                     </div>
                 </div>
@@ -96,22 +97,22 @@ export const Edith_Injuries = (props) => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Title" name="team" defaultValue={store.injuries[params.theid].team} onChange={e => setteam(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Title" name="team" defaultValue={store.injuries[params.theid] && store.injuries[params.theid].team} onChange={e => setteam(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.injuries[params.theid].sport} onChange={e => setsport(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.injuries[params.theid] && store.injuries[params.theid].sport} onChange={e => setsport(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Player" name="rotation_home" onChange={e => setname_player(e.target.value)} defaultValue={store.injuries[params.theid].name_player} required />
+                            <input type="text" className="form-control selectInner" placeholder="Player" name="rotation_home" onChange={e => setname_player(e.target.value)} defaultValue={store.injuries[params.theid] && store.injuries[params.theid].name_player} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Injurie" name="rotation_home" onChange={e => setinjurie(e.target.value)} defaultValue={store.injuries[params.theid].injurie} required />
+                            <input type="text" className="form-control selectInner" placeholder="Injurie" name="rotation_home" onChange={e => setinjurie(e.target.value)} defaultValue={store.injuries[params.theid] && store.injuries[params.theid].injurie} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" onChange={e => setdate(e.target.value)} required defaultValue={store.injuries[params.theid].date} />
+                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" onChange={e => setdate(e.target.value)} required defaultValue={store.injuries[params.theid] && store.injuries[params.theid].date} />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Time" name="time injurie" onChange={e => settime_injurie(e.target.value)} required defaultValue={store.injuries[params.theid].time_injurie} />
+                            <input type="text" className="form-control selectInner" placeholder="Time" name="time injurie" onChange={e => settime_injurie(e.target.value)} required defaultValue={store.injuries[params.theid] && store.injuries[params.theid].time_injurie} />
                         </div>
                         <div className="row g-0">
                             <div className="col-4 p-3 text-end">

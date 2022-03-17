@@ -1,8 +1,7 @@
 import { useParams, Redirect } from 'react-router-dom';
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 import { HashLink } from 'react-router-hash-link';
-import DateTime from 'luxon/src/datetime.js'
 export const EdithFight = (props) => {
     const params = useParams();
     const { store } = useContext(Context);
@@ -11,57 +10,54 @@ export const EdithFight = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-
     }
-    const [date, setdate] = useState(store.nbaGames[params.theid].date);
-    const [hour, sethour] = useState(store.nbaGames[params.theid].hour);
-    const dateLux = DateTime.now().weekNumber;
+    const [date, setdate] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].date);
+    const [hour, sethour] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].hour);
+    const [statusCrear, setStatusCrear] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].status);
+    const [casino, setcasino] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].casino);
     let only_year = date[0] + date[1] + date[2] + date[3];
     let only_month = date[5] + date[6];
     let only_day = date[8] + date[9];
     let only_hour = hour[0] + hour[1];
     let only_min = hour[3] + hour[4];
-
-    const [statusCrear, setStatusCrear] = useState(store.box_fight[params.theid].status);
-    const [casino, setcasino] = useState(store.box_fight[params.theid].casino);
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
     const [dayCrear, setDayCrear] = useState(only_day);
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState(store.box_fight[params.theid].week);
+    const [weekCrear, setWeekCrear] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].week);
     const [hourCrear, setHourCrear] = useState(only_hour);
     const [minCrear, setMinCrear] = useState(only_min);
     let [timeCrear] = useState("");
     timeCrear = hourCrear + ":" + minCrear;
 
     //
-    const [event, setevent] = useState(store.box_fight[params.theid].event);
-    const [rounds, setrounds] = useState(store.box_fight[params.theid].rounds);
-    const [location_Fight, setlocation_Fight] = useState(store.box_fight[params.theid].location_Fight);
-    const [fighter_One, setfighter_One] = useState(store.box_fight[params.theid].fighter_One);
-    const [money_Line_One, setmoney_Line_One] = useState(store.box_fight[params.theid].money_Line_One);
-    const [fighter_Two, setfighter_Two] = useState(store.box_fight[params.theid].fighter_Two);
-    const [money_Line_Two, setmoney_Line_Two] = useState(store.box_fight[params.theid].money_Line_Two);
-    const [winner, setwinner] = useState(store.box_fight[params.theid].winner);
-    const [finish_by, setfinish_by] = useState(store.box_fight[params.theid].finish_by);
+    const [event, setevent] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].event);
+    const [rounds, setrounds] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].rounds);
+    const [location_Fight, setlocation_Fight] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].location_Fight);
+    const [fighter_One, setfighter_One] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].fighter_One);
+    const [money_Line_One, setmoney_Line_One] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].money_Line_One);
+    const [fighter_Two, setfighter_Two] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].fighter_Two);
+    const [money_Line_Two, setmoney_Line_Two] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].money_Line_Two);
+    const [winner, setwinner] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].winner);
+    const [finish_by, setfinish_by] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].finish_by);
     //
-    const [r1_result, setr1_result] = useState(store.box_fight[params.theid].r1_result);
-    const [r2_result, setr2_result] = useState(store.box_fight[params.theid].r2_result);
-    const [r3_result, setr3_result] = useState(store.box_fight[params.theid].r3_result);
-    const [r4_result, setr4_result] = useState(store.box_fight[params.theid].r4_result);
-    const [r5_result, setr5_result] = useState(store.box_fight[params.theid].r5_result);
-    const [r6_result, setr6_result] = useState(store.box_fight[params.theid].r6_result);
-    const [r7_result, setr7_result] = useState(store.box_fight[params.theid].r7_result);
-    const [r8_result, setr8_result] = useState(store.box_fight[params.theid].r8_result);
-    const [r9_result, setr9_result] = useState(store.box_fight[params.theid].r9_result);
-    const [r10_result, setr10_result] = useState(store.box_fight[params.theid].r10_result);
-    const [r11_result, setr11_result] = useState(store.box_fight[params.theid].r11_result);
-    const [r12_result, setr12_result] = useState(store.box_fight[params.theid].r12_result);
-    const [r13_result, setr13_result] = useState(store.box_fight[params.theid].r13_result);
-    const [r14_result, setr14_result] = useState(store.box_fight[params.theid].r14_result);
-    const [r15_result, setr15_result] = useState(store.box_fight[params.theid].r15_result);
+    const [r1_result, setr1_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r1_result);
+    const [r2_result, setr2_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r2_result);
+    const [r3_result, setr3_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r3_result);
+    const [r4_result, setr4_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r4_result);
+    const [r5_result, setr5_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r5_result);
+    const [r6_result, setr6_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r6_result);
+    const [r7_result, setr7_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r7_result);
+    const [r8_result, setr8_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r8_result);
+    const [r9_result, setr9_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r9_result);
+    const [r10_result, setr10_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r10_result);
+    const [r11_result, setr11_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r11_result);
+    const [r12_result, setr12_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r12_result);
+    const [r13_result, setr13_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r13_result);
+    const [r14_result, setr14_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r14_result);
+    const [r15_result, setr15_result] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].r15_result);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -140,7 +136,7 @@ export const EdithFight = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -188,7 +184,7 @@ export const EdithFight = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.box_fight[params.theid].fighter_One} vrs {store.box_fight[params.theid].fighter_Two}
+                            {store.box_fight[params.theid] && store.box_fight[params.theid].fighter_One} vrs {store.box_fight[params.theid] && store.box_fight[params.theid].fighter_Two}
                         </h4>
                     </div>
                 </div>
@@ -245,7 +241,7 @@ export const EdithFight = (props) => {
                     </div>
                     <div className="text-center col-1 p-1">
                         Week
-                        <select className="form-select" name="week" aria-label="Default select example" onChange={e => setWeekCrear(e.target.value)} defaultValue={store.box_fight[params.theid].week} required>
+                        <select className="form-select" name="week" aria-label="Default select example" onChange={e => setWeekCrear(e.target.value)} defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].week} required>
                             {
                                 selectWeek.map((index) => {
                                     return (
@@ -310,31 +306,31 @@ export const EdithFight = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.box_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rounds" name="rounds" defaultValue={store.box_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Rounds" name="rounds" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" defaultValue={store.box_fight[params.theid].location_Fight} onChange={e => setlocation_Fight(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].location_Fight} onChange={e => setlocation_Fight(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Fighter One" aria-label="default input example" defaultValue={store.box_fight[params.theid].fighter_One} onChange={e => setfighter_One(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Fighter One" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].fighter_One} onChange={e => setfighter_One(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.box_fight[params.theid].money_Line_One} onChange={e => setmoney_Line_One(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].money_Line_One} onChange={e => setmoney_Line_One(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Fighter Two" aria-label="default input example" defaultValue={store.box_fight[params.theid].fighter_Two} onChange={e => setfighter_Two(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Fighter Two" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].fighter_Two} onChange={e => setfighter_Two(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.box_fight[params.theid].money_Line_Two} onChange={e => setmoney_Line_Two(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].money_Line_Two} onChange={e => setmoney_Line_Two(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="winner" aria-label="default input example" defaultValue={store.box_fight[params.theid].winner} onChange={e => setwinner(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="winner" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].winner} onChange={e => setwinner(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example" defaultValue={store.box_fight[params.theid].finish_by} onChange={e => setfinish_by(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].finish_by} onChange={e => setfinish_by(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-12 pt-3">
@@ -356,41 +352,41 @@ export const EdithFight = (props) => {
                                     <div className="col-1 title-lines">R12</div>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R1" aria-label="default input example" defaultValue={store.box_fight[params.theid].r1_result} onChange={e => setr1_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R1" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r1_result} onChange={e => setr1_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R2" aria-label="default input example" defaultValue={store.box_fight[params.theid].r2_result} onChange={e => setr2_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R2" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r2_result} onChange={e => setr2_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R3" aria-label="default input example" defaultValue={store.box_fight[params.theid].r3_result} onChange={e => setr3_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R3" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r3_result} onChange={e => setr3_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R4" aria-label="default input example" defaultValue={store.box_fight[params.theid].r4_result} onChange={e => setr4_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R4" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r4_result} onChange={e => setr4_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R5" aria-label="default input example" defaultValue={store.box_fight[params.theid].r5_result} onChange={e => setr5_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R5" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r5_result} onChange={e => setr5_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R6" aria-label="default input example" defaultValue={store.box_fight[params.theid].r6_result} onChange={e => setr6_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R6" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r6_result} onChange={e => setr6_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R7" aria-label="default input example" defaultValue={store.box_fight[params.theid].r7_result} onChange={e => setr7_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R7" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r7_result} onChange={e => setr7_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R8" aria-label="default input example" defaultValue={store.box_fight[params.theid].r8_result} onChange={e => setr8_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R8" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r8_result} onChange={e => setr8_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R9" aria-label="default input example" defaultValue={store.box_fight[params.theid].r9_result} onChange={e => setr9_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R9" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r9_result} onChange={e => setr9_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R10" aria-label="default input example" defaultValue={store.box_fight[params.theid].r10_result} onChange={e => setr10_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R10" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r10_result} onChange={e => setr10_result(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R11" aria-label="default input example" defaultValue={store.box_fight[params.theid].r11_result} onChange={e => setr11_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R11" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r11_result} onChange={e => setr11_result(e.target.value)} />
                                 </div>
 
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="R12" aria-label="default input example" defaultValue={store.box_fight[params.theid].r12_result} onChange={e => setr12_result(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="R12" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r12_result} onChange={e => setr12_result(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -404,13 +400,13 @@ export const EdithFight = (props) => {
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="R13" aria-label="default input example" defaultValue={store.box_fight[params.theid].r13_result} onChange={e => setr13_result(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="R13" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r13_result} onChange={e => setr13_result(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="R14" aria-label="default input example" defaultValue={store.box_fight[params.theid].r14_result} onChange={e => setr14_result(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="R14" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r14_result} onChange={e => setr14_result(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="R15" aria-label="default input example" defaultValue={store.box_fight[params.theid].r15_result} onChange={e => setr15_result(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="R15" aria-label="default input example" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].r15_result} onChange={e => setr15_result(e.target.value)} />
                             </div>
                         </div>
                     </div>

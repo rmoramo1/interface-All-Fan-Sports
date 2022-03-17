@@ -13,34 +13,34 @@ export const Stats_deff_player_nfl = () => {
     }
 
     const params = useParams();
+    
+    const [name, setName] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].name);
+    const [height, setHeight] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].height);
+    const [weight, setWeight] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].weight);
+    const [birth, setBirth] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].birth);
+    const [position, setPosition] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].position);
+    const [dorsal, setDorsal] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].dorsal);
+    const [season, setSeason] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].season);
+    const [team, setTeam] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].team);
+    const [games, setGames] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].games);
+    const [headshot, setheadshot] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].headshot);
 
-    const [name, setName] = useState(store.stats_deff_player_nfl[params.theid].name);
-    const [height, setHeight] = useState(store.stats_deff_player_nfl[params.theid].height);
-    const [weight, setWeight] = useState(store.stats_deff_player_nfl[params.theid].weight);
-    const [birth, setBirth] = useState(store.stats_deff_player_nfl[params.theid].birth);
-    const [position, setPosition] = useState(store.stats_deff_player_nfl[params.theid].position);
-    const [dorsal, setDorsal] = useState(store.stats_deff_player_nfl[params.theid].dorsal);
-    const [season, setSeason] = useState(store.stats_deff_player_nfl[params.theid].season);
-    const [team, setTeam] = useState(store.stats_deff_player_nfl[params.theid].team);
-    const [games, setGames] = useState(store.stats_deff_player_nfl[params.theid].games);
-    const [headshot, setheadshot] = useState(store.stats_deff_player_nfl[params.theid].headshot);
+    const [tack_solo, setTack_solo] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_solo);
+    const [tack_ast, setTack_ast] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_ast);
+    const [tack_total, setTack_total] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_total);
+    const [sacks, setSacks] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].sacks);
+    const [sacks_yards, setSacks_yards] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].sacks_yards);
+    const [tfl, setTfl] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tfl);
 
-    const [tack_solo, setTack_solo] = useState(store.stats_deff_player_nfl[params.theid].tack_solo);
-    const [tack_ast, setTack_ast] = useState(store.stats_deff_player_nfl[params.theid].tack_ast);
-    const [tack_total, setTack_total] = useState(store.stats_deff_player_nfl[params.theid].tack_total);
-    const [sacks, setSacks] = useState(store.stats_deff_player_nfl[params.theid].sacks);
-    const [sacks_yards, setSacks_yards] = useState(store.stats_deff_player_nfl[params.theid].sacks_yards);
-    const [tfl, setTfl] = useState(store.stats_deff_player_nfl[params.theid].tfl);
-
-    const [pd, setPd] = useState(store.stats_deff_player_nfl[params.theid].pd);
-    const [Int, setInt] = useState(store.stats_deff_player_nfl[params.theid].Int);
-    const [yds, setYds] = useState(store.stats_deff_player_nfl[params.theid].yds);
-    const [ing, setIng] = useState(store.stats_deff_player_nfl[params.theid].ing);
-    const [td, setTd] = useState(store.stats_deff_player_nfl[params.theid].td);
-    const [ff, setFf] = useState(store.stats_deff_player_nfl[params.theid].ff);
-    const [fr, setFr] = useState(store.stats_deff_player_nfl[params.theid].fr);
-    const [ftd, setFtd] = useState(store.stats_deff_player_nfl[params.theid].ftd);
-    const [kb, setKb] = useState(store.stats_deff_player_nfl[params.theid].kb);
+    const [pd, setPd] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].pd);
+    const [Int, setInt] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].Int);
+    const [yds, setYds] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].yds);
+    const [ing, setIng] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ing);
+    const [td, setTd] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].td);
+    const [ff, setFf] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ff);
+    const [fr, setFr] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].fr);
+    const [ftd, setFtd] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ftd);
+    const [kb, setKb] = useState(store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].kb);
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
@@ -115,10 +115,10 @@ export const Stats_deff_player_nfl = () => {
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <div className="row g-0">
                         <div className="col-6 d-flex align-items-center justify-content-end">
-                            <h3>Edit stats of {store.stats_deff_player_nfl[params.theid].name} </h3>
+                            <h3>Edit stats of {store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].name} </h3>
                         </div>
                         <div className="col-6 text-start">
-                            <img className="img_picture" src={store.stats_deff_player_nfl[params.theid].headshot} alt="image of player"></img>
+                            <img className="img_picture" src={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].headshot} alt="image of player"></img>
                         </div>
                     </div>
                 </div>
@@ -127,26 +127,26 @@ export const Stats_deff_player_nfl = () => {
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Name
-                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].name} onChange={e => setName(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].name} onChange={e => setName(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Height
-                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].height} onChange={e => setHeight(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].height} onChange={e => setHeight(e.target.value)} required ></input>
                     </div>
 
                     <div className="text-center col-3 p-1">
                         Weight
-                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].weight} onChange={e => setWeight(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].weight} onChange={e => setWeight(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Birth
-                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].birth} onChange={e => setBirth(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].birth} onChange={e => setBirth(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Position
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.stats_deff_player_nfl[params.theid].position} onChange={e => setPosition(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].position} onChange={e => setPosition(e.target.value)} required>
                             {
                                 positions.map((index) => {
                                     return (
@@ -158,22 +158,22 @@ export const Stats_deff_player_nfl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Dorsal
-                        <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
 
                     <div className="text-center col-3 p-1">
                         Games
-                        <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].games} onChange={e => setGames(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].games} onChange={e => setGames(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Headshot
-                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.stats_deff_player_nfl[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.stats_deff_player_nfl[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
                                 store.nfl_teams.map((index) => {
                                     return (
@@ -185,7 +185,7 @@ export const Stats_deff_player_nfl = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.stats_deff_player_nfl[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -207,22 +207,22 @@ export const Stats_deff_player_nfl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Tack Solo" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].tack_solo} onChange={e => setTack_solo(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Tack Solo" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_solo} onChange={e => setTack_solo(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Tack Ast" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].tack_ast} onChange={e => setTack_ast(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Tack Ast" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_ast} onChange={e => setTack_ast(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Tack Total" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].tack_total} onChange={e => setTack_total(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Tack Total" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tack_total} onChange={e => setTack_total(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Sacks" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].sacks} onChange={e => setSacks(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Sacks" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].sacks} onChange={e => setSacks(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Sacks Yards" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].sacks_yards} onChange={e => setSacks_yards(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Sacks Yards" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].sacks_yards} onChange={e => setSacks_yards(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="T FL" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].tfl} onChange={e => setTfl(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="T FL" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].tfl} onChange={e => setTfl(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -237,22 +237,22 @@ export const Stats_deff_player_nfl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="PD" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].pd} onChange={e => setPd(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="PD" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].pd} onChange={e => setPd(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Int" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].Int} onChange={e => setInt(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Int" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].Int} onChange={e => setInt(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Yds" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].yds} onChange={e => setYds(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Yds" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].yds} onChange={e => setYds(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ing" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].ing} onChange={e => setIng(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ing" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ing} onChange={e => setIng(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Td" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].td} onChange={e => setTd(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Td" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].td} onChange={e => setTd(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ff" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].ff} onChange={e => setFf(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ff" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ff} onChange={e => setFf(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -264,13 +264,13 @@ export const Stats_deff_player_nfl = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Fr" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].fr} onChange={e => setFr(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Fr" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].fr} onChange={e => setFr(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ftd" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].ftd} onChange={e => setFtd(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ftd" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].ftd} onChange={e => setFtd(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Kb" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid].kb} onChange={e => setKb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Kb" aria-label="default input example" defaultValue={store.stats_deff_player_nfl[params.theid] && store.stats_deff_player_nfl[params.theid].kb} onChange={e => setKb(e.target.value)} required />
                         </div>
 
                     </div>

@@ -12,14 +12,14 @@ export const EdithGames_Ncaa_Baseball = (props) => {
     } else {
 
     }
+    
+    const [statusCrear, setStatusCrear] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].status);
+    const [casino, setcasino] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].casino);
+    const [rotation_home, setRotation_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_home);
+    const [rotation_away, setRotation_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_away);
 
-    const [statusCrear, setStatusCrear] = useState(store.ncaa_baseball[params.theid].status);
-    const [casino, setcasino] = useState(store.ncaa_baseball[params.theid].casino);
-    const [rotation_home, setRotation_home] = useState(store.ncaa_baseball[params.theid].rotation_home);
-    const [rotation_away, setRotation_away] = useState(store.ncaa_baseball[params.theid].rotation_away);
-
-    const [date, setdate] = useState(store.ncaa_baseball[params.theid].date);
-    const [hour, sethour] = useState(store.ncaa_baseball[params.theid].hour);
+    const [date, setdate] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].date);
+    const [hour, sethour] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].hour);
 
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
@@ -39,166 +39,166 @@ export const EdithGames_Ncaa_Baseball = (props) => {
 
     let [timeCrear] = useState(store.nflGames[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
-    const [awayCrear, setAwayCrear] = useState(store.ncaa_baseball[params.theid].away);
-    const [pitcher_a, setPitcher_a] = useState(store.ncaa_baseball[params.theid].pitcher_a);
-    const [HomeCrear, setHomeCrear] = useState(store.ncaa_baseball[params.theid].home);
-    const [pitcher_h, setPitcher_h] = useState(store.ncaa_baseball[params.theid].pitcher_h);
-    const [rl_away, setRl_away] = useState(store.ncaa_baseball[params.theid].rl_away);
-    const [rl_home, setRl_home] = useState(store.ncaa_baseball[params.theid].rl_home);
-    const [juice_rl_away, setJuice_rl_away] = useState(store.ncaa_baseball[params.theid].juice_rl_away);
-    const [juice_rl_home, setJuice_rl_home] = useState(store.ncaa_baseball[params.theid].juice_rl_home);
-    const [moneyLineAway, setMoneyLineAway] = useState(store.ncaa_baseball[params.theid].moneyLineAway);
-    const [moneyLineHome, setMoneyLineHome] = useState(store.ncaa_baseball[params.theid].moneyLineHome);
-    const [total, setTotal] = useState(store.ncaa_baseball[params.theid].total);
-    const [juice_total_over, setJuice_total_over] = useState(store.ncaa_baseball[params.theid].juice_total_over);
-    const [juice_total_under, setJuice_total_under] = useState(store.ncaa_baseball[params.theid].juice_total_under);
-    const [tt_away, setTt_away] = useState(store.ncaa_baseball[params.theid].tt_away);
-    const [juice_over_away, setJuice_over_away] = useState(store.ncaa_baseball[params.theid].juice_over_away);
-    const [juice_under_away, setJuice_under_away] = useState(store.ncaa_baseball[params.theid].juice_under_away);
-    const [tt_home, setTt_home] = useState(store.ncaa_baseball[params.theid].tt_home);
-    const [juice_over_home, setJuice_over_home] = useState(store.ncaa_baseball[params.theid].juice_over_home);
-    const [juice_under_home, setJuice_under_home] = useState(store.ncaa_baseball[params.theid].juice_under_home);
-    const [final_score_away, setFinal_score_away] = useState(store.ncaa_baseball[params.theid].final_score_away);
-    const [final_score_home, setFinal_score_home] = useState(store.ncaa_baseball[params.theid].final_score_home);
+    const [awayCrear, setAwayCrear] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].away);
+    const [pitcher_a, setPitcher_a] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].pitcher_a);
+    const [HomeCrear, setHomeCrear] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].home);
+    const [pitcher_h, setPitcher_h] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].pitcher_h);
+    const [rl_away, setRl_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_away);
+    const [rl_home, setRl_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_home);
+    const [juice_rl_away, setJuice_rl_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_away);
+    const [juice_rl_home, setJuice_rl_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_home);
+    const [moneyLineAway, setMoneyLineAway] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineAway);
+    const [moneyLineHome, setMoneyLineHome] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineHome);
+    const [total, setTotal] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].total);
+    const [juice_total_over, setJuice_total_over] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_over);
+    const [juice_total_under, setJuice_total_under] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_under);
+    const [tt_away, setTt_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_away);
+    const [juice_over_away, setJuice_over_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_away);
+    const [juice_under_away, setJuice_under_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_away);
+    const [tt_home, setTt_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_home);
+    const [juice_over_home, setJuice_over_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_home);
+    const [juice_under_home, setJuice_under_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_home);
+    const [final_score_away, setFinal_score_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].final_score_away);
+    const [final_score_home, setFinal_score_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].final_score_home);
     //f5
-    const [rl_away_f5, setRl_away_f5] = useState(store.ncaa_baseball[params.theid].rl_away_f5);
-    const [rl_home_f5, setRl_home_f5] = useState(store.ncaa_baseball[params.theid].rl_home_f5);
-    const [juice_rl_away_f5, setJuice_rl_away_f5] = useState(store.ncaa_baseball[params.theid].juice_rl_away_f5);
-    const [juice_rl_home_f5, setJuice_rl_home_f5] = useState(store.ncaa_baseball[params.theid].juice_rl_home_f5);
-    const [moneyLineAway_f5, setMoneyLineAway_f5] = useState(store.ncaa_baseball[params.theid].moneyLineAway_f5);
-    const [moneyLineHome_f5, setMoneyLineHome_f5] = useState(store.ncaa_baseball[params.theid].moneyLineHome_f5);
-    const [total_f5, setTotal_f5] = useState(store.ncaa_baseball[params.theid].total_f5);
-    const [juice_total_over_f5, setJuice_total_over_f5] = useState(store.ncaa_baseball[params.theid].juice_total_over_f5);
-    const [juice_total_under_f5, setJuice_total_under_f5] = useState(store.ncaa_baseball[params.theid].juice_total_under_f5);
-    const [tt_away_f5, setTt_away_f5] = useState(store.ncaa_baseball[params.theid].tt_away_f5);
-    const [juice_over_away_f5, setJuice_over_away_f5] = useState(store.ncaa_baseball[params.theid].juice_over_away_f5);
-    const [juice_under_away_f5, setJuice_under_away_f5] = useState(store.ncaa_baseball[params.theid].juice_under_away_f5);
-    const [tt_home_f5, setTt_home_f5] = useState(store.ncaa_baseball[params.theid].tt_home_f5);
-    const [juice_over_home_f5, setJuice_over_home_f5] = useState(store.ncaa_baseball[params.theid].juice_over_home_f5);
-    const [juice_under_home_f5, setJuice_under_home_f5] = useState(store.ncaa_baseball[params.theid]);
-    const [fs_away_f5, setFs_away_f5] = useState(store.ncaa_baseball[params.theid].fs_away_f5);
-    const [fs_home_f5, setFs_home_f5] = useState(store.ncaa_baseball[params.theid].fs_home_f5);
+    const [rl_away_f5, setRl_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_away_f5);
+    const [rl_home_f5, setRl_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_home_f5);
+    const [juice_rl_away_f5, setJuice_rl_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_away_f5);
+    const [juice_rl_home_f5, setJuice_rl_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_home_f5);
+    const [moneyLineAway_f5, setMoneyLineAway_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineAway_f5);
+    const [moneyLineHome_f5, setMoneyLineHome_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineHome_f5);
+    const [total_f5, setTotal_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].total_f5);
+    const [juice_total_over_f5, setJuice_total_over_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_over_f5);
+    const [juice_total_under_f5, setJuice_total_under_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_under_f5);
+    const [tt_away_f5, setTt_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_away_f5);
+    const [juice_over_away_f5, setJuice_over_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_away_f5);
+    const [juice_under_away_f5, setJuice_under_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_away_f5);
+    const [tt_home_f5, setTt_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_home_f5);
+    const [juice_over_home_f5, setJuice_over_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_home_f5);
+    const [juice_under_home_f5, setJuice_under_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid]);
+    const [fs_away_f5, setFs_away_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].fs_away_f5);
+    const [fs_home_f5, setFs_home_f5] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].fs_home_f5);
     //second half
 
-    const [sa_1inning, setSa_1inning] = useState(store.ncaa_baseball[params.theid].sa_1inning);
-    const [sh_1inning, setSh_1inning] = useState(store.ncaa_baseball[params.theid].sh_1inning);
+    const [sa_1inning, setSa_1inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_1inning);
+    const [sh_1inning, setSh_1inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_1inning);
 
-    const [sa_2inning, setSa_2inning] = useState(store.ncaa_baseball[params.theid].sa_2inning);
-    const [sh_2inning, setsh_2inning] = useState(store.ncaa_baseball[params.theid].sh_2inning);
+    const [sa_2inning, setSa_2inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_2inning);
+    const [sh_2inning, setsh_2inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_2inning);
 
-    const [sa_3inning, setSa_3inning] = useState(store.ncaa_baseball[params.theid].sa_3inning);
-    const [sh_3inning, setSh_3inning] = useState(store.ncaa_baseball[params.theid].sh_3inning);
+    const [sa_3inning, setSa_3inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_3inning);
+    const [sh_3inning, setSh_3inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_3inning);
 
-    const [sa_4inning, setSa_4inning] = useState(store.ncaa_baseball[params.theid].sa_4inning);
-    const [sh_4inning, setSh_4inning] = useState(store.ncaa_baseball[params.theid].sh_4inning);
+    const [sa_4inning, setSa_4inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_4inning);
+    const [sh_4inning, setSh_4inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_4inning);
 
-    const [sa_5inning, setSa_5inning] = useState(store.ncaa_baseball[params.theid].sa_5inning);
-    const [sh_5inning, setSh_5inning] = useState(store.ncaa_baseball[params.theid].sh_5inning);
+    const [sa_5inning, setSa_5inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_5inning);
+    const [sh_5inning, setSh_5inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_5inning);
 
-    const [sa_6inning, setSa_6inning] = useState(store.ncaa_baseball[params.theid].sa_6inning);
-    const [sh_6inning, setSh_6inning] = useState(store.ncaa_baseball[params.theid].sh_6inning);
+    const [sa_6inning, setSa_6inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_6inning);
+    const [sh_6inning, setSh_6inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_6inning);
 
-    const [sa_7inning, setSa_7inning] = useState(store.ncaa_baseball[params.theid].sa_7inning);
-    const [sh_7inning, setsh_7inning] = useState(store.ncaa_baseball[params.theid].sh_7inning);
+    const [sa_7inning, setSa_7inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_7inning);
+    const [sh_7inning, setsh_7inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_7inning);
 
-    const [sa_8inning, setSa_8inning] = useState(store.ncaa_baseball[params.theid].sa_8inning);
-    const [sh_8inning, setSh_8inning] = useState(store.ncaa_baseball[params.theid].sh_8inning);
+    const [sa_8inning, setSa_8inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_8inning);
+    const [sh_8inning, setSh_8inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_8inning);
 
-    const [sa_9inning, setSa_9inning] = useState(store.ncaa_baseball[params.theid].sa_9inning);
-    const [sh_9inning, setSh_9inning] = useState(store.ncaa_baseball[params.theid].sh_9inning);
+    const [sa_9inning, setSa_9inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_9inning);
+    const [sh_9inning, setSh_9inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_9inning);
 
-    const [sa_10inning, setSa_10inning] = useState(store.ncaa_baseball[params.theid].sa_10inning);
-    const [sh_10inning, setSh_10inning] = useState(store.ncaa_baseball[params.theid].sh_10inning);
+    const [sa_10inning, setSa_10inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_10inning);
+    const [sh_10inning, setSh_10inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_10inning);
 
-    const [sa_11inning, setSa_11inning] = useState(store.ncaa_baseball[params.theid].sa_11inning);
-    const [sh_11inning, setSh_11inning] = useState(store.ncaa_baseball[params.theid].sh_11inning);
+    const [sa_11inning, setSa_11inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_11inning);
+    const [sh_11inning, setSh_11inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_11inning);
 
-    const [sa_12inning, setSa_12inning] = useState(store.ncaa_baseball[params.theid].sa_12inning);
-    const [sh_12inning, setsh_12inning] = useState(store.ncaa_baseball[params.theid].sh_12inning);
+    const [sa_12inning, setSa_12inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_12inning);
+    const [sh_12inning, setsh_12inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_12inning);
 
-    const [sa_13inning, setSa_13inning] = useState(store.ncaa_baseball[params.theid].sa_13inning);
-    const [sh_13inning, setSh_13inning] = useState(store.ncaa_baseball[params.theid].sh_13inning);
+    const [sa_13inning, setSa_13inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_13inning);
+    const [sh_13inning, setSh_13inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_13inning);
 
-    const [sa_14inning, setSa_14inning] = useState(store.ncaa_baseball[params.theid].sa_14inning);
-    const [sh_14inning, setSh_14inning] = useState(store.ncaa_baseball[params.theid].sh_14inning);
+    const [sa_14inning, setSa_14inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_14inning);
+    const [sh_14inning, setSh_14inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_14inning);
 
-    const [sa_15inning, setSa_15inning] = useState(store.ncaa_baseball[params.theid].sa_15inning);
-    const [sh_15inning, setSh_15inning] = useState(store.ncaa_baseball[params.theid].sh_15inning);
+    const [sa_15inning, setSa_15inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_15inning);
+    const [sh_15inning, setSh_15inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_15inning);
 
-    const [sa_16inning, setSa_16inning] = useState(store.ncaa_baseball[params.theid].sa_16inning);
-    const [sh_16inning, setSh_16inning] = useState(store.ncaa_baseball[params.theid].sh_16inning);
+    const [sa_16inning, setSa_16inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_16inning);
+    const [sh_16inning, setSh_16inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_16inning);
 
-    const [sa_17inning, setSa_17inning] = useState(store.ncaa_baseball[params.theid].sa_17inning);
-    const [sh_17inning, setSh_17inning] = useState(store.ncaa_baseball[params.theid].sh_17inning);
+    const [sa_17inning, setSa_17inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_17inning);
+    const [sh_17inning, setSh_17inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_17inning);
 
-    const [sa_18inning, setSa_18inning] = useState(store.ncaa_baseball[params.theid].sa_18inning);
-    const [sh_18inning, setSh_18inning] = useState(store.ncaa_baseball[params.theid].sh_18inning);
+    const [sa_18inning, setSa_18inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_18inning);
+    const [sh_18inning, setSh_18inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_18inning);
 
-    const [sa_19inning, setSa_19inning] = useState(store.ncaa_baseball[params.theid].sa_19inning);
-    const [sh_19inning, setSh_19inning] = useState(store.ncaa_baseball[params.theid].sh_19inning);
+    const [sa_19inning, setSa_19inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_19inning);
+    const [sh_19inning, setSh_19inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_19inning);
 
-    const [sa_20inning, setSa_20inning] = useState(store.ncaa_baseball[params.theid].sa_20inning);
-    const [sh_20inning, setSh_20inning] = useState(store.ncaa_baseball[params.theid].sh_20inning);
+    const [sa_20inning, setSa_20inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_20inning);
+    const [sh_20inning, setSh_20inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_20inning);
 
-    const [sa_21inning, setSa_21inning] = useState(store.ncaa_baseball[params.theid].sa_21inning);
-    const [sh_21inning, setSh_21inning] = useState(store.ncaa_baseball[params.theid].sh_21inning);
+    const [sa_21inning, setSa_21inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_21inning);
+    const [sh_21inning, setSh_21inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_21inning);
 
-    const [sa_22inning, setSa_22inning] = useState(store.ncaa_baseball[params.theid].sa_22inning);
-    const [sh_22inning, setSh_22inning] = useState(store.ncaa_baseball[params.theid].sh_22inning);
+    const [sa_22inning, setSa_22inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_22inning);
+    const [sh_22inning, setSh_22inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_22inning);
 
-    const [sa_23inning, setSa_23inning] = useState(store.ncaa_baseball[params.theid].sa_23inning);
-    const [sh_23inning, setSh_23inning] = useState(store.ncaa_baseball[params.theid].sh_23inning);
+    const [sa_23inning, setSa_23inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_23inning);
+    const [sh_23inning, setSh_23inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_23inning);
 
-    const [sa_24inning, setSa_24inning] = useState(store.ncaa_baseball[params.theid].sa_24inning);
-    const [sh_24inning, setSh_24inning] = useState(store.ncaa_baseball[params.theid].sh_24inning);
+    const [sa_24inning, setSa_24inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_24inning);
+    const [sh_24inning, setSh_24inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_24inning);
 
-    const [sa_25inning, setSa_25inning] = useState(store.ncaa_baseball[params.theid].sa_25inning);
-    const [sh_25inning, setSh_25inning] = useState(store.ncaa_baseball[params.theid].sh_25inning);
+    const [sa_25inning, setSa_25inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_25inning);
+    const [sh_25inning, setSh_25inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_25inning);
 
-    const [sa_26inning, setSa_26inning] = useState(store.ncaa_baseball[params.theid].sa_26inning);
-    const [sh_26inning, setSh_26inning] = useState(store.ncaa_baseball[params.theid].sh_26inning);
+    const [sa_26inning, setSa_26inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_26inning);
+    const [sh_26inning, setSh_26inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_26inning);
 
-    const [sa_27inning, setSa_27inning] = useState(store.ncaa_baseball[params.theid].sa_27inning);
-    const [sh_27inning, setSh_27inning] = useState(store.ncaa_baseball[params.theid].sh_27inning);
+    const [sa_27inning, setSa_27inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_27inning);
+    const [sh_27inning, setSh_27inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_27inning);
 
-    const [sa_28inning, setSa_28inning] = useState(store.ncaa_baseball[params.theid].sa_28inning);
-    const [sh_28inning, setSh_28inning] = useState(store.ncaa_baseball[params.theid].sh_28inning);
+    const [sa_28inning, setSa_28inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_28inning);
+    const [sh_28inning, setSh_28inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_28inning);
 
-    const [sa_29inning, setSa_29inning] = useState(store.ncaa_baseball[params.theid].sa_29inning);
-    const [sh_29inning, setSh_29inning] = useState(store.ncaa_baseball[params.theid].sh_29inning);
+    const [sa_29inning, setSa_29inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_29inning);
+    const [sh_29inning, setSh_29inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_29inning);
 
-    const [sa_30inning, setSa_30inning] = useState(store.ncaa_baseball[params.theid].sa_30inning);
-    const [sh_30inning, setSh_30inning] = useState(store.ncaa_baseball[params.theid].sh_30inning);
+    const [sa_30inning, setSa_30inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_30inning);
+    const [sh_30inning, setSh_30inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_30inning);
 
-    const [sa_31inning, setSa_31inning] = useState(store.ncaa_baseball[params.theid].sa_31inning);
-    const [sh_31inning, setSh_31inning] = useState(store.ncaa_baseball[params.theid].sh_31inning);
+    const [sa_31inning, setSa_31inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_31inning);
+    const [sh_31inning, setSh_31inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_31inning);
 
-    const [sa_32inning, setSa_32inning] = useState(store.ncaa_baseball[params.theid].sa_32inning);
-    const [sh_32inning, setSh_32inning] = useState(store.ncaa_baseball[params.theid].sh_32inning);
+    const [sa_32inning, setSa_32inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_32inning);
+    const [sh_32inning, setSh_32inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_32inning);
 
-    const [sa_33inning, setSa_33inning] = useState(store.ncaa_baseball[params.theid].sa_33inning);
-    const [sh_33inning, setSh_33inning] = useState(store.ncaa_baseball[params.theid].sh_33inning);
+    const [sa_33inning, setSa_33inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_33inning);
+    const [sh_33inning, setSh_33inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_33inning);
 
-    const [sa_34inning, setSa_34inning] = useState(store.ncaa_baseball[params.theid].sa_34inning);
-    const [sh_34inning, setSh_34inning] = useState(store.ncaa_baseball[params.theid].sh_34inning);
+    const [sa_34inning, setSa_34inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_34inning);
+    const [sh_34inning, setSh_34inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_34inning);
     //Q4
-    const [sa_35inning, setSa_35inning] = useState(store.ncaa_baseball[params.theid].sa_35inning);
-    const [sh_35inning, setSh_35inning] = useState(store.ncaa_baseball[params.theid].sh_35inning);
+    const [sa_35inning, setSa_35inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_35inning);
+    const [sh_35inning, setSh_35inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_35inning);
 
-    const [sa_36inning, setSa_36inning] = useState(store.ncaa_baseball[params.theid].sa_36inning);
-    const [sh_36inning, setSh_36inning] = useState(store.ncaa_baseball[params.theid].sh_36inning);
+    const [sa_36inning, setSa_36inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_36inning);
+    const [sh_36inning, setSh_36inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_36inning);
 
-    const [sa_37inning, setSa_37inning] = useState(store.ncaa_baseball[params.theid].sa_37inning);
-    const [sh_37inning, seSsh_37inning] = useState(store.ncaa_baseball[params.theid].sh_37inning);
+    const [sa_37inning, setSa_37inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_37inning);
+    const [sh_37inning, seSsh_37inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_37inning);
 
-    const [sa_38inning, setSa_38inning] = useState(store.ncaa_baseball[params.theid].sa_38inning);
-    const [sh_38inning, setSh_38inning] = useState(store.ncaa_baseball[params.theid].sh_38inning);
+    const [sa_38inning, setSa_38inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_38inning);
+    const [sh_38inning, setSh_38inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_38inning);
 
-    const [sa_39inning, setSa_39inning] = useState(store.ncaa_baseball[params.theid].sa_39inning);
-    const [sh_39inning, setSh_39inning] = useState(store.ncaa_baseball[params.theid].sh_39inning);
+    const [sa_39inning, setSa_39inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_39inning);
+    const [sh_39inning, setSh_39inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_39inning);
 
-    const [sa_40inning, setSa_40inning] = useState(store.ncaa_baseball[params.theid].sa_40inning);
-    const [sh_40inning, setSh_40inning] = useState(store.ncaa_baseball[params.theid].sh_40inning);
+    const [sa_40inning, setSa_40inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_40inning);
+    const [sh_40inning, setSh_40inning] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_40inning);
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
@@ -386,7 +386,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -408,7 +408,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -434,7 +434,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.ncaa_baseball[params.theid].away} vrs {store.ncaa_baseball[params.theid].home}
+                            {store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].away} vrs {store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].home}
                         </h4>
                     </div>
                 </div>
@@ -443,7 +443,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -541,7 +541,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                         <div className="col-12 text-center">
                             Casino <span className="fst-italic small ">*no required</span>
                         </div>
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid].casino} onChange={e => setcasino(e.target.value)}>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].casino} onChange={e => setcasino(e.target.value)}>
                             {
                                 store.casinos.map((item, index) => {
                                     return (
@@ -556,7 +556,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             Pitcher Away
                         </div>
                         <div className="col-12">
-                            <input className="form-control selectInner" type="text" placeholder="Pitcher Away" defaultValue={store.ncaa_baseball[params.theid].pitcher_a} aria-label="default input example" onChange={e => setPitcher_a(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pitcher Away" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].pitcher_a} aria-label="default input example" onChange={e => setPitcher_a(e.target.value)} required />
                         </div>
                     </div>
                     <div className="col-3 text-center">
@@ -564,7 +564,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             Pitcher Home
                         </div>
                         <div className="col-12">
-                            <input className="form-control selectInner" type="text" placeholder="Pitcher Home" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].pitcher_h} onChange={e => setPitcher_h(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pitcher Home" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].pitcher_h} onChange={e => setPitcher_h(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -586,10 +586,10 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.ncaa_baseball[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_away} onChange={e => setRotation_away(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="team away" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid].away} onChange={e => setAwayCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="team away" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].away} onChange={e => setAwayCrear(e.target.value)} required>
                                         {
                                             store.ncaa_baseball_teams.map((index) => {
                                                 return (
@@ -600,39 +600,39 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="RL" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].rl_away} onChange={e => setRl_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="RL" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_away} onChange={e => setRl_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_rl_away} onChange={e => setJuice_rl_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_away} onChange={e => setJuice_rl_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].moneyLineAway} onChange={e => setMoneyLineAway(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineAway} onChange={e => setMoneyLineAway(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].total} onChange={e => setTotal(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].total} onChange={e => setTotal(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_total_over} onChange={e => setJuice_total_over(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_over} onChange={e => setJuice_total_over(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].tt_away} onChange={e => setTt_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_away} onChange={e => setTt_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_over_away} onChange={e => setJuice_over_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_away} onChange={e => setJuice_over_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_under_away} onChange={e => setJuice_under_away(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Over" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_away} onChange={e => setJuice_under_away(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].final_score_away} onChange={e => setFinal_score_away(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].final_score_away} onChange={e => setFinal_score_away(e.target.value)} />
                                 </div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_baseball[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_home" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_home} onChange={e => setRotation_home(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
-                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>
+                                    <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].home} onChange={e => setHomeCrear(e.target.value)} required>
                                         {
                                             store.ncaa_baseball_teams.map((index) => {
                                                 return (
@@ -643,31 +643,31 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                                     </select>
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="RL" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].rl_home} onChange={e => setRl_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="RL" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_home} onChange={e => setRl_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_rl_home} onChange={e => setJuice_rl_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_home} onChange={e => setJuice_rl_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].moneyLineHome} onChange={e => setMoneyLineHome(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineHome} onChange={e => setMoneyLineHome(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="" aria-label="default input example" disabled />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_total_under} onChange={e => setJuice_total_under(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_under} onChange={e => setJuice_total_under(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].tt_home} onChange={e => setTt_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Team Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_home} onChange={e => setTt_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Overkkk" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_over_home} onChange={e => setJuice_over_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Overkkk" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_home} onChange={e => setJuice_over_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Juice Under" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_under_home} onChange={e => setJuice_under_home(e.target.value)} required />
+                                    <input className="form-control selectInner" type="text" placeholder="Juice Under" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_home} onChange={e => setJuice_under_home(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].final_score_home} onChange={e => setFinal_score_home(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].final_score_home} onChange={e => setFinal_score_home(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -687,60 +687,60 @@ export const EdithGames_Ncaa_Baseball = (props) => {
 
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Rl F5" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].rl_away_f5} onChange={e => setRl_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Rl F5" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_away_f5} onChange={e => setRl_away_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_rl_away_f5} onChange={e => setJuice_rl_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_away_f5} onChange={e => setJuice_rl_away_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].moneyLineAway_f5} onChange={e => setMoneyLineAway_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineAway_f5} onChange={e => setMoneyLineAway_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].total_f5} onChange={e => setTotal_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].total_f5} onChange={e => setTotal_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_total_over_f5} onChange={e => setJuice_total_over_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_over_f5} onChange={e => setJuice_total_over_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].tt_away_f5} onChange={e => setTt_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_away_f5} onChange={e => setTt_away_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_over_away_f5} onChange={e => setJuice_over_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_away_f5} onChange={e => setJuice_over_away_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_under_away_f5} onChange={e => setJuice_under_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_under_away_f5} onChange={e => setJuice_under_away_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].fs_away_f5} onChange={e => setFs_away_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].fs_away_f5} onChange={e => setFs_away_f5(e.target.value)} />
                             </div>
                         </div>
                         <div className="row g-0 text-center">
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Rl F5" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].rl_home_f5} onChange={e => setRl_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Rl F5" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rl_home_f5} onChange={e => setRl_home_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_rl_home_f5} onChange={e => setJuice_rl_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Juice" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_rl_home_f5} onChange={e => setJuice_rl_home_f5(e.target.value)} />
                             </div>
                             <div className="col-2 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].moneyLineHome_f5} onChange={e => setMoneyLineHome_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="Money Line" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].moneyLineHome_f5} onChange={e => setMoneyLineHome_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" aria-label="default input example" disabled />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_total_under_f5} onChange={e => setJuice_total_under_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FH Juice A" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_total_under_f5} onChange={e => setJuice_total_under_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].tt_home_f5} onChange={e => setTt_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="TT" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].tt_home_f5} onChange={e => setTt_home_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].juice_over_home_f5} onChange={e => setJuice_over_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JOH" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].juice_over_home_f5} onChange={e => setJuice_over_home_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid]} onChange={e => setJuice_under_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="JUA" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid]} onChange={e => setJuice_under_home_f5(e.target.value)} />
                             </div>
                             <div className="col-1 title-lines">
-                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].fs_home_f5} onChange={e => setFs_home_f5(e.target.value)} />
+                                <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].fs_home_f5} onChange={e => setFs_home_f5(e.target.value)} />
                             </div>
                         </div>
 
@@ -750,37 +750,37 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">Inning 6</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_6inning} onChange={e => setSa_6inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_6inning} onChange={e => setSa_6inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_6inning} onChange={e => setSh_6inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_6inning} onChange={e => setSh_6inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">Inning 7</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_7inning} onChange={e => setSa_7inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_7inning} onChange={e => setSa_7inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_7inning} onChange={e => setsh_7inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_7inning} onChange={e => setsh_7inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">Inning 8</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_8inning} onChange={e => setSa_8inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_8inning} onChange={e => setSa_8inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_8inning} onChange={e => setSh_8inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_8inning} onChange={e => setSh_8inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-2">
                                 <div className="col-12 title-lines text-center">Inning 9</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_9inning} onChange={e => setSa_9inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_9inning} onChange={e => setSa_9inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_9inning} onChange={e => setSh_9inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_9inning} onChange={e => setSh_9inning(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -790,109 +790,109 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 10</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_10inning} onChange={e => setSa_10inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_10inning} onChange={e => setSa_10inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_10inning} onChange={e => setSh_10inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_10inning} onChange={e => setSh_10inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 11</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_11inning} onChange={e => setSa_11inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_11inning} onChange={e => setSa_11inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_11inning} onChange={e => setSh_11inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_11inning} onChange={e => setSh_11inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 12</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_12inning} onChange={e => setSa_12inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_12inning} onChange={e => setSa_12inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_12inning} onChange={e => setsh_12inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_12inning} onChange={e => setsh_12inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 13</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_13inning} onChange={e => setSa_13inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_13inning} onChange={e => setSa_13inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_13inning} onChange={e => setSh_13inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_13inning} onChange={e => setSh_13inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 14</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_14inning} onChange={e => setSa_14inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_14inning} onChange={e => setSa_14inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_14inning} onChange={e => setSh_14inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_14inning} onChange={e => setSh_14inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 15</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_15inning} onChange={e => setSa_15inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_15inning} onChange={e => setSa_15inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_15inning} onChange={e => setSh_15inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_15inning} onChange={e => setSh_15inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 16</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_16inning} onChange={e => setSa_16inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_16inning} onChange={e => setSa_16inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_16inning} onChange={e => setSh_16inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_16inning} onChange={e => setSh_16inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 17</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_17inning} onChange={e => setSa_17inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_17inning} onChange={e => setSa_17inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_17inning} onChange={e => setSh_17inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_17inning} onChange={e => setSh_17inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 18</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_18inning} onChange={e => setSa_18inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_18inning} onChange={e => setSa_18inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_18inning} onChange={e => setSh_18inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_18inning} onChange={e => setSh_18inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 19</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_19inning} onChange={e => setSa_19inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_19inning} onChange={e => setSa_19inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_19inning} onChange={e => setSh_19inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_19inning} onChange={e => setSh_19inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 20</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_20inning} onChange={e => setSa_20inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_20inning} onChange={e => setSa_20inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_20inning} onChange={e => setSh_20inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_20inning} onChange={e => setSh_20inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 21</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_21inning} onChange={e => setSa_21inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_21inning} onChange={e => setSa_21inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_21inning} onChange={e => setSh_21inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_21inning} onChange={e => setSh_21inning(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -900,109 +900,109 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 22</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_22inning} onChange={e => setSa_22inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_22inning} onChange={e => setSa_22inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_22inning} onChange={e => setSh_22inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_22inning} onChange={e => setSh_22inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 23</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_23inning} onChange={e => setSa_23inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_23inning} onChange={e => setSa_23inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_23inning} onChange={e => setSh_23inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_23inning} onChange={e => setSh_23inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 24</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_24inning} onChange={e => setSa_24inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_24inning} onChange={e => setSa_24inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_24inning} onChange={e => setSh_24inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_24inning} onChange={e => setSh_24inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 25</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_25inning} onChange={e => setSa_25inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_25inning} onChange={e => setSa_25inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_25inning} onChange={e => setSh_25inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_25inning} onChange={e => setSh_25inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 26</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_26inning} onChange={e => setSa_26inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_26inning} onChange={e => setSa_26inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_26inning} onChange={e => setSh_26inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_26inning} onChange={e => setSh_26inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 27</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_27inning} onChange={e => setSa_27inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_27inning} onChange={e => setSa_27inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_27inning} onChange={e => setSh_27inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_27inning} onChange={e => setSh_27inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 28</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_28inning} onChange={e => setSa_28inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_28inning} onChange={e => setSa_28inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_28inning} onChange={e => setSh_28inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_28inning} onChange={e => setSh_28inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 29</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_29inning} onChange={e => setSa_29inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_29inning} onChange={e => setSa_29inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_29inning} onChange={e => setSh_29inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_29inning} onChange={e => setSh_29inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 30</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_30inning} onChange={e => setSa_30inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_30inning} onChange={e => setSa_30inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_30inning} onChange={e => setSh_30inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_30inning} onChange={e => setSh_30inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 31</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_31inning} onChange={e => setSa_31inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_31inning} onChange={e => setSa_31inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_31inning} onChange={e => setSh_31inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_31inning} onChange={e => setSh_31inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 32</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_32inning} onChange={e => setSa_32inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_32inning} onChange={e => setSa_32inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_32inning} onChange={e => setSh_32inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_32inning} onChange={e => setSh_32inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 33</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_33inning} onChange={e => setSa_33inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_33inning} onChange={e => setSa_33inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_33inning} onChange={e => setSh_33inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_33inning} onChange={e => setSh_33inning(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -1010,64 +1010,64 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 34</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_34inning} onChange={e => setSa_34inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_34inning} onChange={e => setSa_34inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_34inning} onChange={e => setSh_34inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_34inning} onChange={e => setSh_34inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 35</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_35inning} onChange={e => setSa_35inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_35inning} onChange={e => setSa_35inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_35inning} onChange={e => setSh_35inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_35inning} onChange={e => setSh_35inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 36</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_36inning} onChange={e => setSa_36inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_36inning} onChange={e => setSa_36inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_36inning} onChange={e => setSh_36inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_36inning} onChange={e => setSh_36inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 37</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_37inning} onChange={e => setSa_37inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_37inning} onChange={e => setSa_37inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_37inning} onChange={e => seSsh_37inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_37inning} onChange={e => seSsh_37inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 38</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_38inning} onChange={e => setSa_38inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_38inning} onChange={e => setSa_38inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_38inning} onChange={e => setSh_38inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_38inning} onChange={e => setSh_38inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 39</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_39inning} onChange={e => setSa_39inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_39inning} onChange={e => setSa_39inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_39inning} onChange={e => setSh_39inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_39inning} onChange={e => setSh_39inning(e.target.value)} />
                                 </div>
                             </div>
                             <div className="col-1">
                                 <div className="col-12 title-lines text-center">Inning 40</div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sa_40inning} onChange={e => setSa_40inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sa_40inning} onChange={e => setSa_40inning(e.target.value)} />
                                 </div>
                                 <div className="col-12 title-lines">
-                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid].sh_40inning} onChange={e => setSh_40inning(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].sh_40inning} onChange={e => setSh_40inning(e.target.value)} />
                                 </div>
                             </div>
                         </div>

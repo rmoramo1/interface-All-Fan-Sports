@@ -12,15 +12,15 @@ export const Edith_PROPS = (props) => {
     } else {
 
     }
-
-    const [date, setdate] = useState(store.props[params.theid].date);
-    const [title, settitle] = useState(store.props[params.theid].title);
-    const [sport, setsport] = useState(store.props[params.theid].sport);
-    const [away, setaway] = useState(store.props[params.theid].away);
-    const [home, sethome] = useState(store.props[params.theid].home);
-    const [line, setline] = useState(store.props[params.theid].line);
-    const [feature, setfeature] = useState(store.props[params.theid].feature);
-    const [type_prop, settype_prop] = useState(store.props[params.theid].type_prop);
+    
+    const [date, setdate] = useState(store.props[params.theid] && store.props[params.theid].date);
+    const [title, settitle] = useState(store.props[params.theid] && store.props[params.theid].title);
+    const [sport, setsport] = useState(store.props[params.theid] && store.props[params.theid].sport);
+    const [away, setaway] = useState(store.props[params.theid] && store.props[params.theid].away);
+    const [home, sethome] = useState(store.props[params.theid] && store.props[params.theid].home);
+    const [line, setline] = useState(store.props[params.theid] && store.props[params.theid].line);
+    const [feature, setfeature] = useState(store.props[params.theid] && store.props[params.theid].feature);
+    const [type_prop, settype_prop] = useState(store.props[params.theid] && store.props[params.theid].type_prop);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -72,7 +72,7 @@ export const Edith_PROPS = (props) => {
                     </div>
                     <div className="col-6 tetx-center">
                         <h4>
-                            {store.props[params.theid].title}
+                            {store.props[params.theid] && store.props[params.theid].title}
                         </h4>
                     </div>
                 </div>
@@ -101,22 +101,22 @@ export const Edith_PROPS = (props) => {
                     </div>
                     <div className="row g-0">
                     <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" defaultValue={store.props[params.theid].date} onChange={e => setdate(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Date" name="Date" defaultValue={store.props[params.theid] && store.props[params.theid].date} onChange={e => setdate(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Title" name="title" defaultValue={store.props[params.theid].title} onChange={e => settitle(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Title" name="title" defaultValue={store.props[params.theid] && store.props[params.theid].title} onChange={e => settitle(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.props[params.theid].sport} onChange={e => setsport(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" defaultValue={store.props[params.theid] && store.props[params.theid].sport} onChange={e => setsport(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Team" name="team" defaultValue={store.props[params.theid].away} onChange={e => setaway(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Team" name="team" defaultValue={store.props[params.theid] && store.props[params.theid].away} onChange={e => setaway(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Home" name="home" defaultValue={store.props[params.theid].type_prop} onChange={e => sethome(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Home" name="home" defaultValue={store.props[params.theid] && store.props[params.theid].type_prop} onChange={e => sethome(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Line" name="line" required defaultValue={store.props[params.theid].line} onChange={e => setline(e.target.value)} />
+                            <input type="text" className="form-control selectInner" placeholder="Line" name="line" required defaultValue={store.props[params.theid] && store.props[params.theid].line} onChange={e => setline(e.target.value)} />
                         </div>
                     </div>
                     <div className="row g-0 pt-2">
@@ -129,10 +129,10 @@ export const Edith_PROPS = (props) => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Feature" name="rotation_home" defaultValue={store.props[params.theid].feature} onChange={e => setfeature(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Feature" name="rotation_home" defaultValue={store.props[params.theid] && store.props[params.theid].feature} onChange={e => setfeature(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Type Prop" name="rotation_home" defaultValue={store.props[params.theid].type_prop} onChange={e => settype_prop(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Type Prop" name="rotation_home" defaultValue={store.props[params.theid] && store.props[params.theid].type_prop} onChange={e => settype_prop(e.target.value)} required />
                         </div>
                     </div>
                     <div className="row g-0">

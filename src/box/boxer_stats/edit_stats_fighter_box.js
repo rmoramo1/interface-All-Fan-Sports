@@ -13,23 +13,22 @@ export const Edit_stats_Fighter_box = () => {
     }
 
     const params = useParams();
+    const [name, setName] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].name);
+    const [nickname, setNickname] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].nickname);
+    const [height, setHeight] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].height);
+    const [weight, setWeight] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].weight);
+    const [birth, setBirth] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].birth);
+    const [headshot, setheadshot] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].headshot);
+    const [season, setseason] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].season);
 
-    const [name, setName] = useState(store.boxer_stats[params.theid].name);
-    const [nickname, setNickname] = useState(store.boxer_stats[params.theid].nickname);
-    const [height, setHeight] = useState(store.boxer_stats[params.theid].height);
-    const [weight, setWeight] = useState(store.boxer_stats[params.theid].weight);
-    const [birth, setBirth] = useState(store.boxer_stats[params.theid].birth);
-    const [headshot, setheadshot] = useState(store.boxer_stats[params.theid].headshot);
-    const [season, setseason] = useState(store.boxer_stats[params.theid].season);
+    const [country, setCountry] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].country);
+    const [association, setAssociation] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].association);
+    const [category, setCategory] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].category);
 
-    const [country, setCountry] = useState(store.boxer_stats[params.theid].country);
-    const [association, setAssociation] = useState(store.boxer_stats[params.theid].association);
-    const [category, setCategory] = useState(store.boxer_stats[params.theid].category);
-
-    const [w, setW] = useState(store.boxer_stats[params.theid].w);
-    const [w_by, setW_by] = useState(store.boxer_stats[params.theid].w_by);
-    const [L, setL] = useState(store.boxer_stats[params.theid].L);
-    const [L_by, setL_by] = useState(store.boxer_stats[params.theid].L_by);
+    const [w, setW] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w);
+    const [w_by, setW_by] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_by);
+    const [L, setL] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L);
+    const [L_by, setL_by] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_by);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -93,10 +92,10 @@ export const Edit_stats_Fighter_box = () => {
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <div className="row g-0">
                         <div className="col-6 d-flex align-items-center justify-content-end">
-                            <h3>Edit stats of {store.boxer_stats[params.theid].name} </h3>
+                            <h3>Edit stats of {store.boxer_stats[params.theid] && store.boxer_stats[params.theid].name} </h3>
                         </div>
                         <div className="col-6 text-start">
-                            <img className="img_picture" src={store.boxer_stats[params.theid].headshot} alt="image of player"></img>
+                            <img className="img_picture" src={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].headshot} alt="image of player"></img>
                         </div>
                     </div>
                 </div>
@@ -105,34 +104,34 @@ export const Edit_stats_Fighter_box = () => {
             <div className="row g-0">
                     <div className="text-center col-2 p-1">
                         Name
-                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].name} onChange={e => setName(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Name" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].name} onChange={e => setName(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Nickname 
-                        <input className="form-control selectInner" type="text" placeholder="Nickname" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].nickname} onChange={e => setNickname(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Nickname" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].nickname} onChange={e => setNickname(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Height
-                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].height} onChange={e => setHeight(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].height} onChange={e => setHeight(e.target.value)} ></input>
                     </div>
 
                     <div className="text-center col-2 p-1">
                         Weight
-                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].weight} onChange={e => setWeight(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].weight} onChange={e => setWeight(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Birth
-                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Birth" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].birth} onChange={e => setBirth(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-2 p-1">
                         Country
-                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].country} onChange={e => setCountry(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].country} onChange={e => setCountry(e.target.value)} ></input>
                     </div>
                 </div>
                 <div className="row g-0">
                 <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -144,15 +143,15 @@ export const Edit_stats_Fighter_box = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Association
-                        <input className="form-control selectInner" type="text" placeholder="Association" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].association} onChange={e => setAssociation(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Association" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].association} onChange={e => setAssociation(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Category
-                        <input className="form-control selectInner" type="text" placeholder="Category" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].category} onChange={e => setCategory(e.target.value)} ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Category" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].category} onChange={e => setCategory(e.target.value)} ></input>
                     </div>
                     <div className="text-center col-3 p-1">
                         Headshot
-                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.boxer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
                     </div>
                 </div>
 
@@ -165,16 +164,16 @@ export const Edit_stats_Fighter_box = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].w} onChange={e => setW(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w} onChange={e => setW(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W By" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].w_by} onChange={e => setW_by(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="W By" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_by} onChange={e => setW_by(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].L} onChange={e => setL(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L} onChange={e => setL(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L By" aria-label="default input example" defaultValue={store.boxer_stats[params.theid].L_by} onChange={e => setL_by(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="L By" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_by} onChange={e => setL_by(e.target.value)} />
                         </div>
                     </div>
                 </div>

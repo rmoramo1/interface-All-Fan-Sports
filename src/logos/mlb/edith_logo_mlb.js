@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, Redirect, Link } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
@@ -10,11 +10,9 @@ export const Edith_Logo_mlb = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-
     }
-
-    const [team, setteam] = useState(store.logos_mlb[params.theid].team);
-    const [url, seturl] = useState(store.logos_mlb[params.theid].url);
+    const [team, setteam] = useState(store.logos_mlb[params.theid] && store.logos_mlb[params.theid].team);
+    const [url, seturl] = useState(store.logos_mlb[params.theid] && store.logos_mlb[params.theid].url);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -25,10 +23,8 @@ export const Edith_Logo_mlb = (props) => {
         const body = {
             team: team,
             url: url,
-
         };
-
-        fetch("https://sportsdata365.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
+        fetch("https://sportsdata365.com/logos_mlb" + store.logos_mlb[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
             headers: { "Content-Type": "application/json" }
@@ -43,7 +39,7 @@ export const Edith_Logo_mlb = (props) => {
             .catch(err => console.log(err));
     };
     const deletLogo = e => {
-        fetch("https://sportsdata365.com/logos_mlb/" + store.logos_mlb[params.theid].id, {
+        fetch("https://sportsdata365.com/logos_mlb" + store.logos_mlb[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
         })
@@ -61,11 +57,11 @@ export const Edith_Logo_mlb = (props) => {
                     </div>
                     <div className="col-2 tetx-center">
                         <h4>
-                            {store.logos_mlb[params.theid].team}
+                            {store.logos_mlb[params.theid] && store.logos_mlb[params.theid].team}
                         </h4>
                     </div>
                     <div className="col-1">
-                        <img src={store.logos_mlb[params.theid].url} alt="logo team" className="img_logo"></img>
+                        <img src={store.logos_mlb[params.theid] && store.logos_mlb[params.theid].url} alt="logo team" className="img_logo"></img>
                     </div>
                 </div>
             </div>
@@ -75,10 +71,10 @@ export const Edith_Logo_mlb = (props) => {
                         Edith MLB Team Logo
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control selectInner" placeholder="TEAM" name="rotation_home" defaultValue={store.logos_mlb[params.theid].team} onChange={e => setteam(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="TEAM" name="rotation_home" defaultValue={store.logos_mlb[params.theid] && store.logos_mlb[params.theid].team} onChange={e => setteam(e.target.value)} required />
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control selectInner" placeholder="URL" name="rotation_home" defaultValue={store.logos_mlb[params.theid].url} onChange={e => seturl(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="URL" name="rotation_home" defaultValue={store.logos_mlb[params.theid] && store.logos_mlb[params.theid].url} onChange={e => seturl(e.target.value)} required />
                     </div>
                     <div className="row g-0">
                         <div className="col-4 p-3 text-end">
@@ -91,7 +87,7 @@ export const Edith_Logo_mlb = (props) => {
                             <div data-bs-toggle="modal" data-bs-target="#delete_Fight" className="btn btn-danger">Delet</div>
                         </div>
                     </div>
-                    {auth ? <Redirect to="/admin/" /> : null}
+                    {auth ? <Redirect to="/logos/" /> : null}
                 </form>
             </div>
             <div className="modal fade" id="delete_Fight" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
@@ -103,7 +99,7 @@ export const Edith_Logo_mlb = (props) => {
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
                                 <button className="btn btn-danger" onClick={deletLogo} data-bs-dismiss="modal">Yes Delete</button>
-                                {auth ? <Redirect to="/admin" /> : null}
+                                {auth ? <Redirect to="/logos" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">
                                 <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>

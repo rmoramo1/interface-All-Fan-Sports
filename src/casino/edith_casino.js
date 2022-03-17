@@ -12,8 +12,8 @@ export const Edith_Casino = (props) => {
     } else {
 
     }
-
-    const [name, setname] = useState(store.casinos[params.theid].name);
+    
+    const [name, setname] = useState(store.casinos[params.theid] && store.casinos[params.theid].name);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -58,7 +58,7 @@ export const Edith_Casino = (props) => {
                     </div>
                     <div className="col-6 tetx-center">
                         <h4>
-                            {store.casinos[params.theid].name}
+                            {store.casinos[params.theid] && store.casinos[params.theid].name}
                         </h4>
                     </div>
                 </div>
@@ -69,7 +69,7 @@ export const Edith_Casino = (props) => {
                         Edith Casino
                     </div>
                     <div className="col-12">
-                        <input type="text" className="form-control selectInner" placeholder="Casino" name="rotation_home" defaultValue={store.casinos[params.theid].name} onChange={e => setname(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Casino" name="rotation_home" defaultValue={store.casinos[params.theid] && store.casinos[params.theid].name} onChange={e => setname(e.target.value)} required />
                     </div>
                     <div className="row g-0">
                         <div className="col-4 p-3 text-end">

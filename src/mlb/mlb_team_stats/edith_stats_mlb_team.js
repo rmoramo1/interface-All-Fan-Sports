@@ -14,25 +14,24 @@ export const Edit_Stats_MLB_Team = () => {
     }
 
     const params = useParams();
+    const [season, setSeason] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].season);
+    const [team, setTeam] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].team);
+    const [league, setLeague] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].league);
+    const [division, setDivision] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].division);
+    const [group_type_comparation, setGroup_type_comparation] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].group_type_comparation);
+    const [season_type, setSeason_type] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].season_type);
 
-    const [season, setSeason] = useState(store.mlb_stats_teams[params.theid].season);
-    const [team, setTeam] = useState(store.mlb_stats_teams[params.theid].team);
-    const [league, setLeague] = useState(store.mlb_stats_teams[params.theid].league);
-    const [division, setDivision] = useState(store.mlb_stats_teams[params.theid].division);
-    const [group_type_comparation, setGroup_type_comparation] = useState(store.mlb_stats_teams[params.theid].group_type_comparation);
-    const [season_type, setSeason_type] = useState(store.mlb_stats_teams[params.theid].season_type);
-
-    const [w, setW] = useState(store.mlb_stats_teams[params.theid].w);
-    const [L, setL] = useState(store.mlb_stats_teams[params.theid].L);
-    const [pct, setPct] = useState(store.mlb_stats_teams[params.theid].pct);
-    const [gb, setGb] = useState(store.mlb_stats_teams[params.theid].gb);
-    const [home, setHome] = useState(store.mlb_stats_teams[params.theid].home);
-    const [away, setAway] = useState(store.mlb_stats_teams[params.theid].away);
-    const [rs, setRs] = useState(store.mlb_stats_teams[params.theid].rs);
-    const [ra, setRa] = useState(store.mlb_stats_teams[params.theid].ra);
-    const [diff, setDiff] = useState(store.mlb_stats_teams[params.theid].diff);
-    const [strk, setStrk] = useState(store.mlb_stats_teams[params.theid].strk);
-    const [L10, setL10] = useState(store.mlb_stats_teams[params.theid].L10);
+    const [w, setW] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].w);
+    const [L, setL] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].L);
+    const [pct, setPct] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].pct);
+    const [gb, setGb] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].gb);
+    const [home, setHome] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].home);
+    const [away, setAway] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].away);
+    const [rs, setRs] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].rs);
+    const [ra, setRa] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].ra);
+    const [diff, setDiff] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].diff);
+    const [strk, setStrk] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].strk);
+    const [L10, setL10] = useState(store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].L10);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -108,7 +107,7 @@ export const Edit_Stats_MLB_Team = () => {
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].team} onChange={e => setTeam(e.target.value)} required>
                             {
                                 store.mlb_teams.map((index) => {
                                     return (
@@ -120,7 +119,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].season} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -132,7 +131,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Season Type
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid].season_type} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setSeason_type(e.target.value)} defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].season_type} required>
                             {
                                 season_Type.map((index) => {
                                     return (
@@ -144,7 +143,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         League
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].league} onChange={e => setLeague(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].league} onChange={e => setLeague(e.target.value)} required>
                             {
                                 selectLiga.map((index) => {
                                     return (
@@ -156,7 +155,7 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Division
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].division} onChange={e => setDivision(e.target.value)} required>
                             {
                                 selectDivision.map((index) => {
                                     return (
@@ -170,7 +169,7 @@ export const Edit_Stats_MLB_Team = () => {
                 <div className="row g-0">
                     <div className="text-center col-2 p-1">
                         Comparation
-                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid].group_type_comparation} onChange={e => setGroup_type_comparation(e.target.value)} required>
+                        <select className="form-select" name="month" aria-label="Default select example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].group_type_comparation} onChange={e => setGroup_type_comparation(e.target.value)} required>
                             {
                                 comparation.map((index) => {
                                     return (
@@ -192,22 +191,22 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].w} onChange={e => setW(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].w} onChange={e => setW(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].L} onChange={e => setL(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].L} onChange={e => setL(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Pct" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].pct} onChange={e => setPct(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Pct" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].pct} onChange={e => setPct(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Gb" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Gb" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].gb} onChange={e => setGb(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].home} onChange={e => setHome(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Home" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].home} onChange={e => setHome(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].away} onChange={e => setAway(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Away" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].away} onChange={e => setAway(e.target.value)} required />
                         </div>
                     </div>
                     <div className="row g-0 text-center mt-3">
@@ -219,19 +218,19 @@ export const Edit_Stats_MLB_Team = () => {
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Rs" name="rotation_home" defaultValue={store.mlb_stats_teams[params.theid].rs} onChange={e => setRs(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Rs" name="rotation_home" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].rs} onChange={e => setRs(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Ra" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].ra} onChange={e => setRa(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Ra" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].ra} onChange={e => setRa(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Diff" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].diff} onChange={e => setDiff(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Diff" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].diff} onChange={e => setDiff(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].strk} onChange={e => setStrk(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Strk" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].strk} onChange={e => setStrk(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L10" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid].L10} onChange={e => setL10(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L10" aria-label="default input example" defaultValue={store.mlb_stats_teams[params.theid] && store.mlb_stats_teams[params.theid].L10} onChange={e => setL10(e.target.value)} required />
                         </div>
                     </div>
                 </div>

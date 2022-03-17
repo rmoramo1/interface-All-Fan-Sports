@@ -13,8 +13,9 @@ export const EdithGolf = (props) => {
     } else {
         
     }
-    const [date, setdate] = useState(store.golf[params.theid].date);
-    const [hour, sethour] = useState(store.golf[params.theid].hour);
+    const [date, setdate] = useState(store.golf[params.theid] && store.golf[params.theid].date);
+    const [hour, sethour] = useState(store.golf[params.theid] && store.golf[params.theid].hour);
+
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
     let only_day = date[8]+date[9];
@@ -22,25 +23,25 @@ export const EdithGolf = (props) => {
     let only_min = hour[3]+hour[4];
 
     const dateLux = DateTime.now().weekNumber;
-    const [statusCrear, setStatusCrear] = useState(store.golf[params.theid].status);
-    const [casino, setcasino] = useState(store.golf[params.theid].casino);
+    const [statusCrear, setStatusCrear] = useState(store.golf[params.theid] && store.golf[params.theid].status);
+    const [casino, setcasino] = useState(store.golf[params.theid] && store.golf[params.theid].casino);
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
     const [dayCrear, setDayCrear] = useState(only_day);
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSend);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
-    const [weekCrear, setWeekCrear] = useState(store.golf[params.theid].week);
+    const [weekCrear, setWeekCrear] = useState(store.golf[params.theid] && store.golf[params.theid].week);
     const [hourCrear, setHourCrear] = useState(only_hour);
     const [minCrear, setMinCrear] = useState(only_min);
     let [timeCrear] = useState("01");
     timeCrear = hourCrear + ":" + minCrear;
-    const [event, setevent] = useState(store.golf[params.theid].event);
+    const [event, setevent] = useState(store.golf[params.theid] && store.golf[params.theid].event);
     //
-    const [location, setlocation] = useState(store.golf[params.theid].location);
-    const [place1, setplace1] = useState(store.golf[params.theid].place1);
-    const [place2, setplace2] = useState(store.golf[params.theid].place2);
-    const [place3, setplace3] = useState(store.golf[params.theid].place3);
+    const [location, setlocation] = useState(store.golf[params.theid] && store.golf[params.theid].location);
+    const [place1, setplace1] = useState(store.golf[params.theid] && store.golf[params.theid].place1);
+    const [place2, setplace2] = useState(store.golf[params.theid] && store.golf[params.theid].place2);
+    const [place3, setplace3] = useState(store.golf[params.theid] && store.golf[params.theid].place3);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -98,7 +99,7 @@ export const EdithGolf = (props) => {
         selectYear.push(i);
     }
     let selectMonth = [];
-    for (let i = 1; i < 13; i++) {
+    for (let i = 0; i < 24; i++) {
         if (i < 10) {
             i = "0" + i;
             selectMonth.push(i);
@@ -147,7 +148,7 @@ export const EdithGolf = (props) => {
                     </div>
                     <div className="col-6">
                         <h4>
-                            {store.golf[params.theid].event}
+                            {store.golf[params.theid] && store.golf[params.theid].event}
                         </h4>
                     </div>
                 </div>
@@ -156,7 +157,7 @@ export const EdithGolf = (props) => {
             <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
-                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.golf[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
+                        <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.golf[params.theid] && store.golf[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
                             {
                                 store.status.map((index) => {
                                     return (
@@ -265,19 +266,19 @@ export const EdithGolf = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.golf[params.theid].event} onChange={e => setevent(e.target.value)}  />
+                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.golf[params.theid] && store.golf[params.theid].event} onChange={e => setevent(e.target.value)}  />
                                 </div>
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Location" name="location" defaultValue={store.golf[params.theid].location} onChange={e => setlocation(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Location" name="location" defaultValue={store.golf[params.theid] && store.golf[params.theid].location} onChange={e => setlocation(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 1" aria-label="default input example" defaultValue={store.golf[params.theid].place1} onChange={e => setplace1(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 1" aria-label="default input example" defaultValue={store.golf[params.theid] && store.golf[params.theid].place1} onChange={e => setplace1(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 2" aria-label="default input example" defaultValue={store.golf[params.theid].place2} onChange={e => setplace2(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 2" aria-label="default input example" defaultValue={store.golf[params.theid] && store.golf[params.theid].place2} onChange={e => setplace2(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" defaultValue={store.golf[params.theid].place3} onChange={e => setplace3(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" defaultValue={store.golf[params.theid] && store.golf[params.theid].place3} onChange={e => setplace3(e.target.value)} />
                                 </div>
                             </div>
                         </div>

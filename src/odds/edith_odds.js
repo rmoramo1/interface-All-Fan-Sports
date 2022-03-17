@@ -12,12 +12,12 @@ export const Edith_ODD = (props) => {
     } else {
 
     }
-
-    const [title, settitle] = useState(store.odds_to_win[params.theid].title);
-    const [sport, setsport] = useState(store.odds_to_win[params.theid].sport);
-    const [type_odd, settype_odd] = useState(store.odds_to_win[params.theid].type_odd);
-    const [line, setline] = useState(store.odds_to_win[params.theid].line);
-    const [team, setteam] = useState(store.odds_to_win[params.theid].team);
+    
+    const [title, settitle] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].title);
+    const [sport, setsport] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].sport);
+    const [type_odd, settype_odd] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].type_odd);
+    const [line, setline] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].line);
+    const [team, setteam] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].team);
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
@@ -65,7 +65,7 @@ export const Edith_ODD = (props) => {
                     </div>
                     <div className="col-6 tetx-center">
                         <h4>
-                            {store.odds_to_win[params.theid].title}
+                            {store.odds_to_win[params.theid] && store.odds_to_win[params.theid].title}
                         </h4>
                     </div>
                 </div>
@@ -91,19 +91,19 @@ export const Edith_ODD = (props) => {
                     </div>
                     <div className="row g-0">
                         <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" defaultValue={store.odds_to_win[params.theid].title} onChange={e => settitle(e.target.value)} required />
+                            <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].title} onChange={e => settitle(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setsport(e.target.value)} defaultValue={store.odds_to_win[params.theid].sport} required />
+                            <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setsport(e.target.value)} defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].sport} required />
                         </div>
                         <div className="col-3">
-                            <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setteam(e.target.value)} defaultValue={store.odds_to_win[params.theid].team} required />
+                            <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setteam(e.target.value)} defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].team} required />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Type" name="rotation_home" onChange={e => settype_odd(e.target.value)} required defaultValue={store.odds_to_win[params.theid].type_odd} />
+                            <input type="text" className="form-control selectInner" placeholder="Type" name="rotation_home" onChange={e => settype_odd(e.target.value)} required defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].type_odd} />
                         </div>
                         <div className="col-2">
-                            <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => setline(e.target.value)} required defaultValue={store.odds_to_win[params.theid].line} />
+                            <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => setline(e.target.value)} required defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].line} />
                         </div>
                         <div className="row g-0">
                             <div className="col-4 p-3 text-end">

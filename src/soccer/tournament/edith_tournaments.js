@@ -14,9 +14,9 @@ export const Edit_Tournaments = () => {
         }
     }, [])
     const params = useParams();
-
-    const [country, setcountry] = useState(store.tournaments[params.theid].country);
-    const [tournament, settournament] = useState(store.tournaments[params.theid].tournament);
+    
+    const [country, setcountry] = useState(store.tournaments[params.theid] && store.tournaments[params.theid].country);
+    const [tournament, settournament] = useState(store.tournaments[params.theid] && store.tournaments[params.theid].tournament);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -64,18 +64,18 @@ export const Edit_Tournaments = () => {
         <div className="container-fluid p-0 m-0 accordion m-50" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Edith Tournament Soccer {store.tournaments[params.theid].tournament}</h3>
+                    <h3>Edith Tournament Soccer {store.tournaments[params.theid] && store.tournaments[params.theid].tournament}</h3>
                 </div>
             </div>
             <form onSubmit={crear}>
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Country
-                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Team" defaultValue={store.tournaments[params.theid].country} onChange={e => setcountry(e.target.value)} required />
+                        <input className="form-control selectInner" type="text" placeholder="Country" aria-label="Team" defaultValue={store.tournaments[params.theid] && store.tournaments[params.theid].country} onChange={e => setcountry(e.target.value)} required />
                     </div>
                     <div className="text-center col-3 p-1">
                         Tournament
-                        <input className="form-control selectInner" type="text" placeholder="Tournament" aria-label="Team" defaultValue={store.tournaments[params.theid].tournament} onChange={e => settournament(e.target.value)} required />
+                        <input className="form-control selectInner" type="text" placeholder="Tournament" aria-label="Team" defaultValue={store.tournaments[params.theid] && store.tournaments[params.theid].tournament} onChange={e => settournament(e.target.value)} required />
                     </div>
                     <div className="row g-0">
                     <div className="col-4 p-3 text-end">
