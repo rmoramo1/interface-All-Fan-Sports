@@ -161,7 +161,7 @@ export const EdithGames_nhl = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
 

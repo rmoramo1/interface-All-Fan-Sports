@@ -327,7 +327,7 @@ export const Ncaa_Football_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("juego se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

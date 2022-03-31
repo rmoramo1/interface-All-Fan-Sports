@@ -11,7 +11,7 @@ export const EdithGames_nba = (props) => {
     } else {
 
     }
-    
+
     const { store } = useContext(Context);
     const [statusCrear, setStatusCrear] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].status);
     const [casino, setCasino] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].casino);
@@ -22,11 +22,11 @@ export const EdithGames_nba = (props) => {
     const [date, setdate] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].date);
     const [hour, sethour] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].hour);
 
-    let only_year = date[0]+date[1]+date[2]+date[3];
-    let only_month = date[5]+date[6];
-    let only_day = date[8]+date[9];
-    let only_hour = hour[0]+hour[1];
-    let only_min = hour[3]+hour[4];
+    let only_year = date[0] + date[1] + date[2] + date[3];
+    let only_month = date[5] + date[6];
+    let only_day = date[8] + date[9];
+    let only_hour = hour[0] + hour[1];
+    let only_min = hour[3] + hour[4];
 
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
@@ -34,7 +34,7 @@ export const EdithGames_nba = (props) => {
     const [hourCrear, setHourCrear] = useState(only_hour);
     const [minCrear, setMinCrear] = useState(only_min);
 
-    
+
     let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
     let [yearSendCrear] = useState(yearSE);
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -176,7 +176,6 @@ export const EdithGames_nba = (props) => {
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
         setTimeout(function () { window.location.reload(true); }, 800);
-
     }
     const crear = e => {
         e.preventDefault();

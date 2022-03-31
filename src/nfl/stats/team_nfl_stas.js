@@ -154,7 +154,7 @@ export const Team_Nfl_Stas = () => {
                 sessionStorage.setItem("my_token", data.token);
 
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

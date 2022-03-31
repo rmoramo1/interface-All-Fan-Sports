@@ -45,7 +45,7 @@ export const Edith_Logo_NCAA_BASEBALL = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     return (

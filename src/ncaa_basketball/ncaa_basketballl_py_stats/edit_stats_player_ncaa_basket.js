@@ -108,7 +108,7 @@ export const Edit_stats_player_ncaa_basket = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select
@@ -209,9 +209,9 @@ export const Edit_stats_player_ncaa_basket = () => {
                         <div className="col-2 title-lines">Gp</div>
                         <div className="col-2 title-lines">Gs</div>
                         <div className="col-2 title-lines">Fg</div>
-                        <div className="col-2 title-lines">Fg AVG</div>
-                        <div className="col-2 title-lines">Three Pt</div>
-                        <div className="col-2 title-lines">Three Pt AVG</div>
+                        <div className="col-2 title-lines">Fg %</div>
+                        <div className="col-2 title-lines">3Pt</div>
+                        <div className="col-2 title-lines">3Pt %</div>
 
                     </div>
                     <div className="row g-0">
@@ -238,7 +238,7 @@ export const Edit_stats_player_ncaa_basket = () => {
                 <div className="mt-3">
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">Ft</div>
-                        <div className="col-2 title-lines">Ft AVG</div>
+                        <div className="col-2 title-lines">Ft %</div>
                         <div className="col-2 title-lines">Or</div>
                         <div className="col-2 title-lines">Dr</div>
                         <div className="col-2 title-lines">Reb</div>

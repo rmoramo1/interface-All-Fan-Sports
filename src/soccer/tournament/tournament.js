@@ -13,7 +13,7 @@ export const Tournaments = () => {
         }
     }, [])
 
-    const [country, setcountry] = useState("2021");
+    const [country, setcountry] = useState("2022");
     const [tournament, settournament] = useState("");
 
     const [auth, setAuth] = useState(false);
@@ -38,7 +38,7 @@ export const Tournaments = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Stadistica se creo");
-                setAuth(true);
+                
             })
             .catch(err => console.log(err));
     };

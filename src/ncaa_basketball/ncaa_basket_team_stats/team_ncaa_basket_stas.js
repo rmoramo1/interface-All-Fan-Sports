@@ -12,7 +12,7 @@ export const Team_Ncaa_basket_Stas = () => {
         
     }
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [team, setTeam] = useState("Bellarmine Knights");
     const [conference, setConference] = useState("ASUN");
     const [division, setDivision] = useState("N/A");
@@ -68,7 +68,7 @@ export const Team_Ncaa_basket_Stas = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

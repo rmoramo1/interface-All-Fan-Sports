@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 import DateTime from 'luxon/src/datetime.js'
 export const EditNascar = (props) => {
     const params = useParams();
+    const { store } = useContext(Context);
 
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
@@ -21,10 +22,11 @@ export const EditNascar = (props) => {
     let only_day = date[8] + date[9];
     let only_hour = hour[0] + hour[1];
     let only_min = hour[3] + hour[4];
-    const { store } = useContext(Context);
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.nascar[params.theid] && store.nascar[params.theid].status);
     const [casino, setcasino] = useState(store.nascar[params.theid] && store.nascar[params.theid].casino);
+    const [event, setevent] = useState(store.nascar[params.theid] && store.nascar[params.theid].event);
+    const [rotation_number, setRotation_number] = useState(store.nascar[params.theid] && store.nascar[params.theid].rotation_number);
     const [yearCrear, setYearCrear] = useState(only_year);
     const [monthCrear, setMonthCrear] = useState(only_month);
     const [dayCrear, setDayCrear] = useState(only_day);
@@ -36,7 +38,6 @@ export const EditNascar = (props) => {
     const [minCrear, setMinCrear] = useState(only_min);
     let [timeCrear] = useState("01");
     timeCrear = hourCrear + ":" + minCrear;
-
 
     //
     const [race, setrace] = useState(store.nascar[params.theid] && store.nascar[params.theid].race);
@@ -59,6 +60,8 @@ export const EditNascar = (props) => {
             week: weekCrear,
             status: statusCrear,
             casino: casino,
+            event: event,
+            rotation_number: rotation_number,
             race: race,
             track: track,
             location: location,
@@ -86,7 +89,7 @@ export const EditNascar = (props) => {
             .catch(err => console.log(err));
 
     };
-    const deletFight = e => {
+    const deletRace = e => {
         fetch("https://sportsdata365.com/nascar/" + store.nascar[params.theid].id, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
@@ -243,24 +246,33 @@ export const EditNascar = (props) => {
                         </select>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0">
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)} defaultValue={store.nascar[params.theid] && store.nascar[params.theid].casino}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)} defaultValue={store.nascar[params.theid] && store.nascar[params.theid].casino}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Evento
+                        </div>
+                        <input type="text" className="form-control selectInner" placeholder="Evento" name="rotation_away" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].event} onChange={e => setevent(e.target.value)} required />
+                    </div>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
+                                <div className="col-1 title-lines">Rotation #</div>
                                 <div className="col-1 title-lines">Race</div>
                                 <div className="col-1 title-lines">Track</div>
                                 <div className="col-1 title-lines">Location</div>
@@ -269,6 +281,9 @@ export const EditNascar = (props) => {
                                 <div className="col-2 title-lines">Place 3</div>
                             </div>
                             <div className="row g-0">
+                            <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="ROtation #" name="race" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].rotation_number} onChange={e => setRotation_number(e.target.value)} />
+                                </div>
                                 <div className="col-1">
                                     <input type="text" className="form-control selectInner" placeholder="Race" name="race" defaultValue={store.nascar[params.theid] && store.nascar[params.theid].race} onChange={e => setrace(e.target.value)} />
                                 </div>
@@ -312,7 +327,7 @@ export const EditNascar = (props) => {
                         </div>
                         <div className="row g-0">
                             <div className="col-6 p-2 text-center">
-                                <button className="btn btn-danger" onClick={deletFight} data-bs-dismiss="modal">Yes Delete</button>
+                                <button className="btn btn-danger" onClick={deletRace} data-bs-dismiss="modal">Yes Delete</button>
                                 {auth ? <Redirect to="/allGames" /> : null}
                             </div>
                             <div className="col-6 p-2 text-center">

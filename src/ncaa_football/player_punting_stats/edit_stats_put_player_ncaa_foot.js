@@ -96,7 +96,7 @@ export const Edith_Stats_put_player_ncaa_foot = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

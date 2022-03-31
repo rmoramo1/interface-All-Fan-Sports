@@ -15,7 +15,7 @@ export const Golf = () => {
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState("2022");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -27,6 +27,7 @@ export const Golf = () => {
     let [timeCrear] = useState("01");
     timeCrear = hourCrear + ":" + minCrear;
     const [event, setevent] = useState("0");
+    const [rotation_number, setrotation_number] = useState("0");
 
     const [location, setlocation] = useState("0");
     const [place1, setplace1] = useState("0");
@@ -46,6 +47,7 @@ export const Golf = () => {
             status: statusCrear,
             casino: casino,
             event: event,
+            rotation_number: rotation_number,
             location: location,
             place1: place1,
             place2: place2,
@@ -60,7 +62,7 @@ export const Golf = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                setAuth(true);
+                
                 alert("Evento se creo");
             })
             .catch(err => console.log(err));
@@ -221,7 +223,8 @@ export const Golf = () => {
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Event</div>
+                                <div className="col-1 title-lines">Rotation #</div>
+                                <div className="col-3 title-lines">Event</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Place 1</div>
                                 <div className="col-1 title-lines">Place 2</div>
@@ -229,7 +232,10 @@ export const Golf = () => {
 
                             </div>
                             <div className="row g-0">
-                                <div className="col-1">
+                            <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation" onChange={e => setrotation_number(e.target.value)} required />
+                                </div>
+                                <div className="col-3">
                                     <input type="text" className="form-control selectInner" placeholder="Event" name="rotation_away" onChange={e => setevent(e.target.value)} required />
                                 </div>
                                 <div className="col-2">

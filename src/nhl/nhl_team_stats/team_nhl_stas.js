@@ -82,7 +82,7 @@ export const Team_NHL_Stas = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -103,7 +103,7 @@ export const Team_NHL_Stas = () => {
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
                 <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                    <h3>Create stats by MLB team</h3>
+                    <h3>Create stats by NHL team</h3>
                 </div>
             </div>
             <form onSubmit={crear}>

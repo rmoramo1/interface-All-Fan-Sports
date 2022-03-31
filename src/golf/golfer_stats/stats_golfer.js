@@ -19,7 +19,7 @@ export const Stats_Golfer = () => {
     const [headshot, setheadshot] = useState("");
     const [season, setseason] = useState("");
 
-    const [cuts, setcuts] = useState("2021");
+    const [cuts, setcuts] = useState("2022");
     const [top10, settop10] = useState("Boston Bruins");
     const [w, setW] = useState("");
     const [rnds, setrnds] = useState("");
@@ -59,7 +59,7 @@ export const Stats_Golfer = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica de Golfista se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

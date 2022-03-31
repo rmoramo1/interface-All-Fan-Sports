@@ -100,7 +100,7 @@ export const Stats_deff_player_nfl = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

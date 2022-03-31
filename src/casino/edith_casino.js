@@ -12,7 +12,7 @@ export const Edith_Casino = (props) => {
     } else {
 
     }
-    
+
     const [name, setname] = useState(store.casinos[params.theid] && store.casinos[params.theid].name);
 
     const [auth, setAuth] = useState(false);

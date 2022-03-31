@@ -8,12 +8,12 @@ export const Fight_box = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState("2022");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -26,6 +26,7 @@ export const Fight_box = () => {
     timeCrear = hourCrear + ":" + minCrear;
     //
     const [event, setevent] = useState("0");
+    const [rotation_number, setrotation_number] = useState("0");
     const [rounds, setrounds] = useState("0");
     const [location_Fight, setlocation_Fight] = useState("0");
     const [fighter_One, setfighter_One] = useState("0");
@@ -66,6 +67,7 @@ export const Fight_box = () => {
             casino: casino,
 
             event: event,
+            rotation_number: rotation_number,
             rounds: rounds,
             location_Fight: location_Fight,
             fighter_One: fighter_One,
@@ -127,7 +129,7 @@ export const Fight_box = () => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -242,25 +244,31 @@ export const Fight_box = () => {
                         </select>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0 text-center">
+                    <div className="col-3 me-3">
+                        <div className="col-12">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3 ">
+                        Evento
+                        <input type="text" className="form-control selectInner" placeholder="Evento" name="rotation_away" onChange={e => setevent(e.target.value)} required />
+                    </div>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Event</div>
+                                <div className="col-1 title-lines">Rotation #</div>
                                 <div className="col-1 title-lines">Rounds</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Fighter One</div>
@@ -272,7 +280,7 @@ export const Fight_box = () => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Event" name="rotation_away" onChange={e => setevent(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation#" name="rotation_away" onChange={e => setrotation_number(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input type="text" className="form-control selectInner" placeholder="Rounds" name="rotation_away" onChange={e => setrounds(e.target.value)} required />

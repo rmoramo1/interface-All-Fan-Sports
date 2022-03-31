@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
-
+let date = new Date();
+let year = date.getFullYear();
 export const Odds_to_win = () => {
     const { store } = useContext(Context);
 
@@ -16,6 +17,14 @@ export const Odds_to_win = () => {
     const [type_odd, settype_odd] = useState();
     const [line, setline] = useState();
     const [team, setteam] = useState();
+
+    const [monthCrear, setMonthCrear] = useState("01");
+    const [dayCrear, setDayCrear] = useState("01");
+    const [yearCrear, setYearCrear] = useState(year);
+    let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSend);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
     let actualizar = () => {
         document.getElementById("miFormODDS").reset();
     }
@@ -27,7 +36,8 @@ export const Odds_to_win = () => {
             sport: sport,
             type_odd: type_odd,
             line: line,
-            team: team
+            team: team,
+            date: yearSendCrear,
         };
 
         fetch("https://sportsdata365.com/odds_to_win", {
@@ -42,6 +52,29 @@ export const Odds_to_win = () => {
             })
             .catch(err => console.log(err));
     };
+    //select
+    let selectYear = [];
+    for (let i = 2002; i < 2025; i++) {
+        selectYear.push(i);
+    }
+    let selectMonth = [];
+    for (let i = 0; i < 24; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectMonth.push(i);
+        } else {
+            selectMonth.push(i);
+        }
+    }
+    let selectDay = [];
+    for (let i = 1; i < 32; i++) {
+        if (i < 10) {
+            i = "0" + i;
+            selectDay.push(i);
+        } else {
+            selectDay.push(i);
+        }
+    }
     return (
         <div className="col mx-auto mt-5 rounded overflow-hidden sha dow">
             <div className="col-12 bg-title-edith my-2 p-3 text-center">
@@ -49,37 +82,79 @@ export const Odds_to_win = () => {
             </div>
             <form onSubmit={crear} id="miFormODDS">
                 <div className="row g-0">
-                    <div className="col-3 title-lines text-center">
+                    <div className="col-2 title-lines text-center">
                         Title
                     </div>
                     <div className="col-2 title-lines text-center">
                         Sport
                     </div>
-                    <div className="col-3 title-lines text-center">
+                    <div className="col-2 title-lines text-center">
                         Team
                     </div>
                     <div className="col-2 title-lines text-center">
                         Type
                     </div>
-                    <div className="col-2 title-lines text-center">
+                    <div className="col-1 title-lines text-center">
                         Line
+                    </div>
+                    <div className="col-1 title-lines text-center">
+                        Year
+                    </div>
+                    <div className="col-1 title-lines text-center">
+                        Month
+                    </div>
+                    <div className="col-1 title-lines text-center">
+                        Day
                     </div>
                 </div>
                 <div className="row g-0">
-                    <div className="col-3">
-                        <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" onChange={e => settitle(e.target.value)} required />
+                    <div className="col-2">
+                        <input type="text" className="form-control selectInner" placeholder="Title" name="settitle" onChange={e => settitle(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setsport(e.target.value)} required />
-                    </div>
-                    <div className="col-3">
-                        <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setteam(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Sport" name="setsport" onChange={e => setsport(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Type" name="rotation_home" onChange={e => settype_odd(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Team" name="setteam" onChange={e => setteam(e.target.value)} required />
                     </div>
                     <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => setline(e.target.value)} required />
+                        <input type="text" className="form-control selectInner" placeholder="Type" name="settype_odd" onChange={e => settype_odd(e.target.value)} required />
+                    </div>
+                    <div className="col-1">
+                        <input type="text" className="form-control selectInner" placeholder="Line" name="setline" onChange={e => setline(e.target.value)} required />
+                    </div>
+                    <div className="text-center col-1">
+                        <select className="form-select" selectInner name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={year} required>
+                            {
+                                selectYear.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index} >{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1">
+                        <select className="form-select selectInner" name="month" aria-label="Default select example" onChange={e => setMonthCrear(e.target.value)} required>
+                            {
+                                selectMonth.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="text-center col-1">
+                        <select className="form-select selectInner" name="day" aria-label="Default select example" onChange={e => setDayCrear(e.target.value)} required>
+                            {
+                                selectDay.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                 </div>
 

@@ -12,15 +12,31 @@ export const Edith_ODD = (props) => {
     } else {
 
     }
-    
+
     const [title, settitle] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].title);
     const [sport, setsport] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].sport);
     const [type_odd, settype_odd] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].type_odd);
     const [line, setline] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].line);
     const [team, setteam] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].team);
     const [auth, setAuth] = useState(false);
+
+    const [date, setdate] = useState(store.odds_to_win[params.theid] && store.odds_to_win[params.theid].date);
+
+    let only_year = date[0] + date[1] + date[2] + date[3];
+    let only_month = date[5] + date[6];
+    let only_day = date[8] + date[9];
+
+
+    const [yearCrear, setYearCrear] = useState(only_year);
+    const [monthCrear, setMonthCrear] = useState(only_month);
+    const [dayCrear, setDayCrear] = useState(only_day);
+
+    let yearSE = yearCrear + "-" + monthCrear + "-" + dayCrear;
+    let [yearSendCrear] = useState(yearSE);
+    yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
+
     let actualizar = () => {
-        setTimeout(function () { window.location.reload(true); }, 800);
+        setTimeout(function () { window.location.reload(true); }, 1000);
     }
     const edit = e => {
         e.preventDefault();
@@ -29,7 +45,8 @@ export const Edith_ODD = (props) => {
             sport: sport,
             type_odd: type_odd,
             line: line,
-            team: team
+            team: team,            
+            date: yearSendCrear,
         };
 
         fetch("https://sportsdata365.com/odds_to_win/" + store.odds_to_win[params.theid].id, {
@@ -54,8 +71,31 @@ export const Edith_ODD = (props) => {
             .then(res => res.json())
             .catch(err => console.log(err));
             setAuth(true);
-        actualizar();
+            actualizar();
     };
+        //select
+        let selectYear = [];
+        for (let i = 2002; i < 2025; i++) {
+            selectYear.push(i);
+        }
+        let selectMonth = [];
+        for (let i = 0; i < 24; i++) {
+            if (i < 10) {
+                i = "0" + i;
+                selectMonth.push(i);
+            } else {
+                selectMonth.push(i);
+            }
+        }
+        let selectDay = [];
+        for (let i = 1; i < 32; i++) {
+            if (i < 10) {
+                i = "0" + i;
+                selectDay.push(i);
+            } else {
+                selectDay.push(i);
+            }
+        }
     return (
         <div className="container m-50">
             <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
@@ -73,37 +113,79 @@ export const Edith_ODD = (props) => {
             <div className="row g-0 rounded overflow-hidden shadow">
                 <form onSubmit={edit}>
                     <div className="row g-0">
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
                             Title
                         </div>
                         <div className="col-2 title-lines text-center">
                             Sport
                         </div>
-                        <div className="col-3 title-lines text-center">
+                        <div className="col-2 title-lines text-center">
                             Team
                         </div>
                         <div className="col-2 title-lines text-center">
                             Type
                         </div>
-                        <div className="col-2 title-lines text-center">
+                        <div className="col-1 title-lines text-center">
                             Line
+                        </div>
+                        <div className="col-1 title-lines text-center">
+                            Year
+                        </div>
+                        <div className="col-1 title-lines text-center">
+                            Month
+                        </div>
+                        <div className="col-1 title-lines text-center">
+                            Day
                         </div>
                     </div>
                     <div className="row g-0">
-                        <div className="col-3">
+                        <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Title" name="rotation_home" defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].title} onChange={e => settitle(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Sport" name="rotation_home" onChange={e => setsport(e.target.value)} defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].sport} required />
                         </div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Team" name="rotation_home" onChange={e => setteam(e.target.value)} defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].team} required />
                         </div>
                         <div className="col-2">
                             <input type="text" className="form-control selectInner" placeholder="Type" name="rotation_home" onChange={e => settype_odd(e.target.value)} required defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].type_odd} />
                         </div>
-                        <div className="col-2">
+                        <div className="col-1">
                             <input type="text" className="form-control selectInner" placeholder="Line" name="rotation_home" onChange={e => setline(e.target.value)} required defaultValue={store.odds_to_win[params.theid] && store.odds_to_win[params.theid].line} />
+                        </div>
+                        <div className="text-center col-1">
+                            <select className="form-select" name="year" aria-label="Default select example" defaultValue={only_year} onChange={e => setYearCrear(e.target.value)} required>
+                                {
+                                    selectYear.map((index) => {
+                                        return (
+                                            <option key={index} name="promotions" value={index} >{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="text-center col-1">
+                            <select className="form-select" name="month" aria-label="Default select example" defaultValue={only_month} onChange={e => setMonthCrear(e.target.value)} required>
+                                {
+                                    selectMonth.map((index) => {
+                                        return (
+                                            <option key={index} name="promotions" value={index}>{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
+                        </div>
+                        <div className="text-center col-1">
+                            <select className="form-select" name="day" aria-label="Default select example" defaultValue={only_day} onChange={e => setDayCrear(e.target.value)} required>
+                                {
+                                    selectDay.map((index) => {
+                                        return (
+                                            <option key={index} name="promotions" value={index}>{index}</option>
+                                        )
+                                    })
+                                }
+                            </select>
                         </div>
                         <div className="row g-0">
                             <div className="col-4 p-3 text-end">
@@ -117,7 +199,7 @@ export const Edith_ODD = (props) => {
                             </div>
                         </div>
                     </div>
-                    {auth ? <Redirect to="/admin/" /> : null}
+                    {auth ? <Redirect to="/odds_page/" /> : null}
                 </form>
             </div>
             <div className="modal fade" id="delete_Fight" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="deleteLabel" aria-hidden="true">

@@ -37,6 +37,7 @@ export const EdithGolf = (props) => {
     let [timeCrear] = useState("01");
     timeCrear = hourCrear + ":" + minCrear;
     const [event, setevent] = useState(store.golf[params.theid] && store.golf[params.theid].event);
+    const [rotation_number, setrotation_number] = useState(store.golf[params.theid] && store.golf[params.theid].rotation_number);
     //
     const [location, setlocation] = useState(store.golf[params.theid] && store.golf[params.theid].location);
     const [place1, setplace1] = useState(store.golf[params.theid] && store.golf[params.theid].place1);
@@ -56,6 +57,7 @@ export const EdithGolf = (props) => {
             status: statusCrear,
             casino: casino,
             event: event,
+            rotation_number: rotation_number,
 
             location: location,
             place1: place1,
@@ -90,7 +92,7 @@ export const EdithGolf = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select
@@ -258,14 +260,18 @@ export const EdithGolf = (props) => {
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Event</div>
+                                <div className="col-1 title-lines">Rotation #</div>
+                                <div className="col-3 title-lines">Event</div>
                                 <div className="col-1 title-lines">Location</div>
                                 <div className="col-2 title-lines">Place 1</div>
                                 <div className="col-1 title-lines">Place 2</div>
                                 <div className="col-2 title-lines">Place 3</div>
                             </div>
                             <div className="row g-0">
-                                <div className="col-1">
+                            <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="event" defaultValue={store.golf[params.theid] && store.golf[params.theid].rotation_number} onChange={e => setrotation_number(e.target.value)}  />
+                                </div>
+                                <div className="col-3">
                                     <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.golf[params.theid] && store.golf[params.theid].event} onChange={e => setevent(e.target.value)}  />
                                 </div>
                                 <div className="col-1">

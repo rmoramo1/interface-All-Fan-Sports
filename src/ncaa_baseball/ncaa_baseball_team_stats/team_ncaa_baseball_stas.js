@@ -12,7 +12,7 @@ export const Team_NCAA_BASEBALL_Stas = () => {
         
     }
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [team, setTeam] = useState("Davidson");
     const [league, setLeague] = useState("Atlantic 10 Conference");
     const [division, setDivision] = useState("N/A");

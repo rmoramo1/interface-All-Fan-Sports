@@ -34,6 +34,7 @@ export const EdithFight = (props) => {
 
     //
     const [event, setevent] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].event);
+    const [rotation_number, setrotation_number] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].rotation_number);
     const [rounds, setrounds] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].rounds);
     const [location_Fight, setlocation_Fight] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].location_Fight);
     const [fighter_One, setfighter_One] = useState(store.box_fight[params.theid] && store.box_fight[params.theid].fighter_One);
@@ -73,6 +74,7 @@ export const EdithFight = (props) => {
             casino: casino,
 
             event: event,
+            rotation_number: rotation_number,
             rounds: rounds,
             location_Fight: location_Fight,
             fighter_One: fighter_One,
@@ -276,25 +278,31 @@ export const EdithFight = (props) => {
                         </select>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0 text-center">
+                    <div className="col-3 me-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3">
+                        Evento
+                        <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
+                    </div>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Event</div>
+                                <div className="col-1 title-lines">Rotation#</div>
                                 <div className="col-1 title-lines">Rounds</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Fighter One</div>
@@ -306,7 +314,7 @@ export const EdithFight = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="RT#" name="event" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].rotation_number} onChange={e => setrotation_number(e.target.value)} />
                                 </div>
                                 <div className="col-1">
                                     <input type="text" className="form-control selectInner" placeholder="Rounds" name="rounds" defaultValue={store.box_fight[params.theid] && store.box_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} />

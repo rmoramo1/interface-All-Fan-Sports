@@ -70,7 +70,7 @@ export const Edit_stats_Golfer = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { Context } from "../../store/appContext";
 
 export const Team_MLB_Stas = () => {
@@ -33,10 +32,8 @@ export const Team_MLB_Stas = () => {
     const [diff, setDiff] = useState("");
     const [strk, setStrk] = useState("");
     const [L10, setL10] = useState("");
-
-    const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miForm_team_mlb_stats").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -71,7 +68,6 @@ export const Team_MLB_Stas = () => {
                 sessionStorage.setItem("my_token", data.token);
 
                 alert("Stadistica se creo");
-                setAuth(true);
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -95,7 +91,7 @@ export const Team_MLB_Stas = () => {
                     <h3>Create stats by MLB team</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miForm_team_mlb_stats">
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team
@@ -230,7 +226,6 @@ export const Team_MLB_Stas = () => {
                 <div className="col-10 text-end py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/list_mlb_stats/" /> : null}
             </form>
         </div>
     )

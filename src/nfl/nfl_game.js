@@ -330,7 +330,7 @@ export const Nfl_game = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("juego se creo");
-                setAuth(true);
+                
 
             })
             .catch(err => console.log(err));

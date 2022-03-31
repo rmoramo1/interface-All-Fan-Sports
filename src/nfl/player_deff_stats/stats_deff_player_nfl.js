@@ -90,7 +90,7 @@ export const Stats_deff_player_nfl = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica de jugador se creo");
-                setAuth(true);
+                
 
             })
             .catch(err => console.log(err));

@@ -39,7 +39,7 @@ export const Edit_Stats_NBA_Team = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        setTimeout(function () { window.location.reload(true); }, 800);
+        document.getElementById("miFormNBA_teamStats").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -77,7 +77,6 @@ export const Edit_Stats_NBA_Team = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-
                 alert("Stadistica se creo");
                 setAuth(true);
                 actualizar();
@@ -91,7 +90,7 @@ export const Edit_Stats_NBA_Team = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select
@@ -112,7 +111,7 @@ export const Edit_Stats_NBA_Team = () => {
                     <h3>Create stats by NBA team</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNBA_teamStats">
                 <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Team

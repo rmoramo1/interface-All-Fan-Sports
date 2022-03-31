@@ -88,7 +88,7 @@ export const Stats_py_ncaa_baseball = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica de jugador se creo");
-                setAuth(true);
+                
 
             })
             .catch(err => console.log(err));

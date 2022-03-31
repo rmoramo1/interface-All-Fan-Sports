@@ -15,7 +15,7 @@ export const Edit_Team_Nfl_Stas = () => {
             window.location.href = '/';
         }
     }, [])
-    
+
     const [season, setSeason] = useState(store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].season);
     const [team, setTeam] = useState(store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].team);
     const [conference, setConference] = useState(store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].conference);
@@ -142,8 +142,6 @@ export const Edit_Team_Nfl_Stas = () => {
 
         };
 
-
-
         fetch("https://sportsdata365.com/stats_nfl_team/" + store.nfl_stats_teams[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -177,7 +175,7 @@ export const Edit_Team_Nfl_Stas = () => {
 
     let selectConference = ["American Football Conference", "National Football Conference"];
     let selectDivision = ["East Division", "West Division", "North Division", "South Division"];
-    let season_Type = ["Regular Season", "Preseason","Wild Card", "Divisional Round", "Conference Chapionship", "Pro Bowl", "Super Bowl"];
+    let season_Type = ["Regular Season", "Preseason", "Wild Card", "Divisional Round", "Conference Chapionship", "Pro Bowl", "Super Bowl"];
 
     return (
         <div className="container-fluid" id="statsEdith" >
@@ -214,7 +212,7 @@ export const Edit_Team_Nfl_Stas = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Season Type
-                        <select className="form-select" name="season" defaultValue={store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].season} onChange={e => setSeason_type(e.target.value)} defaultValue={store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].season_type} required>
+                        <select className="form-select" name="season" onChange={e => setSeason_type(e.target.value)} defaultValue={store.nfl_stats_teams[params.theid] && store.nfl_stats_teams[params.theid].season_type} required>
                             {
                                 season_Type.map((index) => {
                                     return (

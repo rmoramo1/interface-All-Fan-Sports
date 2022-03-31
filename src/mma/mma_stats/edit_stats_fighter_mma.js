@@ -78,7 +78,7 @@ export const Edit_stats_Fighter_mma = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

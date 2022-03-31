@@ -56,7 +56,7 @@ export const Edith_Injuries = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     return (

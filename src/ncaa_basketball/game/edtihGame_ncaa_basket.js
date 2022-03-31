@@ -355,7 +355,7 @@ export const EdithGames_ncaa_basket = (props) => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
 

@@ -11,17 +11,17 @@ export const EdithFight_mma = (props) => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
     const [weekCrear, setWeekCrear] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].week);
     const [date, setdate] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].date);
     const [hour, sethour] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].hour);
-    let only_year = date[0]+date[1]+date[2]+date[3];
-    let only_month = date[5]+date[6];
-    let only_day = date[8]+date[9];
-    let only_hour = hour[0]+hour[1];
-    let only_min = hour[3]+hour[4];
-    
+    let only_year = date[0] + date[1] + date[2] + date[3];
+    let only_month = date[5] + date[6];
+    let only_day = date[8] + date[9];
+    let only_hour = hour[0] + hour[1];
+    let only_min = hour[3] + hour[4];
+
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].status);
     const [casino, setcasino] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].casino);
@@ -38,6 +38,7 @@ export const EdithFight_mma = (props) => {
 
     //
     const [event, setevent] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].event);
+    const [rotation_number, setrotation_number] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number);
     const [rounds, setrounds] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].rounds);
     const [location_Fight, setlocation_Fight] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].location_Fight);
     const [fighter_One, setfighter_One] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].fighter_One);
@@ -77,6 +78,7 @@ export const EdithFight_mma = (props) => {
             casino: casino,
 
             event: event,
+            rotation_number: rotation_number,
             rounds: rounds,
             location_Fight: location_Fight,
             fighter_One: fighter_One,
@@ -103,8 +105,8 @@ export const EdithFight_mma = (props) => {
             r15_result: r15_result,
 
         };
-        
-       
+
+
         fetch("https://sportsdata365.com/mma/" + store.mma_fight[params.theid].id, {
             method: "PUT",
             body: JSON.stringify(body),
@@ -115,7 +117,7 @@ export const EdithFight_mma = (props) => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("juego se creo");
                 setAuth(true);
                 actualizar();
@@ -156,7 +158,7 @@ export const EdithFight_mma = (props) => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -193,7 +195,7 @@ export const EdithFight_mma = (props) => {
                 </div>
             </div>
             <form onSubmit={crear}>
-            <div className="row g-0">
+                <div className="row g-0">
                     <div className="col-2 text-center p-1">
                         Status
                         <select className="form-select" name="status" aria-label="Default select example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].status} onChange={e => setStatusCrear(e.target.value)} required>
@@ -279,25 +281,31 @@ export const EdithFight_mma = (props) => {
                         </select>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0 text-center">
+                    <div className="col-3 me-3">
+                        <div className="col-12">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3">
+                        Evento
+                        <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
+                    </div>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Event</div>
+                                <div className="col-1 title-lines">Rotation #</div>
                                 <div className="col-1 title-lines">Rounds</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Fighter One</div>
@@ -309,7 +317,7 @@ export const EdithFight_mma = (props) => {
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].event} onChange={e => setevent(e.target.value)}  />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="Rotation #" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number} onChange={e => setrotation_number(e.target.value)} />
                                 </div>
                                 <div className="col-1">
                                     <input type="text" className="form-control selectInner" placeholder="Rounds" name="rounds" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} />

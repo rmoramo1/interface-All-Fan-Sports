@@ -36,7 +36,7 @@ export const Logo_nba = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Logo se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

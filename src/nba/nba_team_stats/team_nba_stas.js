@@ -16,8 +16,8 @@ export const Team_Nba_Stas = () => {
 
     const [season, setSeason] = useState(year);
     const [team, setTeam] = useState("Atlanta Hawks");
-    const [conference, setConference] = useState("Eastern Conference");
-    const [division, setDivision] = useState("Northwest");
+    const [conference, setConference] = useState("-");
+    const [division, setDivision] = useState("-");
     const [group_type_comparation, setGroup_type_comparation] = useState("League");
     const [season_type, setSeason_type] = useState("Regular Season");
     const [w, setw] = useState("");
@@ -75,7 +75,7 @@ export const Team_Nba_Stas = () => {
                 sessionStorage.setItem("my_token", data.token);
 
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -87,10 +87,10 @@ export const Team_Nba_Stas = () => {
         selectYear.push(i);
     }
 
-    let selectConference = ["Eastern Conference", "Western Conference"];
-    let selectDivision = ["Northwest", "Southwest", "Pacific", "Atlantic", "Central", "Southeastern"];
+    let selectConference = ["Eastern Conference", "Western Conference","-"];
+    let selectDivision = ["Northwest", "Southwest", "Pacific", "Atlantic", "Central", "Southeastern","-"];
     let season_Type = ["Regular Season", "Preseason"];
-    let comparation = ["League", "Conference", "Division"];
+    let comparation = ["League", "Conference", "Division","-"];
 
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
@@ -139,7 +139,7 @@ export const Team_Nba_Stas = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Conference
-                        <select className="form-select" name="month" aria-label="Default select example" onChange={e => setConference(e.target.value)} required>
+                        <select className="form-select" name="conference" aria-label="Default select example" defaultValue="-" onChange={e => setConference(e.target.value)} required>
                             {
                                 selectConference.map((index) => {
                                     return (
@@ -151,7 +151,7 @@ export const Team_Nba_Stas = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Division
-                        <select className="form-select" name="month" aria-label="Default select example" onChange={e => setDivision(e.target.value)} required>
+                        <select className="form-select" name="division" aria-label="Default select example" defaultValue="-" onChange={e => setDivision(e.target.value)} required>
                             {
                                 selectDivision.map((index) => {
                                     return (
@@ -163,7 +163,7 @@ export const Team_Nba_Stas = () => {
                     </div>
                     <div className="text-center col-2 p-1">
                         Comparation
-                        <select className="form-select" name="League" aria-label="Comparision" onChange={e => setGroup_type_comparation(e.target.value)} required>
+                        <select className="form-select" name="League" aria-label="Comparision" defaultValue="-" onChange={e => setGroup_type_comparation(e.target.value)} required>
                             {
                                 comparation.map((index) => {
                                     return (

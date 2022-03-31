@@ -14,7 +14,7 @@ export const Moto_GP = () => {
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [yearCrear, setYearCrear] = useState("2022");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -27,6 +27,7 @@ export const Moto_GP = () => {
     timeCrear = hourCrear + ":" + minCrear;
 
     const [race, setrace] = useState("0");
+    const [rotation_number, setrotation_number] = useState("0");
     const [track, settrack] = useState("0");
     const [location, setlocation] = useState("0");
     const [place1, setplace1] = useState("0");
@@ -46,6 +47,7 @@ export const Moto_GP = () => {
             status: statusCrear,
             casino: casino,
             race: race,
+            rotation_number: rotation_number,
             track: track,
             location: location,
             place1: place1,
@@ -225,8 +227,9 @@ export const Moto_GP = () => {
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Race</div>
-                                <div className="col-2 title-lines">Track</div>
+                                <div className="col-1 title-lines">Rotation #</div>
+                                <div className="col-3 title-lines">Race</div>
+                                <div className="col-1 title-lines">Track</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Place 1</div>
                                 <div className="col-1 title-lines">Place 2</div>
@@ -234,10 +237,13 @@ export const Moto_GP = () => {
 
                             </div>
                             <div className="row g-0">
-                                <div className="col-1">
+                            <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation#" name="rotation" onChange={e => setrotation_number(e.target.value)} required />
+                                </div>
+                                <div className="col-3">
                                     <input type="text" className="form-control selectInner" placeholder="Race" name="rotation_away" onChange={e => setrace(e.target.value)} required />
                                 </div>
-                                <div className="col-2">
+                                <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Track" aria-label="default input example" onChange={e => settrack(e.target.value)} required />
                                 </div>
                                 <div className="col-2">

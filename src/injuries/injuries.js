@@ -43,7 +43,7 @@ export const Injuries = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("ODD se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

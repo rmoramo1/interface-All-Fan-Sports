@@ -46,7 +46,7 @@ export const Stats_py_nba = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormNBA_stats_player").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -96,7 +96,6 @@ export const Stats_py_nba = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica de jugador se creo");
-                setAuth(true);
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -115,7 +114,7 @@ export const Stats_py_nba = () => {
                     <h3>Create Stats NBA Player</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormNBA_stats_player">
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Name
@@ -196,9 +195,9 @@ export const Stats_py_nba = () => {
                         <div className="col-2 title-lines">Gp</div>
                         <div className="col-2 title-lines">Gs</div>
                         <div className="col-2 title-lines">Fg</div>
-                        <div className="col-2 title-lines">Fg AVG</div>
-                        <div className="col-2 title-lines">Three Pt</div>
-                        <div className="col-2 title-lines">Three Pt AVG</div>
+                        <div className="col-2 title-lines">Fg %</div>
+                        <div className="col-2 title-lines">3Pt</div>
+                        <div className="col-2 title-lines">3Pt %</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -224,7 +223,7 @@ export const Stats_py_nba = () => {
                 <div className="mt-3">
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">Ft</div>
-                        <div className="col-2 title-lines">Ft AVG</div>
+                        <div className="col-2 title-lines">Ft %</div>
                         <div className="col-2 title-lines">Or</div>
                         <div className="col-2 title-lines">Dr</div>
                         <div className="col-2 title-lines">Reb</div>

@@ -96,7 +96,7 @@ export const Stats_kik_player_ncaa_football = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

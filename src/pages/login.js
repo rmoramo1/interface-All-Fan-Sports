@@ -39,7 +39,7 @@ export const Login = () => {
 			.then(data => {
 				window.localStorage.setItem("my_token",JSON.stringify(data));
 				actions.changename(data.username);
-				setAuth(true);
+				
 			})
 			.catch(err => console.log(err));
 	};

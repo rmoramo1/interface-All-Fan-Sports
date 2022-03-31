@@ -239,7 +239,7 @@ export const AllGames = () => {
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("GOLF")} value={GOLF}>GOLF</button>
                         <button type="button" className="btn bt_deg" onClick={e => setTipe("BOX")} value={BOX}>BOX</button>
                         <button type="button" className="btn bt_deg"  onClick={e => setTipe("MMA")} value={MMA}>MMA</button>
-                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("Moto_GP")} value={Moto_GP}>Moto GP</button>
+                        <button type="button" className="btn bt_deg"  onClick={e => setTipe("Moto_GP")} value={Moto_GP}>MOTO GP</button>
                     </div>
                 </div>
                 <div className="">

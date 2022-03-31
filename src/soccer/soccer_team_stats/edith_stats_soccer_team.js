@@ -79,7 +79,7 @@ export const Edit_Stats_Soccer_Team = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select
@@ -103,7 +103,7 @@ export const Edit_Stats_Soccer_Team = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Season
-                        <select className="form-select" name="year" aria-label="Default select example" defaultValue={store.soccer_stats_teams[params.theid] && store.soccer_stats_teams[params.theid].season} onChange={e => setSeason(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" defaultValue={store.soccer_stats_teams[params.theid] && store.soccer_stats_teams[params.theid].season} onChange={e => setSeason(e.target.value)} required>
                             {
                                 selectYear.map((index) => {
                                     return (

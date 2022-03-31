@@ -82,7 +82,7 @@ export const Edit_Stats_MLB_Team = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-        setAuth(true);
+            setAuth(true);
         actualizar();
     };
     //select

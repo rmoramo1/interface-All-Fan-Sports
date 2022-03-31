@@ -14,7 +14,7 @@ export const Team_Stas_Ncaa_Fot = () => {
         }
     }, [])
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [team, setTeam] = useState("Cincinnati");
     const [conference, setConference] = useState("Atlantic Coast Conference");
     const [division, setDivision] = useState("Atlantic");
@@ -73,7 +73,7 @@ export const Team_Stas_Ncaa_Fot = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miForm_ncaa_team_fut_stats").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -148,7 +148,7 @@ export const Team_Stas_Ncaa_Fot = () => {
                 sessionStorage.setItem("my_token", data.token);
                 
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));
@@ -170,7 +170,7 @@ export const Team_Stas_Ncaa_Fot = () => {
                     <h3>Create stats by NCAA Football team</h3>
                 </div>
             </div>
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miForm_ncaa_team_fut_stats">
                 <div className="row g-0">
                     <div className="col-3 text-center p-1">
                         Team

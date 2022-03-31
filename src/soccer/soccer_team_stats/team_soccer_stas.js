@@ -13,7 +13,7 @@ export const Team_Soccer_Stas = () => {
         }
     }, [])
 
-    const [season, setSeason] = useState("2021");
+    const [season, setSeason] = useState("2022");
     const [name, setname] = useState("");
     const [league, setleague] = useState("");
     const [position, setposition] = useState("");
@@ -65,7 +65,7 @@ export const Team_Soccer_Stas = () => {
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
                 alert("Stadistica se creo");
-                setAuth(true);
+                
                 actualizar();
             })
             .catch(err => console.log(err));

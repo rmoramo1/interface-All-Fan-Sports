@@ -38,7 +38,7 @@ export const CreateMoto_GP = () => {
 	return (
 		<div className="container-fluid">
 			<div className="col-12 bg-title-edith my-2 p-3 text-center">
-				<h3>List of Golf Events</h3>
+				<h3>List of Moto GP Events</h3>
 			</div>
 			<div className="col-12 ">
 				<div className="row g-0">

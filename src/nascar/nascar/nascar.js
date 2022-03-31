@@ -8,13 +8,15 @@ export const Nascar = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
-    const [yearCrear, setYearCrear] = useState("2021");
+    const [event, setEvent] = useState("");
+    const [rotation_number, setRotation_number] = useState("");
+    const [yearCrear, setYearCrear] = useState("2022");
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -44,7 +46,9 @@ export const Nascar = () => {
             hour: timeCrear,
             week: weekCrear,
             status: statusCrear,
+            rotation_number: rotation_number,
             casino: casino,
+            event: event,
             race: race,
             track: track,
             location: location,
@@ -52,8 +56,8 @@ export const Nascar = () => {
             place2: place2,
             place3: place3
         };
-        
-       
+
+
 
         fetch("https://sportsdata365.com/nascar", {
             method: "POST",
@@ -63,9 +67,9 @@ export const Nascar = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
-                alert("Evento se creo");
-;
+                alert("evento se creo");
+                actualizar();
+                ;
             })
             .catch(err => console.log(err));
     };
@@ -93,7 +97,7 @@ export const Nascar = () => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -208,37 +212,49 @@ export const Nascar = () => {
                         </select>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span>
+                <div className="row g-0">
+                    <div className="col-3 me-2">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Evento
+                        </div>
+                        <input type="text" className="form-control selectInner" placeholder="Evento" name="event" onChange={e => setEvent(e.target.value)} required />
+                    </div>
                 </div>
                 <div className="">
                     <div id="crear-juego" className="">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
-                                <div className="col-1 title-lines">Race</div>
-                                <div className="col-2 title-lines">Track</div>
+                                <div className="col-1 title-lines">Rotation #</div>
+                                <div className="col-2 title-lines">Race</div>
+                                <div className="col-1 title-lines">Track</div>
                                 <div className="col-2 title-lines">Location</div>
                                 <div className="col-2 title-lines">Place 1</div>
-                                <div className="col-1 title-lines">Place 2</div>
+                                <div className="col-2 title-lines">Place 2</div>
                                 <div className="col-2 title-lines">Place 3</div>
 
                             </div>
                             <div className="row g-0">
-                                <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Race" name="rotation_away" onChange={e => setrace(e.target.value)} required />
+                            <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation" onChange={e => setRotation_number(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
+                                    <input type="text" className="form-control selectInner" placeholder="Race" name="race" onChange={e => setrace(e.target.value)} required />
+                                </div>
+                                <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="Track" aria-label="default input example" onChange={e => settrack(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
@@ -247,11 +263,11 @@ export const Nascar = () => {
                                 <div className="col-2">
                                     <input className="form-control selectInner" type="text" placeholder="Place 1" aria-label="default input example" onChange={e => setplace1(e.target.value)} />
                                 </div>
-                                <div className="col-1">
+                                <div className="col-2">
                                     <input className="form-control selectInner" type="text" placeholder="Place 2" aria-label="default input example" onChange={e => setplace2(e.target.value)} />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" onChange={e => setplace3(e.target.value)}  />
+                                    <input className="form-control selectInner" type="text" placeholder="Place 3" aria-label="default input example" onChange={e => setplace3(e.target.value)} />
                                 </div>
                             </div>
                         </div>
