@@ -171,7 +171,7 @@ export const Soccer_game = () => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 25; i++) {
+    for (let i = 0; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);

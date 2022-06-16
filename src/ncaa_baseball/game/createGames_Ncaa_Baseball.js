@@ -75,6 +75,7 @@ export const CreateGames_Ncaa_Baseball = () => {
 								juice_under_home={item.juice_under_home}
 								final_score_away={item.final_score_away}
 								final_score_home={item.final_score_home}
+								type_of_line={item.type_of_line}
 							/>
 						</div>
 					);
@@ -109,6 +110,7 @@ export const CreateGames_Ncaa_Baseball = () => {
 								juice_under_home={item.juice_under_home}
 								final_score_away={item.final_score_away}
 								final_score_home={item.final_score_home}
+								type_of_line={item.type_of_line}
 							/>
 						</div>
 					);

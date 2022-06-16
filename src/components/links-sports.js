@@ -58,6 +58,7 @@ import { Stats_Moto_GP_Driver } from "../moto_gp/moto_gp_drivers/stats_moto_gp_d
 import { Odds_to_win } from "../odds/odds_to_win";
 
 import { Props } from "../props/props";
+import { Add_Props } from "../add_props/add_props";
 
 import { Logos } from "./logos";
 
@@ -266,14 +267,14 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="moto_gp_Game" className="accordion-collapse collapse" aria-labelledby="moto_gp_-headingOne" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Moto_GP/>
+                        <Moto_GP />
                     </div>
                 </div>
             </div>
             <div className="accordion-item">
                 <div id="moto_gp_stats_player" className="accordion-collapse collapse" aria-labelledby="moto_gp-headingTwo" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Stats_Moto_GP_Driver/>
+                        <Stats_Moto_GP_Driver />
                     </div>
                 </div>
             </div>
@@ -444,6 +445,15 @@ export const Links = () => {
                 </div>
             </div>
             {/* props */}
+            {/* add props */}
+            <div className="accordion-item">
+                <div id="add_props" className="accordion-collapse collapse" aria-labelledby="add_props" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Add_Props/>
+                    </div>
+                </div>
+            </div>
+            {/* add props */}
             {/* logos */}
             <div className="accordion-item">
                 <div id="Logos" className="accordion-collapse collapse" aria-labelledby="Logos" data-bs-parent="#allitems">

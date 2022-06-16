@@ -252,24 +252,24 @@ export const Stats_py_nba = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Stl</div>
                         <div className="col-2 title-lines">Blk</div>
-                        <div className="col-2 title-lines">To</div>
+                        <div className="col-2 title-lines">Stl</div>
                         <div className="col-2 title-lines">Pf</div>
+                        <div className="col-2 title-lines">To</div>
                         <div className="col-2 title-lines">Pts</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Stl" aria-label="default input example" onChange={e => setStl(e.target.value)} required />
-                        </div>
-                        <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Blk" aria-label="default input example" onChange={e => setBlk(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="To" aria-label="default input example" onChange={e => setTo(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Stl" aria-label="default input example" onChange={e => setStl(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Pf" aria-label="default input example" onChange={e => setPf(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="To" aria-label="default input example" onChange={e => setTo(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="To" aria-label="default input example" onChange={e => setPts(e.target.value)} required />

@@ -12,6 +12,7 @@ export const NBA_game = () => {
     }
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
+    const [type_of_line, setType_of_line] = useState("");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
     const [yearCrear, setYearCrear] = useState(year);
@@ -167,6 +168,7 @@ export const NBA_game = () => {
             week: weekCrear,
             status: statusCrear,
             casino: casino,
+            type_of_line: type_of_line,
             rotation_home: rotation_home,
             rotation_away: rotation_away,
             away: awayCrear,
@@ -355,7 +357,7 @@ export const NBA_game = () => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 25; i++) {
+    for (let i = 0; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -494,19 +496,35 @@ export const NBA_game = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-3">
-                    <div className="col-12 text-center">
-                        Casino <span className="fst-italic small ">*no required</span> 
+                <div className="row g-0">
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Casino <span className="fst-italic small ">*no required</span>
+                        </div>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
-                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setcasino(e.target.value)}>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="promotions" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <div className="col-3 ms-1">
+                        <div className="col-12 text-center">
+                            Type of Line
+                        </div>
+                        <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" onChange={e => setType_of_line(e.target.value)}>
+                            {
+                                store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
                 <div className="accordion-item ">
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameCreate">

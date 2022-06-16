@@ -37,12 +37,12 @@ export const Header = () => {
                         <i className="fas fa-bars"></i>
                     </HashLink>
                 </div>
-                <div className="col-2">
+                <div className="col-1">
 
                 </div>
                 <div className={nav}>
                     <div className="row g-0">
-                        <div className="col-5">
+                        <div className="col-7">
                             <div className="d-flex justify-content-center align-items-center">
                                 <nav className="navbar navbar-expand-lg p-0">
                                     <div className="container-fluid">
@@ -214,6 +214,7 @@ export const Header = () => {
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/casinos_page">Casinos</HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/odds_page">Odds</HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/props_page">Props</HashLink>
+                                                <HashLink className="nav-link ul-drop nav-link-pri" to="/list_props">List Props</HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/injuries_page">Injuries</HashLink>
                                                 <HashLink className="nav-link ul-drop nav-link-pri" to="/futures_page">Futures</HashLink>
                                             </div>

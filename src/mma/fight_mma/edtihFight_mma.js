@@ -22,6 +22,12 @@ export const EdithFight_mma = (props) => {
     let only_hour = hour[0] + hour[1];
     let only_min = hour[3] + hour[4];
 
+    const [rotation_number_f_one, setrotation_number_f_one] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number_f_one);
+    const [rotation_number_f_two, setrotation_number_f_two] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number_f_two);
+    const [total, settotal] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].total);
+    const [juice_Over, setjuice_Over] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].juice_Over);
+    const [juice_Under, setjuice_Under] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].juice_Under);
+
     const dateLux = DateTime.now().weekNumber;
     const [statusCrear, setStatusCrear] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].status);
     const [casino, setcasino] = useState(store.mma_fight[params.theid] && store.mma_fight[params.theid].casino);
@@ -78,8 +84,12 @@ export const EdithFight_mma = (props) => {
             casino: casino,
 
             event: event,
-            rotation_number: rotation_number,
+            rotation_number_f_one: rotation_number_f_one,
+            rotation_number_f_two: rotation_number_f_two,
             rounds: rounds,
+            total: total,
+            juice_Over: juice_Over,
+            juice_Under: juice_Under,
             location_Fight: location_Fight,
             fighter_One: fighter_One,
             money_Line_One: money_Line_One,
@@ -163,7 +173,7 @@ export const EdithFight_mma = (props) => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 25; i++) {
+    for (let i = 0; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -296,9 +306,21 @@ export const EdithFight_mma = (props) => {
                             }
                         </select>
                     </div>
-                    <div className="col-3">
+                    <div className="col-2">
                         Evento
                         <input type="text" className="form-control selectInner" placeholder="Event" name="event" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].event} onChange={e => setevent(e.target.value)} />
+                    </div>
+                    <div className="col-2">
+                        <div className="col-12">
+                            Location
+                        </div>
+                        <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].location_Fight} onChange={e => setlocation_Fight(e.target.value)} required />
+                    </div>
+                    <div className="col-1">
+                        <div className="col-12">
+                            Rounds
+                        </div>
+                        <input type="text" className="form-control selectInner" placeholder="Rounds" name="rotation_away" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} required />
                     </div>
                 </div>
                 <div className="">
@@ -306,42 +328,52 @@ export const EdithFight_mma = (props) => {
                         <div>
                             <div className="row g-0 text-center pt-3 ">
                                 <div className="col-1 title-lines">Rotation #</div>
-                                <div className="col-1 title-lines">Rounds</div>
-                                <div className="col-2 title-lines">Location</div>
-                                <div className="col-2 title-lines">Fighter One</div>
+                                <div className="col-2 title-lines">Fighter</div>
                                 <div className="col-1 title-lines">ML</div>
-                                <div className="col-2 title-lines">Fighter Two</div>
-                                <div className="col-1 title-lines">ML</div>
-                                <div className="col-1 title-lines">Winner</div>
+                                <div className="col-1 title-lines">Total</div>
+                                <div className="col-1 title-lines">Juice</div>
+                                <div className="col-1 title-lines ms-2">Winner</div>
                                 <div className="col-1 title-lines">Finish By</div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="Rotation #" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number} onChange={e => setrotation_number(e.target.value)} />
-                                </div>
-                                <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rounds" name="rounds" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rounds} onChange={e => setrounds(e.target.value)} />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setrotation_number_f_one(e.target.value)} defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number_f_one} required />
                                 </div>
                                 <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].location_Fight} onChange={e => setlocation_Fight(e.target.value)} />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Fighter One" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].fighter_One} onChange={e => setfighter_One(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Fighter One" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].fighter_One} onChange={e => setfighter_One(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].money_Line_One} onChange={e => setmoney_Line_One(e.target.value)} />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Fighter Two" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].fighter_Two} onChange={e => setfighter_Two(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].money_Line_One} onChange={e => setmoney_Line_One(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].money_Line_Two} onChange={e => setmoney_Line_Two(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example"
+                                        defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].total} onChange={e => settotal(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="JO" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].juice_Over} onChange={e => setjuice_Over(e.target.value)} required />
+                                </div>
+
+                                <div className="col-1 ms-2">
                                     <input className="form-control selectInner" type="text" placeholder="winner" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].winner} onChange={e => setwinner(e.target.value)} />
                                 </div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].finish_by} onChange={e => setfinish_by(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example"
+                                        defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].finish_by} onChange={e => setfinish_by(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row g-0">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].rotation_number_f_two} onChange={e => setrotation_number_f_two(e.target.value)} required />
+                                </div>
+                                <div className="col-2">
+                                    <input className="form-control selectInner" type="text" placeholder="Fighter Two" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].fighter_Two} onChange={e => setfighter_Two(e.target.value)} required />
+                                </div>
+                                <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].money_Line_Two} onChange={e => setmoney_Line_Two(e.target.value)} required />
+                                </div>
+                                <div className="col-1"></div>
+                                <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="JU" aria-label="default input example" defaultValue={store.mma_fight[params.theid] && store.mma_fight[params.theid].juice_Under} onChange={e => setjuice_Under(e.target.value)} required />
                                 </div>
                             </div>
                             <div className="col-12 pt-3">
@@ -402,7 +434,6 @@ export const EdithFight_mma = (props) => {
                             </div>
                         </div>
                     </div>
-
                     <div id="firstHalf" className="">
                         <div className="row g-0 text-center pt-3 w-100">
                             <div className="col-1 title-lines">R13</div>

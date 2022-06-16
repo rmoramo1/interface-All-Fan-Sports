@@ -13,6 +13,9 @@ const ListGameNcaa_Basket = props => {
                     <div className="col-12 text-center">
                         <Link className="btn btn-dark text-white" to={`/edtihGame_ncaa_basket/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
+                    <div className="col-12 btn text-center text-white ">
+                        {props.type_of_line}
+                    </div>
                 </div>
             </div>
             <div className="col-11 bg-white my-3 shadow">
@@ -83,6 +86,7 @@ ListGameNcaa_Basket.propTypes = {
     id: PropTypes.number,
     del: PropTypes.number,
     away: PropTypes.string,
+    type_of_line: PropTypes.string,
     home: PropTypes.string,
     hour: PropTypes.string,
     rotation_away: PropTypes.string,

@@ -101,6 +101,7 @@ const injectContext = PassedComponent => {
 			state.actions.loadOdds_to_win();
 			//props
 			state.actions.loadProps();
+			state.actions.load_Add_Props();
 			//casinos
 			state.actions.loadCasinos();
 			//injuries

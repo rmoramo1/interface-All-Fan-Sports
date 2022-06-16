@@ -17,6 +17,7 @@ export const EdithGames_nba = (props) => {
     const [casino, setCasino] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].rotation_away);
+    const [type_of_line, setType_of_line] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].type_of_line);
 
     const [week, setWeekCrear] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].week);
     const [date, setdate] = useState(store.nbaGames[params.theid] && store.nbaGames[params.theid].date);
@@ -182,6 +183,7 @@ export const EdithGames_nba = (props) => {
         const body = {
             status: statusCrear,
             casino: casino,
+            type_of_line: type_of_line,
             week: week,
             date: yearSendCrear,
             hour: timeCrear,
@@ -534,17 +536,33 @@ export const EdithGames_nba = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-2 text-center px-1">
-                    Casino
-                    <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nbaGames[params.theid] && store.nbaGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
-                        {
-                            store.casinos.map((item, index) => {
-                                return (
-                                    <option key={index} name="casinos" value={item.name}>{item.name}</option>
-                                )
-                            })
-                        }
-                    </select>
+                <div className="row g-0">
+                    <div className="col-3 text-center px-1">
+                        Casino
+                        <select className="form-select" name="casinos" aria-label="Default select example" defaultValue={store.nbaGames[params.theid] && store.nbaGames[params.theid].casino} onChange={e => setCasino(e.target.value)} required>
+                            {
+                                store.casinos.map((item, index) => {
+                                    return (
+                                        <option key={index} name="casinos" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3 ms-1">
+                        <div className="col-12 text-center">
+                            Type of Line
+                        </div>
+                        <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" defaultValue={store.nbaGames[params.theid] && store.nbaGames[params.theid].type_of_line} onChange={e => setType_of_line(e.target.value)}>
+                            {
+                                store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
                 <div className="accordion-item ">
                     <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameEdith">

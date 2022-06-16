@@ -13,7 +13,8 @@ export const CreateFight = () => {
         
     }
 
-	const weekLux = DateTime.now().weekNumber;
+	const weekLux = DateTime.now().month;
+	console.log(weekLux)
 	const yearLux = DateTime.now().year;
 	const [week, setWeek] = useState(weekLux);
 	const [filterYear, setFilterYear] = useState(yearLux);
@@ -26,8 +27,22 @@ export const CreateFight = () => {
 	});
 
 	let selectWeek = [];
-	for (let i = 1; i < 53; i++) {
-		selectWeek.push(i);
+	for (let i = 1; i < 13; i++) {
+		if (i < 10) {
+            i = "0" + i;
+            selectWeek.push(i);
+        } else {
+            selectWeek.push(i);
+        }
+	}
+
+	let semana = []
+	if (weekLux < 10) {
+		let r = "0" + weekLux;
+		semana.push(r);
+	} else {
+		let r = weekLux;
+		semana.push(r);
 	}
 	
 	let selectYear = [];
@@ -46,8 +61,8 @@ export const CreateFight = () => {
 						Filter
 					</div>
 					<div className="col-3 text-center">
-						Week
-						<select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={weekLux} onChange={e => setWeek(e.target.value)}>
+						Month
+						<select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={semana} onChange={e => setWeek(e.target.value)}>
 							{
 								selectWeek.map((index) => {
 									return (
@@ -72,7 +87,8 @@ export const CreateFight = () => {
 				</div>
 				<div className="row g-0">
 					{fight.map((item, index) => {
-						if ( item.date.includes(filterYear) && item.week == week) {
+					let month = item.date.slice(5,7);
+					if ( item.date.includes(filterYear) && month == week) {
 							return (
 								<div key={index} className="col-6 p-1">
 									<ListFights_Box

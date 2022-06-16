@@ -28,8 +28,12 @@ export const Fight_mma = () => {
     timeCrear = hourCrear + ":" + minCrear;
     //
     const [event, setevent] = useState("0");
-    const [rotation_number, setrotation_number] = useState("0");
+    const [rotation_number_f_one, setrotation_number_f_one] = useState("0");
+    const [rotation_number_f_two, setrotation_number_f_two] = useState("0");
     const [rounds, setrounds] = useState("0");
+    const [total, settotal] = useState("0");
+    const [juice_Over, setjuice_Over] = useState("0");
+    const [juice_Under, setjuice_Under] = useState("0");
     const [location_Fight, setlocation_Fight] = useState("0");
     const [fighter_One, setfighter_One] = useState("0");
     const [money_Line_One, setmoney_Line_One] = useState("0");
@@ -70,8 +74,13 @@ export const Fight_mma = () => {
             casino: casino,
 
             event: event,
-            rotation_number: rotation_number,
+            rotation_number_f_one: rotation_number_f_one,
+            rotation_number_f_two: rotation_number_f_two,
+            
             rounds: rounds,
+            total: total,
+            juice_Over: juice_Over,
+            juice_Under: juice_Under,
             location_Fight: location_Fight,
             fighter_One: fighter_One,
             money_Line_One: money_Line_One,
@@ -143,7 +152,7 @@ export const Fight_mma = () => {
         selectWeek.push(i);
     }
     let selectHour = [];
-    for (let i = 1; i < 25; i++) {
+    for (let i = 0; i < 25; i++) {
         if (i < 10) {
             i = "0" + i;
             selectHour.push(i);
@@ -254,7 +263,7 @@ export const Fight_mma = () => {
                     </div>
                 </div>
                 <div className="row g-0  text-center">
-                    <div className="col-3 me-3">
+                    <div className="col-2">
                         <div className="col-12">
                             Casino <span className="fst-italic small ">*no required</span>
                         </div>
@@ -268,9 +277,21 @@ export const Fight_mma = () => {
                             }
                         </select>
                     </div>
-                    <div className="col-3">
+                    <div className="col-2">
                         Evento
                         <input type="text" className="form-control selectInner" placeholder="Event" name="evento" onChange={e => setevent(e.target.value)} required />
+                    </div>
+                    <div className="col-2">
+                        <div className="col-12">
+                            Location
+                        </div>
+                        <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" onChange={e => setlocation_Fight(e.target.value)} required />
+                    </div>
+                    <div className="col-1">
+                        <div className="col-12">
+                            Rounds
+                        </div>
+                        <input type="text" className="form-control selectInner" placeholder="Rounds" name="rotation_away" onChange={e => setrounds(e.target.value)} required />
                     </div>
                 </div>
                 <div className="">
@@ -278,24 +299,16 @@ export const Fight_mma = () => {
                         <div>
                             <div className="row g-0 text-center pt-3 ">
                                 <div className="col-1 title-lines">Rotation #</div>
-                                <div className="col-1 title-lines">Rounds</div>
-                                <div className="col-2 title-lines">Location</div>
-                                <div className="col-2 title-lines">Fighter One</div>
+                                <div className="col-2 title-lines">Fighter</div>
                                 <div className="col-1 title-lines">ML</div>
-                                <div className="col-2 title-lines">Fighter Two</div>
-                                <div className="col-1 title-lines">ML</div>
-                                <div className="col-1 title-lines">Winner</div>
+                                <div className="col-1 title-lines">Total</div>
+                                <div className="col-1 title-lines">Juice</div>
+                                <div className="col-1 title-lines ms-2">Winner</div>
                                 <div className="col-1 title-lines">Finish By</div>
                             </div>
                             <div className="row g-0">
                                 <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setrotation_number(e.target.value)} required />
-                                </div>
-                                <div className="col-1">
-                                    <input type="text" className="form-control selectInner" placeholder="Rounds" name="rotation_away" onChange={e => setrounds(e.target.value)} required />
-                                </div>
-                                <div className="col-2">
-                                    <input className="form-control selectInner" type="text" placeholder="Location" aria-label="default input example" onChange={e => setlocation_Fight(e.target.value)} required />
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setrotation_number_f_one(e.target.value)} required />
                                 </div>
                                 <div className="col-2">
                                     <input className="form-control selectInner" type="text" placeholder="Fighter One" aria-label="default input example" onChange={e => setfighter_One(e.target.value)} required />
@@ -303,17 +316,33 @@ export const Fight_mma = () => {
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" onChange={e => setmoney_Line_One(e.target.value)} required />
                                 </div>
+                                <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="Total" aria-label="default input example" onChange={e => settotal(e.target.value)} required />
+                                </div>
+                                <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="JO" aria-label="default input example" onChange={e => setjuice_Over(e.target.value)} required />
+                                </div>
+
+                                <div className="col-1 ms-2">
+                                    <input className="form-control selectInner" type="text" placeholder="winner" aria-label="default input example" onChange={e => setwinner(e.target.value)} />
+                                </div>
+                                <div className="col-1">
+                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example" onChange={e => setfinish_by(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="row g-0">
+                                <div className="col-1">
+                                    <input type="text" className="form-control selectInner" placeholder="Rotation #" name="rotation_away" onChange={e => setrotation_number_f_two(e.target.value)} required />
+                                </div>
                                 <div className="col-2">
                                     <input className="form-control selectInner" type="text" placeholder="Fighter Two" aria-label="default input example" onChange={e => setfighter_Two(e.target.value)} required />
                                 </div>
                                 <div className="col-1">
                                     <input className="form-control selectInner" type="text" placeholder="ML" aria-label="default input example" onChange={e => setmoney_Line_Two(e.target.value)} required />
                                 </div>
+                                <div className="col-1"></div>
                                 <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="winner" aria-label="default input example" onChange={e => setwinner(e.target.value)} />
-                                </div>
-                                <div className="col-1">
-                                    <input className="form-control selectInner" type="text" placeholder="Finish By" aria-label="default input example" onChange={e => setfinish_by(e.target.value)} />
+                                    <input className="form-control selectInner" type="text" placeholder="JU" aria-label="default input example" onChange={e => setjuice_Under(e.target.value)} required />
                                 </div>
                             </div>
                             <div className="col-12 pt-3">

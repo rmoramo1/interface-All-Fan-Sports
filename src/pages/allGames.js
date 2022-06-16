@@ -13,7 +13,6 @@ import { CreateGames_Ncaa_Football } from "../ncaa_football/game/createGames_Nca
 import { CreateGames_Ncaa_Basket } from "../ncaa_basketball/game/createGames_Ncaa_basket";
 import { CreateGames_Ncaa_Baseball } from "../ncaa_baseball/game/createGames_Ncaa_Baseball";
 import { CreateMoto_GP } from "../moto_gp/moto_gp/createMoto_GP";
-import { Moto_GP } from "../moto_gp/moto_gp/moto_gp";
 
 
 export const AllGames = () => {

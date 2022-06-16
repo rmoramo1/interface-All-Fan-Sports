@@ -24,6 +24,9 @@ const GameMapNfl = props => {
                     <div className="col-12 text-center">
                         <Link className="btn btn-dark text-white" to={`/edtihGame/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
+                    <div className="col-12 btn text-center text-white ">
+                        {props.type_of_line}
+                    </div>
                 </div>
             </div>
             <div className="col-11 bg-white my-3 shadow">
@@ -120,5 +123,6 @@ GameMapNfl.propTypes = {
     juice_under_home: PropTypes.string,
     final_score_away: PropTypes.string,
     final_score_home: PropTypes.string,
+    type_of_line: PropTypes.string,
 };
 export default GameMapNfl;

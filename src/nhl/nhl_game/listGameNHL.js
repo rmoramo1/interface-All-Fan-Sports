@@ -23,6 +23,9 @@ const ListGameNHL = props => {
                     <div className="col-12 text-center">
                         <Link className="btn btn-dark text-white" to={`/edtihGame_NHL/${props.id}`}><i className="far fa-eye"></i></Link>
                     </div>
+                    <div className="col-12 btn text-center text-white ">
+                        {props.type_of_line}
+                    </div>
                 </div>
             </div>
             <div className="col-11 bg-white my-3 shadow">
@@ -52,7 +55,7 @@ const ListGameNHL = props => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-1 lines">{props.puck_line_home}</div>
+                        <div className="col-1 lines">{props.puck_line_away}</div>
                         <div className="col-1 lines">{props.juice_puck_away}</div>
                         <div className="col-1 lines">{props.moneyLineAway}</div>
                         <div className="col-1 lines">{props.total}</div>
@@ -117,5 +120,6 @@ ListGameNHL.propTypes = {
     juice_under_home: PropTypes.string,
     final_score_away: PropTypes.string,
     final_score_home: PropTypes.string,
+    type_of_line: PropTypes.string,
 };
 export default ListGameNHL;

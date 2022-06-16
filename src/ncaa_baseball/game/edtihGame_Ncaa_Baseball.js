@@ -17,6 +17,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
     const [casino, setcasino] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].rotation_away);
+    const [type_of_line, setType_of_line] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].type_of_line);
 
     const [date, setdate] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].date);
     const [hour, sethour] = useState(store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].hour);
@@ -215,6 +216,7 @@ export const EdithGames_Ncaa_Baseball = (props) => {
             home: HomeCrear,
             date: yearSendCrear,
             hour: timeCrear,
+            type_of_line: type_of_line,
 
             pitcher_a: pitcher_a,
             pitcher_h: pitcher_h,
@@ -546,6 +548,20 @@ export const EdithGames_Ncaa_Baseball = (props) => {
                                 store.casinos.map((item, index) => {
                                     return (
                                         <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3">
+                        <div className="col-12 text-center">
+                            Type of Line
+                        </div>
+                        <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" defaultValue={store.ncaa_baseball[params.theid] && store.ncaa_baseball[params.theid].type_of_line} onChange={e => setType_of_line(e.target.value)}>
+                            {
+                                store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
                                     )
                                 })
                             }

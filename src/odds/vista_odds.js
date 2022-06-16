@@ -17,12 +17,12 @@ const Vista_ODDS = props => {
                     <div className="row g-0 text-center ">
                         <div className="col-4 lines title-lines">Title</div>
                         <div className="col-4 lines title-lines">Sport</div>
-                        <div className="col-4 lines title-lines">Type</div>
+                        <div className="col-4 lines title-lines">Date</div>
                     </div>
                     <div className="row g-0 text-center">
                         <div className="col-4 lines">{props.title}</div>
                         <div className="col-4 lines">{props.sport}</div>
-                        <div className="col-4 lines">{props.type_odd}</div>
+                        <div className="col-4 lines">{props.date}</div>
                     </div>
                 </div>
             </div>
@@ -33,6 +33,6 @@ Vista_ODDS.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     sport: PropTypes.string,
-    type_odd: PropTypes.string,
+    date: PropTypes.string,
 };
 export default Vista_ODDS;

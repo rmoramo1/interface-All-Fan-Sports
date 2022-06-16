@@ -507,6 +507,13 @@ export const Tabs = () => {
                 </h2>
             </div>
             <div className="accordion-item">
+                <h2 className="accordion-header" id="headingProps">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#add_props" aria-expanded="false" aria-controls="props">
+                    Add Prop to the List  <i className="fas fa-list ps-2 fs-5"></i>
+                    </HashLink>
+                </h2>
+            </div>
+            <div className="accordion-item">
                 <div className="accordion-header" id="headingLogos">
                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Logos" aria-expanded="false" aria-controls="Logos">
                         LOGOS <i className="far fa-flag ps-5 fs-5"></i>

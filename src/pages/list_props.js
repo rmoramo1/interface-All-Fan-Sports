@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Vista_PROPS from "../props/vista_props";
 
-export const Props_page = () => {
+import Vista_Add_Props from "../add_props/vista_add_props";
+
+export const List_Props = () => {
     
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
@@ -15,19 +16,17 @@ export const Props_page = () => {
     return (
         <div className="container-fluid m-50">
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
-                <h3>Props</h3>
+                <h3>List Props</h3>
             </div>
             <div className="container mt-3">
                 <div className="row g-0">
                     {
-                        store.props.map((item, index) => {
+                        store.add_props.map((item, index) => {
                             return (
                                 <div key={index} className="col-4 p-1">
-                                    <Vista_PROPS
+                                    <Vista_Add_Props
                                         id={index}
-                                        title={item.title}
-                                        sport={item.sport}
-                                        type_prop={item.type_prop}
+                                        name={item.name}
                                     />
                                 </div>
                             )

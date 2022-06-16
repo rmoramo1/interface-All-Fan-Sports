@@ -52,15 +52,15 @@ export const Props = () => {
     return (
         <div className="col mx-auto mt-5 rounded overflow-hidden sha dow">
             <div className="col-12 bg-title-edith my-2 p-3 text-center">
-                <h3>Odds To Win</h3>
+                <h3>Props</h3>
             </div>
             <form onSubmit={crear} id="miFormPROPS">
                 <div className="row g-0">
-                    <div className="col-2 title-lines text-center">
+                    <div className="col-1 title-lines text-center">
                         Date
                     </div>
-                    <div className="col-2 title-lines text-center">
-                        Title
+                    <div className="col-4 title-lines text-center">
+                        Prop
                     </div>
                     <div className="col-2 title-lines text-center">
                         Sport
@@ -71,16 +71,24 @@ export const Props = () => {
                     <div className="col-2 title-lines text-center">
                         Home
                     </div>
-                    <div className="col-2 title-lines text-center">
+                    <div className="col-1 title-lines text-center">
                         Line
                     </div>
                 </div>
                 <div className="row g-0">
-                <div className="col-2">
+                <div className="col-1">
                         <input type="text" className="form-control selectInner" placeholder="Date" name="Date" onChange={e => setdate(e.target.value)} required />
                     </div>
-                    <div className="col-2">
-                        <input type="text" className="form-control selectInner" placeholder="Title" name="Title" onChange={e => settitle(e.target.value)} required />
+                    <div className="col-4">
+                    <select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => settitle(e.target.value)}>
+                            {
+                                store.add_props.map((item, index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
                     </div>
                     <div className="col-2">
                         <input type="text" className="form-control selectInner" placeholder="Sport" name="sport" onChange={e => setsport(e.target.value)} required />
@@ -91,7 +99,7 @@ export const Props = () => {
                     <div className="col-2">
                         <input type="text" className="form-control selectInner" placeholder="Home" name="home" onChange={e => sethome(e.target.value)} required />
                     </div>
-                    <div className="col-2">
+                    <div className="col-1">
                         <input type="text" className="form-control selectInner" placeholder="Line" name="line" onChange={e => setline(e.target.value)} required />
                     </div>
                 </div>

@@ -13,6 +13,8 @@ import { ODDS_page } from "./pages/odds_page";
 import { Edith_ODD } from "./odds/edith_odds";
 import { Props_page } from "./pages/props_page";
 import { Edith_PROPS } from "./props/edith_props";
+import { Edith_Add_PROPS } from "./add_props/edith_add_props";
+import { List_Props } from "./pages/list_props";
 
 //nfl
 import { EdithGames } from "./nfl/edtihGame";
@@ -154,6 +156,7 @@ function App() {
 					<Route exact path="/edith_future/:theid" component={Edith_Future} />
 					<Route exact path="/edith_odds/:theid" component={Edith_ODD} />
 					<Route exact path="/edith_props/:theid" component={Edith_PROPS} />
+					<Route exact path="/edith_add_props/:theid" component={Edith_Add_PROPS} />
 					<Route exact path="/edith_injuries/:theid" component={Edith_Injuries} />
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb} />
 					<Route exact path="/edtihGame_Ncaa_Baseball/:theid" component={EdithGames_Ncaa_Baseball} />
@@ -226,6 +229,7 @@ function App() {
 					<Route exact path="/edit_stats_put_player_ncaa_foot/:theid" component={Edith_Stats_put_player_ncaa_foot} />
 					<Route exact path="/edit_stats_ret_player_nca_foot/:theid" component={Edith_Stats_ret_player_ncaa_foot} />
 					<Route exact path="/createGames_NFL" component={CreateGames_NFL} />
+					<Route exact path="/list_props" component={List_Props} />
 					<Route><h1>404</h1> </Route>
 				</Switch>
 				<Footer />

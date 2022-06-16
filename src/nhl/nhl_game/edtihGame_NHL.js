@@ -19,6 +19,7 @@ export const EdithGames_nhl = (props) => {
     const [casino, setcasino] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].casino);
     const [rotation_home, setRotation_home] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_home);
     const [rotation_away, setRotation_away] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].rotation_away);
+    const [type_of_line, setType_of_line] = useState(store.nhlGames[params.theid] && store.nhlGames[params.theid].type_of_line);
     //
     let only_year = date[0]+date[1]+date[2]+date[3];
     let only_month = date[5]+date[6];
@@ -88,6 +89,7 @@ export const EdithGames_nhl = (props) => {
             casino: casino,
             rotation_home: rotation_home,
             rotation_away: rotation_away,
+            type_of_line: type_of_line,
             away: away,
             home: home,
             date: yearSendCrear,
@@ -324,6 +326,20 @@ export const EdithGames_nhl = (props) => {
                                 store.casinos.map((item, index) => {
                                     return (
                                         <option key={index} name="promotions" value={item.name}>{item.name}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3 ms-1">
+                        <div className="col-12 text-center">
+                            Type of Line
+                        </div>
+                        <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" defaultValue={store.nhlGames[params.theid] && store.nhlGames[params.theid].type_of_line} onChange={e => setType_of_line(e.target.value)}>
+                            {
+                                store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
                                     )
                                 })
                             }
