@@ -151,7 +151,7 @@ export const Edit_stats_Fighter_mma = () => {
                     </div>
                     <div className="text-center col-3 p-1">
                         Headshot
-                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.mma_stats[params.theid] && store.mma_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)} required ></input>
+                        <input className="form-control selectInner" type="text" placeholder="Headshot" aria-label="setheadshot" defaultValue={store.mma_stats[params.theid] && store.mma_stats[params.theid].headshot} onChange={e => setheadshot(e.target.value)}  ></input>
                     </div>
                 </div>
 

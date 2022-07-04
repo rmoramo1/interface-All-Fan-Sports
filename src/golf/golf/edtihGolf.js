@@ -67,30 +67,30 @@ export const EdithGolf = (props) => {
     const [winner_24, setwinner_24] = useState(store.golf[params.theid] && store.golf[params.theid].winner_24);
     const [winner_25, setwinner_25] = useState(store.golf[params.theid] && store.golf[params.theid].winner_25);
 
-    const [hour_matchup_1, sethour_matchup_1] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_2, sethour_matchup_2] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_3, sethour_matchup_3] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_4, sethour_matchup_4] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_5, sethour_matchup_5] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_6, sethour_matchup_6] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_7, sethour_matchup_7] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_8, sethour_matchup_8] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_9, sethour_matchup_9] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_10, sethour_matchup_10] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_11, sethour_matchup_11] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_12, sethour_matchup_12] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_13, sethour_matchup_13] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_14, sethour_matchup_14] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_15, sethour_matchup_15] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_16, sethour_matchup_16] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_17, sethour_matchup_17] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_18, sethour_matchup_18] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_19, sethour_matchup_19] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_20, sethour_matchup_20] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_21, sethour_matchup_21] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_22, sethour_matchup_22] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_23, sethour_matchup_23] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
-    const [hour_matchup_24, sethour_matchup_24] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
+    const [hour_matchup_1, sethour_matchup_1] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_1);
+    const [hour_matchup_2, sethour_matchup_2] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_2);
+    const [hour_matchup_3, sethour_matchup_3] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_3);
+    const [hour_matchup_4, sethour_matchup_4] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_4);
+    const [hour_matchup_5, sethour_matchup_5] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_5);
+    const [hour_matchup_6, sethour_matchup_6] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_6);
+    const [hour_matchup_7, sethour_matchup_7] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_7);
+    const [hour_matchup_8, sethour_matchup_8] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_8);
+    const [hour_matchup_9, sethour_matchup_9] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_9);
+    const [hour_matchup_10, sethour_matchup_10] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_10);
+    const [hour_matchup_11, sethour_matchup_11] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_11);
+    const [hour_matchup_12, sethour_matchup_12] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_12);
+    const [hour_matchup_13, sethour_matchup_13] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_13);
+    const [hour_matchup_14, sethour_matchup_14] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_14);
+    const [hour_matchup_15, sethour_matchup_15] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_15);
+    const [hour_matchup_16, sethour_matchup_16] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_16);
+    const [hour_matchup_17, sethour_matchup_17] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_17);
+    const [hour_matchup_18, sethour_matchup_18] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_18);
+    const [hour_matchup_19, sethour_matchup_19] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_19);
+    const [hour_matchup_20, sethour_matchup_20] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_20);
+    const [hour_matchup_21, sethour_matchup_21] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_21);
+    const [hour_matchup_22, sethour_matchup_22] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_22);
+    const [hour_matchup_23, sethour_matchup_23] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_23);
+    const [hour_matchup_24, sethour_matchup_24] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_24);
     const [hour_matchup_25, sethour_matchup_25] = useState(store.golf[params.theid] && store.golf[params.theid].hour_matchup_25);
 
     const [rotation_number_1, setrotation_number_1] = useState(store.golf[params.theid] && store.golf[params.theid].rotation_number_1);
@@ -695,7 +695,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_1} onChange={e => setmoney_line_1(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_1} onChange={e => sethour_matchup_1(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_1} onChange={e => sethour_matchup_1(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_1} onChange={e => setwinner_1(e.target.value)} />
@@ -727,7 +727,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_3} onChange={e => setmoney_line_3(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_2} onChange={e => sethour_matchup_2(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_2} onChange={e => sethour_matchup_2(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_2} onChange={e => setwinner_2(e.target.value)} />
@@ -759,7 +759,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_5} onChange={e => setmoney_line_5(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_3} onChange={e => sethour_matchup_3(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_3} onChange={e => sethour_matchup_3(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_3} onChange={e => setwinner_3(e.target.value)} />
@@ -791,7 +791,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_7} onChange={e => setmoney_line_7(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_4} onChange={e => sethour_matchup_4(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_4} onChange={e => sethour_matchup_4(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_4}  onChange={e => setwinner_4(e.target.value)} />
@@ -823,7 +823,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_9} onChange={e => setmoney_line_9(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_5} onChange={e => sethour_matchup_5(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_5} onChange={e => sethour_matchup_5(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_5} onChange={e => setwinner_5(e.target.value)} />
@@ -855,7 +855,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_11} onChange={e => setmoney_line_11(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_6} onChange={e => sethour_matchup_6(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_6} onChange={e => sethour_matchup_6(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_6} onChange={e => setwinner_6(e.target.value)} />
@@ -887,7 +887,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_13} onChange={e => setmoney_line_13(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_7} onChange={e => sethour_matchup_7(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_7} onChange={e => sethour_matchup_7(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].setwinner_7} onChange={e => setwinner_7(e.target.value)} />
@@ -919,7 +919,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_15} onChange={e => setmoney_line_15(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_8} onChange={e => sethour_matchup_8(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_8} onChange={e => sethour_matchup_8(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_8} onChange={e => setwinner_8(e.target.value)} />
@@ -951,7 +951,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_17} onChange={e => setmoney_line_17(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_9} onChange={e => sethour_matchup_9(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_9} onChange={e => sethour_matchup_9(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_9} onChange={e => setwinner_9(e.target.value)} />
@@ -983,7 +983,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_19} onChange={e => setmoney_line_19(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_10} onChange={e => sethour_matchup_10(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_10} onChange={e => sethour_matchup_10(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_10} onChange={e => setwinner_10(e.target.value)} />
@@ -1015,7 +1015,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_21} onChange={e => setmoney_line_21(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_11} onChange={e => sethour_matchup_11(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_11} onChange={e => sethour_matchup_11(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_11} onChange={e => setwinner_11(e.target.value)} />
@@ -1047,7 +1047,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_23} onChange={e => setmoney_line_23(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_12} onChange={e => sethour_matchup_12(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_12} onChange={e => sethour_matchup_12(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_12} onChange={e => setwinner_12(e.target.value)} />
@@ -1079,7 +1079,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_25} onChange={e => setmoney_line_25(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_13} onChange={e => sethour_matchup_13(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_13} onChange={e => sethour_matchup_13(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_13} onChange={e => setwinner_13(e.target.value)} />
@@ -1111,7 +1111,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_27} onChange={e => setmoney_line_27(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_14} onChange={e => sethour_matchup_14(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_14} onChange={e => sethour_matchup_14(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_14} onChange={e => setwinner_14(e.target.value)} />
@@ -1143,7 +1143,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation"  defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_29} onChange={e => setmoney_line_29(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation"  defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_15} onChange={e => sethour_matchup_15(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation"  defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_15} onChange={e => sethour_matchup_15(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_15} onChange={e => setwinner_15(e.target.value)} />
@@ -1175,7 +1175,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_31} onChange={e => setmoney_line_31(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_16} onChange={e => sethour_matchup_16(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_16} onChange={e => sethour_matchup_16(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_16} onChange={e => setwinner_16(e.target.value)} />
@@ -1207,7 +1207,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_33} onChange={e => setmoney_line_33(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_17} onChange={e => sethour_matchup_17(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_17} onChange={e => sethour_matchup_17(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation"  defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_17} onChange={e => setwinner_17(e.target.value)} />
@@ -1239,7 +1239,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_35} onChange={e => setmoney_line_35(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_18} onChange={e => sethour_matchup_18(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_18} onChange={e => sethour_matchup_18(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_18} onChange={e => setwinner_18(e.target.value)} />
@@ -1271,7 +1271,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_37} onChange={e => setmoney_line_37(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_19} onChange={e => sethour_matchup_19(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_19} onChange={e => sethour_matchup_19(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_19} onChange={e => setwinner_19(e.target.value)} />
@@ -1303,7 +1303,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_39} onChange={e => setmoney_line_39(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_20} onChange={e => sethour_matchup_20(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_20} onChange={e => sethour_matchup_20(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_20} onChange={e => setwinner_20(e.target.value)} />
@@ -1335,7 +1335,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_41} onChange={e => setmoney_line_41(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_21} onChange={e => sethour_matchup_21(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_21} onChange={e => sethour_matchup_21(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_21} onChange={e => setwinner_21(e.target.value)} />
@@ -1367,7 +1367,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_43} onChange={e => setmoney_line_43(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_22} onChange={e => sethour_matchup_22(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_22} onChange={e => sethour_matchup_22(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_22} onChange={e => setwinner_22(e.target.value)} />
@@ -1399,7 +1399,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_45} onChange={e => setmoney_line_45(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_23} onChange={e => sethour_matchup_23(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_23} onChange={e => sethour_matchup_23(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_23} onChange={e => setwinner_23(e.target.value)} />
@@ -1431,7 +1431,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_47} onChange={e => setmoney_line_47(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_24} onChange={e => sethour_matchup_24(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_24} onChange={e => sethour_matchup_24(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_24} onChange={e => setwinner_24(e.target.value)} />
@@ -1463,7 +1463,7 @@ export const EdithGolf = (props) => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].money_line_49} onChange={e => setmoney_line_49(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_25} onChange={e => sethour_matchup_25(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].hour_matchup_25} onChange={e => sethour_matchup_25(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" defaultValue={store.golf[params.theid] && store.golf[params.theid].winner_25} onChange={e => setwinner_25(e.target.value)} />

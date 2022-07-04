@@ -94,7 +94,7 @@ export const Team_NHL_Stas = () => {
         selectYear.push(i);
     }
 
-    let selectDivision = ["Atlantic", "Metropolitan", "Central", "Peaceful"];
+    let selectDivision = ["Atlantic", "Metropolitan", "Central", "Pacific"];
     let selectConference = ["East", "West"];
     let season_Type = ["Regular Season", "Preseason"];
     let comparation = ["League", "Conference", "Division"];

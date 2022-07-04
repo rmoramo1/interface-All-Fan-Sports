@@ -658,7 +658,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_1(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_1(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_1(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_1(e.target.value)} />
@@ -690,7 +690,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_3(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_2(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_2(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_2(e.target.value)} />
@@ -722,7 +722,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_5(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_3(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_3(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_3(e.target.value)} />
@@ -754,7 +754,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_7(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_4(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_4(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_4(e.target.value)} />
@@ -786,7 +786,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_9(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_5(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_5(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_5(e.target.value)} />
@@ -818,7 +818,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_11(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_6(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_6(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_6(e.target.value)} />
@@ -850,7 +850,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_13(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_7(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_7(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_7(e.target.value)} />
@@ -882,7 +882,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_15(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_8(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_8(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_8(e.target.value)} />
@@ -914,7 +914,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_17(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_9(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_9(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_9(e.target.value)} />
@@ -946,7 +946,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_19(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_10(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_10(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_10(e.target.value)} />
@@ -978,7 +978,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_21(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_11(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_11(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_11(e.target.value)} />
@@ -1010,7 +1010,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_23(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_12(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_12(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_12(e.target.value)} />
@@ -1042,7 +1042,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_25(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_13(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_13(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_13(e.target.value)} />
@@ -1074,7 +1074,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_27(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_14(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_14(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_14(e.target.value)} />
@@ -1106,7 +1106,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_29(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_15(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_15(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_15(e.target.value)} />
@@ -1138,7 +1138,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_31(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_16(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_16(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_16(e.target.value)} />
@@ -1170,7 +1170,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_33(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_17(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_17(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_17(e.target.value)} />
@@ -1202,7 +1202,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_35(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_18(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_18(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_18(e.target.value)} />
@@ -1234,7 +1234,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_37(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_19(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_19(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_19(e.target.value)} />
@@ -1266,7 +1266,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_39(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_20(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_20(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_20(e.target.value)} />
@@ -1298,7 +1298,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_41(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_21(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_21(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_21(e.target.value)} />
@@ -1330,7 +1330,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_43(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_22(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_22(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_22(e.target.value)} />
@@ -1362,7 +1362,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_45(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_23(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_23(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_23(e.target.value)} />
@@ -1394,7 +1394,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_47(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_24(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_24(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_24(e.target.value)} />
@@ -1426,7 +1426,7 @@ export const Golf = () => {
                                         <input type="text" className="form-control selectInner" placeholder="Moneyline" name="rotation" onChange={e => setmoney_line_49(e.target.value)} />
                                     </div>
                                     <div className="col-1">
-                                        <input type="text" className="form-control selectInner" placeholder="Hour" name="rotation" onChange={e => sethour_matchup_25(e.target.value)} />
+                                        <input type="text" className="form-control selectInner" placeholder="Hour" maxLength={5} name="rotation" onChange={e => sethour_matchup_25(e.target.value)} />
                                     </div>
                                     <div className="col-3">
                                         <input type="text" className="form-control selectInner" placeholder="Winner" name="rotation" onChange={e => setwinner_25(e.target.value)} />
