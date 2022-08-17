@@ -177,6 +177,7 @@ export const MLB_game = () => {
     const [sh_40inning, setSh_40inning] = useState("");
     const [auth, setAuth] = useState(false);
 
+    let typeOfLineMLB = [" ", "ALT", "DOUBLE HEADER"];
 
     let actualizar = () => {
         document.getElementById("miFormMLB").reset();
@@ -498,7 +499,7 @@ export const MLB_game = () => {
                         </div>
                         <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" onChange={e => setType_of_line(e.target.value)}>
                             {
-                                store.typeOfLine.map((index) => {
+                                typeOfLineMLB.map((index) => {
                                     return (
                                         <option key={index} name="promotions" value={index}>{index}</option>
                                     )

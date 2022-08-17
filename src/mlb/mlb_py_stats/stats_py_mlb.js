@@ -3,13 +3,13 @@ import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Stats_py_mlb = () => {
-    const { store} = useContext(Context);
+    const { store } = useContext(Context);
 
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const [name, setName] = useState("");
@@ -28,13 +28,14 @@ export const Stats_py_mlb = () => {
     const [h, setH] = useState("");
     const [two_b, setTwo_b] = useState("");
     const [three_b, setThree_b] = useState("");
-    const [hb, setHb] = useState("");
+    const [hr, setHr] = useState("");
 
     const [rbi, setRbi] = useState("");
-    const [tb, setTb] = useState("");
+    const [hbp, sethbp] = useState("");
     const [bb, setBb] = useState("");
     const [so, setSo] = useState("");
     const [sb, setSb] = useState("");
+    const [cs, setcs] = useState("");
     const [avg, setAvg] = useState("");
 
     const [obp, setObp] = useState("");
@@ -66,12 +67,13 @@ export const Stats_py_mlb = () => {
             h: h,
             two_b: two_b,
             three_b: three_b,
-            hb: hb,
+            hr: hr,
             rbi: rbi,
-            tb: tb,
+            hbp: hbp,
             bb: bb,
             so: so,
             sb: sb,
+            cs: cs,
             avg: avg,
             obp: obp,
             slg: slg,
@@ -86,7 +88,7 @@ export const Stats_py_mlb = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se creo");
             })
             .catch(err => console.log(err));
@@ -97,7 +99,7 @@ export const Stats_py_mlb = () => {
     for (let i = 2002; i < 2025; i++) {
         selectYear.push(i);
     }
-    let positions=["Pitcher","Catcher","First Baseman","Second Baseman","Third Baseman","Short Stop","Left Fielder","Center fielder","Right Fielder"];
+    let positions = ["Pitcher", "Catcher", "First Baseman", "Second Baseman", "Third Baseman", "Short Stop", "Left Fielder", "Center fielder", "Right Fielder"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
@@ -175,12 +177,12 @@ export const Stats_py_mlb = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Gp</div>
-                        <div className="col-2 title-lines">Ab</div>
+                        <div className="col-2 title-lines">GP</div>
+                        <div className="col-2 title-lines">AB</div>
                         <div className="col-2 title-lines">R</div>
                         <div className="col-2 title-lines">H</div>
-                        <div className="col-2 title-lines">Two B</div>
-                        <div className="col-2 title-lines">Three B</div>
+                        <div className="col-2 title-lines">2B</div>
+                        <div className="col-2 title-lines">3B</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -205,43 +207,47 @@ export const Stats_py_mlb = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Hb</div>
-                        <div className="col-2 title-lines">Rbi</div>
-                        <div className="col-2 title-lines">Tb</div>
-                        <div className="col-2 title-lines">Bb</div>
-                        <div className="col-2 title-lines">So</div>
-                        <div className="col-2 title-lines">Sb</div>
+                        <div className="col-2 title-lines">HR</div>
+                        <div className="col-2 title-lines">RBI</div>
+                        <div className="col-2 title-lines">BB</div>
+                        <div className="col-2 title-lines">HBP</div>
+                        <div className="col-2 title-lines">SO</div>
+                        <div className="col-2 title-lines">SB</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Hb" aria-label="default input example" onChange={e => setHb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="HR" aria-label="default input example" onChange={e => setHr(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Rbi" aria-label="default input example" onChange={e => setRbi(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="RBI" aria-label="default input example" onChange={e => setRbi(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Tb" aria-label="default input example" onChange={e => setTb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="BB" aria-label="default input example" onChange={e => setBb(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Bb" aria-label="default input example" onChange={e => setBb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="HBP" aria-label="default input example" onChange={e => sethbp(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="So" aria-label="default input example" onChange={e => setSo(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="SO" aria-label="default input example" onChange={e => setSo(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Sb" aria-label="default input example" onChange={e => setSb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="SB" aria-label="default input example" onChange={e => setSb(e.target.value)} required />
                         </div>
                     </div>
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Avg</div>
-                        <div className="col-2 title-lines">Obp</div>
-                        <div className="col-2 title-lines">Slg</div>
-                        <div className="col-2 title-lines">Ops</div>
-                        <div className="col-2 title-lines">War</div>
+                        <div className="col-2 title-lines">CS</div>
+                        <div className="col-2 title-lines">AVG</div>
+                        <div className="col-2 title-lines">OBP</div>
+                        <div className="col-2 title-lines">SLG</div>
+                        <div className="col-2 title-lines">OPS</div>
+                        <div className="col-2 title-lines">WAR</div>
                     </div>
                     <div className="row g-0">
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="CS" aria-label="default input example" onChange={e => setcs(e.target.value)} required />
+                        </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Avg" aria-label="default input example" onChange={e => setAvg(e.target.value)} required />
                         </div>

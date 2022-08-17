@@ -21,13 +21,17 @@ export const Stats_Fighter_box = () => {
     const [season, setseason] = useState("2022");
 
     const [country, setCountry] = useState("");
-    const [association, setAssociation] = useState("Boston Bruins");
+    const [association, setAssociation] = useState("");
     const [category, setCategory] = useState("");
 
     const [w, setW] = useState("");
-    const [w_by, setW_by] = useState("");
+    const [w_ko_tko, setw_ko_tko] = useState("");
+    const [w_sub, setw_sub] = useState("");
+    const [w_dec, setw_dec] = useState("");
     const [L, setL] = useState("");
-    const [L_by, setL_by] = useState("");
+    const [L_ko_tko, setL_ko_tko] = useState("");
+    const [L_sub, setL_sub] = useState("");
+    const [L_dec, setL_dec] = useState("");
 
 
     const [auth, setAuth] = useState(false);
@@ -49,9 +53,13 @@ export const Stats_Fighter_box = () => {
             association: association,
             category: category,
             w: w,
-            w_by: w_by,
+            w_ko_tko: w_ko_tko,
+            w_sub: w_sub,
+            w_dec: w_dec,
             L: L,
-            L_by: L_by,
+            L_ko_tko: L_ko_tko,
+            L_sub: L_sub,
+            L_dec: L_dec,
         };
 
 
@@ -98,6 +106,7 @@ export const Stats_Fighter_box = () => {
                         Height
                         <input className="form-control selectInner" type="text" placeholder="Height" aria-label="default input example" onChange={e => setHeight(e.target.value)} required ></input>
                     </div>
+
                     <div className="text-center col-2 p-1">
                         Weight
                         <input className="form-control selectInner" type="text" placeholder="Weight" aria-label="default input example" onChange={e => setWeight(e.target.value)} required ></input>
@@ -112,7 +121,7 @@ export const Stats_Fighter_box = () => {
                     </div>
                 </div>
                 <div className="row g-0">
-                    <div className="text-center col-2 p-1">
+                <div className="text-center col-2 p-1">
                         Season
                         <select className="form-select" name="year" aria-label="Default select example" onChange={e => setseason(e.target.value)} defaultValue={season} required>
                             {
@@ -141,22 +150,42 @@ export const Stats_Fighter_box = () => {
                 <div className="mt-3">
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">W</div>
-                        <div className="col-2 title-lines">W By</div>
-                        <div className="col-2 title-lines">L</div>
-                        <div className="col-2 title-lines">L By</div>
+                        <div className="col-2 title-lines">W By KO / TKO</div>
+                        <div className="col-2 title-lines">W By Sub</div>
+                        <div className="col-2 title-lines">W By Dec</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="W" aria-label="default input example" onChange={e => setW(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="W By" aria-label="default input example" onChange={e => setW_by(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="TO / TKO" aria-label="default input example" onChange={e => setw_ko_tko(e.target.value)} required />
                         </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="SUB" aria-label="default input example" onChange={e => setw_sub(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="DEC" aria-label="default input example" onChange={e => setw_dec(e.target.value)} required />
+                        </div>
+                    </div>
+                    <div className="row g-0 text-center">
+                        <div className="col-2 title-lines">L</div>
+                        <div className="col-2 title-lines">L By KO / TKO</div>
+                        <div className="col-2 title-lines">L By Sub</div>
+                        <div className="col-2 title-lines">L By Dec</div>
+                    </div>
+                    <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" onChange={e => setL(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="L By" aria-label="default input example" onChange={e => setL_by(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="L By KO / TKO" aria-label="default input example" onChange={e => setL_ko_tko(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="L By Sub" aria-label="default input example" onChange={e => setL_sub(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="L By Dec" aria-label="default input example" onChange={e => setL_dec(e.target.value)} required />
                         </div>
                     </div>
                 </div>
@@ -164,7 +193,7 @@ export const Stats_Fighter_box = () => {
                 <div className="col-10 text-end py-3">
                     <button type="submit" className="btn btn-danger">Create</button>
                 </div>
-                {auth ? <Redirect to="/list_stats_fighter_box/" /> : null}
+                {auth ? <Redirect to="/list_stats_fighter_mma/" /> : null}
             </form>
         </div>
 

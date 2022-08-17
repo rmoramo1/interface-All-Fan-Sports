@@ -9,11 +9,11 @@ export const Edit_stats_player_mlb = () => {
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const params = useParams();
-    
+
     const [name, setName] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].name);
     const [height, setHeight] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].height);
     const [weight, setWeight] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].weight);
@@ -30,13 +30,15 @@ export const Edit_stats_player_mlb = () => {
     const [h, setH] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].h);
     const [two_b, setTwo_b] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].two_b);
     const [three_b, setThree_b] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].three_b);
-    const [hb, setHb] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hb);
+    const [hr, setHr] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hr);
 
     const [rbi, setRbi] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].rbi);
+    const [hbp, sethbp] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hbp);
     const [tb, setTb] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].tb);
     const [bb, setBb] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].bb);
     const [so, setSo] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].so);
     const [sb, setSb] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].sb);
+    const [cs, setcs] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].cs);
     const [avg, setAvg] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].avg);
 
     const [obp, setObp] = useState(store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].obp);
@@ -69,20 +71,21 @@ export const Edit_stats_player_mlb = () => {
             h: h,
             two_b: two_b,
             three_b: three_b,
-            hb: hb,
+            hr: hr,
             rbi: rbi,
-            tb: tb,
+            hbp: hbp,
             bb: bb,
             so: so,
             sb: sb,
+            cs: cs,
             avg: avg,
             obp: obp,
             slg: slg,
             ops: ops,
             war: war
         };
-        
-       
+
+
 
         fetch("https://sportsdata365.com/stats_mlb_player/" + store.mlb_stats_player[params.theid].id, {
             method: "PUT",
@@ -92,7 +95,7 @@ export const Edit_stats_player_mlb = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se Actualizo");
                 setAuth(true);
                 actualizar();
@@ -106,7 +109,7 @@ export const Edit_stats_player_mlb = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-            setAuth(true);
+        setAuth(true);
         actualizar();
     };
     //select
@@ -114,11 +117,11 @@ export const Edit_stats_player_mlb = () => {
     for (let i = 2002; i < 2025; i++) {
         selectYear.push(i);
     }
-    let positions=["Pitcher","Catcher","First Baseman","Second Baseman","Third Baseman","Short Stop","Left Fielder","Center fielder","Right Fielder"];
+    let positions = ["Pitcher", "Catcher", "First Baseman", "Second Baseman", "Third Baseman", "Short Stop", "Left Fielder", "Center fielder", "Right Fielder"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
-            <div className="col-12 bg-title-edith mt-2 p-3 text-center">
+                <div className="col-12 bg-title-edith mt-2 p-3 text-center">
                     <div className="row g-0">
                         <div className="col-6 d-flex align-items-center justify-content-end">
                             <h3>Edit stats of {store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].name} </h3>
@@ -152,7 +155,7 @@ export const Edit_stats_player_mlb = () => {
                 <div className="row g-0">
                     <div className="text-center col-3 p-1">
                         Position
-                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].position}  onChange={e => setPosition(e.target.value)} required>
+                        <select className="form-select selectInner" name="week" aria-label="Default select example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].position} onChange={e => setPosition(e.target.value)} required>
                             {
                                 positions.map((index) => {
                                     return (
@@ -199,12 +202,12 @@ export const Edit_stats_player_mlb = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Gp</div>
-                        <div className="col-2 title-lines">Ab</div>
+                        <div className="col-2 title-lines">GP</div>
+                        <div className="col-2 title-lines">AB</div>
                         <div className="col-2 title-lines">R</div>
                         <div className="col-2 title-lines">H</div>
-                        <div className="col-2 title-lines">Two B</div>
-                        <div className="col-2 title-lines">Three B</div>
+                        <div className="col-2 title-lines">2B</div>
+                        <div className="col-2 title-lines">3B</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -229,25 +232,25 @@ export const Edit_stats_player_mlb = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Hb</div>
-                        <div className="col-2 title-lines">Rbi</div>
-                        <div className="col-2 title-lines">Tb</div>
-                        <div className="col-2 title-lines">Bb</div>
-                        <div className="col-2 title-lines">So</div>
-                        <div className="col-2 title-lines">Sb</div>
+                        <div className="col-2 title-lines">HR</div>
+                        <div className="col-2 title-lines">RBI</div>
+                        <div className="col-2 title-lines">BB</div>
+                        <div className="col-2 title-lines">HBP</div>
+                        <div className="col-2 title-lines">SO</div>
+                        <div className="col-2 title-lines">SB</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Hb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hb} onChange={e => setHb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Hb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hr} onChange={e => setHr(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Rbi" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].rbi} onChange={e => setRbi(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Tb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].tb} onChange={e => setTb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Bb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].bb} onChange={e => setBb(e.target.value)} required />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Bb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].bb} onChange={e => setBb(e.target.value)} required />
+                            <input className="form-control selectInner" type="text" placeholder="Tb" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].hbp} onChange={e => sethbp(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="So" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].so} onChange={e => setSo(e.target.value)} required />
@@ -259,13 +262,17 @@ export const Edit_stats_player_mlb = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Avg</div>
-                        <div className="col-2 title-lines">Obp</div>
-                        <div className="col-2 title-lines">Slg</div>
-                        <div className="col-2 title-lines">Ops</div>
-                        <div className="col-2 title-lines">War</div>
+                        <div className="col-2 title-lines">CS</div>
+                        <div className="col-2 title-lines">AVG</div>
+                        <div className="col-2 title-lines">OBP</div>
+                        <div className="col-2 title-lines">SLG</div>
+                        <div className="col-2 title-lines">OPS</div>
+                        <div className="col-2 title-lines">WAR</div>
                     </div>
                     <div className="row g-0">
+                    <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="CS" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].cs} onChange={e => setcs(e.target.value)} required />
+                        </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Avg" aria-label="default input example" defaultValue={store.mlb_stats_player[params.theid] && store.mlb_stats_player[params.theid].avg} onChange={e => setAvg(e.target.value)} required />
                         </div>

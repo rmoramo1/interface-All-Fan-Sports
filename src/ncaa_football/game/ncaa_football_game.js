@@ -32,7 +32,7 @@ export const Ncaa_Football_game = () => {
     const [juiceTotalOver, setjuiceTotalOver] = useState("-110");
     const [juiceTotalUnder, setjuiceTotalUnder] = useState("-110");
     //away
-    const [awayCrear, setAwayCrear] = useState("Cincinnati");
+    const [awayCrear, setAwayCrear] = useState("Cincinnati Bearcats");
     const [spreadAwayCrear, setSpreadAwayCrear] = useState("");
     const [juiceSpreadAwayCrear, setJuiceSpreadAwayCrear] = useState("-110");
     const [MonelLineAwayCrear, setMonelLineAwayCrear] = useState("");
@@ -41,7 +41,7 @@ export const Ncaa_Football_game = () => {
     const [juiceTeamTotalAwayU, setjuiceTeamTotalAwayU] = useState("-110");
     const [finalScoreA, setFinalScoreA] = useState("");
     //home
-    const [HomeCrear, setHomeCrear] = useState("Cincinnati");
+    const [HomeCrear, setHomeCrear] = useState("Cincinnati Bearcats");
     const [spreadHomeCrear, setSpreadHomeCrear] = useState("");
     const [juiceSpreadHomeCrear, setJuiceSpreadHomeCrear] = useState("-110");
     const [MonelLineHomeCrear, setMonelLineHomeCrear] = useState("");

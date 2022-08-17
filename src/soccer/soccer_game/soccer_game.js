@@ -2,12 +2,14 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../../store/appContext";
 export const Soccer_game = () => {
     const { store } = useContext(Context);
+    let date = new Date();
+    let year = date.getFullYear();
 
-        useEffect(() => {
+    useEffect(() => {
         const loggedUser = window.localStorage.getItem('my_token');
         const user = JSON.parse(loggedUser);
-        
-        if(!user){
+
+        if (!user) {
             window.location.href = '/';
         }
     }, [])
@@ -17,7 +19,7 @@ export const Soccer_game = () => {
     const [casino, setcasino] = useState("");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
-    const [yearCrear, setYearCrear] = useState("2022");
+    const [yearCrear, setYearCrear] = useState(year);
     const [monthCrear, setMonthCrear] = useState("01");
     const [dayCrear, setDayCrear] = useState("01");
     let yearSend = yearCrear + "-" + monthCrear + "-" + dayCrear;
@@ -46,6 +48,7 @@ export const Soccer_game = () => {
     const [juice_goal_home, setjuice_goal_home] = useState("-110");
     const [moneyLineAway, setmoneyLineAway] = useState("");
     const [moneyLineHome, setmoneyLineHome] = useState("");
+    const [draw, setdraw] = useState("");
     const [total, settotal] = useState("");
     const [juice_total_over, setjuice_total_over] = useState("-110");
     const [juice_total_under, setjuice_total_under] = useState("-110");
@@ -64,6 +67,7 @@ export const Soccer_game = () => {
     const [juice_goal_home_1H, setjuice_goal_home_1H] = useState("-110");
     const [moneyLineAway_1H, setmoneyLineAway_1H] = useState("");
     const [moneyLineHome_1H, setmoneyLineHome_1H] = useState("");
+    const [draw_1H, setdraw_1H] = useState("");
     const [total_1H, settotal_1H] = useState("");
     const [H1_juice_over, setH1_juice_over] = useState("-110");
     const [H1_juice_under, setH1_juice_under] = useState("-110");
@@ -97,6 +101,7 @@ export const Soccer_game = () => {
             juice_goal_home: juice_goal_home,
             moneyLineAway: moneyLineAway,
             moneyLineHome: moneyLineHome,
+            draw: draw,
             total: total,
             juice_total_over: juice_total_over,
             juice_total_under: juice_total_under,
@@ -116,6 +121,7 @@ export const Soccer_game = () => {
             juice_goal_home_1H: juice_goal_home_1H,
             moneyLineAway_1H: moneyLineAway_1H,
             moneyLineHome_1H: moneyLineHome_1H,
+            draw_1H: draw_1H,
             total_1H: total_1H,
             H1_juice_over: H1_juice_over,
             H1_juice_under: H1_juice_under,
@@ -125,10 +131,9 @@ export const Soccer_game = () => {
             tt_home_1H: tt_home_1H,
             juice_over_home_1H: juice_over_home_1H,
             juice_under_home_1H: juice_under_home_1H,
-
         };
-        
-       
+
+
 
         fetch("https://sportsdata365.com/soccer", {
             method: "POST",
@@ -166,7 +171,7 @@ export const Soccer_game = () => {
             selectDay.push(i);
         }
     }
-   let selectWeek = [];
+    let selectWeek = [];
     for (let i = 1; i < 53; i++) {
         selectWeek.push(i);
     }
@@ -209,7 +214,7 @@ export const Soccer_game = () => {
                     </div>
                     <div className="text-center col-1 p-1">
                         Year
-                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={2021} required>
+                        <select className="form-select" name="year" aria-label="Default select example" onChange={e => setYearCrear(e.target.value)} defaultValue={year} required>
                             {
                                 selectYear.map((index) => {
                                     return (
@@ -309,7 +314,7 @@ export const Soccer_game = () => {
                         <select className="form-select selectInner" name="Tournament" aria-label="Tournament" defaultValue={tournament} onChange={e => settournament(e.target.value)}>
                             {
                                 store.soccer_tournament.map((item, index) => {
-                                
+
                                     return (
                                         <option key={index} name="promotions" value={item.tournament}>{item.tournament}</option>
                                     )
@@ -404,6 +409,11 @@ export const Soccer_game = () => {
                                     <input className="form-control selectInner" type="text" placeholder="FS" aria-label="default input example" onChange={e => setfinal_score_home(e.target.value)} />
                                 </div>
                             </div>
+                            <div className="row g-0">
+                                <div className="col-1 offset-5">
+                                    <input className="form-control selectInner" type="text" placeholder="DRAW" aria-label="default input example" onChange={e => setdraw(e.target.value)} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="firstHalf" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#gameCreateSoccer">
@@ -467,6 +477,11 @@ export const Soccer_game = () => {
                             </div>
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={-110} onChange={e => setjuice_under_home_1H(e.target.value)} />
+                            </div>
+                        </div>
+                        <div className="row g-0">
+                            <div className="col-2 offset-4">
+                                <input className="form-control selectInner" type="text" placeholder="DRAW FH" aria-label="default input example" onChange={e => setdraw_1H(e.target.value)} />
                             </div>
                         </div>
                     </div>

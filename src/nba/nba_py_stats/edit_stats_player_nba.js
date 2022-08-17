@@ -13,7 +13,7 @@ export const Edit_stats_player_nba = () => {
     }
 
     const params = useParams();
-    
+
     const [name, setName] = useState(store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].name);
     const [height, setHeight] = useState(store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].height);
     const [weight, setWeight] = useState(store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].weight);
@@ -109,7 +109,7 @@ export const Edit_stats_player_nba = () => {
         })
             .then(res => res.json())
             .catch(err => console.log(err));
-            setAuth(true);
+        setAuth(true);
         actualizar();
     };
     //select
@@ -169,11 +169,6 @@ export const Edit_stats_player_nba = () => {
                         Dorsal
                         <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].dorsal} onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
-
-                    <div className="text-center col-3 p-1">
-                        Minutes
-                        <input className="form-control selectInner" type="text" placeholder="Minutes" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].minutes} onChange={e => setMinutes(e.target.value)} required ></input>
-                    </div>
                     <div className="text-center col-3 p-1">
                         College
                         <input className="form-control selectInner" type="text" placeholder="College" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].college} onChange={e => setCollege(e.target.value)} required ></input>
@@ -211,8 +206,9 @@ export const Edit_stats_player_nba = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Gp</div>
+                        <div className="col-1 title-lines">Gp</div>
                         <div className="col-2 title-lines">Gs</div>
+                        <div className="col-1 title-lines">MIn</div>
                         <div className="col-2 title-lines">Fg</div>
                         <div className="col-2 title-lines">Fg AVG</div>
                         <div className="col-2 title-lines">Three Pt</div>
@@ -220,11 +216,14 @@ export const Edit_stats_player_nba = () => {
 
                     </div>
                     <div className="row g-0">
-                        <div className="col-2">
+                        <div className="col-1">
                             <input className="form-control selectInner" type="text" placeholder="Gp" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].gp} onChange={e => setGp(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Gs" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].gs} onChange={e => setGs(e.target.value)} required />
+                        </div>
+                        <div className="col-1">
+                            <input className="form-control selectInner" type="text" placeholder="Min" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].minutes} onChange={e => setMinutes(e.target.value)} required ></input>
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Fg" aria-label="default input example" defaultValue={store.nba_stats_player[params.theid] && store.nba_stats_player[params.theid].fg} onChange={e => setFg(e.target.value)} required />

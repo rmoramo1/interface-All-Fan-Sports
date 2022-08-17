@@ -36,7 +36,7 @@ export const CreateGames_Ncaa_Basket = () => {
 					<div className="col-3">
 						<select className="form-select selectInner" name="week" aria-label="Default select example" onChange={e => setTeam(e.target.value)}>
 							{
-								store.nba_teams.map((index) => {
+								store.ncaa_basket_teams.map((index) => {
 									return (
 										<option key={index} name="promotions" value={index}>{index}</option>
 									)

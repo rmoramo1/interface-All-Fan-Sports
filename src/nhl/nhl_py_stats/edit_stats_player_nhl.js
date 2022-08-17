@@ -169,7 +169,7 @@ export const Edit_stats_player_nhl = () => {
                         Team
                         <select className="form-select selectInner" name="week" defaultValue={store.nhl_stats_player[params.theid]&& store.nhl_stats_player[params.theid].team} aria-label="Default select example" onChange={e => setTeam(e.target.value)} required>
                             {
-                                store.mlb_teams.map((index) => {
+                                store.nhl_teams.map((index) => {
                                     return (
                                         <option key={index} name="team" value={index}>{index}</option>
                                     )

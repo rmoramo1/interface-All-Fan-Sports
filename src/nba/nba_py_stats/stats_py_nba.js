@@ -3,13 +3,13 @@ import { Redirect } from "react-router-dom";
 import { Context } from "../../store/appContext";
 
 export const Stats_py_nba = () => {
-    const { store} = useContext(Context);
+    const { store } = useContext(Context);
 
     let roy = window.localStorage.getItem("my_token", JSON.stringify());
     if (!roy) {
         window.location.href = '/';
     } else {
-        
+
     }
 
     const [name, setName] = useState("");
@@ -62,7 +62,7 @@ export const Stats_py_nba = () => {
             minutes: minutes,
             position: position,
             headshot: headshot,
-            
+
             gp: gp,
             gs: gs,
             fg: fg,
@@ -83,8 +83,8 @@ export const Stats_py_nba = () => {
             pf: pf,
             pts: pts
         };
-        
-       
+
+
 
         fetch("https://sportsdata365.com/stats_nba_player", {
             method: "POST",
@@ -94,7 +94,7 @@ export const Stats_py_nba = () => {
             .then(res => res.json())
             .then(data => {
                 sessionStorage.setItem("my_token", data.token);
-                
+
                 alert("Stadistica de jugador se creo");
                 actualizar();
             })
@@ -106,7 +106,7 @@ export const Stats_py_nba = () => {
     for (let i = 2002; i < 2025; i++) {
         selectYear.push(i);
     }
-    let positions=["PG","SG","SF","PF","C"];
+    let positions = ["PG", "SG", "SF", "PF", "C"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">
@@ -152,10 +152,6 @@ export const Stats_py_nba = () => {
                         <input className="form-control selectInner" type="text" placeholder="Dorsal" aria-label="default input example" onChange={e => setDorsal(e.target.value)} required ></input>
                     </div>
                     <div className="text-center col-3 p-1">
-                        Minutes
-                        <input className="form-control selectInner" type="text" placeholder="Minutos" aria-label="default input example" onChange={e => setMinutes(e.target.value)} required ></input>
-                    </div>
-                    <div className="text-center col-3 p-1">
                         College
                         <input className="form-control selectInner" type="text" placeholder="College" aria-label="default input example" onChange={e => setCollege(e.target.value)} required ></input>
                     </div>
@@ -192,19 +188,23 @@ export const Stats_py_nba = () => {
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Gp</div>
+                        <div className="col-1 title-lines">Gp</div>
                         <div className="col-2 title-lines">Gs</div>
+                        <div className="col-1 title-lines">Min</div>
                         <div className="col-2 title-lines">Fg</div>
                         <div className="col-2 title-lines">Fg %</div>
                         <div className="col-2 title-lines">3Pt</div>
                         <div className="col-2 title-lines">3Pt %</div>
                     </div>
                     <div className="row g-0">
-                        <div className="col-2">
+                        <div className="col-1">
                             <input className="form-control selectInner" type="text" placeholder="Gp" aria-label="default input example" onChange={e => setGp(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Gs" aria-label="default input example" onChange={e => setGs(e.target.value)} required />
+                        </div>
+                        <div className="col-1">
+                            <input className="form-control selectInner" type="text" placeholder="Min" aria-label="default input example" onChange={e => setMinutes(e.target.value)} required ></input>
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Fg" aria-label="default input example" onChange={e => setFg(e.target.value)} required />

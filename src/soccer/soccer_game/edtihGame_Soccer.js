@@ -51,6 +51,7 @@ export const EdithGames_Soccer = (props) => {
     const [juice_goal_home, setjuice_goal_home] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home);
     const [moneyLineAway, setmoneyLineAway] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway);
     const [moneyLineHome, setmoneyLineHome] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome);
+    const [draw, setdraw] = useState(store.soccer[params.theid] && store.soccer[params.theid].draw);
     const [total, settotal] = useState(store.soccer[params.theid] && store.soccer[params.theid].total);
     const [juice_total_over, setjuice_total_over] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_total_over);
     const [juice_total_under, setjuice_total_under] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_total_under);
@@ -69,6 +70,7 @@ export const EdithGames_Soccer = (props) => {
     const [juice_goal_home_1H, setjuice_goal_home_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].juice_goal_home_1H);
     const [moneyLineAway_1H, setmoneyLineAway_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineAway_1H);
     const [moneyLineHome_1H, setmoneyLineHome_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].moneyLineHome_1H);
+    const [draw_1H, setdraw_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].draw_1H);
     const [total_1H, settotal_1H] = useState(store.soccer[params.theid] && store.soccer[params.theid].total_1H);
     const [H1_juice_over, setH1_juice_over] = useState(store.soccer[params.theid] && store.soccer[params.theid].H1_juice_over);
     const [H1_juice_under, setH1_juice_under] = useState(store.soccer[params.theid] && store.soccer[params.theid].H1_juice_under);
@@ -103,6 +105,7 @@ export const EdithGames_Soccer = (props) => {
             juice_goal_home: juice_goal_home,
             moneyLineAway: moneyLineAway,
             moneyLineHome: moneyLineHome,
+            draw: draw,
             total: total,
             juice_total_over: juice_total_over,
             juice_total_under: juice_total_under,
@@ -122,6 +125,7 @@ export const EdithGames_Soccer = (props) => {
             juice_goal_home_1H: juice_goal_home_1H,
             moneyLineAway_1H: moneyLineAway_1H,
             moneyLineHome_1H: moneyLineHome_1H,
+            draw_1H: draw_1H,
             total_1H: total_1H,
             H1_juice_over: H1_juice_over,
             H1_juice_under: H1_juice_under,
@@ -131,7 +135,6 @@ export const EdithGames_Soccer = (props) => {
             tt_home_1H: tt_home_1H,
             juice_over_home_1H: juice_over_home_1H,
             juice_under_home_1H: juice_under_home_1H,
-
         };
 
 
@@ -348,7 +351,7 @@ export const EdithGames_Soccer = (props) => {
                     </div>
                 </div>
                 <div className="accordion-item ">
-                    <div id="crear-juego" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameEdith">
+                    <div id="crear-juego-soccer" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#gameEdith">
                         <div>
                             <div className="row g-0 text-center pt-3 ">
                                 <div className="col-1 title-lines">RT #</div>
@@ -434,6 +437,11 @@ export const EdithGames_Soccer = (props) => {
                                 </div>
                             </div>
                         </div>
+                        <div className="row g-0">
+                            <div className="col-1 offset-5">
+                                <input className="form-control selectInner" type="text" placeholder="DRAW FH" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].draw} onChange={e => setdraw_1H(e.target.value)} />
+                            </div>
+                        </div>
                     </div>
                     <div id="firstHalf" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#gameEdith">
                         <div className="row g-0 text-center pt-3 w-100">
@@ -497,7 +505,11 @@ export const EdithGames_Soccer = (props) => {
                             <div className="col-1 title-lines">
                                 <input className="form-control selectInner" type="text" placeholder="JUH" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].juice_under_home_1H} onChange={e => setjuice_under_home_1H(e.target.value)} />
                             </div>
-
+                        </div>
+                        <div className="row g-0">
+                            <div className="col-2 offset-4">
+                                <input className="form-control selectInner" type="text" placeholder="DRAW" aria-label="default input example" defaultValue={store.soccer[params.theid] && store.soccer[params.theid].draw_1H} onChange={e => setdraw_1H(e.target.value)} />
+                            </div>
                         </div>
                     </div>
                 </div>
