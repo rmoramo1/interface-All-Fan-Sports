@@ -2,11 +2,21 @@
 import { Index } from ".";
 import { Nfl_game } from "../nfl/nfl_game";
 import { StatsNFL } from "../nfl/stats/statsNFL";
+import { StandingsNFL } from "../nfl/standings/standingsNFL";
 import { Stats_off_player_nfl } from "../nfl/player_off_stats/stats_off_player_nfl";
 import { Stats_deff_player_nfl } from "../nfl/player_deff_stats/stats_deff_player_nfl";
 import { Stats_ret_player_nfl } from "../nfl/returning_py_stats.js/stats_ret_player_nfl";
 import { Stats_put_player_nfl } from "../nfl/player_punting_stats/stats_put_player_nfl";
 import { Stats_kik_player_nfl } from "../nfl/player_kik_stats/stats_kik_player_nfl";
+
+import { Canadian_football } from "../canadian_football/canadian_football_game";
+import { Team_Canadian_Foot_Stas } from "../canadian_football/stats/team_canadian_foot_stas";
+import { Standings_Canadian_F } from "../canadian_football/standings/standings_canadian_foot";
+import { Stats_Off_Player_Canadian_Foot } from "../canadian_football/player_off_stats/stats_off_player_canadian_foot";
+import { Stats_deff_player_canadian_foot } from "../canadian_football/player_deff_stats/stats_deff_player_canadian_foot";
+import { Stats_kik_player_canadian_foot } from "../canadian_football/player_kik_stats/stats_kik_player_canadian_foot";
+import { Stats_ret_player_canadian_foot } from "../canadian_football/returning_py_stats.js/stats_ret_player_canadian_foot";
+import { Stats_put_player_canadian_foot } from "../canadian_football/player_punting_stats/stats_put_player_canadian_foot";
 
 import { Team_Nba_Stas } from "../nba/nba_team_stats/team_nba_stas";
 import { NBA_game } from "../nba/nba_game/nba_game";
@@ -16,9 +26,14 @@ import { MLB_game } from "../mlb/mlb_game/MLB_game";
 import { Team_MLB_Stas } from "../mlb/mlb_team_stats/team_mlb_stas";
 import { Stats_py_mlb } from "../mlb/mlb_py_stats/stats_py_mlb";
 
+import { WNBA_game } from "../wnba/wnba_game/wnba_game";
+import { Team_WNba_Stas } from "../wnba/wnba_team_stats/team_wnba_stas";
+import { Stats_py_wnba } from "../wnba/wnba_py_stats/stats_py_wnba";
+
 import { NHL_game } from "../nhl/nhl_game/NHL_game";
 import { Team_NHL_Stas } from "../nhl/nhl_team_stats/team_nhl_stas";
-import { Stats_py_nhl } from "../nhl/nhl_py_stats/stats_py_nhl"
+import { Stats_py_nhl } from "../nhl/nhl_py_stats/stats_py_nhl";
+import { Stats_Goalkeeper_nhl } from "../nhl/nhl_goalkeeper_stats/stats_goalkeeper_nhl";
 
 import { Fight_box } from "../box/fight/fight_box";
 import { Stats_Fighter_box } from "../box/boxer_stats/stats_figther_box";
@@ -95,6 +110,13 @@ export const Links = () => {
                 </div>
             </div>
             <div className="accordion-item">
+                <div id="standings" className="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <StandingsNFL />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
                 <div id="offplayer" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
                         <Stats_off_player_nfl />
@@ -130,6 +152,64 @@ export const Links = () => {
                 </div>
             </div>
             {/* nfl */}
+            {/* cannadian foot */}
+            <div className="accordion-item">
+                <div id="gameCannaFoot" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Canadian_football />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="team_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Team_Canadian_Foot_Stas />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="standings_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Standings_Canadian_F />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="offplayer_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_Off_Player_Canadian_Foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="deffPlayer_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_deff_player_canadian_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="returningPlayer_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_ret_player_canadian_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="puntingPlayer_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_put_player_canadian_foot />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="kickingPlayer_canna_foot" className="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_kik_player_canadian_foot />
+                    </div>
+                </div>
+            </div>
+            {/* canna foot */}
             {/*  nba*/}
             <div className="accordion-item">
                 <div id="nbaStts" className="accordion-collapse collapse" aria-labelledby="nba-headingOne" data-bs-parent="#allitems">
@@ -152,8 +232,30 @@ export const Links = () => {
                     </div>
                 </div>
             </div>
-
             {/*  nba*/}
+            {/*  wnba*/}
+            <div className="accordion-item">
+                <div id="wnbaStts" className="accordion-collapse collapse" aria-labelledby="nba-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <WNBA_game />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="wnbaSttsTeam" className="accordion-collapse collapse" aria-labelledby="nba-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Team_WNba_Stas />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="wnbaSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nba-headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_py_wnba />
+                    </div>
+                </div>
+            </div>
+            {/*  wnba*/}
             {/*  mlb*/}
             <div className="accordion-item">
                 <div id="mlbGame" className="accordion-collapse collapse" aria-labelledby="mlb-headingOne" data-bs-parent="#allitems">
@@ -196,6 +298,13 @@ export const Links = () => {
                 <div id="nhlSttsPlayer" className="accordion-collapse collapse" aria-labelledby="nhl-headingThree" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
                         <Stats_py_nhl />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="nhlSttsGoalkeeper" className="accordion-collapse collapse" aria-labelledby="nhl-headingFour" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_Goalkeeper_nhl />
                     </div>
                 </div>
             </div>
@@ -449,7 +558,7 @@ export const Links = () => {
             <div className="accordion-item">
                 <div id="add_props" className="accordion-collapse collapse" aria-labelledby="add_props" data-bs-parent="#allitems">
                     <div className="accordion-body p-1">
-                        <Add_Props/>
+                        <Add_Props />
                     </div>
                 </div>
             </div>

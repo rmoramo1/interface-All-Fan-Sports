@@ -64,6 +64,11 @@ export const Header = () => {
                                                                         Team Stats
                                                                     </li>
                                                                 </HashLink>
+                                                                <HashLink to="/list_nfl_standings">
+                                                                    <li className="li_drop">
+                                                                        Team Standings
+                                                                    </li>
+                                                                </HashLink>
                                                                 <HashLink to="/list_stats_nfl_py">
                                                                     <li className="li_drop">
                                                                         Players Stats
@@ -117,6 +122,11 @@ export const Header = () => {
                                                                             Players Stats
                                                                         </li>
                                                                     </HashLink>
+                                                                    <HashLink to="/list_stats_nhl_goalkeeper">
+                                                                        <li className="li_drop">
+                                                                            Goalkeeper Stats
+                                                                        </li>
+                                                                    </HashLink>
                                                                 </ul>
                                                             </li>
                                                         </li>
@@ -130,6 +140,41 @@ export const Header = () => {
                                                             <Link to="/list_stats_fighter_mma">
                                                                 MMA
                                                             </Link>
+                                                        </li>
+                                                        <li className="li_drop one_ul">WNBA
+                                                            <ul className="second_ul">
+                                                                <li className="li_drop">
+                                                                    <HashLink to="/list_wnba_stats">
+                                                                        Team Stats
+                                                                    </HashLink>
+
+                                                                </li>
+                                                                <li className="li_drop">
+                                                                    <HashLink to="/list_stats_wnba_py">
+                                                                        Players Stats
+                                                                    </HashLink>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li className="li_drop one_ul">
+                                                         CANADIAN FOOTBALL
+                                                            <ul className="second_ul">
+                                                                <HashLink to="/list_canadian_foot_stats">
+                                                                    <li className="li_drop">
+                                                                        Team Stats
+                                                                    </li>
+                                                                </HashLink>
+                                                                <HashLink to="/list_canadian_foot_standings">
+                                                                    <li className="li_drop">
+                                                                        Team Standings
+                                                                    </li>
+                                                                </HashLink>
+                                                                <HashLink to="/list_stats_canadian_foot_py">
+                                                                    <li className="li_drop">
+                                                                        Players Stats
+                                                                    </li>
+                                                                </HashLink>
+                                                            </ul>
                                                         </li>
                                                         <li className="li_drop">
                                                             <Link to="list_stats_golfer">

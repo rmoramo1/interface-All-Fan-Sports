@@ -33,15 +33,29 @@ const injectContext = PassedComponent => {
 			 **/
 			state.actions.loadNflGames();
 			state.actions.loadStatsNFL();
+			state.actions.loadStandingsNFL();
 			state.actions.loadStatsNFL_Off_player();
 			state.actions.loadStats_deff_player_nfl();
 			state.actions.loadStats_ret_player_nfl();
 			state.actions.loadStats_put_player_nfl();
 			state.actions.loadStats_kik_player_nfl();
+			//Canadian_football
+			state.actions.loadCanadian_football();
+			state.actions.loadStats_canadian_football_team();
+			state.actions.loadStanding_canadian_football_team();
+			state.actions.loadstats_offensive_player_canadian_football();
+			state.actions.loadstats_defensive_player_canadian_football();
+			state.actions.loadStats_kiking_player_canadian_football();
+			state.actions.loadStats_returning_player_canadian_football();
+			state.actions.loadStats_punting_player_canadian_football();
 			//nba
 			state.actions.loadGamesNBA();
 			state.actions.loadStatsNBA();
 			state.actions.loadStats_player_NBA();
+			//wnba
+			state.actions.loadGamesWNBA();
+			state.actions.loadStatsWNBA();
+			state.actions.loadStats_player_WNBA();
 			//mlb
 			state.actions.loadGamesMLB();
 			state.actions.loadStatsMLB();
@@ -50,6 +64,7 @@ const injectContext = PassedComponent => {
 			state.actions.loadGamesNHL();
 			state.actions.loadStatsNHL();
 			state.actions.loadStats_player_NHL();
+			state.actions.loadStats_stats_goalkeeper_NHL();
 			//box
 			state.actions.loadBox_Fight();
 			state.actions.loadBoxer_Stats();
@@ -88,12 +103,14 @@ const injectContext = PassedComponent => {
 			//logos
 			state.actions.loadLogos_nfl();
 			state.actions.loadLogos_nba();
+			state.actions.loadLogos_wnba();
 			state.actions.loadLogos_nhl();
 			state.actions.loadLogos_mlb();
 			state.actions.loadLogos_soccer();
 			state.actions.logos_ncaa_basketball();
 			state.actions.logos_ncaa_baseball();
 			state.actions.logos_ncaa_football();
+			state.actions.loadLogos_canadian_football();
 			//loadmoto_gp
 			state.actions.loadmoto_gp();
 			state.actions.load_stats_driver_moto_gp();

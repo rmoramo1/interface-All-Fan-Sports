@@ -29,10 +29,14 @@ export const Edit_stats_Fighter_box = () => {
     const [w_ko_tko, setw_ko_tko] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_ko_tko);
     const [w_sub, setw_sub] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_sub);
     const [w_dec, setw_dec] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_dec);
+    const [w_others, setw_others] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_others);
+
     const [L, setL] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L);
     const [L_ko_tko, setL_ko_tko] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_ko_tko);
     const [L_sub, setL_sub] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_sub);
     const [L_dec, setL_dec] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_dec);
+    const [L_others, setL_others] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_others);
+    const [draw, setdraw] = useState(store.boxer_stats[params.theid] && store.boxer_stats[params.theid].draw);
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
@@ -56,10 +60,13 @@ export const Edit_stats_Fighter_box = () => {
             w_ko_tko: w_ko_tko,
             w_sub: w_sub,
             w_dec: w_dec,
+            w_others: w_others,
             L: L,
             L_ko_tko: L_ko_tko,
             L_sub: L_sub,
             L_dec: L_dec,
+            L_others: L_others,
+            draw: draw,
         };
         
        
@@ -169,6 +176,8 @@ export const Edit_stats_Fighter_box = () => {
                         <div className="col-2 title-lines">W By KO / TKO</div>
                         <div className="col-2 title-lines">W By Sub</div>
                         <div className="col-2 title-lines">W By Dec</div>
+                        <div className="col-2 title-lines">W Others</div>
+                        <div className="col-2 title-lines">Draw</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -183,25 +192,35 @@ export const Edit_stats_Fighter_box = () => {
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_dec} onChange={e => setw_dec(e.target.value)} />
                         </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="W Others" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_others} onChange={e => setw_others(e.target.value)}  />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="Draw" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].draw} onChange={e => setdraw(e.target.value)}  />
+                        </div>
                     </div>
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">L</div>
                         <div className="col-2 title-lines">L By KO / TKO</div>
                         <div className="col-2 title-lines">L By Sub</div>
                         <div className="col-2 title-lines">L By Dec</div>
+                        <div className="col-2 title-lines">L Others</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L} onChange={e => setL(e.target.value)} />
                         </div>
                         <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="setL_ko_tko" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].w_ko_tko} onChange={e => setL_ko_tko(e.target.value)} />
+                            <input className="form-control selectInner" type="text" placeholder="setL_ko_tko" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_ko_tko} onChange={e => setL_ko_tko(e.target.value)} />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="setL_sub" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_sub} onChange={e => setL_sub(e.target.value)} />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_dec} onChange={e => setL_dec(e.target.value)} />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="L Others" aria-label="default input example" defaultValue={store.boxer_stats[params.theid] && store.boxer_stats[params.theid].L_others} onChange={e => setL_others(e.target.value)}  />
                         </div>
                     </div>
                 </div>
@@ -225,7 +244,7 @@ export const Edit_stats_Fighter_box = () => {
                             <div className="row g-0">
                                 <div className="col-6 p-2 text-center">
                                     <button className="btn btn-danger" onClick={delet_py_ret_stat}>Yes Delete</button>
-                                    {auth ? <Redirect to="/list_stats_nfl_py/" /> : null}
+                                    {auth ? <Redirect to="/list_stats_fighter_box/" /> : null}
                                 </div>
                                 <div className="col-6 p-2 text-center">
                                     <button type="button" className="btn btn-secondary text-white" data-bs-dismiss="modal">No</button>
@@ -234,7 +253,7 @@ export const Edit_stats_Fighter_box = () => {
                         </div>
                     </div>
                 </div>
-                {auth ? <Redirect to="/list_stats_fighter_mma/" /> : null}
+                {auth ? <Redirect to="/list_stats_fighter_box/" /> : null}
             </form>
         </div>
 

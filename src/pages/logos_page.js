@@ -8,6 +8,8 @@ import Vista_logo_soccer from "../logos/soccer/vista_logo_soccer";
 import Vista_logo_ncaa_basket from "../logos/ncaa_basketball/vista_logo_ncaa_basket";
 import Vista_logo_NCAA_BASEBALL from "../logos/ncaa_baseball/vista_logo_ncaa_baseball";
 import Vista_logo_ncaa_footbal from "../logos/ncaa_football/vista_logo_ncaa_fooball";
+import Vista_logo_wnba from "../logos/wnba/vista_logo_wnba";
+import Vista_Logo_Canadian_Football from "../logos/canadian_football/vista_logo_canadian_football";
 
 export const Logos_page = () => {
     const { store } = useContext(Context);
@@ -143,6 +145,38 @@ export const Logos_page = () => {
                             return (
                                 <div className="col" key={index}>
                                     <Vista_logo_ncaa_footbal
+                                        id={index}
+                                        team={item.team}
+                                        url={item.url}
+                                    />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="span_logos_list">
+                    <div className="title-lines fw-bold text-center">WNBA Logos</div>
+                    {
+                        store.logos_wnba.map((item, index) => {
+                            return (
+                                <div className="col" key={index}>
+                                    <Vista_logo_wnba
+                                        id={index}
+                                        team={item.team}
+                                        url={item.url}
+                                    />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="span_logos_list">
+                    <div className="title-lines fw-bold text-center">Canadian Football Logos</div>
+                    {
+                        store.logos_canadian_football.map((item, index) => {
+                            return (
+                                <div className="col" key={index}>
+                                    <Vista_Logo_Canadian_Football
                                         id={index}
                                         team={item.team}
                                         url={item.url}

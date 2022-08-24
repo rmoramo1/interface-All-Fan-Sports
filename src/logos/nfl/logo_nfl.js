@@ -17,7 +17,7 @@ export const Logo_nfl = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormLogo_NFL").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -43,7 +43,7 @@ export const Logo_nfl = () => {
     };
     return (
         <div className="row g-0 rounded overflow-hidden shadow">
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormLogo_NFL">
                 <div className="col-12 title-lines text-center">
                     Create NFL Team Logo
                 </div>

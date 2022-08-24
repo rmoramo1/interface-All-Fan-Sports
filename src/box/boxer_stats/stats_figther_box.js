@@ -28,10 +28,13 @@ export const Stats_Fighter_box = () => {
     const [w_ko_tko, setw_ko_tko] = useState("");
     const [w_sub, setw_sub] = useState("");
     const [w_dec, setw_dec] = useState("");
+    const [w_others, setw_others] = useState("");
     const [L, setL] = useState("");
     const [L_ko_tko, setL_ko_tko] = useState("");
     const [L_sub, setL_sub] = useState("");
     const [L_dec, setL_dec] = useState("");
+    const [L_others, setL_others] = useState("");
+    const [draw, setdraw] = useState("");
 
 
     const [auth, setAuth] = useState(false);
@@ -56,10 +59,13 @@ export const Stats_Fighter_box = () => {
             w_ko_tko: w_ko_tko,
             w_sub: w_sub,
             w_dec: w_dec,
+            w_others: w_others,
             L: L,
             L_ko_tko: L_ko_tko,
             L_sub: L_sub,
             L_dec: L_dec,
+            L_others: L_others,
+            draw: draw,
         };
 
 
@@ -153,6 +159,8 @@ export const Stats_Fighter_box = () => {
                         <div className="col-2 title-lines">W By KO / TKO</div>
                         <div className="col-2 title-lines">W By Sub</div>
                         <div className="col-2 title-lines">W By Dec</div>
+                        <div className="col-2 title-lines">W Others</div>
+                        <div className="col-2 title-lines">Draw</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -167,12 +175,19 @@ export const Stats_Fighter_box = () => {
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="DEC" aria-label="default input example" onChange={e => setw_dec(e.target.value)} required />
                         </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="W Others" aria-label="default input example" onChange={e => setw_others(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="Draw" aria-label="default input example" onChange={e => setdraw(e.target.value)} required />
+                        </div>
                     </div>
                     <div className="row g-0 text-center">
                         <div className="col-2 title-lines">L</div>
                         <div className="col-2 title-lines">L By KO / TKO</div>
                         <div className="col-2 title-lines">L By Sub</div>
                         <div className="col-2 title-lines">L By Dec</div>
+                        <div className="col-2 title-lines">L Others</div>
                     </div>
                     <div className="row g-0">
                         <div className="col-2">
@@ -186,6 +201,9 @@ export const Stats_Fighter_box = () => {
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="L By Dec" aria-label="default input example" onChange={e => setL_dec(e.target.value)} required />
+                        </div>
+                        <div className="col-2">
+                            <input className="form-control selectInner" type="text" placeholder="L Others" aria-label="default input example" onChange={e => setL_others(e.target.value)} required />
                         </div>
                     </div>
                 </div>

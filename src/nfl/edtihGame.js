@@ -39,6 +39,7 @@ export const EdithGames = (props) => {
     yearSendCrear = yearCrear + "-" + monthCrear + "-" + dayCrear;
     const [weekCrear, setWeekCrear] = useState(store.nflGames[params.theid] && store.nflGames[params.theid].week);
     const [type_of_line, setType_of_line] = useState(store.nflGames[params.theid] && store.nflGames[params.theid].type_of_line);
+    const [season, setseason] = useState(store.nflGames[params.theid] && store.nflGames[params.theid].season);
 
     let [timeCrear] = useState(store.nflGames[params.theid] && store.nflGames[params.theid].hour);
     timeCrear = hourCrear + ":" + minCrear;
@@ -189,6 +190,7 @@ export const EdithGames = (props) => {
             rotation_home: rotation_home,
             rotation_away: rotation_away,
             type_of_line: type_of_line,
+            season: season,
             away: awayCrear,
             home: HomeCrear,
             spread_away: spreadAwayCrear,
@@ -408,6 +410,7 @@ export const EdithGames = (props) => {
             selectMin.push(i);
         }
     }
+    let tipe_season = ["Regular Season", "Preseason","Postseason"];
     return (
         <div className="container-fluid accordion" id="gameEdith" >
             <div className="col-12 p-3 bg-title-edith my-2 d-flex justify-content-center align-items-center">
@@ -558,6 +561,20 @@ export const EdithGames = (props) => {
                         <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" defaultValue={store.nflGames[params.theid] && store.nflGames[params.theid].type_of_line} onChange={e => setType_of_line(e.target.value)}>
                             {
                                 store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3 ms-1">
+                        <div className="col-12 text-center">
+                            Type of Season
+                        </div>
+                        <select className="form-select selectInner" name="setseason" aria-label="setseason" defaultValue={store.nflGames[params.theid] && store.nflGames[params.theid].season}  onChange={e => setseason(e.target.value)}>
+                            {
+                                tipe_season.map((index) => {
                                     return (
                                         <option key={index} name="promotions" value={index}>{index}</option>
                                     )

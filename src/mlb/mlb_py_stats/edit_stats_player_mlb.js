@@ -117,7 +117,7 @@ export const Edit_stats_player_mlb = () => {
     for (let i = 2002; i < 2025; i++) {
         selectYear.push(i);
     }
-    let positions = ["Pitcher", "Catcher", "First Baseman", "Second Baseman", "Third Baseman", "Short Stop", "Left Fielder", "Center fielder", "Right Fielder"];
+    let positions = ["Pitcher", "Catcher", "First Baseman", "Second Baseman", "Third Baseman", "Short Stop", "Left Fielder", "Center fielder", "Right Fielder","Designated Hitter"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">

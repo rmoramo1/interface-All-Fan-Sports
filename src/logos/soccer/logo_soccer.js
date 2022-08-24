@@ -17,7 +17,7 @@ export const Logo_soccer = () => {
 
     const [auth, setAuth] = useState(false);
     let actualizar = () => {
-        window.location.reload(true);
+        document.getElementById("miFormLogo_Soccer").reset();
     }
     const crear = e => {
         e.preventDefault();
@@ -43,7 +43,7 @@ export const Logo_soccer = () => {
     };
     return (
         <div className="row g-0 rounded overflow-hidden shadow">
-            <form onSubmit={crear}>
+            <form onSubmit={crear} id="miFormLogo_Soccer">
                 <div className="col-12 title-lines text-center">
                     Create soccer Team Logo
                 </div>

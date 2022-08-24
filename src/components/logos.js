@@ -10,6 +10,8 @@ import { Logo_soccer } from "../logos/soccer/logo_soccer";
 import { Logo_Ncaa_basket } from "../logos/ncaa_basketball/logo_ncaa_basket";
 import { Logo_Ncaa_Baseball } from "../logos/ncaa_baseball/logo_ncaa_baseball";
 import { Logo_Ncaa_Football } from "../logos/ncaa_football/logo_ncaa_football";
+import { Logo_wnba } from "../logos/wnba/logo_wnba";
+import { Logo_Canadian_Football } from "../logos/canadian_football/logo_canadian_football";
 
 export const Logos = () => {
     const { store } = useContext(Context);
@@ -51,6 +53,12 @@ export const Logos = () => {
                 </div>
                 <div className="col-4 p-3">
                     <Logo_Ncaa_Football/>
+                </div>
+                <div className="col-4 p-3">
+                    <Logo_wnba/>
+                </div>
+                <div className="col-4 p-3">
+                    <Logo_Canadian_Football/>
                 </div>
             </div>
         </div>

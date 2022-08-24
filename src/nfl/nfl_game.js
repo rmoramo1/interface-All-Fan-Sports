@@ -17,6 +17,7 @@ export const Nfl_game = () => {
     const [statusCrear, setStatusCrear] = useState("Pending");
     const [casino, setcasino] = useState("");
     const [type_of_line, setType_of_line] = useState("");
+    const [season, setseason] = useState("Regular Season");
     const [rotation_home, setRotation_home] = useState("");
     const [rotation_away, setRotation_away] = useState("");
     const [yearCrear, setYearCrear] = useState(year);
@@ -178,6 +179,7 @@ export const Nfl_game = () => {
             status: statusCrear,
             casino: casino,
             type_of_line: type_of_line,
+            season: season,
             rotation_home: rotation_home,
             rotation_away: rotation_away,
             away: awayCrear,
@@ -383,6 +385,7 @@ export const Nfl_game = () => {
             selectMin.push(i);
         }
     }
+    let tipe_season = ["Regular Season", "Preseason","Postseason"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="gameCreate" >
             <div className="col-12 bg-title-edith mt-2 p-3 text-center">
@@ -526,6 +529,20 @@ export const Nfl_game = () => {
                         <select className="form-select selectInner" name="Type_of_line" aria-label="setType_of_line" onChange={e => setType_of_line(e.target.value)}>
                             {
                                 store.typeOfLine.map((index) => {
+                                    return (
+                                        <option key={index} name="promotions" value={index}>{index}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="col-3 ms-1">
+                        <div className="col-12 text-center">
+                            Type of Season
+                        </div>
+                        <select className="form-select selectInner" name="setseason" aria-label="setseason" onChange={e => setseason(e.target.value)}>
+                            {
+                                tipe_season.map((index) => {
                                     return (
                                         <option key={index} name="promotions" value={index}>{index}</option>
                                     )
