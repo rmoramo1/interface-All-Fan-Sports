@@ -117,7 +117,7 @@ export const Edit_stats_player_nba = () => {
     for (let i = 2002; i < 2025; i++) {
         selectYear.push(i);
     }
-    let positions = ["PG", "SG", "SF", "PF", "C"];
+    let positions = ["PG", "SG", "SF", "PF", "C","F","G"];
     return (
         <div className="container-fluid p-0 m-0 accordion" id="statsCreate" >
             <div className="row g-0">

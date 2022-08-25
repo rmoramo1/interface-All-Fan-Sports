@@ -21,6 +21,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			mlb_teams: [
 				"Arizona Diamondbacks", "Atlanta Braves", "Baltimore Orioles", "Boston Red Sox", "Chicago Cubs", "Chicago White Sox", "Cincinnati Reds", "Cleveland Guardians", "Colorado Rockies", "Detroit Tigers", "Houston Astros", "Kansas City Royals", "Los Angeles Angels", "Los Angeles Dodgers", "Miami Marlins", "Milwaukee Brewers", "Minnesota Twins", "New York Mets", "New York Yankees", "Oakland Athletics", "Philadelphia Phillies", "Pittsburgh Pirates", "San Diego Padres", "San Francisco Giants", "Seattle Mariners", "St. Louis Cardinals", "Tampa Bay Rays", "Texas Rangers", "Toronto Blue Jays", "Washington Nationals"
 			],
+			mx_base_teams: [
+				"Mariachis de Guadalajara", "Rieleros de Aguascalientes", "Saraperos de Saltillo", "Sultanes de Monterrey", "Toros de Tijuana", "Diablos Rojos del México", "El águila de Veracruz", "Guerreros de Oaxaca", "Leones de Yucatán", "Pericos de Puebla", "Piratas de Campeche", "Tigres de Quintana Roo"
+			],
 			nhl_teams: [
 				"Boston Bruins", "Buffalo Sabres", "Detroit Red Wings", "Montreal Canadiens", "Ottawa Senators", "Tampa Bay Lightning", "Toronto Maple Leafs", "Carolina Hurricanes", "Columbus Blue Jackets", "New Jersey Devils", "New York Islanders", "New York Rangers", "Philadelphia Flyers", "Pittsburgh Penguins", "Washington Capitals", "Arizona Coyotes", "Chicago Blackhawks", "Colorado Avalanche", "Dallas Stars", "Minnesota Wild", "Nashville Predators", "St. Louis Blues", "Winnipeg Jets", "Anaheim Ducks", "Calgary Flames", "Edmonton Oilers", "Los Angeles Kings", "San Jose Sharks", "Seattle Kraken", "Vancouver Canucks", "Vegas Golden Knights", "Florida Panthers"
 			],
@@ -58,6 +61,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			mlbGames: [],
 			mlb_stats_teams: [],
 			mlb_stats_player: [],
+			//
+			mx_base:[],
+			stats_baseball_mexico_team:[],
+			stats_mexico_baseball_player:[],
 			//nhl
 			nhlGames: [],
 			nhl_stats_teams: [],
@@ -277,6 +284,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ mlb_stats_player: results });
+			},
+			//mx Base
+			loadGamesMX_Base: async () => {
+				const url = "https://sportsdata365.com/baseball_mexico";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ mx_base: results });
+			},
+			loadGamesstats_baseball_mexico_team: async () => {
+				const url = "https://sportsdata365.com/stats_baseball_mexico_team";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ stats_baseball_mexico_team: results });
+			},
+			loadStats_mexico_baseball_player: async () => {
+				const url = "https://sportsdata365.com/stats_mexico_baseball_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ stats_mexico_baseball_player: results });
 			},
 			//nhl
 			loadGamesNHL: async () => {

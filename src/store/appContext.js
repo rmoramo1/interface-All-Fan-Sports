@@ -60,6 +60,10 @@ const injectContext = PassedComponent => {
 			state.actions.loadGamesMLB();
 			state.actions.loadStatsMLB();
 			state.actions.loadStats_player_MLB();
+			//mx base
+			state.actions.loadGamesMX_Base();
+			state.actions.loadGamesstats_baseball_mexico_team();
+			state.actions.loadStats_mexico_baseball_player();
 			//nhl
 			state.actions.loadGamesNHL();
 			state.actions.loadStatsNHL();

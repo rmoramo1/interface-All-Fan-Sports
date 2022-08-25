@@ -15,7 +15,6 @@ import { Props_page } from "./pages/props_page";
 import { Edith_PROPS } from "./props/edith_props";
 import { Edith_Add_PROPS } from "./add_props/edith_add_props";
 import { List_Props } from "./pages/list_props";
-
 //nfl
 import { EdithGames } from "./nfl/edtihGame";
 import { List_NFL_Stats } from "./nfl/stats/list_nfl_stats";
@@ -48,6 +47,12 @@ import { List_MLB_Stats } from "./mlb/mlb_team_stats/list_mlb_stats";
 import { Edit_Stats_MLB_Team } from "./mlb/mlb_team_stats/edith_stats_mlb_team";
 import { Edit_stats_player_mlb } from "./mlb/mlb_py_stats/edit_stats_player_mlb"
 import { List_Stats_MLB_PY } from "./mlb/mlb_py_stats/list_stats_mlb_py";
+//mx baseball
+import { Edith_Games_MX_Base } from "./mexican_baseball/mx_base_game/edtih_game_mx_base";
+import { List_MX_BASE_Stats } from "./mexican_baseball/mx_base_team_stats/list_mx_base_stats";
+import { Edit_Stats_MX_Base_Team } from "./mexican_baseball/mx_base_team_stats/edith_stats_mx_base_team";
+import { Edit_stats_player_mx_baseball } from "./mexican_baseball/mx_base_py_stats/edit_stats_player_mx_base";
+import { List_Stats_MX_BASE_PY } from "./mexican_baseball/mx_base_py_stats/list_stats_mx_base_py";
 //nba
 import { EdithGames_nba } from "./nba/nba_game/edtihGame_nba";
 import { List_Stats_NBA_PY } from "./nba/nba_py_stats/list_stats_nba_py";
@@ -186,6 +191,7 @@ function App() {
 					<Route exact path="/edith_add_props/:theid" component={Edith_Add_PROPS} />
 					<Route exact path="/edith_injuries/:theid" component={Edith_Injuries} />
 					<Route exact path="/edtihGame_MLB/:theid" component={EdithGames_mlb} />
+					<Route exact path="/edtih_game_mx_base/:theid" component={Edith_Games_MX_Base} />
 					<Route exact path="/edtihGame_Ncaa_Baseball/:theid" component={EdithGames_Ncaa_Baseball} />
 					<Route exact path="/list_stats_canadian_foot_py" component={List_Stats_Canadian_Foot_PY} />
 					<Route exact path="/edith_tournaments/:theid" component={Edit_Tournaments} />
@@ -211,6 +217,7 @@ function App() {
 					<Route exact path="/list_stats_nba_py" component={List_Stats_NBA_PY} />
 					<Route exact path="/list_stats_wnba_py" component={List_Stats_WNBA_PY} />
 					<Route exact path="/list_stats_mlb_py" component={List_Stats_MLB_PY} />
+					<Route exact path="/list_stats_mx_base_py" component={List_Stats_MX_BASE_PY} />
 					<Route exact path="/list_stats_nhl_py" component={List_Stats_NHL_PY} />
 					<Route exact path="/list_stats_nhl_goalkeeper" component={List_Stats_NHL_Goalkeeper} />
 					<Route exact path="/list_soccer_stats" component={List_Soccer_Stats} />
@@ -228,6 +235,7 @@ function App() {
 					<Route exact path="/list_nhl_stats" component={List_NHL_Stats} />
 					<Route exact path="/listGameNBA" component={ListGameNBA} />
 					<Route exact path="/listGameNHL" component={ListGameMLB} />
+					<Route exact path="/list_mx_base_stats" component={List_MX_BASE_Stats} />
 					<Route exact path="/listGame_Ncaa_Baseball" component={ListGame_Ncaa_Baseball} />
 					<Route exact path="/list_ncaa_baseball_stats" component={List_NCAA_BASEBALL_Stats} />
 					<Route exact path="/listFights_box" component={ListFights_Box} />
@@ -248,9 +256,11 @@ function App() {
 					<Route exact path="/edith_stats_nba_team/:theid" component={Edit_Stats_NBA_Team} />
 					<Route exact path="/edith_stats_wnba_team/:theid" component={Edit_Stats_WNBA_Team} />
 					<Route exact path="/edith_stats_mlb_team/:theid" component={Edit_Stats_MLB_Team} />
+					<Route exact path="/edith_stats_mx_base_team/:theid" component={Edit_Stats_MX_Base_Team} />
 					<Route exact path="/edith_stats_nhl_team/:theid" component={Edit_Stats_NHL_Team} />
 					<Route exact path="/edith_stats_soccer_team/:theid" component={Edit_Stats_Soccer_Team} />
 					<Route exact path="/edit_stats_player_mlb/:theid" component={Edit_stats_player_mlb} />
+					<Route exact path="/edit_stats_player_mx_base/:theid" component={Edit_stats_player_mx_baseball} />
 					<Route exact path="/edit_stats_player_nba/:theid" component={Edit_stats_player_nba} />
 					<Route exact path="/edit_stats_player_wnba/:theid" component={Edit_stats_player_wnba} />
 					<Route exact path="/edit_stats_player_nhl/:theid" component={Edit_stats_player_nhl} />

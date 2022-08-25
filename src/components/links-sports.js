@@ -26,6 +26,10 @@ import { MLB_game } from "../mlb/mlb_game/MLB_game";
 import { Team_MLB_Stas } from "../mlb/mlb_team_stats/team_mlb_stas";
 import { Stats_py_mlb } from "../mlb/mlb_py_stats/stats_py_mlb";
 
+import { MX_Base_Game } from "../mexican_baseball/mx_base_game/mx_base_game";
+import { Team_MX_BASE_Stas } from "../mexican_baseball/mx_base_team_stats/team_mx_base_stas";
+import { Stats_PY_MX_BASE } from "../mexican_baseball/mx_base_py_stats/stats_py_mx_base";
+
 import { WNBA_game } from "../wnba/wnba_game/wnba_game";
 import { Team_WNba_Stas } from "../wnba/wnba_team_stats/team_wnba_stas";
 import { Stats_py_wnba } from "../wnba/wnba_py_stats/stats_py_wnba";
@@ -279,6 +283,29 @@ export const Links = () => {
                 </div>
             </div>
             {/*  mlb*/}
+            {/*  baseball Mex*/}
+            <div className="accordion-item">
+                <div id="mex_baseball_Game" className="accordion-collapse collapse" aria-labelledby="mlb-headingOne" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <MX_Base_Game />
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="mex_baseball_SttsTeam" className="accordion-collapse collapse" aria-labelledby="mlb-headingTwo" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Team_MX_BASE_Stas/> 
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
+                <div id="mex_baseball_SttsPlayer" className="accordion-collapse collapse" aria-labelledby="mlb-headingThree" data-bs-parent="#allitems">
+                    <div className="accordion-body p-1">
+                        <Stats_PY_MX_BASE/>
+                    </div>
+                </div>
+            </div>
+            {/*  baseball Mex*/}
             {/*  nhl*/}
             <div className="accordion-item">
                 <div id="nhlGame" className="accordion-collapse collapse" aria-labelledby="nhl-headingOne" data-bs-parent="#allitems">

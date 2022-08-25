@@ -402,6 +402,40 @@ export const Tabs = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="accordion-item">
+                        <h2 className="accordion-header" id="nascar-headingTwo">
+                            <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#baseball_mex" aria-expanded="false" aria-controls="baseball_mex">
+                                MEXICAN BASEBALL <i className="fas fa-baseball-ball ps-5 fs-5"></i>
+                            </HashLink>
+                        </h2>
+                        <div id="baseball_mex" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingEightNAS" data-bs-parent="#baseball">
+                            <div className="allitems">
+                                <div className="accordion" id="ncaa-foot-items">
+                                    <div className="accordion-item">
+                                        <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                            <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mex_baseball_Game" aria-expanded="false" aria-controls="mex_baseball_Game">
+                                                GAME <i className="fas fa-plus ps-2 fs-5"></i>
+                                            </HashLink>
+                                        </h2>
+                                    </div>
+                                    <div className="accordion-item">
+                                        <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                            <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mex_baseball_SttsTeam" aria-expanded="false" aria-controls="mex_baseball_SttsTeam">
+                                                Team Standings <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                            </HashLink>
+                                        </h2>
+                                    </div>
+                                    <div className="accordion-item">
+                                        <h2 className="accordion-header" id="ncaa-foot-headingOne">
+                                            <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mex_baseball_SttsPlayer" aria-expanded="false" aria-controls="mex_baseball_SttsPlayer">
+                                                Stats Player <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                            </HashLink>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="accordion-item">

@@ -176,6 +176,21 @@ export const Header = () => {
                                                                 </HashLink>
                                                             </ul>
                                                         </li>
+                                                        <li className="li_drop one_ul">
+                                                         MX BASEBALL
+                                                            <ul className="second_ul">
+                                                                <HashLink to="/list_mx_base_stats">
+                                                                    <li className="li_drop">
+                                                                        Team Stats
+                                                                    </li>
+                                                                </HashLink>
+                                                                <HashLink to="/list_stats_mx_base_py">
+                                                                    <li className="li_drop">
+                                                                        Players Stats
+                                                                    </li>
+                                                                </HashLink>
+                                                            </ul>
+                                                        </li>
                                                         <li className="li_drop">
                                                             <Link to="list_stats_golfer">
                                                                 GOLF
