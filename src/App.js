@@ -89,6 +89,10 @@ import { Edit_stats_Fighter_mma } from "./mma/mma_stats/edit_stats_fighter_mma"
 import { EdithGolf } from "./golf/golf/edtihGolf";
 import { List_Stats_Golfer } from "./golf/golfer_stats/list_stats_golfer";
 import { Edit_stats_Golfer } from "./golf/golfer_stats/edit_stats_golfer";
+//tennis
+import { EdithTennis } from "./tennis/event/edtihTennis";
+import { List_Stats_Tennis_Player } from "./tennis/stats_tennis_py/list_stats_tennis_py";
+import { Edit_stats_Tennis_Player } from "./tennis/stats_tennis_py/edit_stats_tennis_py";
 //nascar
 import { EditNascar } from "./nascar/nascar/edtihNascar";
 import { List_Nascar_Driver } from "./nascar/nascar_drivers/list_stats_nascar_driver";
@@ -99,6 +103,8 @@ import { List_Soccer_Stats } from "./soccer/soccer_team_stats/list_soccer_stats"
 import { Edit_Stats_Soccer_Team } from "./soccer/soccer_team_stats/edith_stats_soccer_team";
 import { List_Stats_Soccer_PY } from "./soccer/soccer_py_stats/list_stats_soccer_py";
 import { Edit_stats_player_soccer } from "./soccer/soccer_py_stats/edit_stats_player_soccer";
+import { Edit_stats_goalkeeper_soccer } from "./soccer/soccer_goalkeeper_st/edit_stats_goalkeeper_soccer";
+import { List_Stats_Soccer_Goalkeeper } from "./soccer/soccer_goalkeeper_st/list_stats_soccer_goalkeeper";
 import { List_Tournaments } from "./soccer/tournament/list_tournaments";
 import { Edit_Tournaments } from "./soccer/tournament/edith_tournaments";
 //logo
@@ -111,6 +117,7 @@ import { Edith_Logo_NCAA_BASKET } from "./logos/ncaa_basketball/edith_logo_ncaa_
 import { Edith_Logo_NCAA_BASEBALL } from "./logos/ncaa_baseball/edith_logo_ncaa_baseball";
 import { Edith_Logo_NCAA_FOOTBALL } from "./logos/ncaa_football/edith_logo_ncaa_football";
 import { Edith_Logo_Canadian_Football } from "./logos/canadian_football/edith_logo_canadian_logo";
+import { Edith_Logo_MX_BASE } from "./logos/mx_baseball/edith_logo_mx_base";
 //ncaa football
 import { EdithGames_Ncaa_football } from "./ncaa_football/game/edtihGame_ncaa_footbal";
 import { List_Ncaa_Fot_Stats } from "./ncaa_football/team_stats/list_ncaa_fot_stats";
@@ -182,6 +189,7 @@ function App() {
 					<Route exact path="/edith_logo_ncaa_baseball/:theid" component={Edith_Logo_NCAA_BASEBALL} />
 					<Route exact path="/edith_logo_ncaa_football/:theid" component={Edith_Logo_NCAA_FOOTBALL} />
 					<Route exact path="/edith_logo_canadian_logo/:theid" component={Edith_Logo_Canadian_Football} />
+					<Route exact path="/edith_logo_mx_base/:theid" component={Edith_Logo_MX_BASE} />
 					<Route exact path="/allGames" component={AllGames} />
 					<Route exact path="/logos" component={Logos_page} />
 					<Route exact path="/edtihGame/:theid" component={EdithGames} />
@@ -202,6 +210,7 @@ function App() {
 					<Route exact path="/edtihFight/:theid" component={EdithFight} />
 					<Route exact path="/edtihFight_mma/:theid" component={EdithFight_mma} />
 					<Route exact path="/edtihGolf/:theid" component={EdithGolf} />
+					<Route exact path="/edtihTennis/:theid" component={EdithTennis} />
 					<Route exact path="/edtihNascar/:theid" component={EditNascar} />
 					<Route exact path="/edtihMoto_GP/:theid" component={Edtih_Moto_GP} />
 					<Route exact path="/edit_stats_moto_gp_driver/:theid" component={Edit_stats_Moto_GP_Driver} />
@@ -222,9 +231,11 @@ function App() {
 					<Route exact path="/list_stats_nhl_goalkeeper" component={List_Stats_NHL_Goalkeeper} />
 					<Route exact path="/list_soccer_stats" component={List_Soccer_Stats} />
 					<Route exact path="/list_stats_soccer_py" component={List_Stats_Soccer_PY} />
+					<Route exact path="/list_stats_soccer_goalkeeper" component={List_Stats_Soccer_Goalkeeper} />
 					<Route exact path="/list_stats_fighter_box" component={List_Stats_Fighter_Box} />
 					<Route exact path="/list_stats_fighter_mma" component={List_Stats_Fighter_mma} />
 					<Route exact path="/list_stats_golfer" component={List_Stats_Golfer} />
+					<Route exact path="/list_stats_tennis_py" component={List_Stats_Tennis_Player} />
 					<Route exact path="/list_stats_nascar_driver" component={List_Nascar_Driver} />
 					<Route exact path="/list_stats_moto_gp_driver" component={List_Moto_GP_Driver} />
 					<Route exact path="/list_stats_ncaa_basket_py" component={List_Stats_Ncaa_basket_PY} />
@@ -268,10 +279,12 @@ function App() {
 					<Route exact path="/edit_stats_fighter_box/:theid" component={Edit_stats_Fighter_box} />
 					<Route exact path="/edit_stats_fighter_mma/:theid" component={Edit_stats_Fighter_mma} />
 					<Route exact path="/edit_stats_golfer/:theid" component={Edit_stats_Golfer} />
+					<Route exact path="/edit_stats_tennis_py/:theid" component={Edit_stats_Tennis_Player} />
 					<Route exact path="/edit_stats_nascar_driver/:theid" component={Edit_stats_Nascar_Driver} />
 					<Route exact path="/edit_stats_player_ncaa_basket/:theid" component={Edit_stats_player_ncaa_basket} />
 					<Route exact path="/edit_stats_player_ncaa_baseball/:theid" component={Edit_stats_player_ncaa_baseball} />
 					<Route exact path="/edit_stats_player_soccer/:theid" component={Edit_stats_player_soccer} />
+					<Route exact path="/edit_stats_goalkeeper_soccer/:theid" component={Edit_stats_goalkeeper_soccer} />
 					<Route exact path="/edit_stats_deff_player_nfl/:theid" component={Stats_deff_player_nfl} />
 					<Route exact path="/edit_stats_off_player_nfl/:theid" component={Stats_off_player_nfl} />
 					<Route exact path="/edit_stats_ret_player_canadian_foot/:theid" component={Edit_Stats_ret_player_canadian_foot} />

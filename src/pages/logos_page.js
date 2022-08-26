@@ -10,6 +10,7 @@ import Vista_logo_NCAA_BASEBALL from "../logos/ncaa_baseball/vista_logo_ncaa_bas
 import Vista_logo_ncaa_footbal from "../logos/ncaa_football/vista_logo_ncaa_fooball";
 import Vista_logo_wnba from "../logos/wnba/vista_logo_wnba";
 import Vista_Logo_Canadian_Football from "../logos/canadian_football/vista_logo_canadian_football";
+import Vista_logo_MX_BASE from "../logos/mx_baseball/vista_logo_mx_base";
 
 export const Logos_page = () => {
     const { store } = useContext(Context);
@@ -177,6 +178,22 @@ export const Logos_page = () => {
                             return (
                                 <div className="col" key={index}>
                                     <Vista_Logo_Canadian_Football
+                                        id={index}
+                                        team={item.team}
+                                        url={item.url}
+                                    />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="span_logos_list">
+                    <div className="title-lines fw-bold text-center">MEXICAN BASEBALL Logos</div>
+                    {
+                        store.logos_baseball_mexico.map((item, index) => {
+                            return (
+                                <div className="col" key={index}>
+                                    <Vista_logo_MX_BASE
                                         id={index}
                                         team={item.team}
                                         url={item.url}

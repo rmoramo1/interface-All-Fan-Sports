@@ -570,6 +570,33 @@ export const Tabs = () => {
                 </div>
             </div>
             <div className="accordion-item">
+                <div className="accordion-header" id="headingTennis">
+                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tennis" aria-expanded="false" aria-controls="tennis">
+                        TENNIS <i className="fa-solid fa-table-tennis-paddle-ball fs-5 ps-5"></i>
+                    </HashLink>
+                </div>
+                <div id="tennis" className="accordion-collapse collapse collapse-inn" aria-labelledby="headingTennis" data-bs-parent="#accordionPrincipal">
+                    <div className="allitems">
+                        <div className="accordion" id="golf-items">
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="tennis-headingOne">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tennisGame" aria-expanded="false" aria-controls="tennisGame">
+                                        Event <i className="fas fa-plus ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="tennis-headingTwo">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tennis_st" aria-expanded="false" aria-controls="tennis_st">
+                                        Tennis Player Standings <i className="fas fa-chart-line ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="accordion-item">
                 <div className="accordion-header" id="motores">
                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#racing" aria-expanded="false" aria-controls="racing">
                         RACING <i class="fa-solid fa-flag-checkered ps-5 fs-5"></i>
@@ -659,6 +686,13 @@ export const Tabs = () => {
                                 <h2 className="accordion-header" id="soccer-headingTwo">
                                     <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stats_soccer_player" aria-expanded="false" aria-controls="stats_soccer_player">
                                         Player Stats<i className="far fa-futbol ps-2 fs-5"></i>
+                                    </HashLink>
+                                </h2>
+                            </div>
+                            <div className="accordion-item">
+                                <h2 className="accordion-header" id="soccer-headingTwo">
+                                    <HashLink className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stats_soccer_goalkepper" aria-expanded="false" aria-controls="stats_soccer_goalkepper">
+                                        Goalkeeper<i className="far fa-futbol ps-2 fs-5"></i>
                                     </HashLink>
                                 </h2>
                             </div>

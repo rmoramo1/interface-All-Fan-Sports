@@ -78,6 +78,9 @@ const injectContext = PassedComponent => {
 			//golf
 			state.actions.loadGOLF();
 			state.actions.loadGOLFER_Stats();
+			//Tennis
+			state.actions.loadTennis();
+			state.actions.loadTennis_Player();
 			//nascar
 			state.actions.loadNascar();
 			state.actions.loadNascar_driver_Stats();
@@ -86,6 +89,7 @@ const injectContext = PassedComponent => {
 			state.actions.loadSoccer_tournament();
 			state.actions.loadSoccer_team_stats();
 			state.actions.loadSoccer_player_stats();
+			state.actions.loadStats_soccer_goalkeeper();
 			//ncaa football
 			state.actions.loadNcaa_football();
 			state.actions.loadStatsNcaa_Football_team();
@@ -115,6 +119,7 @@ const injectContext = PassedComponent => {
 			state.actions.logos_ncaa_baseball();
 			state.actions.logos_ncaa_football();
 			state.actions.loadLogos_canadian_football();
+			state.actions.logos_baseball_mexico();
 			//loadmoto_gp
 			state.actions.loadmoto_gp();
 			state.actions.load_stats_driver_moto_gp();

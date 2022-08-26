@@ -79,6 +79,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//GOLF
 			golf: [],
 			golfer_stats: [],
+			//tennis
+			tennis:[],
+			tennis_player:[],
 			//Nascar
 			nascar: [],
 			nascar_driver_stats: [],
@@ -87,6 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			soccer_tournament: [],
 			soccer_stats_teams: [],
 			soccer_stats_player: [],
+			stats_soccer_goalkeeper:[],
 			//ncaa football
 			ncaa_football: [],
 			ncaa_football_team_stats: [],
@@ -117,6 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logos_ncaa_basketball: [],
 			logos_ncaa_baseball: [],
 			logos_ncaa_football: [],
+			logos_baseball_mexico:[],
 			//odds to win
 			odds_to_win: [],
 			//props
@@ -368,6 +373,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const results = await response.json();
 				setStore({ golfer_stats: results });
 			},
+			//tennis
+			loadTennis: async () => {
+				const url = "https://sportsdata365.com/tennis";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ tennis: results });
+			},
+			loadTennis_Player: async () => {
+				const url = "https://sportsdata365.com/tennis_player";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ tennis_player: results });
+			},
 			//nascar
 			loadNascar: async () => {
 				const url = "https://sportsdata365.com/nascar";
@@ -405,6 +423,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ soccer_stats_player: results });
+			},
+			loadStats_soccer_goalkeeper: async () => {
+				const url = "https://sportsdata365.com/stats_soccer_goalkeeper";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ stats_soccer_goalkeeper: results });
 			},
 
 			//logos
@@ -467,6 +491,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(url);
 				const results = await response.json();
 				setStore({ logos_ncaa_football: results });
+			},
+			logos_baseball_mexico: async () => {
+				const url = "https://sportsdata365.com/logos_baseball_mexico";
+				const response = await fetch(url);
+				const results = await response.json();
+				setStore({ logos_baseball_mexico: results });
 			},
 			//ncaa football
 			loadNcaa_football: async () => {

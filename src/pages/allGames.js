@@ -17,6 +17,7 @@ import { CreateGames_WNBA } from "../wnba/wnba_game/createGames_WNBA";
 
 import { CreateGames_Cannadian_Foot } from "../canadian_football/createGames_canadian_football";
 import { Create_Games_MX_Base } from "../mexican_baseball/mx_base_game/create_games_mx_base";
+import { CreateTennis } from "../tennis/event/createTennis";
 
 
 export const AllGames = () => {
@@ -46,6 +47,7 @@ export const AllGames = () => {
         var Moto_GP = "d-none";
         var Cannadian_Foot = "d-none";
         var Create_Games_MX_Baseball = "d-none";
+        var CreateTennis_BS = "d-none";
 
     } if (tipe === "NBA") {
         NBA = "d-block";
@@ -64,6 +66,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
 
     } if (tipe === "MLB") {
         MLB = "d-block";
@@ -82,6 +85,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
 
     } if (tipe === "NHL") {
         NHL = "d-block";
@@ -100,6 +104,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
 
     }
     if (tipe === "BOX") {
@@ -119,6 +124,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "MMA") {
         MMA = "d-block";
@@ -137,6 +143,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "GOLF") {
         GOLF = "d-block";
@@ -155,6 +162,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "NASCAR") {
         NASCAR = "d-block";
@@ -173,6 +181,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "SOCCER") {
         SOCCER = "d-block";
@@ -191,6 +200,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "NCAA_FOOT") {
         NCAA_FOOT = "d-block";
@@ -209,6 +219,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "NCAA_BASKET") {
         NCAA_BASKET = "d-block";
@@ -227,6 +238,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "NCAA_BASEBALL") {
         NCAA_BASEBALL = "d-block";
@@ -245,6 +257,7 @@ export const AllGames = () => {
         Moto_GP = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "Moto_GP") {
         Moto_GP = "d-block";
@@ -264,6 +277,7 @@ export const AllGames = () => {
         NCAA_BASEBALL = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "WNBA") {
         WNBA = "d-block";
@@ -283,6 +297,7 @@ export const AllGames = () => {
         NCAA_BASEBALL = "d-none";
         Cannadian_Foot = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "Cannadian_Foot") {
         Cannadian_Foot = "d-block";
@@ -302,9 +317,31 @@ export const AllGames = () => {
         NFL = "d-none";
         NCAA_BASEBALL = "d-none";
         Create_Games_MX_Baseball = "d-none";
+        CreateTennis_BS = "d-none";
     }
     if (tipe === "Games_MX_Base") {
         Create_Games_MX_Baseball = "d-block";
+        Cannadian_Foot = "d-none";
+        WNBA = "d-none";
+        Moto_GP = "d-none";
+        NCAA_BASEBALL = "d-none";
+        NCAA_BASKET = "d-none";
+        NCAA_FOOT = "d-none";
+        SOCCER = "d-none";
+        NASCAR = "d-none";
+        GOLF = "d-none";
+        MMA = "d-none";
+        BOX = "d-none";
+        NHL = "d-none";
+        MLB = "d-none";
+        NBA = "d-none";
+        NFL = "d-none";
+        NCAA_BASEBALL = "d-none";
+        CreateTennis_BS = "d-none";
+    }
+    if (tipe === "TENNIS_SH") {
+        CreateTennis_BS = "d-block";
+        Create_Games_MX_Baseball = "d-none";
         Cannadian_Foot = "d-none";
         WNBA = "d-none";
         Moto_GP = "d-none";
@@ -332,6 +369,7 @@ export const AllGames = () => {
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("MLB")} value={MLB}>MLB</button>
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("NHL")} value={NHL}>NHL</button>
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("WNBA")} value={WNBA}>WNBA</button>
+                    <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("TENNIS_SH")} value={CreateTennis_BS}>TENNIS</button>
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("NCAA_FOOT")} value={NCAA_FOOT}>NCAA FOOTBALL</button>
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("NCAA_BASKET")} value={NCAA_BASKET}>NCAA BASKETBALL</button>
                     <button type="button" className="btn col-12 mb-1 bt_deg" onClick={e => setTipe("NCAA_BASEBALL")} value={NCAA_BASEBALL}>NCAA BASEBALL</button>
@@ -392,6 +430,9 @@ export const AllGames = () => {
                     </div>
                     <div className={Create_Games_MX_Baseball}>
                         <Create_Games_MX_Base />
+                    </div>
+                    <div className={CreateTennis_BS}>
+                        <CreateTennis />
                     </div>
                 </div>
             </div>

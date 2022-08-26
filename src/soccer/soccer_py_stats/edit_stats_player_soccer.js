@@ -180,24 +180,26 @@ export const Edit_stats_player_soccer = () => {
                             }
                         </select>
                     </div>
+                    <div className="text-center col-3 p-1">
+                        GAMES
+                            <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].games} onChange={e => setgames(e.target.value)} required />
+                        </div>
+                        <div className="text-center col-3 p-1">
+                            STRT
+                            <input className="form-control selectInner" type="text" placeholder="Strt" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].strt} onChange={e => setstrt(e.target.value)} required />
+                        </div>
                 </div>
                 <div className="mt-3">
                     <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Games</div>
-                        <div className="col-2 title-lines">Strt</div>
                         <div className="col-2 title-lines">Fc</div>
                         <div className="col-2 title-lines">Fa</div>
                         <div className="col-2 title-lines">YC</div>
                         <div className="col-2 title-lines">RC</div>
-
+                        <div className="col-2 title-lines">Goals</div>
+                        <div className="col-2 title-lines">Ast</div>
                     </div>
                     <div className="row g-0">
-                        <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Games" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].games} onChange={e => setgames(e.target.value)} required />
-                        </div>
-                        <div className="col-2">
-                            <input className="form-control selectInner" type="text" placeholder="Strt" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].strt} onChange={e => setstrt(e.target.value)} required />
-                        </div>
+
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Fc" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].fc} onChange={e => setfc(e.target.value)} required />
                         </div>
@@ -210,23 +212,22 @@ export const Edit_stats_player_soccer = () => {
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="RC" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].rc} onChange={e => setrc(e.target.value)} required />
                         </div>
-                    </div>
-                </div>
-                <div className="mt-3">
-                    <div className="row g-0 text-center">
-                        <div className="col-2 title-lines">Goals</div>
-                        <div className="col-2 title-lines">Ast</div>
-                        <div className="col-2 title-lines">Sh</div>
-                        <div className="col-2 title-lines">St</div>
-                        <div className="col-2 title-lines">Off</div>
-                    </div>
-                    <div className="row g-0">
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Goals" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].goals} onChange={e => setgoals(e.target.value)} required />
                         </div>
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Ast" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].ast} onChange={e => setast(e.target.value)} required />
                         </div>
+                    </div>
+                </div>
+                <div className="mt-3">
+                    <div className="row g-0 text-center">
+                        <div className="col-2 title-lines">Sh</div>
+                        <div className="col-2 title-lines">St</div>
+                        <div className="col-2 title-lines">Off</div>
+                    </div>
+                    <div className="row g-0">
+
                         <div className="col-2">
                             <input className="form-control selectInner" type="text" placeholder="Sh" aria-label="default input example" defaultValue={store.soccer_stats_player[params.theid] && store.soccer_stats_player[params.theid].sh} onChange={e => setsh(e.target.value)} required />
                         </div>

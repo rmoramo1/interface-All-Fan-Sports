@@ -193,7 +193,12 @@ export const Header = () => {
                                                         </li>
                                                         <li className="li_drop">
                                                             <Link to="list_stats_golfer">
-                                                                GOLF
+                                                                GOLFER
+                                                            </Link>
+                                                        </li>
+                                                        <li className="li_drop">
+                                                            <Link to="list_stats_tennis_py">
+                                                                TENNIS PLAYER
                                                             </Link>
                                                         </li>
                                                         <li className="li_drop">
@@ -263,6 +268,11 @@ export const Header = () => {
                                                                     <HashLink to="/list_stats_soccer_py">
                                                                         <li className="li_drop">
                                                                             Players Stats
+                                                                        </li>
+                                                                    </HashLink>
+                                                                    <HashLink to="/list_stats_soccer_goalkeeper">
+                                                                        <li className="li_drop">
+                                                                            Goalkeeper Stats
                                                                         </li>
                                                                     </HashLink>
                                                                 </ul>
